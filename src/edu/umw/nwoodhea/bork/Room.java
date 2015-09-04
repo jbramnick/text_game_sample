@@ -21,7 +21,9 @@ String describe(){
 		return null;
 }
 }
-
+public String getTitle(){
+	return title;
+}
 }
 
  
