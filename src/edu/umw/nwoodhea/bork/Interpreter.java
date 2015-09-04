@@ -11,6 +11,7 @@ public static void main (String args[]){
 	while(!input.equals("q")){
 		input = scan.next();
 }
+	Room.main();
 }
 }
 
