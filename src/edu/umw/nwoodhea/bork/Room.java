@@ -18,7 +18,7 @@ String describe(){
 		return desc;
 }
 	else{
-		return null;
+		return title;
 }
 }
 public String getTitle(){
@@ -29,6 +29,11 @@ public static void main(){
 	nathansRoom.setDesc("This is Nathans Room. There is lots of mess on the floor");
 	System.out.println(nathansRoom.describe() );
 	System.out.println(nathansRoom.describe());
+	Room heathersRoom = new Room("Heathers Room");
+        heathersRoom.setDesc("This is Heathers Room. There is a heather here.");
+        System.out.println(heathersRoom.describe() );
+        System.out.println(heathersRoom.describe());
+
 }
 }
 
