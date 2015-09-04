@@ -3,6 +3,7 @@ import java.util.Hashtable;
 public class Dungeon{
 
 private String name;
+private Hashtable <String,Room> map =  new Hashtable<String,Room>(5);
 
 public void Dungeon (Room entry, String name){
 	this.name = name;
@@ -13,7 +14,6 @@ public void Dungeon (Room entry, String name){
 	Room five = new Room("Living Room");
 
 
-	Hashtable map = new Hashtable(5);
 	map.put("1", one);
 	map.put("2", two);
 	map.put("3", three);
@@ -32,7 +32,7 @@ public String getName(){
 public void add(Room room){
 			
 }
-public Room getRoom(String roomTitle){
-	return map.get(roomTitle);
+public Room getRoom(String roomKey){
+	return map.get(roomKey);
 }
 }
