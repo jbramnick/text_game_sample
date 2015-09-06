@@ -5,7 +5,7 @@ public class Dungeon{
 private String name;
 private Hashtable <String,Room> map =  new Hashtable<String,Room>(5);
 private Room entry;
-public void Dungeon (Room entry, String name){
+public Dungeon (Room entry, String name){
 	this.entry = entry;
 	this.name = name;
 	Room one = new Room("Nathan's Room");
