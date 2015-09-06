@@ -13,14 +13,15 @@ public void setDesc(String desc){
 	this.desc = desc;
 }
 String describe(){
+	String text = title;
+
 	if(beenHere == false){
 		beenHere = true;
-		return desc;
+		text = text+": "+desc;
 }
-	else{
-		return title;
+	return text;
 }
-}
+
 public String getTitle(){
 	return title;
 }
