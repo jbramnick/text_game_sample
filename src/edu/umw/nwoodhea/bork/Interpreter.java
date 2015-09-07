@@ -6,14 +6,16 @@ class Interpreter {
 public static void main (String args[]){
 	String input;
 	Scanner scan = new Scanner(System.in);
+	Dungeon game = buildSampleDungeon();
 	input = scan.next();
-	buildSampleDungeon();
 	while(!input.equals("q")){
+		Room currentRoom = game.getRoom("one");
+		currentRoom.describe();
 		input = scan.next();
 }
 }
 
-private static void buildSampleDungeon(){
+private static Dungeon buildSampleDungeon(){
 	Room one = new Room("Nathan's Room");
         Room two = new Room("Heather's Room");
         Room three = new Room("Hallway");
@@ -30,9 +32,7 @@ private static void buildSampleDungeon(){
 	game.add(three);
 	game.add(four);
 	game.add(five);
-	Room currentRoom = game.getRoom("one");
-	System.out.println(one.describe());
-
+	return game;
 
 
 }
