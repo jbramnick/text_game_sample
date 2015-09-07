@@ -3,10 +3,10 @@ package edu.umw.nwoodhea.bork;
 class Exit{
 
 private String dir;
-private String dest;
-private String src;
+private Room dest;
+private Room src;
 
-public  void Exit(String dir, String src, String dest){
+public  void Exit(String dir, Room src, Room dest){
 	this.dir = dir;
 	this.dest = dest;
 	this.src = src;
@@ -19,8 +19,13 @@ public String getDir(){
 	return dir;
 }
 
-public Room getLoc(){
+public Room getDest(){
 	
-	return null;
+	return dest;
+}
+
+public Room getSrc(){
+	return src;
 }
 }
+
