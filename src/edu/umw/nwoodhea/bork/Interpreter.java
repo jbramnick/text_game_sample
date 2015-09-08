@@ -9,8 +9,8 @@ public static void main (String args[]){
 	Dungeon game = buildSampleDungeon();
 	input = scan.next();
 	while(!input.equals("q")){
-		Room currentRoom = game.getRoom("one");
-		currentRoom.describe();
+		Room currentRoom = game.getEntry();
+		System.out.println(currentRoom.describe());
 		input = scan.next();
 }
 }
