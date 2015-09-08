@@ -26,6 +26,22 @@ private static Dungeon buildSampleDungeon(){
 	three.setDesc("A long hallway with three doors. The pictures on the walls watch you.");
 	four.setDesc("A delicious smell is comming from the oven. There are dirty dishes all over the counter. Obviously the cook is a messy person.");
 	five.setDesc("There is a couch here with a tv on the wall. Playing on the tv is a show called Big Bang Theroy.");
+	Exit stairs = new Exit("u",one,four);
+	Exit stairs1 = new Exit("d", four, one);
+	Exit door = new Exit("w",two,three);
+	Exit door1 = new Exit("e",three,two);
+	Exit door2 = new Exit("w",three,four);
+	Exit door3 = new Exit("e",four,three);
+	Exit door4 = new Exit("w",four,five);
+	Exit door5 = new Exit("e",five,four);
+	one.addExit(stairs);
+	two.addExit(door);
+	three.addExit(door1);
+	three.addExit(door2);
+	four.addExit(stairs1);
+	four.addExit(door3);
+	four.addExit(door4);
+	five.addExit(door5);
 	Dungeon game = new Dungeon(one, "map");
 	game.add(one);
 	game.add(two);
@@ -33,10 +49,5 @@ private static Dungeon buildSampleDungeon(){
 	game.add(four);
 	game.add(five);
 	return game;
-
-
 }
 }
-
-
-

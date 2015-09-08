@@ -6,7 +6,7 @@ private String dir;
 private Room dest;
 private Room src;
 
-public  void Exit(String dir, Room src, Room dest){
+public Exit(String dir, Room src, Room dest){
 	this.dir = dir;
 	this.dest = dest;
 	this.src = src;

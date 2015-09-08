@@ -1,12 +1,15 @@
 package edu.umw.nwoodhea.bork;
+import java.util.ArrayList;
 
 public class Room{
 
 private String title;
 private String desc;
+private ArrayList<Exit> exits;
 private boolean beenHere = false;
 public Room(String title){
 	this.title = title;
+	exits = new ArrayList<Exit>();
 
 }
 public void setDesc(String desc){
@@ -24,6 +27,9 @@ String describe(){
 
 public String getTitle(){
 	return title;
+}
+public void addExit(Exit exit){
+	exits.add(exit);
 }
 }
 
