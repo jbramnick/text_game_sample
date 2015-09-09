@@ -12,6 +12,7 @@ String execute(){
 	Room currentRoom = GameState.instance().getAdventurersCurrentRoom();
 	try{
 		Room newRoom = currentRoom.leaveBy(dir);
+		GameState.instance().setAdventurersCurrentRoom(newRoom);
 		return "";
 }
 	catch(IllegalArgumentException e){

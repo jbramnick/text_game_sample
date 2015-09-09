@@ -14,6 +14,7 @@ public static void main (String args[]){
 	while(!input.equals("q")){
 		Command move = new Command(input);
 		System.out.println(move.execute());
+		System.out.println(GameState.instance().getAdventurersCurrentRoom().describe());
 		input = promptUser(buffy); 
 }}
 private static String promptUser(BufferedReader commandLine){
