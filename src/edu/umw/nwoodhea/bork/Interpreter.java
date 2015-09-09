@@ -12,7 +12,7 @@ public static void main (String args[]){
 	System.out.println(game.getEntry().describe());
 	input = promptUser(buffy); 
 	while(!input.equals("q")){
-		Command move = new Command(input);
+		Command move = CommandFactory.instance().parse(input);
 		System.out.println(move.execute());
 		System.out.println(GameState.instance().getAdventurersCurrentRoom().describe());
 		input = promptUser(buffy); 

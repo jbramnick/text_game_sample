@@ -12,7 +12,7 @@ public Exit(String dir, Room src, Room dest){
 	this.src = src;
 }
 String describe(){
-	String text = "You can go " + dir + " to " + dest+ ".";
+	String text = "You can go " + dir + " to " + dest.getTitle()+ ".";
 	return text;
 }
 public String getDir(){

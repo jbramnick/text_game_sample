@@ -23,6 +23,9 @@ String describe(){
 		beenHere = true;
 		text = text+": "+desc;
 }
+	for(Exit exit: exits){
+		text = text +"\n"+exit.describe();
+}
 	return text;
 }
 
