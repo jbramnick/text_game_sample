@@ -8,7 +8,7 @@ private Room entry;
 public Dungeon (Room entry, String name){
 	this.entry = entry;
 	this.name = name;
-	
+	GameState.instance().setAdventurersCurrentRoom(entry);
 
 }
 
