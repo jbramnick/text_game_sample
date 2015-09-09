@@ -4,12 +4,11 @@ class Command{
 
 private String dir;
 
-command(String dir){
+Command(String dir){
 	this.dir = dir;
-	execute();
 }
 
 private String execute(){
 	return dir;
 }
-
+}

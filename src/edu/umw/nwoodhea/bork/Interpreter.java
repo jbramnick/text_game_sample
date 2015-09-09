@@ -1,20 +1,32 @@
 package edu.umw.nwoodhea.bork;
 import java.util.Scanner;
-
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
 
 class Interpreter {
 public static void main (String args[]){
 	String input;
-	Scanner scan = new Scanner(System.in);
+	BufferedReader buffy = new BufferedReader(new InputStreamReader(System.in));
 	Dungeon game = buildSampleDungeon();
-	input = scan.next();
+	input = promptUser(buffy); 
 	while(!input.equals("q")){
 		Room currentRoom = game.getEntry();
 		System.out.println(currentRoom.describe());
-		input = scan.next();
+		input = promptUser(buffy); 
+}}
+private static String promptUser(BufferedReader commandLine){
+	String output = "";
+	String out = "";
+	try{
+	
+	out= commandLine.readLine();
 }
+	catch(Exception e){
+	System.out.println("Error");
 }
-
+	output = out;
+	return output;
+}
 private static Dungeon buildSampleDungeon(){
 	Room one = new Room("Nathan's Room");
         Room two = new Room("Heather's Room");
