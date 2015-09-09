@@ -3,11 +3,11 @@ package edu.umw.nwoodhea.bork;
 class GameState{
 
 
-public GameState theInstance;
+public static GameState theInstance;
 private Room adeventurersCurrentRoom;
 private Dungeon map;
 
-public GameState instance(){
+public static GameState instance(){
 	if(theInstance == null){
 		theInstance = new GameState();
 }
@@ -17,7 +17,7 @@ public GameState instance(){
 private GameState(){
 }
 
-public void initalize(Dungeon dungeon){
+public void initialize(Dungeon dungeon){
 	this.map = dungeon;
 }
 public Room getAdventurersCurrentRoom(){

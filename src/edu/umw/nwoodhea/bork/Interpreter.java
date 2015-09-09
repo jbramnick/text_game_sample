@@ -8,10 +8,12 @@ public static void main (String args[]){
 	String input;
 	BufferedReader buffy = new BufferedReader(new InputStreamReader(System.in));
 	Dungeon game = buildSampleDungeon();
+	GameState.instance().initialize(game);
+	System.out.println(game.getEntry().describe());
 	input = promptUser(buffy); 
 	while(!input.equals("q")){
-		Room currentRoom = game.getEntry();
-		System.out.println(currentRoom.describe());
+		Command move = new Command(input);
+		System.out.println(move.execute());
 		input = promptUser(buffy); 
 }}
 private static String promptUser(BufferedReader commandLine){

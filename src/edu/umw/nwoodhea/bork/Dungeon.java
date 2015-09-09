@@ -8,18 +8,7 @@ private Room entry;
 public Dungeon (Room entry, String name){
 	this.entry = entry;
 	this.name = name;
-	Room one = new Room("Nathan's Room");
-	Room two = new Room("Heather's Room");
-	Room three = new Room("Hallway");
-	Room four = new Room("Kitchen");
-	Room five = new Room("Living Room");
-
-
-	map.put("1", one);
-	map.put("2", two);
-	map.put("3", three);
-	map.put("4", four);
-	map.put("5", five);
+	
 
 }
 
