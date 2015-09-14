@@ -1,6 +1,6 @@
 package edu.umw.nwoodhea.bork;
 
-class Exit{
+public class Exit{
 
 private String dir;
 private Room dest;
