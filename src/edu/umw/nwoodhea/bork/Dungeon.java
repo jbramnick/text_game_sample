@@ -1,15 +1,16 @@
 package edu.umw.nwoodhea.bork;
 import java.util.Hashtable;
+import java.util.Scanner;
+import java.io.FileReader;
 public class Dungeon{
 
 private String name;
 private Hashtable <String,Room> map =  new Hashtable<String,Room>(5);
 private Room entry;
-public Dungeon (Room entry, String name){
-	this.entry = entry;
-	this.name = name;
-	GameState.instance().setAdventurersCurrentRoom(entry);
-
+public Dungeon (String filename) throws exception {
+	FileReader fr = new FileReader(filename);
+	System.out.println(filename);
+	Scanner scanner = new Scanner(filename);
 }
 
 public Room getEntry(){

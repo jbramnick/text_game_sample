@@ -2,7 +2,7 @@ package edu.umw.nwoodhea.bork;
 import java.util.ArrayList;
 import java.lang.IllegalArgumentException;
 public class Room{
-
+static class NoRoomException extends Exception {}
 private String title;
 private String desc;
 private ArrayList<Exit> exits;

@@ -1,6 +1,7 @@
 package edu.umw.nwoodhea.bork;
 
 public class Exit{
+static class NoExitException extends Exception {}
 
 private String dir;
 private Room dest;
