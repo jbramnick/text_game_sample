@@ -15,14 +15,16 @@ public Room(String title){
 	exits = new ArrayList<Exit>();
 
 }
-public Room(Scanner scanner){
+public Room(Scanner scanner) throws NoRoomException{
 	this.title = scanner.next();
+	if(getTitle.equals("===")){
+		throw new NoRoomException();
+}
 	extits = new ArrayList<Exit>();
 	this.desc = scanner.next();
-	while(!scanner.next().equals("===")){
+	while(!scanner.next().equals("---")){
 		this.desc = this.desc + "\n" + scanner.next();
 }
-
 }
 public void setDesc(String desc){
 	this.desc = desc;

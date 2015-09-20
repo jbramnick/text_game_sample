@@ -21,24 +21,43 @@ public Dungeon (String filename){
 			System.out.println("Not a valid bork file");
 			System.exit(0);
 }
-		if(scanner.nextLine().equals("Rooms:"){
+		if(scanner.nextLine().equals("Rooms:")){
 			this.add(new Room(scanner));
-			while(scanner.nextLine().equals("---")){
+			boolean x = true;
+			while(x){
+				try{
 				this.add(new Room(scanner));
-}}
+}
+				catch(NoRoomException e){
+					x = false;
+}
+}
+}
 		else{
 			System.out.println("Not a valid bork file");
 			System.exit(0);
 }
+		if(scanner.nextLine().equals("Exits:")){
+		boolean y = true;
+		while(y){
+				try{
+					new Exit(scanner);
 
 }
-
+				catch(NoExitException e){
+					y = false;
 }
-	catch (FileNotFoundException e)
-        {
+}
+}
+		else{
+			System.out.println("Not a valid bork file");
+			System.exit(0);
+}
+}
+	catch(FileNotFoundException e){
+        
             System.out.println("File not found");
-
-        } 
+} 
 }
 public Room getEntry(){
 	return entry;
