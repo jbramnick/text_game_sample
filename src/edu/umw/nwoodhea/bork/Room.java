@@ -1,5 +1,7 @@
 package edu.umw.nwoodhea.bork;
 import java.util.ArrayList;
+import java.util.Scanner;
+import java.io.*;
 import java.lang.IllegalArgumentException;
 public class Room{
 static class NoRoomException extends Exception {}
@@ -11,6 +13,15 @@ private boolean beenHere = false;
 public Room(String title){
 	this.title = title;
 	exits = new ArrayList<Exit>();
+
+}
+public Room(Scanner scanner){
+	this.title = scanner.next();
+	extits = new ArrayList<Exit>();
+	this.desc = scanner.next();
+	while(!scanner.next().equals("===")){
+		this.desc = this.desc + "\n" + scanner.next();
+}
 
 }
 public void setDesc(String desc){
