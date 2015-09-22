@@ -1,5 +1,5 @@
 package edu.umw.nwoodhea.bork;
-
+import java.util.Scanner;
 public class Exit{
 static class NoExitException extends Exception {}
 
@@ -12,13 +12,14 @@ public Exit(String dir, Room src, Room dest){
 	this.dest = dest;
 	this.src = src;
 }
-public Exit(Scanner scanner) throws NoExitException{
-	this.src = scanner.next();
-	if(getSrc().equals("===")){
+public Exit(Scanner scanner, Dungeon d) throws NoExitException{
+	String source = scanner.next();
+	if(source.equals("===")){
 		throw new NoExitException();
 }
 	this.dir = scanner.next();
-	this.dest = scanner.next();
+	this.src = d.getRoom(source);
+	this.dest = d.getRoom(scanner.next());
 	src.addExit(this);
 	
 }

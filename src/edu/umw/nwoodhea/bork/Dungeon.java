@@ -3,55 +3,59 @@ import java.util.Hashtable;
 import java.util.Scanner;
 import java.io.*;
 public class Dungeon{
-
+static class IllegalDungeonFormatException extends Exception {}
 private String name;
 private Hashtable <String,Room> map =  new Hashtable<String,Room>(5);
 private Room entry;
-public Dungeon (String filename){
+private String version;
+public Dungeon (String filename) throws IllegalDungeonFormatException{
 	try{
 		Scanner scanner = new Scanner(new File(filename));
-		scanner.useDelimiter("/n");
 		this.name = scanner.nextLine();
-		String version = scanner.nextLine();
+		System.out.println(this.name);
+		version = scanner.nextLine();
+		System.out.println(this.version);
 		if (!version.equals("Bork v2.0")){
-			System.out.println("Not a valid bork file");
-			System.exit(0);
+			throw new IllegalDungeonFormatException();
 }
+
 		if(!scanner.nextLine().equals("===")){
-			System.out.println("Not a valid bork file");
-			System.exit(0);
+
+			throw new IllegalDungeonFormatException();
 }
 		if(scanner.nextLine().equals("Rooms:")){
-			this.add(new Room(scanner));
 			boolean x = true;
-			while(x){
-				try{
+			try{
 				this.add(new Room(scanner));
+				while(x){
+					try{
+					this.add(new Room(scanner));
 }
-				catch(NoRoomException e){
+				catch(Room.NoRoomException e){
 					x = false;
 }
 }
 }
+			catch(Room.NoRoomException e){
+				x = false;
+}
+}
 		else{
-			System.out.println("Not a valid bork file");
-			System.exit(0);
+			throw new IllegalDungeonFormatException();
 }
 		if(scanner.nextLine().equals("Exits:")){
 		boolean y = true;
 		while(y){
 				try{
-					new Exit(scanner);
+					new Exit(scanner,this);
 
 }
-				catch(NoExitException e){
-					y = false;
-}
+				catch(Exit.NoExitException e){}
+
 }
 }
 		else{
-			System.out.println("Not a valid bork file");
-			System.exit(0);
+			throw new IllegalDungeonFormatException();
 }
 }
 	catch(FileNotFoundException e){

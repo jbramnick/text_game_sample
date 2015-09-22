@@ -16,14 +16,17 @@ public Room(String title){
 
 }
 public Room(Scanner scanner) throws NoRoomException{
-	this.title = scanner.next();
-	if(getTitle.equals("===")){
+	this.title = scanner.nextLine();
+	System.out.println(this.getTitle());
+	if(this.getTitle().equals("===")){
 		throw new NoRoomException();
 }
-	extits = new ArrayList<Exit>();
-	this.desc = scanner.next();
-	while(!scanner.next().equals("---")){
-		this.desc = this.desc + "\n" + scanner.next();
+	exits = new ArrayList<Exit>();
+	this.desc = scanner.nextLine();
+	String part = scanner.nextLine();
+	while(part.equals("---")){
+		this.desc = this.desc + "\n" + part;
+		part = scanner.nextLine();
 }
 }
 public void setDesc(String desc){
