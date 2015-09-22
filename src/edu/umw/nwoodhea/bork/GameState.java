@@ -1,4 +1,5 @@
 package edu.umw.nwoodhea.bork;
+import java.io.*;
 
 class GameState{
 
@@ -17,16 +18,26 @@ public static GameState instance(){
 private GameState(){
 }
 
-public void initialize(Dungeon dungeon){
+void initialize(Dungeon dungeon){
 	this.map = dungeon;
 }
-public Room getAdventurersCurrentRoom(){
+Room getAdventurersCurrentRoom(){
 	return adeventurersCurrentRoom;
 }
-public void setAdventurersCurrentRoom(Room room){
+void setAdventurersCurrentRoom(Room room){
 	adeventurersCurrentRoom = room;
 }
-public Dungeon getDungeon(){
+Dungeon getDungeon(){
 	return map;
 }
+void store(){
+	File s = new File("Save.sav");
+	try{
+		PrintWriter save = new PrintWriter(s);
+		}
+	catch(FileNotFoundException e){
+		System.out.println("File not found.");
+		}
+}	
+	
 }
