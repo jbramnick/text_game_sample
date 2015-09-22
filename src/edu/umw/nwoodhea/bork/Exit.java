@@ -13,14 +13,15 @@ public Exit(String dir, Room src, Room dest){
 	this.src = src;
 }
 public Exit(Scanner scanner, Dungeon d) throws NoExitException{
-	String source = scanner.next();
+	String source = scanner.nextLine();
 	if(source.equals("===")){
 		throw new NoExitException();
 }
-	this.dir = scanner.next();
+	this.dir = scanner.nextLine();
 	this.src = d.getRoom(source);
-	this.dest = d.getRoom(scanner.next());
-	src.addExit(this);
+	this.dest = d.getRoom(scanner.nextLine());
+	this.src.addExit(this);
+	scanner.nextLine();		
 	
 }
 String describe(){

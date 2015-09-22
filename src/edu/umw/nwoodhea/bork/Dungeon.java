@@ -26,7 +26,10 @@ public Dungeon (String filename) throws IllegalDungeonFormatException{
 		if(scanner.nextLine().equals("Rooms:")){
 			boolean x = true;
 			try{
-				this.add(new Room(scanner));
+				
+				Room enter = new Room(scanner);
+				this.entry = enter;
+				this.add(entry);
 				while(x){
 					try{
 					this.add(new Room(scanner));
@@ -50,7 +53,9 @@ public Dungeon (String filename) throws IllegalDungeonFormatException{
 					new Exit(scanner,this);
 
 }
-				catch(Exit.NoExitException e){}
+				catch(Exit.NoExitException e){
+					y = false;
+}
 
 }
 }
@@ -73,7 +78,6 @@ public String getName(){
 
 public void add(Room room){
 	String title = room.getTitle();
-
 	map.put(title, room);
 }
 public Room getRoom(String roomKey){

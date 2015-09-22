@@ -10,7 +10,7 @@ public static void main (String args[]){
 	BufferedReader buffy = new BufferedReader(new InputStreamReader(System.in));
 	Dungeon game = null;
 	try{
-		game = new Dungeon("trinkle.bork"); 
+		game = new Dungeon(args[0]); 
 
 }
 	catch (Dungeon.IllegalDungeonFormatException e){
@@ -18,6 +18,7 @@ public static void main (String args[]){
 		System.exit(0);
 }
 	GameState.instance().initialize(game);
+	GameState.instance().setAdventurersCurrentRoom(game.getEntry());
 	System.out.println(game.getEntry().describe());
 	input = promptUser(buffy); 
 	while(!input.equals("q")){

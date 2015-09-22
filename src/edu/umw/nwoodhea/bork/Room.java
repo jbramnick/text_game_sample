@@ -17,14 +17,13 @@ public Room(String title){
 }
 public Room(Scanner scanner) throws NoRoomException{
 	this.title = scanner.nextLine();
-	System.out.println(this.getTitle());
 	if(this.getTitle().equals("===")){
 		throw new NoRoomException();
 }
 	exits = new ArrayList<Exit>();
 	this.desc = scanner.nextLine();
 	String part = scanner.nextLine();
-	while(part.equals("---")){
+	while(!part.equals("---")){
 		this.desc = this.desc + "\n" + part;
 		part = scanner.nextLine();
 }
