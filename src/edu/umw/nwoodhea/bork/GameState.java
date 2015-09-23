@@ -32,15 +32,16 @@ class GameState{
 	}
 	void store(){
 		File s = new File("Save.sav");
+		PrintWriter save;
 		try{
-			PrintWriter save = new PrintWriter(s);
+			save = new PrintWriter(s);
+			save.println("Bork v2.0 save data");
+			map.storeState(save);
+			save.println("Current room: " + adeventurersCurrentRoom.getTitle());
 		}
 		catch(FileNotFoundException e){
 			System.out.println("File not found.");
 		}
-		save.println("Bork v2.0 save data");
-		map.storeState(save);
-		save.println("Current room: " + adeventurersCurrentRoom.getTitle());
 	}	
 
 }

@@ -2,6 +2,7 @@ package edu.umw.nwoodhea.bork;
 import java.util.Hashtable;
 import java.util.Scanner;
 import java.io.*;
+import java.util.Set;
 public class Dungeon{
 	static class IllegalDungeonFormatException extends Exception {}
 	private String name;
@@ -90,6 +91,7 @@ public class Dungeon{
 	}
 	void storeState(PrintWriter save){
 		save.println("Dungeon file: " + filename);
+		Set<String> keys = map.keySet();
 		for(String key: keys){
 			map.get(key).storeState(save);
 			}
