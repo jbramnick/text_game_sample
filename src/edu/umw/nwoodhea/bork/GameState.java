@@ -38,6 +38,8 @@ class GameState{
 			save.println("Bork v2.0 save data");
 			map.storeState(save);
 			save.println("Current room: " + adeventurersCurrentRoom.getTitle());
+			save.println("===");
+			save.close();
 		}
 		catch(FileNotFoundException e){
 			System.out.println("File not found.");
