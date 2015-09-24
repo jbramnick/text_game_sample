@@ -21,6 +21,10 @@ class Interpreter {
 				System.out.println("Illegal Save format");
 				System.exit(0);
 			}
+			catch(Exception e){
+				System.out.println("unknown error");
+				System.exit(0);
+			}
 		}
 
 		else{			
