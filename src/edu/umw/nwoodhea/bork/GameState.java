@@ -46,24 +46,34 @@ class GameState{
 			System.out.println("File not found.");
 		}
 	}	
-	void restore(String filename){
+	void restore(String filename) throws Exception{
 		try{
 			File f = new File(filename);
 			Scanner restore = new Scanner(f);
 			restore.useDelimiter(":");
 			if(restore.nextLine().equals("Bork v2.0 save data")){
 				if(restore.next().equals("Dungeon file:")){
-					this.map = new Dungeon(restore.nextLine()); throws IllegalDungeonFormatException
-					map.restoreState(restore);
+					try{
+						this.map = new Dungeon(restore.nextLine()); 
+						map.restoreState(restore);
+						}
+					catch(Exception e){
+						throw new Dungeon.IllegalDungeonFormatException();
+						} 
+				}
+				else{
+					throw new IllegalSaveFormatException();
 					}
 				}
 			else{
 				throw new IllegalSaveFormatException();
 				}
-			
 			}
 		catch(IllegalSaveFormatException e){
 			System.out.println("Illegal .sav file");
+			}
+		catch(FileNotFoundException e){
+			System.out.println("File not found.");
 			}
 		}
 }
