@@ -49,6 +49,7 @@ public class Dungeon{
 			else{
 				throw new IllegalDungeonFormatException();
 			}
+			
 			if(scanner.nextLine().equals("Exits:")){
 				boolean y = true;
 				while(y){
@@ -69,7 +70,7 @@ public class Dungeon{
 		catch(FileNotFoundException e){
 
 			System.out.println("File not found");
-		} 
+		}
 	}
 	public Room getEntry(){
 		return entry;
@@ -91,6 +92,7 @@ public class Dungeon{
 	}
 	void storeState(PrintWriter save){
 		save.println("Dungeon file: " + filename);
+		save.println("Room states:");
 		Set<String> keys = map.keySet();
 		for(String key: keys){
 			map.get(key).storeState(save);
@@ -98,5 +100,13 @@ public class Dungeon{
 		
 		}
 	void restoreState(Scanner restore){
+		restore.nextLine();
+		String title = restore.nextLine();
+		while(!title.equals("===")){
+			title = title.substring(0,title.length()-1);
+			getRoom(title).restoreState(restore);
+			title = restore.nextLine();
+			}
+
 		}
 }

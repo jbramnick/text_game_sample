@@ -38,8 +38,8 @@ class GameState{
 			save = new PrintWriter(s);
 			save.println("Bork v2.0 save data");
 			map.storeState(save);
-			save.println("Current room: " + adeventurersCurrentRoom.getTitle());
 			save.println("===");
+			save.println("Current room: " + adeventurersCurrentRoom.getTitle());
 			save.close();
 		}
 		catch(FileNotFoundException e){
@@ -50,30 +50,30 @@ class GameState{
 		try{
 			File f = new File(filename);
 			Scanner restore = new Scanner(f);
-			restore.useDelimiter(":");
 			if(restore.nextLine().equals("Bork v2.0 save data")){
-				if(restore.next().equals("Dungeon file:")){
 					try{
-						this.map = new Dungeon(restore.nextLine()); 
+						String name = restore.nextLine();
+						name = name.substring(14,name.length());
+						this.map = new Dungeon(name); 
 						map.restoreState(restore);
-						}
-					catch(Exception e){
-						throw new Dungeon.IllegalDungeonFormatException();
-						} 
-				}
-				else{
-					throw new IllegalSaveFormatException();
+						String room = restore.nextLine();
+						int junk = 14;
+						room = room.substring(14,room.length());
+						this.adeventurersCurrentRoom = map.getRoom(room);
 					}
+					catch(Dungeon.IllegalDungeonFormatException e){
+						throw new Dungeon.IllegalDungeonFormatException();
+					} 
 				}
 			else{
 				throw new IllegalSaveFormatException();
-				}
-			}
-		catch(IllegalSaveFormatException e){
-			System.out.println("Illegal .sav file");
-			}
-		catch(FileNotFoundException e){
-			System.out.println("File not found.");
 			}
 		}
+		catch(IllegalSaveFormatException e){
+			throw new IllegalSaveFormatException();
+		}
+		catch(FileNotFoundException e){
+			throw new FileNotFoundException();	
+		}
+	}
 }

@@ -68,9 +68,21 @@ public class Room{
 
 	}
 	void storeState(PrintWriter save){
-		save.println("Room states:");
 		save.println(getTitle() +":");
 		save.println("beenHere="+beenHere);
 		save.println("---");
 	}
+	void restoreState(Scanner restore){
+		String state = restore.nextLine();
+		int x = state.length();
+		state = state.substring(9,x);
+		if(state.equals("true")){
+			beenHere = true;
+			}
+		else if(state.equals("false")){
+			beenHere = false;
+			}
+		restore.nextLine();
+		}
+		
 }
