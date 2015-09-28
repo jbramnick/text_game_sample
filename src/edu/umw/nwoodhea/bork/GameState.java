@@ -4,7 +4,7 @@ import java.util.Scanner;
 class GameState{
 
 
-	public static GameState theInstance;
+	private static GameState theInstance;
 	private Room adeventurersCurrentRoom;
 	private Dungeon map;
 	public class IllegalSaveFormatException extends Exception {};
@@ -32,7 +32,7 @@ class GameState{
 		return map;
 	}
 	void store(){
-		File s = new File("Save.sav");
+		File s = new File("myProgress.sav");
 		PrintWriter save;
 		try{
 			save = new PrintWriter(s);
