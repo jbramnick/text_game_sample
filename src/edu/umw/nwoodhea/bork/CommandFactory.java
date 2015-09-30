@@ -16,11 +16,11 @@ class CommandFactory{
 	}
 	Command parse(String commandString){
 		if(commandString.equals("u")||commandString.equals("d")||commandString.equals("n")||commandString.equals("s")||commandString.equals("e")||commandString.equals("w")){
-			Command move = new Command(commandString);
+			MovementCommand move = new MovementCommand(commandString);
 			return move;
 		}
 		else if(commandString.equals("save")){
-			Command save = new Command(commandString);
+			SaveCommand save = new SaveCommand(commandString);
 			return save;
 		}
 		else{
