@@ -5,6 +5,10 @@ import java.io.InputStreamReader;
 
 class Interpreter {
 	public static void main (String args[]){
+		if(args.length == 0){
+			System.out.println("You must enter a .bork file or a .sav file");
+			System.exit(0);
+			}
 		String input;
 		BufferedReader buffy = new BufferedReader(new InputStreamReader(System.in));
 		Dungeon game = null;
