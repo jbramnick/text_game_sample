@@ -8,6 +8,7 @@ public class Dungeon{
 	private String name;
 	private Hashtable <String,Room> map =  new Hashtable<String,Room>(5);
 	private Room entry;
+	private Hashtable <String, Item> items = new Hashtable<String, Item>(5);
 	private String version;
 	private String filename;
 	public Dungeon (String filename) throws IllegalDungeonFormatException{
@@ -18,7 +19,7 @@ public class Dungeon{
 			System.out.println(this.name);
 			version = scanner.nextLine();
 			System.out.println(this.version);
-			if (!version.equals("Bork v2.0")){
+			if (!version.equals("Bork v3.0")){
 				throw new IllegalDungeonFormatException();
 			}
 
@@ -26,6 +27,15 @@ public class Dungeon{
 
 				throw new IllegalDungeonFormatException();
 			}
+			if(scanner.nextLine().equals("Items:")){
+				try{
+					while(true){
+						this.add(new Item(scanner));
+						}
+					}
+				catch(Item.NoItemException e){}
+			}
+						
 			if(scanner.nextLine().equals("Rooms:")){
 				boolean x = true;
 				try{
@@ -108,5 +118,9 @@ public class Dungeon{
 			title = restore.nextLine();
 			}
 
+		}
+	public void add(Item item){
+		String name = item.getPrimaryName();
+		items.put(name, item);
 		}
 }

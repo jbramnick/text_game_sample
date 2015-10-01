@@ -36,7 +36,7 @@ class GameState{
 		PrintWriter save;
 		try{
 			save = new PrintWriter(s);
-			save.println("Bork v2.0 save data");
+			save.println("Bork v3.0 save data");
 			map.storeState(save);
 			save.println("===");
 			save.println("Current room: " + adeventurersCurrentRoom.getTitle());
@@ -50,7 +50,7 @@ class GameState{
 		try{
 			File f = new File(filename);
 			Scanner restore = new Scanner(f);
-			if(restore.nextLine().equals("Bork v2.0 save data")){
+			if(restore.nextLine().equals("Bork v3.0 save data")){
 					try{
 						String name = restore.nextLine();
 						name = name.substring(14,name.length());
