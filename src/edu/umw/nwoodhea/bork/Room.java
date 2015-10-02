@@ -84,9 +84,14 @@ public class Room{
 	void storeState(PrintWriter save){
 		save.println(getTitle() +":");
 		save.println("beenHere="+beenHere);
+		save.print("Contents: ");
+		for(Item item : contents){
+			save.print(","+ item);
+			}
+		save.println();
 		save.println("---");
 	}
-	void restoreState(Scanner restore){
+	void restoreState(Scanner restore, Dungeon d){
 		String state = restore.nextLine();
 		int x = state.length();
 		state = state.substring(9,x);
@@ -101,5 +106,13 @@ public class Room{
 	void add(Item item){
 		contents.add(item);
 		}
+	ArrayList<Item> getContents(){
+		return contents;
+		}
+	void remove(Item item){
+		contents.remove(item);
+		}
+	Item getItemNamed(String name){
+		
 		
 }

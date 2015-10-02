@@ -1,5 +1,6 @@
 package edu.umw.nwoodhea.bork;
 import java.io.*;
+import java.util.ArrayList;
 import java.util.Scanner;
 class GameState{
 
@@ -7,6 +8,7 @@ class GameState{
 	private static GameState theInstance;
 	private Room adeventurersCurrentRoom;
 	private Dungeon map;
+	private ArrayList<Item> inventory;
 	public class IllegalSaveFormatException extends Exception {};
 
 	public static GameState instance(){
@@ -21,6 +23,7 @@ class GameState{
 
 	void initialize(Dungeon dungeon){
 		this.map = dungeon;
+		inventory = new ArrayList<Item>();
 	}
 	Room getAdventurersCurrentRoom(){
 		return adeventurersCurrentRoom;
@@ -76,4 +79,24 @@ class GameState{
 			throw new FileNotFoundException();	
 		}
 	}
+	ArrayList<String> getInventoryNames(){
+		ArrayList<String> names = new ArrayList<String>();
+		for(Item x : inventory){
+			names.add(x.getPrimaryName());
+			}
+		return names;
+		}
+	void addToInventory(Item item){
+		inventory.add(item);
+		}
+	void removeFromInventory(Item item){
+		inventory.remove(item);
+		}
+	Item getItemInVecinityNamed(String name){
+		return adeventurersCurrentRoom.getItemNamed(name);
+		}
+	Item getItemFromInventoryNamed(String name){
+		return inventory.get(name);
+		}
+
 }

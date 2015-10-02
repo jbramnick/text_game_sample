@@ -114,7 +114,7 @@ public class Dungeon{
 		String title = restore.nextLine();
 		while(!title.equals("===")){
 			title = title.substring(0,title.length()-1);
-			getRoom(title).restoreState(restore);
+			getRoom(title).restoreState(restore,this);
 			title = restore.nextLine();
 			}
 
