@@ -8,19 +8,34 @@ public class Room{
 	private String desc;
 	private ArrayList<Exit> exits;
 	private boolean beenHere = false;
+	private ArrayList<Item> contents;
 
 	public Room(String title){
 		this.title = title;
 		exits = new ArrayList<Exit>();
+		contents = new ArrayList<Item>();
 
 	}
-	public Room(Scanner scanner) throws NoRoomException{
+	public Room(Scanner scanner,Dungeon d, boolean initState) throws NoRoomException{
 		this.title = scanner.nextLine();
 		if(this.getTitle().equals("===")){
 			throw new NoRoomException();
 		}
 		exits = new ArrayList<Exit>();
-		this.desc = scanner.nextLine();
+		contents = new ArrayList<Item>();
+		String content = scanner.nextLine();
+		if(content.contains("Contents: ")){
+			if(initState == true){
+				content.substring(10,content.length());
+				String[] list = content.split(",");
+				for(String x : list){
+					this.add(d.getItem(x));
+					}
+				}
+			}
+		else{
+			this.desc = content;
+			}
 		String part = scanner.nextLine();
 		while(!part.equals("---")){
 			this.desc = this.desc + "\n" + part;
@@ -82,6 +97,9 @@ public class Room{
 			beenHere = false;
 			}
 		restore.nextLine();
+		}
+	void add(Item item){
+		contents.add(item);
 		}
 		
 }

@@ -11,7 +11,7 @@ public class Dungeon{
 	private Hashtable <String, Item> items = new Hashtable<String, Item>(5);
 	private String version;
 	private String filename;
-	public Dungeon (String filename) throws IllegalDungeonFormatException{
+	public Dungeon (String filename, boolean initState) throws IllegalDungeonFormatException{
 		this.filename = filename;
 		try{
 			Scanner scanner = new Scanner(new File(filename));
@@ -40,12 +40,12 @@ public class Dungeon{
 				boolean x = true;
 				try{
 
-					Room enter = new Room(scanner);
+					Room enter = new Room(scanner, this , initState);
 					this.entry = enter;
 					this.add(entry);
 					while(x){
 						try{
-							this.add(new Room(scanner));
+							this.add(new Room(scanner,this,initState));
 						}
 						catch(Room.NoRoomException e){
 							x = false;
@@ -122,5 +122,8 @@ public class Dungeon{
 	public void add(Item item){
 		String name = item.getPrimaryName();
 		items.put(name, item);
+		}
+	public Item getItem(String name){
+		return items.get(name);
 		}
 }

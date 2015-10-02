@@ -54,7 +54,7 @@ class GameState{
 					try{
 						String name = restore.nextLine();
 						name = name.substring(14,name.length());
-						this.map = new Dungeon(name); 
+						this.map = new Dungeon(name,false); 
 						map.restoreState(restore);
 						String room = restore.nextLine();
 						int junk = 14;

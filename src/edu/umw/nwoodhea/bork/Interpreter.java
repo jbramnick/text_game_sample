@@ -38,7 +38,7 @@ class Interpreter {
 
 		else if(extention.equals(".bork")){			
 			try{
-				game = new Dungeon(args[0]); 
+				game = new Dungeon(args[0],true); 
 				GameState.instance().initialize(game);
 				GameState.instance().setAdventurersCurrentRoom(game.getEntry());
 				System.out.println(game.getEntry().describe());
