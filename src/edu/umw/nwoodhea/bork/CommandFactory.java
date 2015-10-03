@@ -28,6 +28,10 @@ class CommandFactory{
 			TakeCommand take = new TakeCommand(item);
 			return take;
 		}
+		else if(commandString.equals("i")||commandString.equals("inventory")){
+			InventoryCommand i = new InventoryCommand();
+			return i;
+		}
 		else{
 			throw new IllegalArgumentException("Illegal input");
 		} 
