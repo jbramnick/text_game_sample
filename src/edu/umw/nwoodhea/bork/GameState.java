@@ -92,11 +92,15 @@ class GameState{
 	void removeFromInventory(Item item){
 		inventory.remove(item);
 		}
-	Item getItemInVecinityNamed(String name){
+	Item getItemInVecinityNamed(String name) throws Item.NoItemException{
 		return adeventurersCurrentRoom.getItemNamed(name);
 		}
-	Item getItemFromInventoryNamed(String name){
-		return inventory.get(name);
+	Item getItemFromInventoryNamed(String name) throws Item.NoItemException{
+		for(Item item : inventory){
+			if(item.goesBy(name)){
+				return item;
+				}
+			}
+		throw new Item.NoItemException();
 		}
-
 }

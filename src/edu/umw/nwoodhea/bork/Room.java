@@ -26,7 +26,7 @@ public class Room{
 		String content = scanner.nextLine();
 		if(content.contains("Contents: ")){
 			if(initState == true){
-				content.substring(10,content.length());
+				content = content.substring(10,content.length());
 				String[] list = content.split(",");
 				for(String x : list){
 					this.add(d.getItem(x));
@@ -84,11 +84,14 @@ public class Room{
 	void storeState(PrintWriter save){
 		save.println(getTitle() +":");
 		save.println("beenHere="+beenHere);
-		save.print("Contents: ");
-		for(Item item : contents){
-			save.print(","+ item);
+		if(contents.size()>0){
+			String stuff = ("Contents: ");
+			for(Item item : contents){
+				stuff = stuff + item+",";
+				}
+			stuff = stuff.substring(0,stuff.length()-1);	
+			save.println(stuff);
 			}
-		save.println();
 		save.println("---");
 	}
 	void restoreState(Scanner restore, Dungeon d){
@@ -112,7 +115,18 @@ public class Room{
 	void remove(Item item){
 		contents.remove(item);
 		}
-	Item getItemNamed(String name){
-		
+	Item getItemNamed(String name) throws Item.NoItemException{
+		Item named = null;
+		for(Item item : contents){
+			if(item.goesBy(name)){
+				named = item;
+				}
+			}
+		if(named == null){
+			throw new Item.NoItemException();
+			}
+		return named;
+		}
+	
 		
 }
