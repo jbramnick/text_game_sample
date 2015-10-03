@@ -23,6 +23,11 @@ class CommandFactory{
 			SaveCommand save = new SaveCommand(commandString);
 			return save;
 		}
+		else if(commandString.contains("take")){
+			String item = commandString.substring(5,commandString.length());
+			TakeCommand take = new TakeCommand(item);
+			return take;
+		}
 		else{
 			throw new IllegalArgumentException("Illegal input");
 		} 

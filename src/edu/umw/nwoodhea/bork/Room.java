@@ -55,6 +55,14 @@ public class Room{
 		for(Exit exit: exits){
 			text = text +"\n"+exit.describe();
 		}
+		if(contents.size()>0){
+			text = text + "\n";
+			text = text + "Contents: ";
+			for(Item item: contents){
+				text = text + item +", ";
+			}
+			text = text.substring(0,text.length()-2);
+		}
 		return text;
 	}
 
