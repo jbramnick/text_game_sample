@@ -49,7 +49,7 @@ class GameState{
 			System.out.println("File not found.");
 		}
 	}	
-	void restore(String filename) throws Exception{
+	void restore(String filename) throws IllegalSaveFormatException, FileNotFoundException, Dungeon.IllegalDungeonFormatException{
 		try{
 			File f = new File(filename);
 			Scanner restore = new Scanner(f);

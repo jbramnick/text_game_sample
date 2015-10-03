@@ -1,14 +1,12 @@
 package edu.umw.nwoodhea.bork;
 import java.util.Scanner;
-import java.io.BufferedReader;
-import java.io.InputStreamReader;
-
+import java.io.*;
 class Interpreter {
 	public static void main (String args[]){
 		if(args.length == 0){
 			System.out.println("You must enter a .bork file or a .sav file");
 			System.exit(0);
-			}
+		}
 		String input;
 		BufferedReader buffy = new BufferedReader(new InputStreamReader(System.in));
 		Dungeon game = null;
@@ -30,10 +28,10 @@ class Interpreter {
 				System.out.println("Illegal Save format");
 				System.exit(0);
 			}
-			catch(Exception e){
-				System.out.println("Na Na Na you  cant find me");
+			catch(FileNotFoundException e){
+				System.out.println("File not found");
 				System.exit(0);
-			}
+			}			
 		}
 
 		else if(extention.equals(".bork")){			

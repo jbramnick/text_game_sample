@@ -30,12 +30,12 @@ public class Room{
 				String[] list = content.split(",");
 				for(String x : list){
 					this.add(d.getItem(x));
-					}
 				}
 			}
+		}
 		else{
 			this.desc = content;
-			}
+		}
 		String part = scanner.nextLine();
 		while(!part.equals("---")){
 			this.desc = this.desc + "\n" + part;
@@ -88,10 +88,10 @@ public class Room{
 			String stuff = ("Contents: ");
 			for(Item item : contents){
 				stuff = stuff + item+",";
-				}
+			}
 			stuff = stuff.substring(0,stuff.length()-1);	
 			save.println(stuff);
-			}
+		}
 		save.println("---");
 	}
 	void restoreState(Scanner restore, Dungeon d){
@@ -100,33 +100,42 @@ public class Room{
 		state = state.substring(9,x);
 		if(state.equals("true")){
 			beenHere = true;
-			}
+		}
 		else if(state.equals("false")){
 			beenHere = false;
-			}
-		restore.nextLine();
 		}
+		String inventory = restore.nextLine();
+		if(inventory.contains("Contents: ")){
+			inventory = inventory.substring(10, inventory.length());
+			String [] inventroryList = inventory.split(",");
+			for(String name : inventroryList){
+				Item item = d.getItem(name);
+				this.add(item);
+			}
+			restore.nextLine();
+		}
+	}
 	void add(Item item){
 		contents.add(item);
-		}
+	}
 	ArrayList<Item> getContents(){
 		return contents;
-		}
+	}
 	void remove(Item item){
 		contents.remove(item);
-		}
+	}
 	Item getItemNamed(String name) throws Item.NoItemException{
 		Item named = null;
 		for(Item item : contents){
 			if(item.goesBy(name)){
 				named = item;
-				}
 			}
+		}
 		if(named == null){
 			throw new Item.NoItemException();
-			}
-		return named;
 		}
-	
-		
+		return named;
+	}
+
+
 }
