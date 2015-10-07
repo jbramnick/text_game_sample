@@ -9,6 +9,7 @@ class GameState{
 	private Room adeventurersCurrentRoom;
 	private Dungeon map;
 	private ArrayList<Item> inventory;
+	private ArrayList<String> verbs;
 	public class IllegalSaveFormatException extends Exception {};
 
 	public static GameState instance(){
@@ -24,6 +25,11 @@ class GameState{
 	void initialize(Dungeon dungeon){
 		this.map = dungeon;
 		inventory = new ArrayList<Item>();
+		verbs = new ArrayList<String>();
+		for(Item item : inventory){
+			verbs.removeAll(item.getVerbs());
+			verbs.addAll(item.getVerbs());
+		}
 	}
 	Room getAdventurersCurrentRoom(){
 		return adeventurersCurrentRoom;
@@ -87,6 +93,8 @@ class GameState{
 		return names;
 		}
 	void addToInventory(Item item){
+		verbs.removeAll(item.getVerbs());
+		verbs.addAll(item.getVerbs());
 		inventory.add(item);
 		}
 	void removeFromInventory(Item item){
@@ -103,4 +111,7 @@ class GameState{
 			}
 		throw new Item.NoItemException();
 		}
+	ArrayList<String> getVerbs(){
+		return verbs;
+	}
 }

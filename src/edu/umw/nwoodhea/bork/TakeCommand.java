@@ -10,7 +10,7 @@ class TakeCommand extends Command{
 			Item item = currentRoom.getItemNamed(itemName);
 			currentRoom.remove(item);
 			GameState.instance().addToInventory(item);
-			return "";
+			return "Taken: " + itemName;
 		}
 		catch(Item.NoItemException e){
 			return "There is no " + itemName + "here.";

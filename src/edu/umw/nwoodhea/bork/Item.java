@@ -1,8 +1,11 @@
 package edu.umw.nwoodhea.bork;
 import java.util.Hashtable;
+import java.util.Enumeration;
+import java.util.ArrayList;
 import java.util.Scanner;
 import java.io.*;
 public class Item{
+	static class NoVerbException extends Exception {}
 	static class NoItemException extends Exception {}
 
 	private String primaryName;
@@ -52,11 +55,22 @@ public class Item{
 	public String getPrimaryName(){
 		return primaryName;
 	}
-	public String getMessageForVerb(String verb){
+	public String getMessageForVerb(String verb) throws NoVerbException{
+		if(!messages.containsKey(verb)){
+			throw new NoVerbException();
+		}
 		String text = messages.get(verb);
 		return text;
 	}
 	public String toString(){
 		return primaryName;	
+	}
+	public ArrayList<String> getVerbs(){
+		ArrayList<String> verbs = new ArrayList<String>();
+		Enumeration<String> verb = messages.keys();	
+		 while(verb.hasMoreElements()){
+			verbs.add(verb.nextElement());
+		}
+		return verbs;
 	}
 }
