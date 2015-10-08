@@ -33,7 +33,7 @@ public class Room{
 				}
 			}
 		}
-		else{
+		else if(content != null){
 			this.desc = content;
 		}
 		String part = scanner.nextLine();
@@ -47,7 +47,6 @@ public class Room{
 	}
 	String describe(){
 		String text = title;
-
 		if(beenHere == false){
 			beenHere = true;
 			text = text+": "+desc;
@@ -59,9 +58,6 @@ public class Room{
 			text = text + "\n";
 			text = text + "Contents: ";
 			for(Item item: contents){
-				if(item == null){
-					System.out.println("You have a null item");
-				}
 				text = text + item +", ";
 			}
 			text = text.substring(0,text.length()-2);
