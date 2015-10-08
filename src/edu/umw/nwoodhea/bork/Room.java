@@ -45,6 +45,26 @@ public class Room{
 	public void setDesc(String desc){
 		this.desc = desc;
 	}
+	String describe(boolean beenHere){
+		String text = title;
+		this.beenHere = beenHere;
+		if(beenHere == false){
+			beenHere = true;
+			text = text+": "+desc;
+		}
+		for(Exit exit: exits){
+			text = text +"\n"+exit.describe();
+		}
+		if(contents.size()>0){
+			text = text + "\n";
+			text = text + "Contents: ";
+			for(Item item: contents){
+				text = text + item +", ";
+			}
+			text = text.substring(0,text.length()-2);
+		}
+		return text;
+	}
 	String describe(){
 		String text = title;
 		if(beenHere == false){

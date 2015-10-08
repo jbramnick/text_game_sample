@@ -50,6 +50,10 @@ class CommandFactory{
 			ItemSpecificCommand action = new ItemSpecificCommand(verb,noun);
 			return action;
 		}
+		else if(commandString.contains("look")){
+			LookCommand look = new LookCommand();
+			return look;
+		}
 		else{
 			throw new IllegalArgumentException("Illegal input");
 		} 
