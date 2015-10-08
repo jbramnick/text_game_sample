@@ -59,6 +59,9 @@ public class Room{
 			text = text + "\n";
 			text = text + "Contents: ";
 			for(Item item: contents){
+				if(item == null){
+					System.out.println("You have a null item");
+				}
 				text = text + item +", ";
 			}
 			text = text.substring(0,text.length()-2);

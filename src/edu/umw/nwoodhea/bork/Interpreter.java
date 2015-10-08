@@ -58,6 +58,9 @@ class Interpreter {
 			catch(java.lang.IllegalArgumentException e){
 				System.out.println("I cannot understand what you said.");
 			}
+			catch(Item.NoItemException e){
+				System.out.println("What item?");
+			}
 			input = promptUser(buffy); 
 		}
 

@@ -13,7 +13,7 @@ class CommandFactory{
 		return theInstance;
 
 	}
-	private CommandFactory(){
+	private CommandFactory() throws Item.NoItemException{
 	}
 	Command parse(String commandString){
 		ArrayList<String> verbs = GameState.instance().getVerbs();
@@ -36,9 +36,10 @@ class CommandFactory{
 			return i;
 		}
 		else if(commandString.contains("drop")){
-			String item = commandString.substring(5,commandString.length());
-			DropCommand drop = new DropCommand(item);
-			return drop;
+			try{
+				DropCommand drop = new DropCommand(commandString);
+				return drop;
+			}
 		}
 		else if(verbs.contains(command[0])){
 			String verb = command[0];

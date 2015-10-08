@@ -100,6 +100,11 @@ class GameState{
 	void removeFromInventory(Item item){
 		inventory.remove(item);
 		}
+	ArrayList<Item> removeAllFromInventory(){
+		ArrayList<Item> oldInventoy = inventory;
+		inventory.clear();
+		return oldInventoy;
+	}
 	Item getItemInVecinityNamed(String name) throws Item.NoItemException{
 		return adeventurersCurrentRoom.getItemNamed(name);
 		}
