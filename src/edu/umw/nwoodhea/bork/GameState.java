@@ -75,10 +75,22 @@ class GameState{
 					name = name.substring(14,name.length());
 					this.map = new Dungeon(name,false); 
 					map.restoreState(restore);
+					restore.nextLine();
 					String room = restore.nextLine();
 					int junk = 14;
 					room = room.substring(14,room.length());
 					this.adeventurersCurrentRoom = map.getRoom(room);
+					inventory = new ArrayList<Item>();
+					if(restore.hasNextLine()){
+						String stuff = restore.nextLine();
+						stuff = stuff.substring(11,stuff.length());
+						System.out.println(stuff);
+						String[] things = stuff.split(",");
+						for (String item : things){
+							Item crap = map.getItem(item);
+							inventory.add(crap);
+						}
+					}
 				}
 				catch(Dungeon.IllegalDungeonFormatException e){
 					throw new Dungeon.IllegalDungeonFormatException();
