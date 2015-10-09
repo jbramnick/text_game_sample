@@ -57,9 +57,8 @@ public class Room{
 		}
 		if(contents.size()>0){
 			text = text + "\n";
-			text = text + "Contents: ";
 			for(Item item: contents){
-				text = text + item +", ";
+				text = text + "\n" + "There is a " + item + " here."; 
 			}
 			text = text.substring(0,text.length()-2);
 		}
@@ -76,11 +75,9 @@ public class Room{
 		}
 		if(contents.size()>0){
 			text = text + "\n";
-			text = text + "Contents: ";
 			for(Item item: contents){
-				text = text + item +", ";
+				text = text + "\n" + "There is a " + item + " here."; 
 			}
-			text = text.substring(0,text.length()-2);
 		}
 		return text;
 	}

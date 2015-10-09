@@ -9,6 +9,7 @@ public class Item{
 	static class NoItemException extends Exception {}
 
 	private String primaryName;
+	private ArrayList<String> secondaryNames;
 	private int weight;
 	private Hashtable <String, String>  messages;
 
@@ -72,5 +73,8 @@ public class Item{
 			verbs.add(verb.nextElement());
 		}
 		return verbs;
+	}
+	public ArrayList<String> getSecondaryNames(){
+		return secondaryNames;
 	}
 }

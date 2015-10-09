@@ -1,4 +1,5 @@
 package edu.umw.nwoodhea.bork;
+import java.util.ArrayList;
 import java.util.Hashtable;
 import java.util.Scanner;
 import java.io.*;
@@ -122,7 +123,13 @@ public class Dungeon{
 	public void add(Item item){
 		String name = item.getPrimaryName();
 		items.put(name, item);
+		ArrayList<String> names = item.getSecondaryNames();
+		if(names != null){
+			for(String x : names){
+				items.put(name, item);
+			}
 		}
+	}
 	public Item getItem(String name){
 		return items.get(name);
 		}
