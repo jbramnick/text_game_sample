@@ -36,4 +36,22 @@ stab,lunge,thrust:you miss
 slash,cut:you miss
 use:Why would you bring a knife to a gunfight?
 ---
+laptop,computer,lenovo,cortana
+20
+use:lolcat
+code:System.out.println("I am a cylon");
+---
+shotgun
+25
+shoot,fire,discaharge:*booooooom*
+reload:*clickty clack*
+aim:Careful where you point that.
+===
+Rooms:
+Bedroom
+Conteents: shotgun
+You are in a room with a bed in it. Beside the bed are two tables with
+candles on them. There is a large mess on the floor consisting of dirty
+clothes and computer parts.
+---
 
