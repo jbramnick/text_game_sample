@@ -19,11 +19,23 @@ public class Item{
 	}
 
 	public Item(Scanner scan) throws NoItemException, Dungeon.IllegalDungeonFormatException{
-		this.primaryName = scan.nextLine();
-		if(this.primaryName.equals("===")){
+		String chunk = scan.nextLine();
+		if(chunk.equals("===")){
 			throw new NoItemException();
-		} 
+		}
+	       	secondaryNames = new ArrayList<String>();	
 		try{
+			if(chunk.contains(",")){
+				String[] names = chunk.split(",");
+				this.primaryName = names[0];
+				for(String name : names){
+					if(name == names[0]) continue;
+					this.secondaryNames.add(name);
+				}
+			}
+			else{
+				this.primaryName = chunk;
+			}
 			if(scan.hasNextInt()){
 				int mass = scan.nextInt();
 				this.weight = mass;
@@ -49,6 +61,9 @@ public class Item{
 		if(primaryName.equals(name)){
 			return true;
 		}
+		else if(secondaryNames.contains(name)){
+			return true;
+		}	
 		else{
 			return false;
 		}

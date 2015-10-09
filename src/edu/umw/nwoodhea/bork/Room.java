@@ -5,7 +5,7 @@ import java.io.*;
 public class Room{
 	static class NoRoomException extends Exception {}
 	private String title;
-	private String desc;
+	private String desc = "";
 	private ArrayList<Exit> exits;
 	private boolean beenHere = false;
 	private ArrayList<Item> contents;

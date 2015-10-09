@@ -2,10 +2,18 @@ package edu.umw.nwoodhea.bork;
 import java.util.ArrayList;
 class TakeCommand extends Command{
 	private String itemName;
-	TakeCommand(String itemName){
-		this.itemName = itemName;
+	private String commandString;
+	TakeCommand(String commandString){
+		this.commandString = commandString;
 	}
 	String execute(){
+		try{
+			String itemName = commandString.substring(5,commandString.length());
+		}
+		catch(Exception e){
+			return "\nTake what? \n";
+		}
+		this.itemName = itemName;
 		Room currentRoom = GameState.instance().getAdventurersCurrentRoom();
 		try{
 			if(itemName.equals("all")){

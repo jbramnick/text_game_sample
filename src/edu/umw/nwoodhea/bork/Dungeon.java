@@ -32,11 +32,11 @@ public class Dungeon{
 				try{
 					while(true){
 						this.add(new Item(scanner));
-						}
 					}
+				}
 				catch(Item.NoItemException e){}
 			}
-						
+
 			if(scanner.nextLine().equals("Rooms:")){
 				boolean x = true;
 				try{
@@ -60,7 +60,7 @@ public class Dungeon{
 			else{
 				throw new IllegalDungeonFormatException();
 			}
-			
+
 			if(scanner.nextLine().equals("Exits:")){
 				boolean y = true;
 				while(y){
@@ -107,9 +107,9 @@ public class Dungeon{
 		Set<String> keys = map.keySet();
 		for(String key: keys){
 			map.get(key).storeState(save);
-			}
-		
 		}
+
+	}
 	void restoreState(Scanner restore){
 		restore.nextLine();
 		String title = restore.nextLine();
@@ -117,20 +117,17 @@ public class Dungeon{
 			title = title.substring(0,title.length()-1);
 			getRoom(title).restoreState(restore,this);
 			title = restore.nextLine();
-			}
-
 		}
+
+	}
 	public void add(Item item){
 		String name = item.getPrimaryName();
 		items.put(name, item);
-		ArrayList<String> names = item.getSecondaryNames();
-		if(names != null){
-			for(String x : names){
-				items.put(name, item);
-			}
+		for(String x : item.getSecondaryNames()){
+			items.put(x, item);
 		}
 	}
 	public Item getItem(String name){
 		return items.get(name);
-		}
+	}
 }

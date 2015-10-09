@@ -27,8 +27,7 @@ class CommandFactory{
 			return save;
 		}
 		else if(commandString.contains("take")){
-			String item = commandString.substring(5,commandString.length());
-			TakeCommand take = new TakeCommand(item);
+			TakeCommand take = new TakeCommand(commandString);
 			return take;
 		}
 		else if(commandString.equals("i")||commandString.equals("inventory")){
