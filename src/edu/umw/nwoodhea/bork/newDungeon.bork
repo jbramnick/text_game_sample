@@ -1,0 +1,39 @@
+Zirakzigal
+Bork v3.0
+===
+Items:
+book,tome,manuel,booklet
+10
+read,browse:it was the best of times it was the worst of times...
+burn,light:What kind of person would burn a book.
+open:You open the book.
+---
+pen,quil,ballpoint
+1
+write,scribble:The quick brown fox jumpped over the lonely dog.
+draw,doodle:*rawar*
+click:*CLICK*
+---
+vodka,booze,fuel
+5
+drink,chug,sip:You wake up hours later with a awful headache.
+light,egnite:The liquid starts to burn with a beautiful blue flame.
+---
+sandwich,lunch
+5
+eat:EWW it is made of sand
+build,construct:That is a great sandcastle.
+---
+RugerLC9,gun,LC9,firearm
+10
+shoot,fire,discaharge:*bang*
+reload:*clickty clack*
+aim:Careful where you point that.
+---
+sword,bob
+15
+stab,lunge,thrust:you miss
+slash,cut:you miss
+use:Why would you bring a knife to a gunfight?
+---
+

@@ -8,6 +8,7 @@ class GameState{
 	private static GameState theInstance;
 	private Room adeventurersCurrentRoom;
 	private Dungeon map;
+	private int load;
 	private ArrayList<Item> inventory;
 	private ArrayList<String> verbs;
 	public class IllegalSaveFormatException extends Exception {};
@@ -30,6 +31,13 @@ class GameState{
 			verbs.removeAll(item.getVerbs());
 			verbs.addAll(item.getVerbs());
 		}
+	}
+	int getLoad(){
+		load = 0;
+		for(Item item : inventory){
+			load += item.getWeight();
+		}
+		return load;
 	}
 	Room getAdventurersCurrentRoom(){
 		return adeventurersCurrentRoom;

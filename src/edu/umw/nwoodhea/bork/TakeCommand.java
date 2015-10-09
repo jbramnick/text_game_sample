@@ -7,8 +7,10 @@ class TakeCommand extends Command{
 		this.commandString = commandString;
 	}
 	String execute(){
+		String itemName = "";
+		int weight = 0;
 		try{
-			String itemName = commandString.substring(5,commandString.length());
+			itemName = commandString.substring(5,commandString.length());
 		}
 		catch(Exception e){
 			return "\nTake what? \n";
@@ -16,13 +18,20 @@ class TakeCommand extends Command{
 		this.itemName = itemName;
 		Room currentRoom = GameState.instance().getAdventurersCurrentRoom();
 		try{
-			if(itemName.equals("all")){
+			if(commandString.contains("all")){
 				ArrayList<Item> items = new ArrayList<Item>();
 				for(Item item : currentRoom.getContents()){
 					items.add(item);
 				}
+				for(Item item : items){
+					 weight += item.getWeight();
+				}
 				if(items.size()== 0){
 					return "There is nothing here to take." + "\n";
+				}
+				int load = GameState.instance().getLoad();
+				if((weight + load) > 40){
+					return "You cannot carry that much weight.";
 				}
 				String text = "Taken:" + "\n";
 				for(Item item : items){
@@ -33,6 +42,11 @@ class TakeCommand extends Command{
 				return text;
 			}
 			Item item = currentRoom.getItemNamed(itemName);
+			weight = item.getWeight();
+			int load = GameState.instance().getLoad();
+			if((weight + load) > 40){
+				return "You cannot carry that much weight.";
+			}
 			currentRoom.remove(item);
 			GameState.instance().addToInventory(item);
 			return "Taken: " + itemName+"\n";

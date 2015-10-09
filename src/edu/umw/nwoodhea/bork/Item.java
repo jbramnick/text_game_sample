@@ -53,7 +53,10 @@ public class Item{
 		String message = scan.nextLine();
 		while(!message.equals("---")){
 			String[] x = message.split(":");
-			messages.put(x[0],x[1]);		
+			String[] other = x[0].split(",");
+			for(String verb : other){
+				messages.put(verb,x[1]);
+			}
 			message = scan.nextLine();
 		}
 	}
@@ -81,7 +84,7 @@ public class Item{
 	public String toString(){
 		return primaryName;	
 	}
-	public ArrayList<String> getVerbs(){
+	ArrayList<String> getVerbs(){
 		ArrayList<String> verbs = new ArrayList<String>();
 		Enumeration<String> verb = messages.keys();	
 		 while(verb.hasMoreElements()){
@@ -89,7 +92,10 @@ public class Item{
 		}
 		return verbs;
 	}
-	public ArrayList<String> getSecondaryNames(){
+	ArrayList<String> getSecondaryNames(){
 		return secondaryNames;
 	}
+	int getWeight(){
+		return weight;
+	}	
 }
