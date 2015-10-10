@@ -46,6 +46,7 @@ shotgun
 shoot,fire,discharge:*booooooom*
 reload:*clickty clack*
 aim:Careful where you point that.
+---
 ===
 Rooms:
 Bedroom
@@ -61,7 +62,7 @@ here. There is a table.
 ---
 Hallway
 A long dark hallway. With a door on each end.
-----
+---
 Stair Room
 Room with black iron staircase leading up and down. A light shows from above.
 From below a clinging fog rises.

@@ -92,7 +92,6 @@ class GameState{
 					if(restore.hasNextLine()){
 						String stuff = restore.nextLine();
 						stuff = stuff.substring(11,stuff.length());
-						System.out.println(stuff);
 						String[] things = stuff.split(",");
 						for (String item : things){
 							Item crap = map.getItem(item);
