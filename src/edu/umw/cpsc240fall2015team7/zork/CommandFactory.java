@@ -1,3 +1,6 @@
+/**
+*Parses input String and returns a command object. 
+*/
 package edu.umw.cpsc240fall2015team7.zork;
 import java.util.ArrayList;
 import java.lang.IllegalArgumentException;
