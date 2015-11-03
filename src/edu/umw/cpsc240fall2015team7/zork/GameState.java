@@ -1,4 +1,4 @@
-package edu.umw.nwoodhea.bork;
+package edu.umw.cpsc240fall2015team7.zork;
 import java.io.*;
 import java.util.ArrayList;
 import java.util.Scanner;

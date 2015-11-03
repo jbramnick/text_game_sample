@@ -1,4 +1,4 @@
-package edu.umw.nwoodhea.bork;
+package edu.umw.cpsc240fall2015team7.zork;;
 import java.util.ArrayList;
 class InventoryCommand extends Command{
 	InventoryCommand(){}
