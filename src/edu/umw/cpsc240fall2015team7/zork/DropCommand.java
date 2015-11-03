@@ -1,4 +1,4 @@
-package edu.umw.cpsc240fall2015team7.zork;;
+package edu.umw.cpsc240fall2015team7.zork;
 import java.util.ArrayList;
 class DropCommand extends Command{
 	private String itemName;

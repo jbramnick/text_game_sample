@@ -1,4 +1,4 @@
-package edu.umw.cpsc240fall2015team7.zork;;
+package edu.umw.cpsc240fall2015team7.zork;
 class ItemSpecificCommand extends Command{
 	private String verb;
 	private String noun;
