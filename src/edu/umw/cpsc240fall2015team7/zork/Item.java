@@ -60,6 +60,10 @@ public class Item{
 			message = scan.nextLine();
 		}
 	}
+	/**
+	*returns true when this goes by the String given. Returns false when 
+	*the string does not match any names.
+	*/
 	boolean goesBy(String name){
 		if(primaryName.equals(name)){
 			return true;
