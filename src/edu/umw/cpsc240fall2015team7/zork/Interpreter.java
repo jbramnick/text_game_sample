@@ -1,3 +1,7 @@
+/**
+ *The main for the zork program. 
+ *
+ */
 package edu.umw.cpsc240fall2015team7.zork;
 import java.util.Scanner;
 import java.io.*;
@@ -65,6 +69,9 @@ class Interpreter {
 		}
 
 	}
+	/**
+	 *Returns the String inputed by the user. 
+	 */
 	private static String promptUser(BufferedReader commandLine){
 		String output = "";
 		String out = "";
