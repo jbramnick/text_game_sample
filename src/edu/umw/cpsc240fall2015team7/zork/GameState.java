@@ -35,7 +35,7 @@ class GameState{
 	}
 	/**
 	  *Initializes the dungeon in this. 
-	  *@peram The dungeon object.
+	  *@param The dungeon object.
 	  *@author Nathanael Woodhead
 	  */
 	void initialize(Dungeon dungeon){
@@ -205,7 +205,7 @@ class GameState{
 	}
 	/**
 	  *Returns the Item object in this inventory that goes by the name inputed.
-	  *@peram name A item name to look for in the inventory
+	  *@param name A item name to look for in the inventory
 	  *@author Nathanael Woodhead
 	  *@throws Item.NoItemException When there is no item by that name in this inventory.
 	  */

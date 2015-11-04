@@ -1,3 +1,7 @@
+/**
+*The dungeon class is the current layout of the rooms,items and NPCs.
+*@author Nathanael Woodhead
+*/
 package edu.umw.cpsc240fall2015team7.zork;
 import java.util.ArrayList;
 import java.util.Hashtable;
@@ -85,12 +89,14 @@ public class Dungeon{
 	}
 	/**
 	*returns the entry room object of the dungeon.
+	*@return entry room.
 	*/
 	public Room getEntry(){
 		return entry;
 	}
 	/**
 	*returns the name of the this dungeon object.
+	*@return name of dungeon.
 	*/
 	public String getName(){
 		return name;
@@ -98,6 +104,7 @@ public class Dungeon{
 	/**
 	*adds the room to this dungeon object.
 	*If room already exisits in this dungeon does nothing.If room is null does nothing.
+	*@param room to be added
 	*/
 	public void add(Room room){
 		String title = room.getTitle();
@@ -105,12 +112,14 @@ public class Dungeon{
 	}
 	/**
 	*returns the room with title roomKey and null if no such room exsists.
+	*@return room with title roomKey
 	*/
 	public Room getRoom(String roomKey){
 		return map.get(roomKey);
 	}
 	/**
 	*returns the a string of the full path to the file that was used to make the dungeon.
+	*@return string of the full path to file
 	*/
 	public String getFilename(){
 		return filename;
@@ -118,6 +127,7 @@ public class Dungeon{
 	/**
 	*Stores the current state of this dungeon to a file in accordance with the zork file format.
 	*Takes the location of the printwriter and starts writing the dungeon from there.
+	*@param the current printwriter used to save
 	*/
 	void storeState(PrintWriter save){
 		save.println("Dungeon file: " + filename);
@@ -129,7 +139,8 @@ public class Dungeon{
 
 	}
 	/**
-	*Restores the state of a previously written dungeon from a .sav file. Starts reading from the restore's current state
+	*Restores the state of a previously written dungeon from a .sav file. Starts reading from the restore's current state.
+	*@param the current scanner used in reading the save file
 	*/
 	void restoreState(Scanner restore){
 		restore.nextLine();
@@ -143,6 +154,7 @@ public class Dungeon{
 	}
 	/**
 	*adds the item to this dungeon. if the item already exisists, does nothing. if item is null, does nothing.
+	*@param the item to be added
 	*/
 	public void add(Item item){
 		String name = item.getPrimaryName();
@@ -153,6 +165,7 @@ public class Dungeon{
 	}
 	/**
 	*returns the item in this dungeon by the title name. if the item by title name is not in the dungeon returns null.
+	*@param the name of the item to be returned
 	*/
 	public Item getItem(String name){
 		return items.get(name);
