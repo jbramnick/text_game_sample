@@ -83,24 +83,42 @@ public class Dungeon{
 			System.out.println("File not found");
 		}
 	}
+	/**
+	*returns the entry room object of the dungeon.
+	*/
 	public Room getEntry(){
 		return entry;
 	}
-
+	/**
+	*returns the name of the this dungeon object.
+	*/
 	public String getName(){
 		return name;
 	}
-
+	/**
+	*adds the room to this dungeon object.
+	*If room already exisits in this dungeon does nothing.If room is null does nothing.
+	*/
 	public void add(Room room){
 		String title = room.getTitle();
 		map.put(title, room);
 	}
+	/**
+	*returns the room with title roomKey and null if no such room exsists.
+	*/
 	public Room getRoom(String roomKey){
 		return map.get(roomKey);
 	}
+	/**
+	*returns the a string of the full path to the file that was used to make the dungeon.
+	*/
 	public String getFilename(){
 		return filename;
 	}
+	/**
+	*Stores the current state of this dungeon to a file in accordance with the zork file format.
+	*Takes the location of the printwriter and starts writing the dungeon from there.
+	*/
 	void storeState(PrintWriter save){
 		save.println("Dungeon file: " + filename);
 		save.println("Room states:");
@@ -110,6 +128,9 @@ public class Dungeon{
 		}
 
 	}
+	/**
+	*Restores the state of a previously written dungeon from a .sav file. Starts reading from the restore's current state
+	*/
 	void restoreState(Scanner restore){
 		restore.nextLine();
 		String title = restore.nextLine();
@@ -120,6 +141,9 @@ public class Dungeon{
 		}
 
 	}
+	/**
+	*adds the item to this dungeon. if the item already exisists, does nothing. if item is null, does nothing.
+	*/
 	public void add(Item item){
 		String name = item.getPrimaryName();
 		items.put(name, item);
@@ -127,6 +151,9 @@ public class Dungeon{
 			items.put(x, item);
 		}
 	}
+	/**
+	*returns the item in this dungeon by the title name. if the item by title name is not in the dungeon returns null.
+	*/
 	public Item getItem(String name){
 		return items.get(name);
 	}
