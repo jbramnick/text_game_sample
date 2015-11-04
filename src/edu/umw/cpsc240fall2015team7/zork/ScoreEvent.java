@@ -6,6 +6,17 @@ package edu.umw.cpsc240fall2015team7.zork;
 class ScoreEvent{
 	private int score;
 
+	/**
+	*Constructs this ScoreEvent with passed int.
+	*@author Carson Meadows
+	*/
 	ScoreEvent(int score){
+		this.score=score;
 	}
-	String changeScore(
+	/**
+	*Adds this Event's score to the overall in-game score.
+	*@author Carson Meadows
+	*/
+	String changeScore() {
+	}
+}
