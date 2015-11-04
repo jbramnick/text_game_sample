@@ -1,3 +1,7 @@
+/**
+  *Keeps track of the current state of the zork game.
+  *@author Nathanael Woodhead
+  */
 package edu.umw.cpsc240fall2015team7.zork;
 import java.io.*;
 import java.util.ArrayList;
@@ -12,7 +16,10 @@ class GameState{
 	private ArrayList<Item> inventory;
 	private ArrayList<String> verbs;
 	public class IllegalSaveFormatException extends Exception {};
-
+	/**
+	  *Returns a GameState object. If no gamestate object exists creates a new one and returns it. 
+	  *@author Nathanael Woodhead
+	  */
 	public static GameState instance(){
 		if(theInstance == null){
 			theInstance = new GameState();
@@ -20,9 +27,17 @@ class GameState{
 		return theInstance;
 
 	}
+	/**
+	  *An empty constructor. Instead GameState.instance should be called.
+	  *@author Nathanael Woodhead
+	  */
 	private GameState(){
 	}
-
+	/**
+	  *Initializes the dungeon in this. 
+	  *@peram The dungeon object.
+	  *@author Nathanael Woodhead
+	  */
 	void initialize(Dungeon dungeon){
 		this.map = dungeon;
 		inventory = new ArrayList<Item>();
@@ -32,6 +47,10 @@ class GameState{
 			verbs.addAll(item.getVerbs());
 		}
 	}
+	/**
+	  *Returns the total weight of all items in the players inventory.
+	  *@author Nathanael Woodhead
+	  */
 	int getLoad(){
 		load = 0;
 		for(Item item : inventory){
@@ -39,9 +58,16 @@ class GameState{
 		}
 		return load;
 	}
+	/**
+	  *Returns object that is the current room for this. 
+	  *@author Nathan Woodhead
+	  */
 	Room getAdventurersCurrentRoom(){
 		return adeventurersCurrentRoom;
 	}
+	/**
+	  *Sets the current room. 
+	  *@author Nathan Woodhead
 	void setAdventurersCurrentRoom(Room room){
 		adeventurersCurrentRoom = room;
 	}
