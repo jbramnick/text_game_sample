@@ -60,6 +60,11 @@ public class Item{
 			message = scan.nextLine();
 		}
 	}
+	/**
+	*Returns true if this Item's primary or secondary names equal the 
+	*String passed. Returns false when 
+	*the string does not match any names.
+	*/
 	boolean goesBy(String name){
 		if(primaryName.equals(name)){
 			return true;
@@ -71,9 +76,16 @@ public class Item{
 			return false;
 		}
 	}
+	/**
+	*Returns this Item's primary name.
+	*/
 	public String getPrimaryName(){
 		return primaryName;
 	}
+	/**
+	*Returns message associated with passed String. Throws 
+	*NoVerbException if this Item does not contain the passed String. 
+	*/
 	public String getMessageForVerb(String verb) throws NoVerbException{
 		if(!messages.containsKey(verb)){
 			throw new NoVerbException();
@@ -81,9 +93,16 @@ public class Item{
 		String text = messages.get(verb);
 		return text;
 	}
+	/**
+	*Returns this Item's primary name.
+	*/
 	public String toString(){
 		return primaryName;	
 	}
+	/**
+	*Returns an ArrayList of verbs used for this Item's 
+	*ItemSpecificCommands.
+	*/
 	ArrayList<String> getVerbs(){
 		ArrayList<String> verbs = new ArrayList<String>();
 		Enumeration<String> verb = messages.keys();	
@@ -92,9 +111,15 @@ public class Item{
 		}
 		return verbs;
 	}
+	/**
+	*Returns an ArrayList of this Item's secondary names.
+	*/
 	ArrayList<String> getSecondaryNames(){
 		return secondaryNames;
 	}
+	/**
+	*Returns the weight of this Item.
+	*/
 	int getWeight(){
 		return weight;
 	}	
