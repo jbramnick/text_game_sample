@@ -1,3 +1,7 @@
+/**
+*Connects Rooms in the Dungeon to each other.
+*@author Carson Meadows
+*/
 package edu.umw.cpsc240fall2015team7.zork;
 import java.util.Scanner;
 public class Exit{
@@ -7,11 +11,19 @@ private String dir;
 private Room dest;
 private Room src;
 
+/**
+*Constructs this Exit with parameters given.
+*@author Carson Meadows
+*/
 public Exit(String dir, Room src, Room dest){
 	this.dir = dir;
 	this.dest = dest;
 	this.src = src;
 }
+/**
+*Hydrates this Exit from passed Scanner object. 
+*@author Carson Meadows
+*/
 public Exit(Scanner scanner, Dungeon d) throws NoExitException{
 	String source = scanner.nextLine();
 	if(source.equals("===")){

@@ -1,3 +1,7 @@
+/**
+*Creates objects to be found and used in the Dungeon.
+*@author zCarson Meadows
+*/
 package edu.umw.cpsc240fall2015team7.zork;
 import java.util.Hashtable;
 import java.util.Enumeration;
@@ -13,11 +17,19 @@ public class Item{
 	private int weight;
 	private Hashtable <String, String>  messages;
 
+	/**
+	*Constructs this Item with parameters.
+	*@author Carson Meadows
+	*/
 	public Item(String primaryName, int weight){
 		this.primaryName = primaryName;
 		this.weight = weight;
 	}
-
+	/**
+	*Hydrates this Item by reading passed Scanner object. Reads in primary and any
+	*secondary names, weight, and messages used for ItemSpecificCommands.
+	*@author Carson Meadows
+	*/
 	public Item(Scanner scan) throws NoItemException, Dungeon.IllegalDungeonFormatException{
 		String chunk = scan.nextLine();
 		if(chunk.equals("===")){

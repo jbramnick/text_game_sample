@@ -1,3 +1,7 @@
+/**
+*Room objects make up the Dungeon, can be entered and exited, and can hold Items.
+*@author Carson Meadows
+*/
 package edu.umw.cpsc240fall2015team7.zork;
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -10,12 +14,22 @@ public class Room{
 	private boolean beenHere = false;
 	private ArrayList<Item> contents;
 
+	/**
+	*Constructs basic Room.
+	*@author Carson Meadows
+	*/
 	public Room(String title){
 		this.title = title;
 		exits = new ArrayList<Exit>();
 		contents = new ArrayList<Item>();
 
 	}
+	/**
+	*Constructs this Room based on passed Scanner object's contents. Reads from
+	*Scanner to get this Room's title, contents and description.
+	*@author Carson Meadows
+	*/
+	
 	public Room(Scanner scanner,Dungeon d, boolean initState) throws NoRoomException{
 		this.title = scanner.nextLine();
 		if(this.getTitle().equals("===")){
