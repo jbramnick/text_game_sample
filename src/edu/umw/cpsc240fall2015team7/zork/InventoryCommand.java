@@ -1,7 +1,21 @@
+/**
+*Returns a description of the player's inventory.
+*@author Carson Meadows
+*/
 package edu.umw.cpsc240fall2015team7.zork;
 import java.util.ArrayList;
 class InventoryCommand extends Command{
-	InventoryCommand(){}
+	
+	/**
+	*Constructs this InventoryCommand.
+	*@author Carson Meadows
+	*/
+	InventoryCommand(){
+	}
+	/**
+	*Returns description of player's inventory.
+	*@author Carson Meadows
+	*/
 	String execute(){
 		ArrayList<String> inventory  = GameState.instance().getInventoryNames();
 		if(inventory.size()>0){
