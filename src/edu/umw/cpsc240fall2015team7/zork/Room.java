@@ -52,6 +52,8 @@ public class Room{
 	*Returns information about this Room. If the player has never been here, 
 	*returned text includes Room's title, description, exits, and contents.
 	*If the player has been here before, returns only exits and contents.
+	*@peram beenHere when false will give a full description.
+	*@author Nathanael Woodhead
 	*/
 	String describe(boolean beenHere){
 		String text = title;
