@@ -6,9 +6,11 @@ import java.util.ArrayList;
 import java.lang.IllegalArgumentException;
 class CommandFactory{
 
-
+	
 	public static CommandFactory theInstance;
-
+	/**
+	  *Creates a new CommandFacory object. If a CommandFactory object already exists then returns that object.
+	  */
 	public static CommandFactory instance(){
 		if(theInstance == null){
 			theInstance = new CommandFactory();
