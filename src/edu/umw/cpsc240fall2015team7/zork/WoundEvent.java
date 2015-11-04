@@ -14,13 +14,16 @@ class WoundEvent{
 
 	}
 	/**
-	  *Removes damage from the player.
+	  *Removes damage from the player. Subtracts the damage from the players current health
+	  *regardless of current healths value.
+	  *@author Nathanael Woodhead
 	  */
 	String removeDamage(){
 
 	}
 	/**
 	  *Checks to see if the player is dead. The player is dead when health falls below 1.
+	  *@author Nathanael Woodhead
 	  */
 	boolean checkDead(){
 	}
