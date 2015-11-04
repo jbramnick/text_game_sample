@@ -68,12 +68,21 @@ class GameState{
 	/**
 	  *Sets the current room. 
 	  *@author Nathan Woodhead
+	  */
 	void setAdventurersCurrentRoom(Room room){
 		adeventurersCurrentRoom = room;
 	}
+	/**
+	  *Returns the dungeon for this. If there is no dungeon then it will return null
+	  *@author Nathan Woodhead
+	  */
 	Dungeon getDungeon(){
 		return map;
 	}
+	/**
+	  *Creates a savefile of the current gamestate. Stores the file as myProgress.sav
+	  *@author Nathan Woodhead
+	  */
 	void store(){
 		File s = new File("myProgress.sav");
 		PrintWriter save;
@@ -98,7 +107,14 @@ class GameState{
 		catch(FileNotFoundException e){
 			System.out.println("File not found.");
 		}
-	}	
+	}
+	/**
+  	*Hydrates the game from a savefile.
+	*@throws IllegalSaveFormatException when the .sav does not conform to the proper format.
+	*@throws FileNotFoundException When the fils is not found.
+	*@throws Dungeon.IllegalDungeonFormatException When the dungeon file contained in the savefile is the invalid
+	* @author Nathan Woodhead
+	*/	
 	void restore(String filename) throws IllegalSaveFormatException, FileNotFoundException, Dungeon.IllegalDungeonFormatException{
 		try{
 			File f = new File(filename);
@@ -140,6 +156,10 @@ class GameState{
 			throw new FileNotFoundException();	
 		}
 	}
+	/**
+	  *Returns an ArrayList of all the item names in this inventory.
+	  *@author Nathan Woodhead
+	  */
 	ArrayList<String> getInventoryNames(){
 		ArrayList<String> names = new ArrayList<String>();
 		for(Item x : inventory){
@@ -147,14 +167,26 @@ class GameState{
 		}
 		return names;
 	}
+	/**
+	  *Adds an Item object to this inventory.
+	  *@author Nathan Woodhead
+	  */
 	void addToInventory(Item item){
 		verbs.removeAll(item.getVerbs());
 		verbs.addAll(item.getVerbs());
 		inventory.add(item);
 	}
+	/**
+	  *Removes the given item object from this inventory.
+	  *If item is not in the inventory then it will quietly do nothing
+	  */ 
 	void removeFromInventory(Item item){
 		inventory.remove(item);
 	}
+	/**
+	  *Returns a ArrayList with the contents inventory and then clears the inventory of items.
+	  *@author Nathan Woodhead
+	  */
 	ArrayList<Item> removeAllFromInventory(){
 		ArrayList<Item> oldInventoy = new ArrayList<Item>(); 
 		for(Item item :inventory){
@@ -163,9 +195,20 @@ class GameState{
 		inventory.clear();
 		return oldInventoy;
 	}
+	/**
+	  *Returns the item that goes by the name given in the current room.
+	  *@throws Item.NoItemException When there is no item by that name in the current room.
+	  *@author Nathanael Woodhead
+	  */
 	Item getItemInVecinityNamed(String name) throws Item.NoItemException{
 		return adeventurersCurrentRoom.getItemNamed(name);
 	}
+	/**
+	  *Returns the Item object in this inventory that goes by the name inputed.
+	  *@peram name A item name to look for in the inventory
+	  *@author Nathanael Woodhead
+	  *@throws Item.NoItemException When there is no item by that name in this inventory.
+	  */
 	Item getItemFromInventoryNamed(String name) throws Item.NoItemException{
 		for(Item item : inventory){
 			if(item.goesBy(name)){
@@ -174,6 +217,10 @@ class GameState{
 		}
 		throw new Item.NoItemException();
 	}
+	/**
+	  *Returns an ArrayList of verbs. Each verb is a String.
+	  *@author Nathanael Woodhead
+	  */
 	ArrayList<String> getVerbs(){
 		return verbs;
 	}
