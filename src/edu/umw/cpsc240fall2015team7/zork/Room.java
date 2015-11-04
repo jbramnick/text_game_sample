@@ -44,6 +44,7 @@ public class Room{
 	}
 	/**
 	*Sets this Room's description as the parameter.
+	*@author Carson Meadows
 	*/
 	public void setDesc(String desc){
 		this.desc = desc;
@@ -78,7 +79,8 @@ public class Room{
         *Returns information about this Room. If the player has never been here,
         *returned text includes Room's title, description, exits, and contents.
         *If the player has been here before, returns only exits and contents.
-        */
+        *@author Carson Meadows
+	*/
 	String describe(){
 		String text = title;
 		if(beenHere == false){
@@ -98,12 +100,14 @@ public class Room{
 	}
 	/**
 	*Returns this Room's title.
+	*@author Carson Meadows
 	*/
 	public String getTitle(){
 		return title;
 	}
 	/**
 	*Adds passed exit to this Room's possible exits.
+	*@author Carson Meadows
 	*/
 	public void addExit(Exit exit){
 		exits.add(exit);
@@ -112,6 +116,7 @@ public class Room{
 	*Returns Room connected to the Exit associated with the passed direction. 
 	*If this Room has no Exits associated with the passed direction, throws
 	* IllegalArgumentException.
+	*@author Carson Meadows
 	*/
 	Room leaveBy(String dir){
 		Exit out = null;
@@ -132,6 +137,7 @@ public class Room{
 	/**
 	*Writes save game info to the passed Printwriter. Info includes this Room's
 	* title, whether the player has been here yet, and it's contents.
+	*@author Carson Meadows
 	*/
 	void storeState(PrintWriter save){
 		save.println(getTitle() +":");
@@ -148,6 +154,7 @@ public class Room{
 	}
 	/**
 	*Hydrates this Room's "been here" status and contents from passed Scanner.
+	*@author Carson Meadows
 	*/
 	void restoreState(Scanner restore, Dungeon d){
 		String state = restore.nextLine();
@@ -172,18 +179,21 @@ public class Room{
 	}
 	/**
 	*Adds passed Item to this Room's contents.
+	*@author Carson Meadows
 	*/
 	void add(Item item){
 		contents.add(item);
 	}
 	/**
 	*Returns ArrayList of this Room's contents.
+	*@author Carson Meadows
 	*/
 	ArrayList<Item> getContents(){
 		return contents;
 	}
 	/**
 	*Removes passed Item from this Room's contents.
+	*@author Carson Meadows
 	*/
 	void remove(Item item){
 		contents.remove(item);
@@ -191,6 +201,7 @@ public class Room{
 	/**
 	*Returns Item in this Room whose name is the parameter. Throws 
 	*NoItemException if no Item has the parameter as a primary or secondary name.
+	*@author Carson Meadows
 	*/
 	Item getItemNamed(String name) throws Item.NoItemException{
 		Item named = null;

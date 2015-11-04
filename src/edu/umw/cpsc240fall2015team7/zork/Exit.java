@@ -26,7 +26,7 @@ public Exit(Scanner scanner, Dungeon d) throws NoExitException{
 }
 /**
 *Returns description of the direction and destination of this Exit.
-*@author Carson
+*@author Carson Meadows
 */
 String describe(){
 	String text = "You can go " + dir + " to " + dest.getTitle()+ ".";
@@ -34,14 +34,14 @@ String describe(){
 }
 /**
 *Returns the direction of this Exit.
-*@author Carson
+*@author Carson Meadows
 */
 public String getDir(){
 	return dir;
 }
 /**
 *Returns the Room this Exit leads to.
-*@author Carson
+*@author Carson Meadows
 */
 public Room getDest(){
 	
@@ -49,7 +49,7 @@ public Room getDest(){
 }
 /**
 *Returns the Room this Exit came from.
-*@author Carson
+*@author Carson Meadows
 */
 public Room getSrc(){
 	return src;
