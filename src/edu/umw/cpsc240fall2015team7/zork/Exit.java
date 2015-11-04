@@ -24,19 +24,29 @@ public Exit(Scanner scanner, Dungeon d) throws NoExitException{
 	scanner.nextLine();		
 	
 }
+/**
+*Returns description of the direction and destination of this Exit.
+*/
 String describe(){
 	String text = "You can go " + dir + " to " + dest.getTitle()+ ".";
 	return text;
 }
+/**
+*Returns the direction of this Exit.
+*/
 public String getDir(){
 	return dir;
 }
-
+/**
+*Returns the Room this Exit leads to.
+*/
 public Room getDest(){
 	
 	return dest;
 }
-
+/**
+*Returns the Room this Exit came from.
+*/
 public Room getSrc(){
 	return src;
 }
