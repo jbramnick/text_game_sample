@@ -7,6 +7,12 @@ import java.util.ArrayList;
 class DropCommand extends Command{
 	private String itemName;
 	private String commandString;
+	
+	/**
+	*Constructs this DropCommand.
+	*@throws NoItemException
+	*@author Carson Meadows
+	*/
 	DropCommand(String commandString)throws Item.NoItemException{
 		try{
 			this.itemName = commandString.substring(5,commandString.length());
