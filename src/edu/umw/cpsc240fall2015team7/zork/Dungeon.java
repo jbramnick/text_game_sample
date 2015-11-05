@@ -5,7 +5,8 @@ import java.util.Scanner;
 import java.io.*;
 import java.util.Set;
 /**
-*The Dungeon class is the current layout of the Rooms, Items and NPC's.
+*Keeps track of the rooms in the dungeon as well as the entry room. Can be used to hydrate a dungeon from a file or to save the current 
+*dungeon.
 *@author Nathanael Woodhead
 */
 public class Dungeon{
@@ -18,9 +19,11 @@ public class Dungeon{
 	private String filename;
 
 	/**
-	*Constructs this Dungeon by reading from a file titled the passed String.
-	*throws IllegalDungeonFormatException
-	*@author Carson Meadows
+	*Constructs this Dungeon from a file.
+	*@param filename the .bork filename
+	*@param initState when true the dungeon is reset to its original state. If false the items will not be placed in the rooms.
+	*@throws IllegalDungeonFormatException If the .bork file does not follow the correct format.
+	*@author Carson Meadows && Nathanael Woodhead
 	*/
 	public Dungeon (String filename, boolean initState) throws IllegalDungeonFormatException{
 		this.filename = filename;
@@ -109,7 +112,7 @@ public class Dungeon{
 	}
 	/**
 	*Adds the passed Room to this Dungeon object.
-	*Does nothing if the passed Room is null, or already exisits in this Dungeon.
+	*Does nothing if the passed Room is null, or already exists in this Dungeon.
 	*@author Jim Bramnick
 	*/
 	public void add(Room room){
@@ -117,7 +120,7 @@ public class Dungeon{
 		map.put(title, room);
 	}
 	/**
-	*Returns the Room object with title roomKey and null if no such room exsists.
+	*Returns the Room object with title roomKey and null if no such room exists.
 	*@author Jim Bramnick
 	*/
 	public Room getRoom(String roomKey){
@@ -131,8 +134,8 @@ public class Dungeon{
 		return filename;
 	}
 	/**
-	*Stores the current state of this dungeon to a file in accordance with the zork file format.
-	*Takes the location of the Printwriter and starts writing the Dungeon from there.
+	*Stores the current state of this dungeon to a file in accordance with the Zork file format.
+	*@param save The PrintWriter to be used to save the current state.
 	*@author Jim Bramnick
 	*/
 	void storeState(PrintWriter save){
@@ -146,7 +149,8 @@ public class Dungeon{
 	}
 	/**
 	*Restores the state of a previously written Dungeon from a .sav file. Starts reading from the passed Scanner's current state.
-	*@author Jim Bramnick
+	*@param restore The Scanner object.
+	*@author Jim Bramnick && Nathanael Woodhead
 	*/
 	void restoreState(Scanner restore){
 		restore.nextLine();
