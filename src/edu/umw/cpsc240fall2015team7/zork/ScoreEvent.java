@@ -17,6 +17,7 @@ class ScoreEvent{
 	*Adds this Event's score to the overall in-game score.
 	*@author Carson Meadows
 	*/
-	String changeScore() {
+	String execute() {
+		return "";
 	}
 }

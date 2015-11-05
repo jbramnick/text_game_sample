@@ -14,6 +14,7 @@ class DieEvent{
 	  *Givs ending score and offers player to restart.
 	  *@author Nathanael Woodhead
 	  */
-	die(){
+	String execute(){
+		return "";
 	}
 

@@ -18,13 +18,15 @@ class WoundEvent{
 	  *regardless of current healths value.
 	  *@author Nathanael Woodhead
 	  */
-	String removeDamage(){
-
+	String execute(){
+		return "";
 	}
 	/**
 	  *Checks to see if the player is dead. The player is dead when health falls below 1.
 	  *@author Nathanael Woodhead
 	  */
 	boolean checkDead(){
+		return false;
 	}
+
 }

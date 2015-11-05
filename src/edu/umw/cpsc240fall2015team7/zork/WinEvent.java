@@ -14,7 +14,7 @@ class WinEvent{
 	  *Ends the game and returns a win message.
 	  *@author Nathanael Woodhead
 	  */
-	String win(){
+	String execute(){
 		return ""
 	}
 }
