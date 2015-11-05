@@ -12,7 +12,7 @@ private Room dest;
 private Room src;
 
 /**
-*Constructs this Exit with parameters given.
+*Constructs this Exit with the parameters given.
 *@author Carson Meadows
 */
 public Exit(String dir, Room src, Room dest){
@@ -21,7 +21,8 @@ public Exit(String dir, Room src, Room dest){
 	this.src = src;
 }
 /**
-*Hydrates this Exit from passed Scanner object. 
+*Hydrates this Exit from the passed Scanner object. 
+*@throws NoExitException
 *@author Carson Meadows
 */
 public Exit(Scanner scanner, Dungeon d) throws NoExitException{
@@ -37,7 +38,7 @@ public Exit(Scanner scanner, Dungeon d) throws NoExitException{
 	
 }
 /**
-*Returns description of the direction and destination of this Exit.
+*Returns a description of the direction and destination of this Exit.
 *@author Carson Meadows
 */
 String describe(){
