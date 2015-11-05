@@ -1,5 +1,5 @@
 package edu.umw.cpsc240fall2015team7.zork;
-public class TransformEvent{
+public class TransformEvent extends Event{
 	private Item item;
 	private Item endItem;
 	/**

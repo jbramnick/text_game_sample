@@ -3,7 +3,7 @@
   *@author Nathanael Woodhead
   */
 package edu.umw.cpsc240fall2015team7.zork;
-class DieEvent{
+class DieEvent extends Event{
 	/**
 	  *Creats a new DieEvent object.
 	  *@author Nathanael Woodhead

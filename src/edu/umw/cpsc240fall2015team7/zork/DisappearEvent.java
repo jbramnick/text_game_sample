@@ -3,10 +3,11 @@
   *@author Nathanael Woodhead
   */
 package edu.umw.cpsc240fall2015team7.zork;
-class DisappearEvent{
+class DisappearEvent extends Event{
 	private Item item;
 	/**
-	  *Creats a new DisappearEvent object. item is the item that will be disappearing.
+	  *Creats a new DisappearEvent object. 
+	  *@param item  The item that will be disappearing.
 	  *@author Nathanael Woodhead
 	  */
 	DisappearEvent(Item item){
@@ -16,7 +17,7 @@ class DisappearEvent{
 	  *@author Nathanael Woodhead
 	  */ 
 	String execute(){
-		return ""
+		return "";
 	}
 
 }

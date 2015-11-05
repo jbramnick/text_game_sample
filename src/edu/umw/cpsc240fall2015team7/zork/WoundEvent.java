@@ -1,9 +1,9 @@
 package edu.umw.cpsc240fall2015team7.zork;
 /**
-  *Decreases the players health and checks to see if the player is dead.
+  *Makes changes to the players health and checks to see if the player is dead.
   *@author Nathanael Woodhead
   */
-class WoundEvent{
+class WoundEvent extends Event{
 	private int damage;
 	/**
 	  *Creates a new WoundEvent object. 
@@ -14,7 +14,7 @@ class WoundEvent{
 
 	}
 	/**
-	  *Removes damage from the player. Subtracts the damage from the players current health
+	  *Changes the players health. Subtracts the damage from the players current health
 	  *regardless of current healths value.
 	  *@author Nathanael Woodhead
 	  */

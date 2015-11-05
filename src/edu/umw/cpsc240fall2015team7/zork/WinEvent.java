@@ -3,7 +3,7 @@
   *@author Nathanael Woodhead
   */
 package edu.umw.cpsc240fall2015team7.zork;
-class WinEvent{
+class WinEvent extends Event{
 	/**
 	  *Creates a new WinEvent object.
 	  *@author Nathanael Woodhead
@@ -15,7 +15,7 @@ class WinEvent{
 	  *@author Nathanael Woodhead
 	  */
 	String execute(){
-		return ""
+		return "";
 	}
 }
 

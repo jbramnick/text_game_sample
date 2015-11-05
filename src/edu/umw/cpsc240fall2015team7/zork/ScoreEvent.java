@@ -3,7 +3,7 @@
   *@author Nathanael Woodhead
   */
 package edu.umw.cpsc240fall2015team7.zork;
-class ScoreEvent{
+class ScoreEvent extends Event{
 	private int score;
 
 	/**
