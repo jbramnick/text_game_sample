@@ -5,7 +5,8 @@ import java.util.Scanner;
 import java.io.*;
 import java.util.Set;
 /**
-*The Dungeon class is the current layout of the Rooms, Items and NPC's.
+*Keeps track of the rooms in he dungeon as well as the entry room. Can be used to hydrate a dungeon from a file or to save the current 
+*dungeon.
 *@author Nathanael Woodhead
 */
 public class Dungeon{
@@ -18,9 +19,11 @@ public class Dungeon{
 	private String filename;
 
 	/**
-	*Constructs this Dungeon by reading from a file titled the passed String.
-	*throws IllegalDungeonFormatException
-	*@author Carson Meadows
+	*Constructs this Dungeon from a file.
+	*@param filename the .bork filename
+	*@param initState when true the dungeon is reset to its origional state. If false dungeon is set to the save game's state.
+	*throws IllegalDungeonFormatException when the .bork file is invalid.
+	*@author Carson Meadows && Nathanael Woodhead
 	*/
 	public Dungeon (String filename, boolean initState) throws IllegalDungeonFormatException{
 		this.filename = filename;
@@ -132,7 +135,7 @@ public class Dungeon{
 	}
 	/**
 	*Stores the current state of this dungeon to a file in accordance with the zork file format.
-	*Takes the location of the Printwriter and starts writing the Dungeon from there.
+	*@param save The PrintWriter to be used to save the current state.
 	*@author Jim Bramnick
 	*/
 	void storeState(PrintWriter save){
@@ -146,7 +149,8 @@ public class Dungeon{
 	}
 	/**
 	*Restores the state of a previously written Dungeon from a .sav file. Starts reading from the passed Scanner's current state.
-	*@author Jim Bramnick
+	*@param restore The Scanner object.
+	*@author Jim Bramnick && Nathanael Woodhead
 	*/
 	void restoreState(Scanner restore){
 		restore.nextLine();
