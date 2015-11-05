@@ -17,4 +17,4 @@ class DieEvent extends Event{
 	String execute(){
 		return "";
 	}
-
+}

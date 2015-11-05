@@ -15,3 +15,4 @@ class TeleportEvent extends Event{
 	String execute(){
 		return "";
 	}
+}
