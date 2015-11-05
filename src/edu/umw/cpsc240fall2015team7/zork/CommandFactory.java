@@ -1,10 +1,10 @@
+package edu.umw.cpsc240fall2015team7.zork;
+import java.util.ArrayList;
+import java.lang.IllegalArgumentException;
 /**
 *Parses input String and returns a command object. 
 *@author Nathanael Woodhead
 */
-package edu.umw.cpsc240fall2015team7.zork;
-import java.util.ArrayList;
-import java.lang.IllegalArgumentException;
 class CommandFactory{
 
 	

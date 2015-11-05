@@ -1,4 +1,8 @@
 package edu.umw.cpsc240fall2015team7.zork;
+/**
+  *Changes item from one thing to another.
+  *@author Nathanael Woodhead
+  */
 public class TransformEvent extends Event{
 	private Item item;
 	private Item endItem;

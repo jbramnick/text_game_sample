@@ -1,11 +1,28 @@
 package edu.umw.cpsc240fall2015team7.zork;
 import java.util.ArrayList;
+/**
+  *Takes an item from the current room and moves it to the players inventory.
+  *@author Nathanael Woodhead
+  */
 class TakeCommand extends Command{
 	private String itemName;
 	private String commandString;
+	/**
+	  *Creates a new TakeCommand object.
+	  *@param commandString a string containing an item name.
+	  *@author Nathanael Woodhead
+	  */
 	TakeCommand(String commandString){
 		this.commandString = commandString;
 	}
+	/**
+	  *Executes the TakeCommand by parsing the commandString to extract the item name and moveing that item to the players inventory
+	  *that item is then removed from the current room. If the item is too heavy this will return a String with a message saying that
+	  *the item is too heavy to carry. If no item name is given it will return a string saying "Take what?". When the item is 
+	  *taken this will return a String saying "Taken itemname".
+	  *@throws Item.NoItemException If there is no item by the given item name exists in the current room.
+	  *@author Nathanael Woodhead
+	  */
 	String execute(){
 		String itemName = "";
 		int weight = 0;

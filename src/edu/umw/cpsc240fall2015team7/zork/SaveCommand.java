@@ -1,8 +1,8 @@
+package edu.umw.cpsc240fall2015team7.zork;
 /**
 *Command that saves the current game status
 *@author Carson Meadows
 */
-package edu.umw.cpsc240fall2015team7.zork;
 class SaveCommand extends Command{
 	private String saveFilename;
 	

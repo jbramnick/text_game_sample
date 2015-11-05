@@ -1,8 +1,8 @@
+package edu.umw.cpsc240fall2015team7.zork;
 /**
 *Moves the player from Room to Room.
 *@author Carson Meadows
 */
-package edu.umw.cpsc240fall2015team7.zork;
 class MovementCommand extends Command{
 
 	private String dir;

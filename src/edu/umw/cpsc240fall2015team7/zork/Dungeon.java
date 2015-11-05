@@ -1,13 +1,13 @@
-/**
-*The Dungeon class is the current layout of the Rooms, Items and NPC's.
-*@author Nathanael Woodhead
-*/
 package edu.umw.cpsc240fall2015team7.zork;
 import java.util.ArrayList;
 import java.util.Hashtable;
 import java.util.Scanner;
 import java.io.*;
 import java.util.Set;
+/**
+*The Dungeon class is the current layout of the Rooms, Items and NPC's.
+*@author Nathanael Woodhead
+*/
 public class Dungeon{
 	static class IllegalDungeonFormatException extends Exception {}
 	private String name;

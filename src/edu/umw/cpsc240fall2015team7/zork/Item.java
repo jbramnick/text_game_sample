@@ -1,13 +1,13 @@
-/**
-*Creates objects to be found and used in the Dungeon.
-*@author zCarson Meadows
-*/
 package edu.umw.cpsc240fall2015team7.zork;
 import java.util.Hashtable;
 import java.util.Enumeration;
 import java.util.ArrayList;
 import java.util.Scanner;
 import java.io.*;
+/**
+*Creates objects to be found and used in the Dungeon.
+*@author zCarson Meadows
+*/
 public class Item{
 	static class NoVerbException extends Exception {}
 	static class NoItemException extends Exception {}

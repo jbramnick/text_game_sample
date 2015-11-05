@@ -1,9 +1,9 @@
+package edu.umw.cpsc240fall2015team7.zork;
+import java.util.Scanner;
 /**
 *Connects Rooms in the Dungeon to each other.
 *@author Carson Meadows
 */
-package edu.umw.cpsc240fall2015team7.zork;
-import java.util.Scanner;
 public class Exit{
 static class NoExitException extends Exception {}
 

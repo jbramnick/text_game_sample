@@ -1,8 +1,8 @@
+package edu.umw.cpsc240fall2015team7.zork;
 /**
   *A singleton class that parses event strings and returns Event objects.
   *@author Nathanael Woodhead
   */
-package edu.umw.cpsc240fall2015team7.zork;
 class EventFactory{
 
 	public static EventFactory theInstance;

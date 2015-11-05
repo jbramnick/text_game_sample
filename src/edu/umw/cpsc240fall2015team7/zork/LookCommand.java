@@ -1,8 +1,8 @@
+package edu.umw.cpsc240fall2015team7.zork;
 /**
 *Command object that returns a description of the player's current Room.
 *@author Carson Meadows
 */
-package edu.umw.cpsc240fall2015team7.zork;
 class LookCommand extends Command{
 	/**
 	*Empty Constructor.

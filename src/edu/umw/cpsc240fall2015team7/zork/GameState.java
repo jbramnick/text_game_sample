@@ -1,11 +1,11 @@
-/**
-  *Keeps track of the current state of the zork game.
-  *@author Nathanael Woodhead
-  */
 package edu.umw.cpsc240fall2015team7.zork;
 import java.io.*;
 import java.util.ArrayList;
 import java.util.Scanner;
+/**
+  *Keeps track of the current state of the zork game.
+  *@author Nathanael Woodhead
+  */
 class GameState{
 
 

@@ -1,4 +1,8 @@
 package edu.umw.cpsc240fall2015team7.zork;
+/**
+  *Moves the player to another room randomly.
+  *@author Nathanael Woodhead
+  */
 class TeleportEvent extends Event{
 	/**
 	  *Creates a new TeleportEvent object.

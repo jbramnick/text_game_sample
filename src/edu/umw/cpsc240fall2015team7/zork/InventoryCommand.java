@@ -1,9 +1,9 @@
+package edu.umw.cpsc240fall2015team7.zork;
+import java.util.ArrayList;
 /**
 *Returns a description of the player's inventory.
 *@author Carson Meadows
 */
-package edu.umw.cpsc240fall2015team7.zork;
-import java.util.ArrayList;
 class InventoryCommand extends Command{
 	
 	/**

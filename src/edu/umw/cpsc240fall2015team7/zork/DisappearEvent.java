@@ -1,8 +1,8 @@
+package edu.umw.cpsc240fall2015team7.zork;
 /**
   *Causes an item to disapear.
   *@author Nathanael Woodhead
   */
-package edu.umw.cpsc240fall2015team7.zork;
 class DisappearEvent extends Event{
 	private Item item;
 	/**

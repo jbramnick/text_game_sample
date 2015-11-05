@@ -1,8 +1,8 @@
+package edu.umw.cpsc240fall2015team7.zork;
 /**
   *Ends the game and returns a win message and the score.
   *@author Nathanael Woodhead
   */
-package edu.umw.cpsc240fall2015team7.zork;
 class WinEvent extends Event{
 	/**
 	  *Creates a new WinEvent object.
