@@ -6,7 +6,7 @@ import java.lang.IllegalArgumentException;
  */
 abstract class Command{
 	/**
-	*super method for all subclasses to overwrite regarding their command behavior once executed.
+	*Super method for all subclasses to overwrite regarding their command behavior once executed.
 	*@author Nathanael Woodhead
 	*/
 	abstract String execute(){
