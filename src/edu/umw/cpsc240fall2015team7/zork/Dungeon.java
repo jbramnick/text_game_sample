@@ -1,13 +1,13 @@
-/**
-*The dungeon class is the current layout of the rooms,items and NPCs.
-*@author Nathanael Woodhead
-*/
 package edu.umw.cpsc240fall2015team7.zork;
 import java.util.ArrayList;
 import java.util.Hashtable;
 import java.util.Scanner;
 import java.io.*;
 import java.util.Set;
+/**
+*The Dungeon class is the current layout of the Rooms, Items and NPC's.
+*@author Nathanael Woodhead
+*/
 public class Dungeon{
 	static class IllegalDungeonFormatException extends Exception {}
 	private String name;
@@ -16,6 +16,12 @@ public class Dungeon{
 	private Hashtable <String, Item> items = new Hashtable<String, Item>(5);
 	private String version;
 	private String filename;
+
+	/**
+	*Constructs this Dungeon by reading from a file titled the passed String.
+	*throws IllegalDungeonFormatException
+	*@author Carson Meadows
+	*/
 	public Dungeon (String filename, boolean initState) throws IllegalDungeonFormatException{
 		this.filename = filename;
 		try{
@@ -88,46 +94,46 @@ public class Dungeon{
 		}
 	}
 	/**
-	*returns the entry room object of the dungeon.
-	*@return entry room.
+	*Returns the entry room object of the dungeon.
+	*@author Jim Bramnick
 	*/
 	public Room getEntry(){
 		return entry;
 	}
 	/**
-	*returns the name of the this dungeon object.
-	*@return name of dungeon.
+	*Returns the name of the this Dungeon object.
+	*@author Jim Bramnick
 	*/
 	public String getName(){
 		return name;
 	}
 	/**
-	*adds the room to this dungeon object.
-	*If room already exisits in this dungeon does nothing.If room is null does nothing.
-	*@param room to be added
+	*Adds the passed Room to this Dungeon object.
+	*Does nothing if the passed Room is null, or already exisits in this Dungeon.
+	*@author Jim Bramnick
 	*/
 	public void add(Room room){
 		String title = room.getTitle();
 		map.put(title, room);
 	}
 	/**
-	*returns the room with title roomKey and null if no such room exsists.
-	*@return room with title roomKey
+	*Returns the Room object with title roomKey and null if no such room exsists.
+	*@author Jim Bramnick
 	*/
 	public Room getRoom(String roomKey){
 		return map.get(roomKey);
 	}
 	/**
-	*returns the a string of the full path to the file that was used to make the dungeon.
-	*@return string of the full path to file
+	*Returns a string of the full path to the file that was used to make this dungeon.
+	*@author Jim Bramnick
 	*/
 	public String getFilename(){
 		return filename;
 	}
 	/**
 	*Stores the current state of this dungeon to a file in accordance with the zork file format.
-	*Takes the location of the printwriter and starts writing the dungeon from there.
-	*@param the current printwriter used to save
+	*Takes the location of the Printwriter and starts writing the Dungeon from there.
+	*@author Jim Bramnick
 	*/
 	void storeState(PrintWriter save){
 		save.println("Dungeon file: " + filename);
@@ -139,8 +145,8 @@ public class Dungeon{
 
 	}
 	/**
-	*Restores the state of a previously written dungeon from a .sav file. Starts reading from the restore's current state.
-	*@param the current scanner used in reading the save file
+	*Restores the state of a previously written Dungeon from a .sav file. Starts reading from the passed Scanner's current state.
+	*@author Jim Bramnick
 	*/
 	void restoreState(Scanner restore){
 		restore.nextLine();
@@ -153,8 +159,8 @@ public class Dungeon{
 
 	}
 	/**
-	*adds the item to this dungeon. if the item already exisists, does nothing. if item is null, does nothing.
-	*@param the item to be added
+	*Adds the passed Item to this Dungeon. Does nothing if the Item already exists, or is null.
+	*@author Jim Bramnick
 	*/
 	public void add(Item item){
 		String name = item.getPrimaryName();
@@ -164,8 +170,8 @@ public class Dungeon{
 		}
 	}
 	/**
-	*returns the item in this dungeon by the title name. if the item by title name is not in the dungeon returns null.
-	*@param the name of the item to be returned
+	*Returns the Item in this Dungeon named the passed String. Returns null if the Item named is not in this Dungeon.
+	*@author Jim Bramnick
 	*/
 	public Item getItem(String name){
 		return items.get(name);

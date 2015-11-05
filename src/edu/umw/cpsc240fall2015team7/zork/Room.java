@@ -1,11 +1,11 @@
-/**
-*Room objects make up the Dungeon, can be entered and exited, and can hold Items.
-*@author Carson Meadows
-*/
 package edu.umw.cpsc240fall2015team7.zork;
 import java.util.ArrayList;
 import java.util.Scanner;
 import java.io.*;
+/**
+*Room objects make up the Dungeon, can be entered and exited, and can hold Items.
+*@author Carson Meadows
+*/
 public class Room{
 	static class NoRoomException extends Exception {}
 	private String title;

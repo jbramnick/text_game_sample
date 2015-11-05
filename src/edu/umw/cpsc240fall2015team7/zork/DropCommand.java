@@ -1,12 +1,18 @@
+package edu.umw.cpsc240fall2015team7.zork;
+import java.util.ArrayList;
 /**
 *Used so the user can drop items.
 *@author Nathanael Woodhead
 */
-package edu.umw.cpsc240fall2015team7.zork;
-import java.util.ArrayList;
 class DropCommand extends Command{
 	private String itemName;
 	private String commandString;
+	
+	/**
+	*Constructs this DropCommand.
+	*@throws NoItemException
+	*@author Carson Meadows
+	*/
 	DropCommand(String commandString)throws Item.NoItemException{
 		try{
 			this.itemName = commandString.substring(5,commandString.length());

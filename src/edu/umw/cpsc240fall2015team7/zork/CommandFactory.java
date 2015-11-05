@@ -1,16 +1,18 @@
-/**
-*Parses input String and returns a command object. 
-*/
 package edu.umw.cpsc240fall2015team7.zork;
 import java.util.ArrayList;
 import java.lang.IllegalArgumentException;
+/**
+*Parses input String and returns a command object. 
+*@author Nathanael Woodhead
+*/
 class CommandFactory{
 
 	
 	public static CommandFactory theInstance;
 	/**
-	  *Creates a new CommandFacory object. If a CommandFactory object already exists then returns that object.
-	  */
+	*Creates a new CommandFacory object. If a CommandFactory object already exists then returns that object.
+	*@author Carson Meadows 
+	*/
 	public static CommandFactory instance(){
 		if(theInstance == null){
 			theInstance = new CommandFactory();
@@ -18,8 +20,16 @@ class CommandFactory{
 		return theInstance;
 
 	}
+	/**
+	*Empty Constructor.
+	*@author Carson Meadows
+	*/
 	private CommandFactory(){
 	}
+	/**
+	*Reads passed String and returns a new Command of the correct type. Throws new IllegalArgumentException if passed String does not refer to any Command type.
+	*@author Carson Meadows
+	*/
 	Command parse(String commandString)throws Item.NoItemException{
 		ArrayList<String> verbs = GameState.instance().getVerbs();
 		String[] command = commandString.split(" ");

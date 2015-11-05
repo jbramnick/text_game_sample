@@ -1,10 +1,10 @@
-/**
- *The main for the zork program. 
- *
- */
 package edu.umw.cpsc240fall2015team7.zork;
 import java.util.Scanner;
 import java.io.*;
+/**
+ *The main for the zork program. 
+ *@author Nathanael Woodhead
+ */
 class Interpreter {
 	public static void main (String args[]){
 		if(args.length == 0){
