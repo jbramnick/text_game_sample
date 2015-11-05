@@ -24,6 +24,7 @@ class WoundEvent extends Event{
 	/**
 	  *Checks to see if the player is dead. The player is dead when health falls below 1.
 	  *@author Nathanael Woodhead
+	  *@return true when the player is dead false when the player is still alive.
 	  */
 	boolean checkDead(){
 		return false;

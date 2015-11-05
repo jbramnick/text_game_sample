@@ -8,7 +8,8 @@ class ScoreEvent extends Event{
 
 	/**
 	*Constructs this ScoreEvent with passed int.
-	*@author Carson Meadows
+	*@param score the number that the score should be changed by, this can be positive or negative.
+	*@author Carson Meadows and Nathanael Woodhead
 	*/
 	ScoreEvent(int score){
 		this.score=score;

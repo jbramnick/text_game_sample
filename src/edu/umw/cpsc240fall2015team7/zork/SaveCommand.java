@@ -8,6 +8,7 @@ class SaveCommand extends Command{
 	
 	/**
 	*Constructs this SaveCommand.
+	*@param f the filename
 	*@author Carson Meadows
 	*/
 	SaveCommand(String f){

@@ -20,7 +20,6 @@ class TakeCommand extends Command{
 	  *that item is then removed from the current room. If the item is too heavy this will return a String with a message saying that
 	  *the item is too heavy to carry. If no item name is given it will return a string saying "Take what?". When the item is 
 	  *taken this will return a String saying "Taken itemname".
-	  *@throws Item.NoItemException If there is no item by the given item name exists in the current room.
 	  *@author Nathanael Woodhead
 	  */
 	String execute(){
