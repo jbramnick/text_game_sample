@@ -5,7 +5,7 @@ import java.util.Scanner;
 import java.io.*;
 import java.util.Set;
 /**
-*Keeps track of the rooms in he dungeon as well as the entry room. Can be used to hydrate a dungeon from a file or to save the current 
+*Keeps track of the rooms in the dungeon as well as the entry room. Can be used to hydrate a dungeon from a file or to save the current 
 *dungeon.
 *@author Nathanael Woodhead
 */
@@ -21,8 +21,8 @@ public class Dungeon{
 	/**
 	*Constructs this Dungeon from a file.
 	*@param filename the .bork filename
-	*@param initState when true the dungeon is reset to its origional state. If false dungeon is set to the save game's state.
-	*throws IllegalDungeonFormatException when the .bork file is invalid.
+	*@param initState when true the dungeon is reset to its origional state. If false the items will not be placed in the rooms.
+	*@throws IllegalDungeonFormatException If the .bork file does not follow the correct format.
 	*@author Carson Meadows && Nathanael Woodhead
 	*/
 	public Dungeon (String filename, boolean initState) throws IllegalDungeonFormatException{
