@@ -111,7 +111,7 @@ class GameState{
 	/**
   	*Hydrates the game from a savefile.
 	*@throws IllegalSaveFormatException when the .sav does not conform to the proper format.
-	*@throws FileNotFoundException When the fils is not found.
+	*@throws FileNotFoundException When the file is not found.
 	*@throws Dungeon.IllegalDungeonFormatException When the dungeon file contained in the savefile is the invalid
 	* @author Nathan Woodhead
 	*/	

@@ -2,7 +2,7 @@ package edu.umw.cpsc240fall2015team7.zork;
 import java.util.Scanner;
 import java.io.*;
 /**
- *The main for the zork program. 
+ *The main for the Zork program. 
  *@author Nathanael Woodhead
  */
 class Interpreter {
@@ -70,7 +70,9 @@ class Interpreter {
 
 	}
 	/**
-	 *Returns the String inputed by the user. 
+	 *Returns the String inputed by the user.
+	 *@author Nathanael Woodhead
+	 *@param commandLine the BufferedReader object to read input from user. 
 	 */
 	private static String promptUser(BufferedReader commandLine){
 		String output = "";

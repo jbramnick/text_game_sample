@@ -16,10 +16,10 @@ class TakeCommand extends Command{
 		this.commandString = commandString;
 	}
 	/**
-	  *Executes the TakeCommand by parsing the commandString to extract the item name and moveing that item to the players inventory
+	  *Executes the TakeCommand by parsing the commandString to extract the item name and moving that item to the players inventory
 	  *that item is then removed from the current room. If the item is too heavy this will return a String with a message saying that
 	  *the item is too heavy to carry. If no item name is given it will return a string saying "Take what?". When the item is 
-	  *taken this will return a String saying "Taken itemname".
+	  *taken this will return a String saying "Taken itemName".
 	  *@author Nathanael Woodhead
 	  */
 	String execute(){

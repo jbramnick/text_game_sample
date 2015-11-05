@@ -5,7 +5,7 @@ package edu.umw.cpsc240fall2015team7.zork;
   */
 abstract class Event{
 	/**
-	  *Super method for all Events to overwrite regarding that events behaivor.
+	  *Super method for all Events to overwrite regarding that events behavior.
 	  *@author Nathanael Woodhead
 	  */
 	abstract String execute(){}

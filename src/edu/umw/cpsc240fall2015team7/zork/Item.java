@@ -6,7 +6,7 @@ import java.util.Scanner;
 import java.io.*;
 /**
 *Creates objects to be found and used in the Dungeon.
-*@author zCarson Meadows
+*@author Carson Meadows
 */
 public class Item{
 	static class NoVerbException extends Exception {}
@@ -97,8 +97,8 @@ public class Item{
 		return primaryName;
 	}
 	/**
-	*Returns message associated with passed String. Throws 
-	*NoVerbException if this Item does not contain the passed String. 
+	*Returns message associated with passed String. 
+	*@throws NoVerbException if this Item does not contain the passed String. 
 	*@author Carson Meadows
 	*/
 	public String getMessageForVerb(String verb) throws NoVerbException{
