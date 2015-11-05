@@ -10,7 +10,7 @@ class CommandFactory{
 	
 	public static CommandFactory theInstance;
 	/**
-	*Creates a new CommandFacory object. If a CommandFactory object already exists then returns that object.
+	*Creates a new CommandFacory object. If a CommandFacory object already exists then returns that object.
 	*@author Carson Meadows 
 	*/
 	public static CommandFactory instance(){
@@ -27,7 +27,8 @@ class CommandFactory{
 	private CommandFactory(){
 	}
 	/**
-	*Reads passed String and returns a new Command of the correct type. Throws new IllegalArgumentException if passed String does not refer to any Command type.
+	*Reads passed String and returns a new Command of the correct type. 
+	*@throws  IllegalArgumentException If passed String does not refer to any Command type.
 	*@author Carson Meadows
 	*/
 	Command parse(String commandString)throws Item.NoItemException{
