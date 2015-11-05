@@ -1,6 +1,6 @@
 package edu.umw.cpsc240fall2015team7.zork;
 /**
-  *Changes the score. Takes an int and changes the players score by that ammount.
+  *Changes the score. Takes an int and changes the players score by that amount.
   *@author Nathanael Woodhead
   */
 class ScoreEvent extends Event{

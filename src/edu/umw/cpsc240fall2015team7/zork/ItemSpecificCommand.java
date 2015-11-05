@@ -8,7 +8,7 @@ class ItemSpecificCommand extends Command{
 	private String noun;
 	/**
 	  *Creates a new ItemSpecificCommand object taking a verb and a noun.
-	  *@param verb Action to do to or with the noun
+	  *@param verb Action to do to or with the noun.
 	  *@param noun The name of the item.
 	  *@author Nathanael Woodhead
 	  */
@@ -17,7 +17,7 @@ class ItemSpecificCommand extends Command{
 		this.noun = noun;
 	}
 	/**
-	  *Executes the command and returns the text associated with the verb. If the verb has events associated with it
+	  *Executes this command and returns the text associated with the verb. If the verb has Events associated with it, 
 	  *it will create the Event objects and execute them.
 	  *@throws Item.NoItemException when you do not have the specified item.
 	  *@throws Item.NoVerbException When the given noun does not have the specified verb.

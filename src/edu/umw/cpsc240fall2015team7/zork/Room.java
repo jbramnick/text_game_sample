@@ -27,7 +27,9 @@ public class Room{
 	/**
 	*Constructs this Room based on passed Scanner object's contents. Reads from
 	*Scanner to get this Room's title, contents and description.
-	*@author Carson Meadows
+	*@param d the current Dungeon object
+	*@param initState when true items will be reset to initial state. When false items will be set to saved state.
+	*@author Carson Meadows and Nathanael Woodhead
 	*/
 	
 	public Room(Scanner scanner,Dungeon d, boolean initState) throws NoRoomException{
@@ -64,10 +66,10 @@ public class Room{
 		this.desc = desc;
 	}
 	/**
-	*Returns information about this Room. If the player has never been here, 
+	*Returns information about this Room. If the player has never been to this room, 
 	*returned text includes Room's title, description, exits, and contents.
-	*If the player has been here before, returns only exits and contents.
-	*@peram beenHere when false will give a full description.
+	*Otherwise returns only exits and contents.
+	*@param beenHere When false will give a full description.
 	*@author Nathanael Woodhead
 	*/
 	String describe(boolean beenHere){
@@ -149,7 +151,7 @@ public class Room{
 
 	}
 	/**
-	*Writes save game info to the passed Printwriter. Info includes this Room's
+	*Writes save game info to the passed PrintWriter. Info includes this Room's
 	* title, whether the player has been here yet, and it's contents.
 	*@author Carson Meadows
 	*/
@@ -213,9 +215,9 @@ public class Room{
 		contents.remove(item);
 	}
 	/**
-	*Returns Item in this Room whose name is the parameter. Throws 
-	*NoItemException if no Item has the parameter as a primary or secondary name.
-	*@author Carson Meadows
+	*Returns Item in this Room whose name is the parameter. 
+	*@throws Item.NoItemException If no Item has name passed as a primary or secondary name.
+	*@author Carson Meadows and Nathanael Woodhead
 	*/
 	Item getItemNamed(String name) throws Item.NoItemException{
 		Item named = null;

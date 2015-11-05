@@ -17,7 +17,7 @@ class GameState{
 	private ArrayList<String> verbs;
 	public class IllegalSaveFormatException extends Exception {};
 	/**
-	  *Returns a GameState object. If no gamestate object exists creates a new one and returns it. 
+	  *Returns this GameState object. If no Gamestate object exists, creates a new one and returns it. 
 	  *@author Nathanael Woodhead
 	  */
 	public static GameState instance(){
@@ -28,14 +28,14 @@ class GameState{
 
 	}
 	/**
-	  *An empty constructor. Instead GameState.instance should be called.
+	  *An empty constructor. Instead GameState.instance() should be called.
 	  *@author Nathanael Woodhead
 	  */
 	private GameState(){
 	}
 	/**
-	  *Initializes the dungeon in this. 
-	  *@param The dungeon object.
+	  *Initializes a Dungeon in this Gamestate instance. 
+	  *@param The Dungeon object.
 	  *@author Nathanael Woodhead
 	  */
 	void initialize(Dungeon dungeon){
@@ -48,7 +48,7 @@ class GameState{
 		}
 	}
 	/**
-	  *Returns the total weight of all items in the players inventory.
+	  *Returns the total weight of all items in the player's inventory.
 	  *@author Nathanael Woodhead
 	  */
 	int getLoad(){
@@ -59,7 +59,7 @@ class GameState{
 		return load;
 	}
 	/**
-	  *Returns object that is the current room for this. 
+	  *Returns object that is the current Room for this. 
 	  *@author Nathan Woodhead
 	  */
 	Room getAdventurersCurrentRoom(){
@@ -73,14 +73,14 @@ class GameState{
 		adeventurersCurrentRoom = room;
 	}
 	/**
-	  *Returns the dungeon for this. If there is no dungeon then it will return null
+	  *Returns the Dungeon for this. If there is no Dungeon, will return null
 	  *@author Nathan Woodhead
 	  */
 	Dungeon getDungeon(){
 		return map;
 	}
 	/**
-	  *Creates a savefile of the current gamestate. Stores the file as myProgress.sav
+	  *Creates a savefile of the current Gamestate. Stores the file as myProgress.sav
 	  *@author Nathan Woodhead
 	  */
 	void store(){
@@ -110,9 +110,9 @@ class GameState{
 	}
 	/**
   	*Hydrates the game from a savefile.
-	*@throws IllegalSaveFormatException when the .sav does not conform to the proper format.
-	*@throws FileNotFoundException When the fils is not found.
-	*@throws Dungeon.IllegalDungeonFormatException When the dungeon file contained in the savefile is the invalid
+	*@throws IllegalSaveFormatException If the .sav does not conform to the proper format.
+	*@throws FileNotFoundException If the file is not found.
+	*@throws Dungeon.IllegalDungeonFormatException If the Dungeon file contained in the savefile is invalid.
 	* @author Nathan Woodhead
 	*/	
 	void restore(String filename) throws IllegalSaveFormatException, FileNotFoundException, Dungeon.IllegalDungeonFormatException{
@@ -157,7 +157,7 @@ class GameState{
 		}
 	}
 	/**
-	  *Returns an ArrayList of all the item names in this inventory.
+	  *Returns an ArrayList of all the Item names in the inventory of this.
 	  *@author Nathan Woodhead
 	  */
 	ArrayList<String> getInventoryNames(){
@@ -177,14 +177,14 @@ class GameState{
 		inventory.add(item);
 	}
 	/**
-	  *Removes the given item object from this inventory.
+	  *Removes the passed Item object from the inventory of this.
 	  *If item is not in the inventory then it will quietly do nothing
 	  */ 
 	void removeFromInventory(Item item){
 		inventory.remove(item);
 	}
 	/**
-	  *Returns a ArrayList with the contents inventory and then clears the inventory of items.
+	  *Returns an ArrayList with the contents of this' inventory and then clears this' inventory of Items.
 	  *@author Nathan Woodhead
 	  */
 	ArrayList<Item> removeAllFromInventory(){
@@ -196,8 +196,8 @@ class GameState{
 		return oldInventoy;
 	}
 	/**
-	  *Returns the item that goes by the name given in the current room.
-	  *@throws Item.NoItemException When there is no item by that name in the current room.
+	  *Returns the Item that goes by the name given in the current room.
+	  *@throws Item.NoItemException If there is no Item by that name in the current room.
 	  *@author Nathanael Woodhead
 	  */
 	Item getItemInVecinityNamed(String name) throws Item.NoItemException{
@@ -205,9 +205,9 @@ class GameState{
 	}
 	/**
 	  *Returns the Item object in this inventory that goes by the name inputed.
-	  *@param name A item name to look for in the inventory
+	  *@param name An Item name to look for in the inventory
 	  *@author Nathanael Woodhead
-	  *@throws Item.NoItemException When there is no item by that name in this inventory.
+	  *@throws Item.NoItemException If there is no Item by that name in this' inventory.
 	  */
 	Item getItemFromInventoryNamed(String name) throws Item.NoItemException{
 		for(Item item : inventory){
@@ -218,7 +218,7 @@ class GameState{
 		throw new Item.NoItemException();
 	}
 	/**
-	  *Returns an ArrayList of verbs. Each verb is a String.
+	  *Returns an ArrayList of verbs in this. Each verb is a String.
 	  *@author Nathanael Woodhead
 	  */
 	ArrayList<String> getVerbs(){
