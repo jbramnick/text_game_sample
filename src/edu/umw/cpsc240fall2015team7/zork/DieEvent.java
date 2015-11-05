@@ -1,17 +1,17 @@
 package edu.umw.cpsc240fall2015team7.zork;
 /**
-  *Totals up the score presents the user with the ending score and offers to restart.
+  *Totals up the score and ends the game.
   *@author Nathanael Woodhead
   */
 class DieEvent extends Event{
 	/**
-	  *Creats a new DieEvent object.
+	  *Creates a new DieEvent object.
 	  *@author Nathanael Woodhead
 	  */
 	DieEvent(){
 	}
 	/**
-	  *Givs ending score and offers player to restart.
+	  *Returns the ending score and a you loose message.
 	  *@author Nathanael Woodhead
 	  */
 	String execute(){
