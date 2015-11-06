@@ -1,9 +1,9 @@
 package edu.umw.cpsc240fall2015team7.zork;
 /**
-*The event that handles the death of a zombie NPC.
-*@author Jim Bramnick
+The event that handles the lighting up of a room that is dark.
+@author Jim Bramnick
 */
-class ZombieDieEvent
+class LightUpEvent
 {
 	private Zombie zombie;
 	/**
