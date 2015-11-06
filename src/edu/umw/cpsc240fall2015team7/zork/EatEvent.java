@@ -15,10 +15,12 @@ class EatEvent
 	}
 	/**
 	Executes the command to add the hunger amt to the hunger in GameState.
+	If GameState hunger is equal to hunger maximum silently does nothing.
 	@author Jim Bramnick
 	*/
 	public String execute()
 	{
+		return "";
 	}
 
 }
