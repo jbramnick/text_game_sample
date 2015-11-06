@@ -1,6 +1,6 @@
 package edu.umw.cpsc240fall2015team7.zork;
 /**
-  *Abstract superclass for all Npcs. A Npc is a non-player character.
+  *Abstract superclass for all NPC's. An NPC is a non-player character.
   *@author Nathanael Woodhead
   */
 abstract class Npc{
@@ -9,9 +9,9 @@ abstract class Npc{
 	private boolean aggression;
 	private Room currentRoom;
 	/**
-	  *Abstract constructor for all Npcs
-	  *@param currentRoom The room that the Npc object should be added to.
-	  *@param health The health for the Npc
+	  *Constructor for all NPC's
+	  *@param currentRoom The room that the NPC object should be added to.
+	  *@param health The health for the NPC.
 	  *@param primaryName The name of the character.
 	  *@param power The amount of damage done with a single attack.
 	  *@author Nathanael Woodhead
@@ -26,22 +26,29 @@ abstract class Npc{
 	public void setAggressive(boolean aggression){
 	}
 	/**
-	  *Kills the Npc and removes it from the game.
+	  *Kills this NPC and removes it from the game.
 	  *@author Nathanael Woodhead
 	  */
 	public void die(){
 	}
 	/**
-	  *Removes health from the Npc. If health falls below 1 this will call {@link die()}.
-	  *@param damage the amount of damage to be removed from health.
+	  *Removes health from the NPC. If health falls below 1 this will call {@link die()}.
+	  *@param damage The amount of damage to be removed from this NPC's health.
 	  *@author Nathanael Woodhead
 	  */
 	public void removeHealth(int damage){
 	}
 	/**
-	  *Returns the aggression value for this.
+	  *Returns the aggression value for this NPC.
 	  *@author Nathanael Woodhead
 	  */
-	public boolean getAgression(){
+	public boolean getAggression(){
 		return false;
 	}
+	/**
+	*Returns response from this NPC when interacted with by the player.
+	*@author Carson Meadows
+	*/
+	public String getTalkedAt () {
+	}
+}
