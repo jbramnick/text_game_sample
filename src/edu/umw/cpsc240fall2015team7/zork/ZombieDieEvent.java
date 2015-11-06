@@ -1,7 +1,7 @@
 package edu.umw.cpsc240fall2015team7.zork;
 /**
-the event that handles the death of a zombie npc.
-@author Jim Bramnick
+*The event that handles the death of a zombie NPC.
+*@author Jim Bramnick
 */
 class ZombieDieEvent
 {
