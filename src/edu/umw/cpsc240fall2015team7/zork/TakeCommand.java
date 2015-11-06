@@ -20,7 +20,8 @@ class TakeCommand extends Command{
 	  *that item is then removed from the current room. If the item is too heavy this will return a String with a message saying that
 	  *the item is too heavy to carry. If no item name is given it will return a string saying "Take what?". When the item is 
 	  *taken this will return a String saying "Taken itemName".
-	  *@author Nathanael Woodhead
+	  *If command string contains "Ammo", "Medkit", or "Snack" this adds it to {@link Player} number of Ammo, Medkit, or snack.
+	  *@author Nathanael Woodhead && Jim Bramnick
 	  */
 	String execute(){
 		String itemName = "";

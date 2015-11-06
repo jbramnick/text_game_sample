@@ -1,6 +1,6 @@
 package edu.umw.cpsc240fall2015team7.zork;
 /**
-Event used to set health in GameState to MaxHealth.
+Event used to set health in {@link Player} to {@link Player} MaxHealth.
 @author Jim Bramnick
 */
 class HealEvent
@@ -14,8 +14,8 @@ class HealEvent
 
 	}
 	/**
-	Executes heal Event and sets GameState health to GameState MaxHealth.
-	@throws MaxHealthException If GameState health is equal to GameState MaxHealth.
+	Executes heal Event and sets {@link Player} health to {@link Player} MaxHealth.
+	@throws MaxHealthException If {@link Player} health is equal to {@link Player} MaxHealth.
 	@author Jim Bramnick
 	*/
 	public String Execute()
