@@ -1,32 +1,28 @@
 package edu.umw.cpsc240fall2015team7.zork;
 /**
-*Singleton class which creates NPC's to be placed in Rooms in the Dungeon.
-*@author Carson Meadows
-*/
-class Spawner {
-	Dungeon d;
-	
+  *Spawns opponents.
+  *@author Nathanael Woodhead
+  */
+class Spawner{
+	public static Spawner theInstance;
 	/**
-	*Constructs this Spawner.
-	*@author Carson Meadows
-	*/
-        private static Spawner (Dungeon d) {
-		this.d=d;
+	  *If a player does not already exist creates a new Spawner and return it. Otherwise will return the Spawner object.
+	  *@author Nathanael Woodhead
+	  */
+	public static Spawner instance(){
 	}
+	/**
+	  *A private constructor that creates a Spawner object with the default Values.
+	  *@author Nathanael Woodhead
+	  */
+	private Spawner(){
+	}
+	/**
+	  *Makes a new opponent and places it in a random room.
+	  *@author Nathanael Woodhead
+	  */
+	void spawn(){
 
-        /**
-        *
-        *@author Carson Meadows
-        */
-        public void instance () {
-        }
-
-        /**
-        *.
-        *@author Carson Meadows
-        */
-        public void spawn () {
-        }
-
+	}
 }
 
