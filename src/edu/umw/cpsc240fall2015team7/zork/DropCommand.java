@@ -1,7 +1,7 @@
 package edu.umw.cpsc240fall2015team7.zork;
 import java.util.ArrayList;
 /**
-*Used so the user can drop items.
+*A command for dropping items.
 *@author Nathanael Woodhead
 */
 class DropCommand extends Command{
@@ -25,10 +25,10 @@ class DropCommand extends Command{
 		System.out.println(itemName);
 	}
 	/**
-	*removes the item specified within the command string from the inventory of GameState or all the items if all is specified. 
+	*Removes the item specified within the command string from the inventory of GameState or all the items if all is specified. 
 	*If item specified in commandString is not in inventory of GameState a message is printed.
 	*@author Nathanael Woodhead
-	*@return a string of a message to the user regarding their drop action
+	*@return A message to the user regarding their drop action
 	*/
 	String execute(){
 		try{

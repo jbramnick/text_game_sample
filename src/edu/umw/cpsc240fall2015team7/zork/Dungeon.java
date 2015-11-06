@@ -5,8 +5,7 @@ import java.util.Scanner;
 import java.io.*;
 import java.util.Set;
 /**
-*Keeps track of the rooms in the dungeon as well as the entry room. Can be used to hydrate a dungeon from a file or to save the current 
-*dungeon.
+*The map that the player can explore.
 *@author Nathanael Woodhead
 */
 public class Dungeon{
@@ -23,7 +22,7 @@ public class Dungeon{
 	*@param filename the .bork filename
 	*@param initState when true the dungeon is reset to its original state. If false the items will not be placed in the rooms.
 	*@throws IllegalDungeonFormatException If the .bork file does not follow the correct format.
-	*@author Carson Meadows && Nathanael Woodhead
+	*@author Carson Meadows and Nathanael Woodhead
 	*/
 	public Dungeon (String filename, boolean initState) throws IllegalDungeonFormatException{
 		this.filename = filename;
@@ -150,7 +149,7 @@ public class Dungeon{
 	/**
 	*Restores the state of a previously written Dungeon from a .sav file. Starts reading from the passed Scanner's current state.
 	*@param restore The Scanner object.
-	*@author Jim Bramnick && Nathanael Woodhead
+	*@author Jim Bramnick and Nathanael Woodhead
 	*/
 	void restoreState(Scanner restore){
 		restore.nextLine();
