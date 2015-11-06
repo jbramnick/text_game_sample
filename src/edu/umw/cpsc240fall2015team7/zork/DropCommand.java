@@ -26,7 +26,7 @@ class DropCommand extends Command{
 	}
 	/**
 	*Removes the item specified within the command string from the inventory of GameState or all the items if all is specified. 
-	*If item specified in commandString is not in inventory of GameState a message is printed.
+	*If item specified in commandString is not in inventory of GameState an error message is printed.
 	*@author Nathanael Woodhead
 	*@return A message to the user regarding their drop action
 	*/
