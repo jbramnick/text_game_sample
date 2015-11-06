@@ -15,6 +15,7 @@ class HealEvent
 	}
 	/**
 	Executes heal Event and sets GameState health to GameState MaxHealth.
+	@throws MaxHealthException If GameState health is equal to GameState MaxHealth.
 	@author Jim Bramnick
 	*/
 	public String Execute()
