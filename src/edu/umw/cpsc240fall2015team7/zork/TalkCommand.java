@@ -21,6 +21,7 @@ class TalkCommand {
         *@author Carson Meadows
         */
         public String execute () {
+		return "";
         }
 
 }
