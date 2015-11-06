@@ -13,7 +13,7 @@ class InventoryCommand extends Command{
 	InventoryCommand(){
 	}
 	/**
-	*Returns description of player's inventory.
+	*Returns description of player's inventory. If the inventory is empty will return a message saying so. 
 	*@author Carson Meadows
 	*/
 	String execute(){
