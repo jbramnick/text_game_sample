@@ -25,7 +25,7 @@ class EventFactory{
 	}
 	/**
 	  *Returns the correct Event object for the string entered. 
-	  *@throws NoEventException When no Event matches the string passed.
+	  *@throws NoEventException If no Event matches the string passed.
 	  *@author Nathanael Woodhead
 	  */
 	Event parse(String eventString){
