@@ -1,6 +1,6 @@
 package edu.umw.cpsc240fall2015team7.zork;
 /**
-  *Changes the score. Takes an int and changes the players score by that amount.
+  *Changes the player's total score by the amount passed.
   *@author Nathanael Woodhead
   */
 class ScoreEvent extends Event{
@@ -8,7 +8,7 @@ class ScoreEvent extends Event{
 
 	/**
 	*Constructs this ScoreEvent with passed int.
-	*@param score the number that the score should be changed by, this can be positive or negative.
+	*@param score The number that the total score should be changed by. Can be positive or negative.
 	*@author Carson Meadows and Nathanael Woodhead
 	*/
 	ScoreEvent(int score){
