@@ -1,6 +1,6 @@
 package edu.umw.cpsc240fall2015team7.zork;
 /**
-  *Causes an item to disappear.
+  *Causes an Item to disappear.
   *@author Nathanael Woodhead
   */
 class DisappearEvent extends Event{
@@ -13,7 +13,7 @@ class DisappearEvent extends Event{
 	DisappearEvent(Item item){
 	}
 	/**
-	  *Removes the item from the game.
+	  *Removes the Item from the game.
 	  *@author Nathanael Woodhead
 	  */ 
 	String execute(){

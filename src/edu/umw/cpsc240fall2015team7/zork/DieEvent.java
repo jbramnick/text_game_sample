@@ -11,7 +11,7 @@ class DieEvent extends Event{
 	DieEvent(){
 	}
 	/**
-	  *Returns the ending score and a you loose message.
+	  *Returns the ending score and a "You lose" message.
 	  *@author Nathanael Woodhead
 	  */
 	String execute(){
