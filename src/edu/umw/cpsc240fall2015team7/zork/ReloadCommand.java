@@ -1,29 +1,26 @@
 package edu.umw.cpsc240fall2015team7.zork;
 /**
-*Command to reload a Gun.
-*@throws NoAmmoException
-*@author Carson Meadows
-*/
-class ReloadCommand {
-        private Gun weapon;
-
-        /**
-        *Constructs this ReloadCommand
-        *@author Carson Meadows
-        */
-        public ReloadCommand (Gun weapon) {
-		this.weapon=weapon;
-        }
-
-        /**
-        *Reloads the weapon this holds. If the player does not have sufficient ammo to refill weapon,
-	* will refill until depletion, then throw NoAmmoException().
-	*@throws NoAmmoException
-        *@author Carson Meadows
-        */
-        public String execute () {
-        }
-
-}
-
-
+  *A Command for reloading a gun.
+  *@author Nathanael Woodhead
+  */
+class ReloadCommand extends Command{
+	private Gun weapon;
+	private String commandString;
+	/**
+	  *Creates a new ReloadCommand object.
+	  *@author Nathanael Woodhead
+	  */
+	ReloadCommand(String commandString){
+		this.commandString = commandString;
+	}
+	/**
+	  *Parses the commandString and carries out the necessary actions. 
+	  *The commandString should be in the format "reload gun". This should parse the commandString and extract the gun's name. 
+	  *If there is no gun by that name in the players inventory then this should return a message saying that you do not have that 
+	  *gun. If the gun is in the player inventory this will reload it and return conformation message.
+	  *@author Nathanael Woodhead
+	  */
+	String execute(){
+		}
+	}
+}	
