@@ -5,18 +5,17 @@ The event that handles the lighting up of a room that is dark.
 */
 class LightUpEvent
 {
-	private Zombie zombie;
 	/**
-	Sets the zombie to be killed.
+	Creat new LightUpEvent object.
 	@author Jim Bramnick
 	*/
-	public ZombieDieEvent(Zombie zombie)
+	public LightUpEvent()
 	{
 	}
 	/**
-	Executes the command to kill the zombie.
+	Executes the command to light up the current room.
 	A score event is called to add score.
-	The zombie is removed from room and dungeon.
+	The rooms light boolean is temporarily changed.
 	@author Jim Bramnick
 	*/
 	public String execute()
