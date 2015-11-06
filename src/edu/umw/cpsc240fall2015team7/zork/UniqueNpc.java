@@ -11,13 +11,13 @@ class UniqueNPC
 	  Creates Unique Non Player Character.
 	  @author Jim Bramnick
 	 */
-	public UniqueNPC()
+	public UniqueNpc()
 	{
 
 	}
 	/**
 	  Initiates conversation with NPC. 
-	  This will print to the screan and give the user options to select an input.
+	  This will print to the screen and give the user options to select an input.
 	  If the NPC does not have any conversation or no options just prints a generic output message.
 	  @author Jim Bramnick
 	 */
