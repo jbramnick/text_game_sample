@@ -1,12 +1,12 @@
 package edu.umw.cpsc240fall2015team7.zork;
 /**
-the event that handles the death of a unique npc.
-@author Jim Bramnick
+*Event that handles the death of a UniqueNpc.
+*@author Jim Bramnick
 */
 class UniqueNpcDieEvent{
 	private UniqueNpc npc;
 	/**
-	Sets the unique npc that is killed.
+	Sets the UniquNpce that is killed.
 	@author Jim Bramnick
 	*/
 	UniqueNpcDieEvent(UniqueNpc npc){
