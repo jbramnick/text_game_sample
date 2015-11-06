@@ -19,8 +19,8 @@ public class Dungeon{
 
 	/**
 	*Constructs this Dungeon from a file.
-	*@param filename the .bork filename
-	*@param initState when true the dungeon is reset to its original state. If false the items will not be placed in the rooms.
+	*@param filename The .bork filename
+	*@param initState If true, this Dungeon is reset to its original state. If false, the Items will not be placed in the Rooms.
 	*@throws IllegalDungeonFormatException If the .bork file does not follow the correct format.
 	*@author Carson Meadows and Nathanael Woodhead
 	*/
@@ -96,14 +96,14 @@ public class Dungeon{
 		}
 	}
 	/**
-	*Returns the entry room object of the dungeon.
+	*Returns the entry room object of this Dungeon.
 	*@author Jim Bramnick
 	*/
 	public Room getEntry(){
 		return entry;
 	}
 	/**
-	*Returns the name of the this Dungeon object.
+	*Returns the name of this Dungeon object.
 	*@author Jim Bramnick
 	*/
 	public String getName(){
@@ -119,21 +119,21 @@ public class Dungeon{
 		map.put(title, room);
 	}
 	/**
-	*Returns the Room object with title roomKey and null if no such room exists.
+	*Returns the Room object with title roomKey and null if no such Room exists.
 	*@author Jim Bramnick
 	*/
 	public Room getRoom(String roomKey){
 		return map.get(roomKey);
 	}
 	/**
-	*Returns a string of the full path to the file that was used to make this dungeon.
+	*Returns a String of the full path to the file that was used to make this Dungeon.
 	*@author Jim Bramnick
 	*/
 	public String getFilename(){
 		return filename;
 	}
 	/**
-	*Stores the current state of this dungeon to a file in accordance with the Zork file format.
+	*Stores the current state of this Dungeon to a file in accordance with the .sav file format.
 	*@param save The PrintWriter to be used to save the current state.
 	*@author Jim Bramnick
 	*/

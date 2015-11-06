@@ -7,7 +7,7 @@ class EventFactory{
 
 	public static EventFactory theInstance;
 	/**
-	  *Creates a new EventFactory object if one does not already exist. If one already exists it will
+	  *Creates a new EventFactory object if one does not already exist. If one already exists, it will
 	  *return the existing EventFactory object.
 	  *@author Nathanael Woodhead
 	  */
@@ -24,8 +24,8 @@ class EventFactory{
 	private EventFactory(){
 	}
 	/**
-	  *Returns the correct Event object for the string entered. 
-	  *@throws NoEventException If no Event matches the string passed.
+	  *Returns the correct Event object for the String entered. 
+	  *@throws NoEventException If no Event matches the String passed.
 	  *@author Nathanael Woodhead
 	  */
 	Event parse(String eventString){

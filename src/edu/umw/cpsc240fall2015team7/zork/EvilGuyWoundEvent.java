@@ -1,6 +1,6 @@
 package edu.umw.cpsc240fall2015team7.zork;
 /**
-*The event that handles the wounding of the EvilGuy NPC.
+*The Event that handles the wounding of the EvilGuy NPC.
 *@author Carson Meadows
 */
 class EvilGuyWoundEvent {
@@ -14,7 +14,7 @@ class EvilGuyWoundEvent {
         }
 
         /**
-        *Executes the command to wound the evilGuy.
+        *Executes this Event to wound the evilGuy.
         *@author Carson Meadows
         */
         public String execute() {
