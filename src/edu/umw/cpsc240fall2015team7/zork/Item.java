@@ -12,6 +12,7 @@ public class Item{
 	static class NoVerbException extends Exception {}
 	static class NoItemException extends Exception {}
 
+	private Hashtable<String, ArrayList<Event>>;
 	private String primaryName;
 	private ArrayList<String> secondaryNames;
 	private int weight;
@@ -141,5 +142,20 @@ public class Item{
 	*/
 	int getWeight(){
 		return weight;
-	}	
+	}
+	/**
+  	*Returns an ArrayList of events for given verb.
+	*If there are no event will return null.
+	*@author Nathanael Woodhead
+	*/	
+	ArrayList<Event> getEventsForVerb(String verb){
+		return null
+	}
+	/**
+	  *Adds an Event object to a verb. If the verb does not already exist then it will create the verb and add the event.
+	  *@author Nathanael Woodhead
+	  */
+	void addEventToVerb(String verb, Event event){
+	}
+
 }
