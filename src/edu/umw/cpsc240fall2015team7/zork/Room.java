@@ -27,8 +27,8 @@ public class Room{
 	/**
 	*Constructs this Room based on passed Scanner object's contents. Reads from
 	*Scanner to get this Room's title, contents and description.
-	*@param d the current Dungeon object
-	*@param initState when true items will be reset to initial state. When false items will be set to saved state.
+	*@param d The current Dungeon object.
+	*@param initState If true, Items will be reset to initial state. If false, Items will be set to saved state.
 	*@author Carson Meadows and Nathanael Woodhead
 	*/
 	
@@ -69,7 +69,7 @@ public class Room{
 	*Returns information about this Room. If the player has never been to this room, 
 	*returned text includes Room's title, description, exits, and contents.
 	*Otherwise returns only exits and contents.
-	*@param beenHere When false will give a full description.
+	*@param beenHere If false, will give a full description.
 	*@author Nathanael Woodhead
 	*/
 	String describe(boolean beenHere){
