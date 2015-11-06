@@ -10,7 +10,7 @@ class EvilGuyWoundEvent {
         *Constructs this Event.
         *@author Carson Meadows
         */
-        public EvilGuyDieEvent(EvilGuy evilGuy) {
+        public EvilGuyWoundEvent(EvilGuy evilGuy){
         }
 
         /**

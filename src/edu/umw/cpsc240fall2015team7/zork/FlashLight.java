@@ -35,3 +35,4 @@ public class FlashLight extends Item{
 	  */
 	public void use(){
 	}
+}
