@@ -122,7 +122,7 @@ public class Room{
 		return title;
 	}
 	/**
-	*Adds passed exit to this Room's possible exits.
+	*Adds passed Exit to this Room's Exits.
 	*@author Carson Meadows
 	*/
 	public void addExit(Exit exit){

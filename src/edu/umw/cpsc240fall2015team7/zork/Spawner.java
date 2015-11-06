@@ -18,7 +18,7 @@ class Spawner{
 	private Spawner(){
 	}
 	/**
-	  *Makes a new opponent and places it in a random room.
+	  *Makes a new Opponent and places it in a random Room.
 	  *@author Nathanael Woodhead
 	  */
 	void spawn(){
