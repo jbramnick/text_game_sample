@@ -31,7 +31,7 @@ public class FlashLight extends Item{
 	/**
 	  *Reduces the battery.
 	  *@author Nathanael Woodhead
-	  *@throws NoPowerException If the battery level is 0
+	  *@throws NoPowerException If the battery level is 0.
 	  */
 	public void use(){
 	}
