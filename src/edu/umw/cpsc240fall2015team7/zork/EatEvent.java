@@ -1,14 +1,13 @@
 package edu.umw.cpsc240fall2015team7.zork;
 /**
-The event that handles adding to {@link {@link Player}} hunger.
+The event that handles adding to {@link Player} hunger.
 @author Jim Bramnick
 */
 class EatEvent
 {
 	private int amt;
 	/**
-	Creat new EatEvent object and set the amt.
-	@param the integert to set amount to.
+	Create new EatEvent object and set the amt.
 	@author Jim Bramnick
 	*/
 	public EatEvent(int amt)

@@ -60,28 +60,28 @@ class GameState{
 	}
 	/**
 	  *Returns object that is the current Room for this. 
-	  *@author Nathan Woodhead
+	  *@author Nathanael Woodhead
 	  */
 	Room getAdventurersCurrentRoom(){
 		return adeventurersCurrentRoom;
 	}
 	/**
 	  *Sets the current room. 
-	  *@author Nathan Woodhead
+	  *@author Nathanael Woodhead
 	  */
 	void setAdventurersCurrentRoom(Room room){
 		adeventurersCurrentRoom = room;
 	}
 	/**
 	  *Returns the Dungeon for this. If there is no Dungeon, will return null
-	  *@author Nathan Woodhead
+	  *@author Nathanael Woodhead
 	  */
 	Dungeon getDungeon(){
 		return map;
 	}
 	/**
 	  *Creates a savefile of the current Gamestate. Stores the file as myProgress.sav
-	  *@author Nathan Woodhead
+	  *@author Nathanael Woodhead
 	  */
 	void store(){
 		File s = new File("myProgress.sav");
@@ -113,7 +113,7 @@ class GameState{
 	*@throws IllegalSaveFormatException If the .sav does not conform to the proper format.
 	*@throws FileNotFoundException If the file is not found.
 	*@throws Dungeon.IllegalDungeonFormatException If the Dungeon file contained in the savefile is invalid.
-	* @author Nathan Woodhead
+	* @author Nathanael Woodhead
 	*/	
 	void restore(String filename) throws IllegalSaveFormatException, FileNotFoundException, Dungeon.IllegalDungeonFormatException{
 		try{
@@ -158,7 +158,7 @@ class GameState{
 	}
 	/**
 	  *Returns an ArrayList of all the Item names in the inventory of this.
-	  *@author Nathan Woodhead
+	  *@author Nathanael Woodhead
 	  */
 	ArrayList<String> getInventoryNames(){
 		ArrayList<String> names = new ArrayList<String>();
@@ -169,7 +169,7 @@ class GameState{
 	}
 	/**
 	  *Adds an Item object to this inventory.
-	  *@author Nathan Woodhead
+	  *@author Nathanael Woodhead
 	  */
 	void addToInventory(Item item){
 		verbs.removeAll(item.getVerbs());
@@ -178,7 +178,8 @@ class GameState{
 	}
 	/**
 	  *Removes the passed Item object from the inventory of this.
-	  *If item is not in the inventory then it will quietly do nothing
+	  *If item is not in the inventory then it will quietly do nothing.
+	  *@author Nathanael Woodhead
 	  */ 
 	void removeFromInventory(Item item){
 		inventory.remove(item);

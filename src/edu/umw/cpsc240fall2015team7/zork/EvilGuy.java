@@ -1,6 +1,6 @@
 package edu.umw.cpsc240fall2015team7.zork;
 /**
-*NPC which spawns other NPC's and may be killed to win the game.
+*NPC which spawns other NPC's.
 *@author Carson Meadows
 */
 class EvilGuy extends Npc {
