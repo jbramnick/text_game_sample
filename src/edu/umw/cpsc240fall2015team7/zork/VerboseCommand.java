@@ -18,6 +18,6 @@ public class VerboseCommand extends Command{
 	   *@author Nathanael Woodhead
 	   */
 	 public String execute(){
-		 return ""
+		 return "";
 	 }
 }

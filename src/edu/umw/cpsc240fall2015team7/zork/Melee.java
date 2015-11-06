@@ -21,3 +21,4 @@ public class Melee extends Item{
 	  */
 	public int getPower(){
 	}
+}
