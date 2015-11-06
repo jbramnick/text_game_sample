@@ -5,18 +5,19 @@ package edu.umw.cpsc240fall2015team7.zork;
 *@author Carson Meadows
 */
 class TalkCommand {
-        private UniqueNPC npc;
+	private String commandString;
 
         /**
-        *Constructs this TalkCommand.
+        *Constructs this TalkCommand. 
         *@author Carson Meadows
         */
-        public TalkCommand (NPC npc) {
-		this.npc=npc;
+        public TalkCommand (String commandString) {
+		this.commandString=commandString;
         }
 
         /**
-        *Executes this and activates UniqueNPC's response..
+        *Parses commandString and activates the NPC's response. If the NPC specified in 
+	*commandString is not in the player's current Room, prints error message.
         *@author Carson Meadows
         */
         public String execute () {
