@@ -16,6 +16,7 @@ class UnlockEvent
 	/**
 	Executes the UnlockEvent Object and unlocks all locked exits in the current room.
 	Silently does nothing if there are no locked exits in the room.
+	@author Jim Bramnick
 	*/
 	public String execute()
 	{
