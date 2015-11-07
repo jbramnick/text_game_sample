@@ -7,7 +7,7 @@ public class TransformEvent extends Event{
 	private Item item;
 	private Item endItem;
 	/**
-	  *Creates a new TransformEvent object. Requires the item to be transformed and the item that it turns into.
+	  *Constructs this TransformEvent object.
 	  *@param item The item that is transforming
 	  *@param endItem The item that it becomes
 	  *@author Nathanael Woodhead

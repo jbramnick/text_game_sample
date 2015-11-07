@@ -1,7 +1,7 @@
 package edu.umw.cpsc240fall2015team7.zork;
 /**
-*Command to interact with a UniqueNPC.
-*UniqueNPC may perform some task in reaction to being talked to.
+*Command to interact with a UniqueNpc.
+*UniqueNpc may perform some task in reaction to being talked to.
 *@author Carson Meadows
 */
 class TalkCommand {
@@ -16,7 +16,7 @@ class TalkCommand {
         }
 
         /**
-        *Parses commandString and activates the NPC's response. If the NPC specified in 
+        *Parses commandString and activates the Npc's response. If the Npc specified in 
 	*commandString is not in the player's current Room, prints error message.
         *@author Carson Meadows
         */

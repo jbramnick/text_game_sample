@@ -5,7 +5,7 @@ package edu.umw.cpsc240fall2015team7.zork;
   */
 class WinEvent extends Event{
 	/**
-	  *Creates a new WinEvent object.
+	  *Constructs this WinEvent object.
 	  *@author Nathanael Woodhead
 	  */
 	WinEvent(){

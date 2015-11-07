@@ -6,7 +6,7 @@ package edu.umw.cpsc240fall2015team7.zork;
 public class VerboseCommand extends Command{
 	 
 	 /**
-	   *Creates a new VerboseCommand object.
+	   *Constructs this VerboseCommand object.
 	   *@author Nathanael Woodhead
 	   */
 	 public VerboseCommand(){
@@ -14,7 +14,7 @@ public class VerboseCommand extends Command{
 	 /**
 	   *Changes the verbose value in GameState. If the  current value is true then it will make it false. 
 	   *If the current value is false then it will change it to true. 
-	   *@return returns a conformation message.
+	   *@return Returns a confirmation message.
 	   *@author Nathanael Woodhead
 	   */
 	 public String execute(){

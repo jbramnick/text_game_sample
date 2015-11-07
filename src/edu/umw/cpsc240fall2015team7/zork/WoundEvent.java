@@ -6,15 +6,15 @@ package edu.umw.cpsc240fall2015team7.zork;
 class WoundEvent extends Event{
 	private int damage;
 	/**
-	  *Creates a new WoundEvent object. 
-	  *@param damage number of hitpoints to remove from player.
+	  *Constructs this WoundEvent object. 
+	  *@param damage Number of hitpoints to remove from player.
 	  *@author Nathanael Woodhead
 	  */
 	WoundEvent(int damage){
 
 	}
 	/**
-	  *Changes the players health. Subtracts the damage from the players current health
+	  *Changes the player's health. Subtracts the damage from the player's current health
 	  *regardless of current healths value.
 	  *@author Nathanael Woodhead
 	  */
@@ -22,9 +22,9 @@ class WoundEvent extends Event{
 		return "";
 	}
 	/**
-	  *Checks to see if the player is dead. The player is dead when health falls below 1.
+	  *Checks to see if the player is dead. The player is dead when health falls below one.
+	  *@return True when the player is dead; false when the player is still alive.
 	  *@author Nathanael Woodhead
-	  *@return true when the player is dead false when the player is still alive.
 	  */
 	boolean checkDead(){
 		return false;
