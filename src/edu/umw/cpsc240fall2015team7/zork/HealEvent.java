@@ -6,7 +6,7 @@ Event used to set health in {@link Player} to {@link Player} MaxHealth.
 class HealEvent
 {
 	/**
-	Creates a HealEvent Object.
+	Creates this HealEvent Object.
 	@author Jim Bramnick
 	*/
 	public HealEvent()
@@ -14,7 +14,7 @@ class HealEvent
 
 	}
 	/**
-	Executes heal Event and sets {@link Player} health to {@link Player} MaxHealth.
+	Executes this HealEvent and sets {@link Player} health to {@link Player} MaxHealth.
 	@throws MaxHealthException If {@link Player} health is equal to {@link Player} MaxHealth.
 	@author Jim Bramnick
 	*/

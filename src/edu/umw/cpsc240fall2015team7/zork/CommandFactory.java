@@ -2,7 +2,7 @@ package edu.umw.cpsc240fall2015team7.zork;
 import java.util.ArrayList;
 import java.lang.IllegalArgumentException;
 /**
-*Parses input String and returns a command object. 
+*Parses input String and returns a Command object. 
 *@author Nathanael Woodhead
 */
 class CommandFactory{
@@ -10,7 +10,7 @@ class CommandFactory{
 	
 	public static CommandFactory theInstance;
 	/**
-	*Creates a new CommandFacory object. If a CommandFacory object already exists then returns that object.
+	*Creates a new CommandFactory object. If a CommandFactory object already exists then returns that.
 	*@author Carson Meadows 
 	*/
 	public static CommandFactory instance(){

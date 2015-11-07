@@ -1,6 +1,6 @@
 package edu.umw.cpsc240fall2015team7.zork;
 /**
-The event that handles adding to {@link Player} hunger.
+The Event that handles adding to {@link Player} hunger.
 @author Jim Bramnick
 */
 class EatEvent
@@ -15,8 +15,8 @@ class EatEvent
 		this.amt=amt;
 	}
 	/**
-	Executes the command to add amt to the hunger in {@link Player}.
-	If {@link Player} hunger is equal to {@link Player} hunger maximum silently does nothing.
+	Executes this EatEvent and adds amt to the hunger in {@link Player}.
+	If {@link Player} hunger is equal to {@link Player} hunger maximum, silently does nothing.
 	@author Jim Bramnick
 	*/
 	public String execute()

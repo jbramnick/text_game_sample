@@ -1,6 +1,6 @@
 package edu.umw.cpsc240fall2015team7.zork;
 /**
-*The event that handles the death of the EvilGuy NPC.
+*The Event that handles the death of the EvilGuy NPC.
 *@author Carson Meadows
 */
 class EvilGuyDieEvent {
@@ -14,7 +14,7 @@ class EvilGuyDieEvent {
         }
         
 	/**
-        *Executes the command to kill the evilGuy.
+        *Executes this Event to kill the evilGuy.
         *@author Carson Meadows
         */
         public String execute() {

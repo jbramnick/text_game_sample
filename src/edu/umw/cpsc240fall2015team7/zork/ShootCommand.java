@@ -5,13 +5,13 @@ package edu.umw.cpsc240fall2015team7.zork;
 */
 class ShootCommand {
         private Gun weapon;
-	private NPC npc;
+	private Npc npc;
 
         /**
         *Constructs this ShootCommand.
         *@author Carson Meadows
         */
-        public ShootCommand (NPC npc, Gun weapon) {
+        public ShootCommand (Npc npc, Gun weapon) {
 		this.npc=npc;
 		this.weapon=weapon;
         }

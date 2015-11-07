@@ -10,6 +10,7 @@ public class Room{
 	static class NoRoomException extends Exception {}
 	private String title;
 	private String desc = "";
+	private int ammo, snacks, medkits;
 	private ArrayList<Exit> exits;
 	private boolean beenHere = false;
 	private ArrayList<Item> contents;
@@ -114,6 +115,8 @@ public class Room{
 		}
 		return text;
 	}
+	
+
 	/**
 	  Adds this snacks to {@link Player} snacks and sets this snacks to zero.
 	  @author Jim Bramnick

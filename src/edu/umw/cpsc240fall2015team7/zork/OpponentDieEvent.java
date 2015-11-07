@@ -1,6 +1,6 @@
 package edu.umw.cpsc240fall2015team7.zork;
 /**
-*The event that handles the death of a opponent NPC.
+*The Event that handles the death of an Opponent NPC.
 *@author Jim Bramnick
 */
 class OpponentDieEvent
@@ -14,8 +14,8 @@ class OpponentDieEvent
 	{
 	}
 	/**
-	Executes the command to kill the opponent.
-	A score event is called to add score.
+	Executes this Event to kill the opponent.
+	A scoreEvent is called to add score.
 	The {@link Opponent} is removed form {@link Dungeon} and {@link Room}.
 	@author Jim Bramnick
 	*/

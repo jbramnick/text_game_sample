@@ -32,7 +32,7 @@ abstract class Npc{
 	public void die(){
 	}
 	/**
-	  *Removes health from the NPC. If health falls below 1 this will call {@link die()}.
+	  *Removes health from this NPC. If health falls below 1, will call {@link die()}.
 	  *@param damage The amount of damage to be removed from this NPC's health.
 	  *@author Nathanael Woodhead
 	  */

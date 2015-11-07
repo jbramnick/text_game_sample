@@ -75,7 +75,7 @@ public class Item{
 	}
 	/**
 	*Returns true if this Item's primary or secondary names equal the 
-	*String passed. Returns false when 
+	*String passed. Returns false if 
 	*the string does not match any names.
 	*@author Carson Meadows
 	*/
@@ -99,7 +99,7 @@ public class Item{
 	}
 	/**
 	*Returns message associated with passed String. 
-	*@throws NoVerbException if this Item does not contain the passed String. 
+	*@throws NoVerbException If this Item does not contain the passed String. 
 	*@author Carson Meadows
 	*/
 	public String getMessageForVerb(String verb) throws NoVerbException{

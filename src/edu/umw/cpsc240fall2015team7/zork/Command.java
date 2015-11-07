@@ -1,7 +1,7 @@
 package edu.umw.cpsc240fall2015team7.zork;
 import java.lang.IllegalArgumentException;
 /**
- *Abstract super class for all commands.
+ *Abstract super class for all Commands.
  *@author Nathanael Woodhead
  */
 abstract class Command{
