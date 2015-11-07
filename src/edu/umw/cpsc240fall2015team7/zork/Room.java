@@ -115,25 +115,49 @@ public class Room{
 		return text;
 	}
 	/**
-	*Returns this Room's title.
-	*@author Carson Meadows
-	*/
+	  Adds this snacks to {@link Player} snacks and sets this snacks to zero.
+	  @author Jim Bramnick
+	 */
+	public void giveSnacks()
+	{
+
+	}
+	/**
+	  Adds this medkits to {@link Player} medkits and sets this medkits to zero.
+	  @author Jim Bramnick
+	 */
+	public void giveMedkits()
+	{
+
+	}
+	/**
+	  Adds this ammo to {@link Player} ammo and sets this ammo to zero.
+	  @author Jim Bramnick
+	 */
+	public void giveAmmo()
+	{
+
+	}
+	/**
+	 *Returns this Room's title.
+	 *@author Carson Meadows
+	 */
 	public String getTitle(){
 		return title;
 	}
 	/**
-	*Adds passed exit to this Room's possible exits.
-	*@author Carson Meadows
-	*/
+	 *Adds passed exit to this Room's possible exits.
+	 *@author Carson Meadows
+	 */
 	public void addExit(Exit exit){
 		exits.add(exit);
 	}
 	/**
-	*Returns Room connected to the Exit associated with the passed direction. 
-	*If this Room has no Exits associated with the passed direction, throws
-	* IllegalArgumentException.
-	*@author Carson Meadows
-	*/
+	 *Returns Room connected to the Exit associated with the passed direction. 
+	 *If this Room has no Exits associated with the passed direction, throws
+	 * IllegalArgumentException.
+	 *@author Carson Meadows
+	 */
 	Room leaveBy(String dir){
 		Exit out = null;
 		boolean found = false;
@@ -151,10 +175,10 @@ public class Room{
 
 	}
 	/**
-	*Writes save game info to the passed PrintWriter. Info includes this Room's
-	* title, whether the player has been here yet, and it's contents.
-	*@author Carson Meadows
-	*/
+	 *Writes save game info to the passed PrintWriter. Info includes this Room's
+	 * title, whether the player has been here yet, and it's contents.
+	 *@author Carson Meadows
+	 */
 	void storeState(PrintWriter save){
 		save.println(getTitle() +":");
 		save.println("beenHere="+beenHere);
@@ -169,9 +193,9 @@ public class Room{
 		save.println("---");
 	}
 	/**
-	*Hydrates this Room's "been here" status and contents from passed Scanner.
-	*@author Carson Meadows
-	*/
+	 *Hydrates this Room's "been here" status and contents from passed Scanner.
+	 *@author Carson Meadows
+	 */
 	void restoreState(Scanner restore, Dungeon d){
 		String state = restore.nextLine();
 		int x = state.length();
@@ -194,31 +218,31 @@ public class Room{
 		}
 	}
 	/**
-	*Adds passed Item to this Room's contents.
-	*@author Carson Meadows
-	*/
+	 *Adds passed Item to this Room's contents.
+	 *@author Carson Meadows
+	 */
 	void add(Item item){
 		contents.add(item);
 	}
 	/**
-	*Returns ArrayList of this Room's contents.
-	*@author Carson Meadows
-	*/
+	 *Returns ArrayList of this Room's contents.
+	 *@author Carson Meadows
+	 */
 	ArrayList<Item> getContents(){
 		return contents;
 	}
 	/**
-	*Removes passed Item from this Room's contents.
-	*@author Carson Meadows
-	*/
+	 *Removes passed Item from this Room's contents.
+	 *@author Carson Meadows
+	 */
 	void remove(Item item){
 		contents.remove(item);
 	}
 	/**
-	*Returns Item in this Room whose name is the parameter. 
-	*@throws Item.NoItemException If no Item has name passed as a primary or secondary name.
-	*@author Carson Meadows and Nathanael Woodhead
-	*/
+	 *Returns Item in this Room whose name is the parameter. 
+	 *@throws Item.NoItemException If no Item has name passed as a primary or secondary name.
+	 *@author Carson Meadows and Nathanael Woodhead
+	 */
 	Item getItemNamed(String name) throws Item.NoItemException{
 		Item named = null;
 		for(Item item : contents){
