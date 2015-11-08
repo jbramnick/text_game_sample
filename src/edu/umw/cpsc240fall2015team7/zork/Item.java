@@ -12,7 +12,7 @@ public class Item{
 	static class NoVerbException extends Exception {}
 	static class NoItemException extends Exception {}
 
-	private Hashtable<String, ArrayList>;
+	private Hashtable<String, ArrayList> actions;
 	private String primaryName;
 	private ArrayList<String> secondaryNames;
 	private int weight;

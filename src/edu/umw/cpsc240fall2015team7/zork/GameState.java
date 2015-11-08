@@ -17,7 +17,7 @@ class GameState{
 	private ArrayList<String> verbs;
 	public class IllegalSaveFormatException extends Exception {};
 	/**
-	  *Returns this GameState object. If no Gamestate object exists, creates a new one and returns it. 
+	  *Returns this GameState object. If no GameState object exists, creates a new one and returns it. 
 	  *@author Nathanael Woodhead
 	  */
 	public static GameState instance(){
@@ -34,7 +34,7 @@ class GameState{
 	private GameState(){
 	}
 	/**
-	  *Initializes a Dungeon in this Gamestate instance. 
+	  *Initializes a Dungeon in this GameState instance. 
 	  *@param The Dungeon object.
 	  *@author Nathanael Woodhead
 	  */
@@ -80,7 +80,7 @@ class GameState{
 		return map;
 	}
 	/**
-	  *Creates a savefile of the current Gamestate. Stores the file as myProgress.sav
+	  *Creates a savefile of the current GameState. Stores the file as myProgress.sav
 	  *@author Nathanael Woodhead
 	  */
 	void store(){
