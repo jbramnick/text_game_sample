@@ -9,6 +9,6 @@ abstract class Command{
 	*Super method for all subclasses to overwrite regarding their command behavior once executed.
 	*@author Nathanael Woodhead
 	*/
-	abstract String execute(){
-	}
+	abstract String execute();
+	
 }

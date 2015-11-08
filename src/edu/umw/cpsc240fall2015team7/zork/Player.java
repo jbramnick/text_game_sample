@@ -1,4 +1,5 @@
 package edu.umw.cpsc240fall2015team7.zork;
+import java.util.Hashtable;
 /**
  *The Player of the game.
  *@author Nathanael Woodhead

@@ -4,13 +4,13 @@ package edu.umw.cpsc240fall2015team7.zork;
 *@author Jim Bramnick
 */
 class UniqueNpcDieEvent{
-	private UniqueNpc npc;
+	private Npc npc;
 	/**
 	Constructs this UniqueNpcDieEvent.
 	@param npc The UniqueNpc to be killed.
 	@author Jim Bramnick and Carson Meadows
 	*/
-	UniqueNpcDieEvent(UniqueNpc npc){
+	UniqueNpcDieEvent(Npc npc){
 
 	}
 	/**

@@ -16,7 +16,7 @@ abstract class Npc{
 	  *@param power The amount of damage done with a single attack.
 	  *@author Nathanael Woodhead
 	  */
-	public Npc(Room currentRoom, int health, int power, String primaryName, Room currentRoom){
+	public Npc(int health, int power, String primaryName, Room currentRoom){
 	}
 	/**
 	  *Changes the aggression variable.

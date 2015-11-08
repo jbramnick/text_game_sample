@@ -9,7 +9,7 @@ class Opponent extends Npc {
         *Constructs this Opponent.
         *@author Carson Meadows
         */
-        public Opponent (String primaryName, int health, int power, Room room) {
+        public Opponent (int health, int power, String primaryName, Room room) {
         }
 
         /**
