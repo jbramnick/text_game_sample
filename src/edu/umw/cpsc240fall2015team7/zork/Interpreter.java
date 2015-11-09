@@ -75,7 +75,6 @@ class Interpreter {
 	 *@param commandLine The BufferedReader object to read input from user. 
 	 */
 	private static String promptUser(BufferedReader commandLine){
-		String output = "";
 		String out = "";
 		try{
 
@@ -84,7 +83,6 @@ class Interpreter {
 		catch(Exception e){
 			System.out.println("Error");
 		}
-		output = out;
-		return output;
+		return out;
 	}
 }

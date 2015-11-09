@@ -39,7 +39,6 @@ class CommandFactory{
 			return move;
 		}
 		else if(commandString.equals("score")){
-			System.out.println("here");
 			ScoreCommand i = new ScoreCommand();
 			return i;
 		}

@@ -29,6 +29,7 @@ class Player{
 		this.medkit = 0;
 		this.health = 100;
 		this.hunger = 5;
+		this.score = 0;
 	}
 	/**
 	 *Removes one snack and refills hunger.

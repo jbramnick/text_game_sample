@@ -5,8 +5,7 @@ class ScoreCommand extends Command{
 	  *Creates a new ScoreCommand object.
 	  *@author Nathanael Woodhead
 	  */
-	ScoreCommand(){
-	}
+	ScoreCommand(){}
 	/**
 	  *Checks the Player's current score and returns a message containing it. 
 	  *@author Nathanael Woodhead
