@@ -9,16 +9,15 @@ class ChangeLightEvent
 	*Create new ChangeLightEvent object.
 	*@author Jim Bramnick
 	*/
-	public ChangeLightEvent()
-	{
+	public ChangeLightEvent(){
 	}
 	/**
 	*Executes this Event to change the light of the current room.
 	*A score event is called to add score.
 	*@author Jim Bramnick
 	*/
-	public String execute()
-	{
+	public String execute(){
+		return "";
 	}
 
 }

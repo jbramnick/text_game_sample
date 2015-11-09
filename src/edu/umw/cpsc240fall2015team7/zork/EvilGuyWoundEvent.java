@@ -18,8 +18,7 @@ class EvilGuyWoundEvent {
         *@author Carson Meadows
         */
         public String execute() {
-        }
+        	return "";
+	}
 
 }
-
-

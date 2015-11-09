@@ -18,7 +18,7 @@ class EvilGuyDieEvent {
         *@author Carson Meadows
         */
         public String execute() {
-        }
-
+        	return "";
+	}
 }
 

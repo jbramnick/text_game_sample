@@ -20,13 +20,13 @@ class ScoreEvent extends Event{
 	*@author Carson Meadows and Nathanael Woodhead
 	*/
 	String execute() {
-		String text = ""
-		Player.instance.changeScore(score);
+		String text = "";
+		Player.instance().changeScore(score);
 		if(score < 0){
-			text = "You have lost " ,  score, " points!";
+			text = "You have lost " +  score + " points!";
 		}
 		else if(score > 0){
-			text = "You have gained " ,score, "points!"
+			text = "You have gained " + score + "points!";
 		}
 		return text;
 	}

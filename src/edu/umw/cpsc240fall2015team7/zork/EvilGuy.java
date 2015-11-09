@@ -4,7 +4,7 @@ package edu.umw.cpsc240fall2015team7.zork;
 *@author Carson Meadows
 */
 class EvilGuy extends Npc {
-
+	private String primaryName;
 	/**
 	*Constructs this EvilGuy.
 	*@author Carson Meadows

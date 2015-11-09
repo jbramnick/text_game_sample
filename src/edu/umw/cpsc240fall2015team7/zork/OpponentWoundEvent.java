@@ -18,8 +18,8 @@ class OpponentWoundEvent
 	If the {@link Opponent} health falls below zero, an {@link OpponentDieEvent} is called.
 	@author Jim Bramnick
 	*/
-	public String execute()
-	{
+	public String execute(){
+		return "";
 	}
 
 }

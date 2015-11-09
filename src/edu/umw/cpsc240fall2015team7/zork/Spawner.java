@@ -10,6 +10,7 @@ class Spawner{
 	  *@author Nathanael Woodhead
 	  */
 	public static Spawner instance(){
+		return theInstance;
 	}
 	/**
 	  *A private constructor that creates this Spawner object with the default values.
@@ -23,7 +24,7 @@ class Spawner{
 	  *@author Nathanael Woodhead, Caron Meadows and Jim Bramnick
 	  */
 	void spawn(){
-
+	
 	}
 }
 

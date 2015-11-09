@@ -84,7 +84,7 @@ class Player{
 	*@param score the amount this score should be changed by.
 	*@author Nathanael Woodhead	
 	*/
-	void addScore(int score){
+	void changeScore(int score){
 		this.score = this.score + score;
 	}
 	int getScore(){

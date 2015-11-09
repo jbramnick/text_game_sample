@@ -3,7 +3,7 @@ package edu.umw.cpsc240fall2015team7.zork;
   *A close range weapon.
   *@author Nathanael Woodhead
   */
-public class Melee extends Item{
+public class Melee{
 	private int power, weight;
 	private String primaryName;
 	/**
@@ -24,5 +24,6 @@ public class Melee extends Item{
 	  *@author Nathanael Woodhead
 	  */
 	public int getPower(){
+		return power;
 	}
 }

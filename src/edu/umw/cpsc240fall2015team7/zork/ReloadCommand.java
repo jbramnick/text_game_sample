@@ -21,6 +21,7 @@ class ReloadCommand extends Command{
 	  *@author Nathanael Woodhead
 	  */
 	String execute(){
-		}
+		return "";	
+	}
 	}
 	

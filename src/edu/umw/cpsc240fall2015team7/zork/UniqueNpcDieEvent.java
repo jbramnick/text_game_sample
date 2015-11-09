@@ -20,7 +20,7 @@ class UniqueNpcDieEvent{
 	@author Jim Bramnick
 	*/
 	public String execute(){
-
+		return "";
 	}
 
 }

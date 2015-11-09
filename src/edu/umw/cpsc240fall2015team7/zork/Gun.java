@@ -3,7 +3,7 @@ package edu.umw.cpsc240fall2015team7.zork;
 *An Item used to fight enemies in the Dungeon.
 *@author Carson Meadows
 */
-class Gun extends Item {
+class Gun{
         private int power;
 	private int ammo;
 	private int capacity;

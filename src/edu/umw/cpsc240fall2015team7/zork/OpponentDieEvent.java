@@ -19,8 +19,8 @@ class OpponentDieEvent
 	The {@link Opponent} is removed form {@link Dungeon} and {@link Room}.
 	@author Jim Bramnick
 	*/
-	public String execute()
-	{
+	public String execute(){
+		return "";
 	}
 
 }
