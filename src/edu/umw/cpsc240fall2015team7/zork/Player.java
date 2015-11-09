@@ -62,23 +62,33 @@ class Player{
 			return "";
 		}
 	}
+	/**
+	  *Lowers the heath of the player. If this causes the player's heath to fall below 1 then this will make a new die event and execute it.
+	  *@author Nathanael Woodhead
+	  */
 	void takeWound(int damage){
 		health = health - damage;
 		if(health == 0){
 			new DieEvent();
 		}
 	}
+	/**
+	  *Adds a item to this inventory. If the item is already in the inventory then it will quietly do nothing.
+	  *@author Nathanael Woodhead
+	  */
 	void addItemtoInventory(Item item){
-		String name = item.getPrimaryName();	
-	}	
+		String name = item.getPrimaryName();
+	}
+	/**
+  	*Changes the score. 
+	*@param score the amount this score should be changed by.
+	*@author Nathanael Woodhead	
+	*/
 	void addScore(int score){
 		this.score = this.score + score;
 	}
 	int getScore(){
 		return score;
-	}
-	void removeScore(int score){
-		this.score = this.score - score;
 	}
 
 }
