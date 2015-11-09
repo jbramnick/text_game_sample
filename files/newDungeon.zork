@@ -1,0 +1,231 @@
+Zirakzigal
+Zork v1.0
+===
+Items:
+Bomb
+95
+examine:The bomb is a heavy, glistening black sphere. On the top appears to be some form of detonator.
+kick[Wound(2)]:Ouch! That hurt your foot.
+detonate[Die]:An ear-splitting halo of shrapnel kills you and seriously degrades the room's interior.
+---
+DrPepper
+10
+kick[Drop]:The can skitters down the hallway.
+shake:A liquid fizzes menacingly inside the can.
+drink[Transform(emptyCan),Wound(-1)]:Gulp, gulp -- that was GOOD!  *belch*
+---
+emptyCan
+2
+kick[Drop]:The empty can skitters down the hallway.
+drink:Sorry, all gone!
+stomp[Transform(squishedCan)]:The can crunches down into a thin disk, useful for recycling.
+---
+squishedCan
+2
+throw[Drop]:Zing!
+stomp:Further stomping seems to have no effect.
+recycle[Score(5),Disappear]:Boom-ya, helped save the environment.
+---
+magicWand
+5
+break[Wound(10),Disappear]:The wand snaps in half. Strange magic fills the air, making you feel suddenly ill.
+wave[Score(5),Teleport]:An angelic form briefly appears, smiles, and just as quickly fades away. 
+---
+StarWarsToy
+5
+touch[Score(1)]:Yoda says, "Do, or do not! There is no try."
+break:Luckily, it's made of rugged plastic.
+---
+chainsaw
+saw[Hit(25),Batt(-1)]:Blood spatters the wall.
+35
+Battery:100
+---
+WawaTravelMug
+food
+10
+refill[Win]:You refill the mug with everlasting light roast coffee, and live happily ever after! :)
+---
+donut
+food
+7
+eat[Disappear,Wound(-2)]:You feel mildly guilt-ridden.
+stomp:The donut is now smooshed.
+---
+gun
+9
+7
+fire[Hit(100),Ammo(-1)]:Bang!
+reload[Ammo(7)]:Your Ammo is full.
+---
+key
+1
+unlock[Open]:the door unlocks.
+---
+===
+NPC's:
+Bob
+Health:100000
+Damage:0
+Agressive:false
+Item:shotgun
+Talk:Hi my name is chuck would you like this beautiful shotgun?
+1: Why yes I would![take(shotgun),remove(shotgun),npc(die)]
+2: No I dont like my life.
+---
+===
+Rooms:
+Bedroom
+Contents:Bomb 
+NPC's:Zombie
+You are in a room with a bed in it. Beside the bed are two tables with
+candles on them. There is a large mess on the floor consisting of dirty
+clothes and computer parts.
+Light:off
+---
+Kitchen
+Contents: DrPepper,magicWand
+NPC's:Bob
+This is a green kitchen. There is an oven with something delicious cooking
+here. There is a table.
+---
+Hallway
+A long dark hallway. With a door on each end.
+---
+Stair Room
+Room with black iron staircase leading up and down. A light shows from above.
+From below a clinging fog rises.
+---
+Control Room
+Contents: StarWarsToy,chainsaw
+A round room with large windows all the way around. There is a large control
+panel here. It would be best not to mess with any of the controls as they
+don’t have any labels.
+Light:off
+---
+Stair
+You have a bad feeling about this...
+---
+Lava Room
+Contents: WawaTravelMug
+The heat here is scalding. A narrow walkway leads form the staircase to the 
+door on the other side of the room. The walkway has no hand rail.
+---
+AirLock
+Contents: donut
+You are in what appears to be an airlock. There are many empty bottles of 
+booze scattered all over the floor. Most of the bottles seem to be empty.
+There is a large door with a wheel lock. The door is unlocked.
+---
+Bunker
+A large bunker with thick concrete walls. TVs mounded on the walls show what 
+is on the surface far above. There is a station here with what seems to be 
+controls for a drone. The drone looks to be watching from above flying itself
+in "Aggressive Autonomous Mode". Upon closer inspection it seems to be flying 
+over a desert.
+---
+Jail
+A long hall full of jail cells. All but cell #13 are locked. In cell # 13 the
+wall shimmers.
+---
+Hades
+Contents:gun,key
+Lost souls are screaming. It is dark but you can see rooms in the distance. 
+You have the feeling that you don't belong here.
+---
+===
+Exits:
+Bedroom
+e
+Kitchen
+locked
+---
+Kitchen
+w
+Bedroom
+---
+Kitchen
+s
+Hallway
+---
+Hallway
+n
+Kitchen
+---
+Hallway
+s
+Stair Room
+---
+Stair Room
+n
+Hallway
+---
+Stair Room
+u
+Control Room
+---
+Control Room
+d
+Stair Room
+---
+Stair Room
+d
+Stair
+---
+Stair
+u
+Stair Room
+---
+Stair
+d
+Lava Room
+---
+Lava Room
+u
+Stair
+---
+Lava Room
+s
+AirLock
+---
+AirLock
+n
+Lava Room
+---
+AirLock
+e
+Bunker
+---
+Bunker
+w
+AirLock
+---
+Bunker
+d
+Jail
+---
+Jail
+u
+Bunker
+---
+Jail
+e
+Hades
+---
+Hades
+n
+Hallway
+---
+Hades
+e
+Bunker
+---
+Hades
+w
+Control Room
+---
+Hades
+s
+Bedroom
+---
+===
