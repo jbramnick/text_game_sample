@@ -1,4 +1,5 @@
 package edu.umw.cpsc240fall2015team7.zork;
+import java.util.Enumeration;
 import java.util.ArrayList;
 import java.util.Hashtable;
 import java.util.Scanner;
@@ -131,7 +132,12 @@ public class Dungeon{
 	*@author Carson Meadows
 	*/
 	public ArrayList <String> getKeys () {
-		ArrayList <String> swag = new ArrayList <String> (map.keys());
+		ArrayList<String> swag = new ArrayList<String>();
+		Enumeration keys = map.keys();
+		while(keys.hasMoreElements()){
+			String key = keys.nextElement();
+			swag.add(key);
+		}
 		return swag;
 	}
 	/**
