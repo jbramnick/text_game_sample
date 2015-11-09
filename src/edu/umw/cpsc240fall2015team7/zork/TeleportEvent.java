@@ -25,11 +25,11 @@ class TeleportEvent extends Event{
 
 		//Choose random Room
 		int select = selector.nextInt(rooms.size());
-		String newRoom = rooms.get(select);
-		Room swag = Dungeon.getRoom(newRoom);
+		String newRoomTitle = rooms.get(select);
+		Room newRoom = GameState.instance().getDungeon().getRoom(newRoomTitle);
 
 		//Make that Room the CurrentRoom
-		Player.setCurrentRoom(swag);
-		return "Teleported to "+Player.getCurrentRoom().getTitle()+"!";
+		Player.instance().setCurrentRoom(newRoom);
+		return "Teleported to "+newRoomTitle+"!";
 	}
 }
