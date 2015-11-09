@@ -15,6 +15,6 @@ class ScoreCommand extends Command{
 		int score = 0;
 		score = Player.instance().getScore();
 		text = "You have " + score + " points.";
-		return text;
+		return text + "\n";
 	}
 }

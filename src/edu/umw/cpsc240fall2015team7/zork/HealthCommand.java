@@ -8,6 +8,6 @@ class HealthCommand extends Command{
 		if(health == 100){
 			text = "You couldn't feel better!";
 		}	
-		return text;
+		return text + "\n";
 	}
 }
