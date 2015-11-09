@@ -38,6 +38,12 @@ class CommandFactory{
 			MovementCommand move = new MovementCommand(commandString);
 			return move;
 		}
+		else if(commandString.equals("score")){
+			System.out.println("here");
+			ScoreCommand i = new ScoreCommand();
+			return i;
+		}
+
 		else if(commandString.equals("save")){
 			SaveCommand save = new SaveCommand(commandString);
 			return save;
