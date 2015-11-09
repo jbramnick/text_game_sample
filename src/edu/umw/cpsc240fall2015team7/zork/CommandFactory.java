@@ -38,6 +38,11 @@ class CommandFactory{
 			MovementCommand move = new MovementCommand(commandString);
 			return move;
 		}
+		else if(commandString.equals("health")){
+			HealthCommand i = new HealthCommand();
+			return i;
+		}
+
 		else if(commandString.equals("score")){
 			ScoreCommand i = new ScoreCommand();
 			return i;
