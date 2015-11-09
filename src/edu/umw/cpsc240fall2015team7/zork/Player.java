@@ -91,5 +91,7 @@ class Player{
 	int getScore(){
 		return score;
 	}
-
+	int getHealth(){
+		return health;
+	}
 }
