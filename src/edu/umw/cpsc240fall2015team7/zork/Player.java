@@ -1,12 +1,15 @@
 package edu.umw.cpsc240fall2015team7.zork;
 import java.util.Hashtable;
+import java.util.ArrayList;
 /**
  *The Player of the game.
  *@author Nathanael Woodhead
  */
 class Player{
+	private ArrayList<String> verbs;
+	private Room currentRoom;
 	public class NoSnackException extends Exception{};
-	private Hashtable<String, Item> inventory;
+	private ArrayList<Item> inventory;
 	private int ammo, snack, medkit,health,hunger,score;
 	public static Player theInstance;
 	/**
@@ -78,7 +81,9 @@ class Player{
 	  *@author Nathanael Woodhead
 	  */
 	void addItemtoInventory(Item item){
-		String name = item.getPrimaryName();
+		verbs.removeAll(item.getVerbs());
+		verbs.addAll(item.getVerbs());
+		inventory.add(item);
 	}
 	/**
   	*Changes the score. 
@@ -93,5 +98,57 @@ class Player{
 	}
 	int getHealth(){
 		return health;
+	}
+	Room getCurrentRoom(){
+		return currentRoom;
+	}
+	void setCurrentRoom(Room room){
+		this.currentRoom = room;
+	}
+	int getLoad(){
+		load = 0;
+		for(Item item : inventory){
+			load += item.getWeight();
+		}
+		return load;
+	}
+	void removeFromInventory(Item item){
+		inventory.remove(item);
+	}
+	ArrayList<Item> removeAllFromInventory(){
+		ArrayList<Item> oldInventory = new ArrayList<Item>();
+		for(Item item : inventory){
+			oldInventory.add(item);
+		}
+		inventory.clear();
+		return oldInventoy;
+	}
+	/**
+	 *Returns the Item object in this inventory that goes by the name inputed.
+	 *@param name An Item name to look for in the inventory
+	 *@author Nathanael Woodhead
+	 *@throws Item.NoItemException If there is no Item by that name in this' inventory.
+	 */
+
+	Item getItemInInventoryNamed(String name) throws Item.NoItemException{
+		for(Item item : inventory){
+			if(item.goesBy(name)){
+				return item;
+			}
+		}
+		throw new Item.NoItemException();
+	}
+	ArrayList<String> getVerbs(){
+		return verbs;
+	}
+	Item getItemInVicinityNamed(String name) throws Item.NoItemException{
+		return currentRoom.getItemNamed(name);
+	}
+	ArrayList<String> getInventoryNames(){
+		ArrayList<String> names = new ArrayList<String>();
+		for(Item x : inventory){
+			names.add(x.getPrimaryName());
+		}
+		return names;
 	}
 }

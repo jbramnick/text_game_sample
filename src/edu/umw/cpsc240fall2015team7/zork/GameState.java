@@ -48,31 +48,6 @@ class GameState{
 		}
 	}
 	/**
-	  *Returns the total weight of all items in the player's inventory.
-	  *@author Nathanael Woodhead
-	  */
-	int getLoad(){
-		load = 0;
-		for(Item item : inventory){
-			load += item.getWeight();
-		}
-		return load;
-	}
-	/**
-	  *Returns object that is the current Room for this. 
-	  *@author Nathanael Woodhead
-	  */
-	Room getAdventurersCurrentRoom(){
-		return adeventurersCurrentRoom;
-	}
-	/**
-	  *Sets the current room. 
-	  *@author Nathanael Woodhead
-	  */
-	void setAdventurersCurrentRoom(Room room){
-		adeventurersCurrentRoom = room;
-	}
-	/**
 	  *Returns the Dungeon for this. If there is no Dungeon, will return null
 	  *@author Nathanael Woodhead
 	  */
@@ -166,63 +141,5 @@ class GameState{
 			names.add(x.getPrimaryName());
 		}
 		return names;
-	}
-	/**
-	  *Adds an Item object to this inventory.
-	  *@author Nathanael Woodhead
-	  */
-	void addToInventory(Item item){
-		verbs.removeAll(item.getVerbs());
-		verbs.addAll(item.getVerbs());
-		inventory.add(item);
-	}
-	/**
-	  *Removes the passed Item object from the inventory of this.
-	  *If item is not in the inventory then it will quietly do nothing.
-	  *@author Nathanael Woodhead
-	  */ 
-	void removeFromInventory(Item item){
-		inventory.remove(item);
-	}
-	/**
-	  *Returns an ArrayList with the contents of this' inventory and then clears this' inventory of Items.
-	  *@author Nathan Woodhead
-	  */
-	ArrayList<Item> removeAllFromInventory(){
-		ArrayList<Item> oldInventoy = new ArrayList<Item>(); 
-		for(Item item :inventory){
-			oldInventoy.add(item);
-		}	
-		inventory.clear();
-		return oldInventoy;
-	}
-	/**
-	  *Returns the Item that goes by the name given in the current room.
-	  *@throws Item.NoItemException If there is no Item by that name in the current room.
-	  *@author Nathanael Woodhead
-	  */
-	Item getItemInVecinityNamed(String name) throws Item.NoItemException{
-		return adeventurersCurrentRoom.getItemNamed(name);
-	}
-	/**
-	  *Returns the Item object in this inventory that goes by the name inputed.
-	  *@param name An Item name to look for in the inventory
-	  *@author Nathanael Woodhead
-	  *@throws Item.NoItemException If there is no Item by that name in this' inventory.
-	  */
-	Item getItemFromInventoryNamed(String name) throws Item.NoItemException{
-		for(Item item : inventory){
-			if(item.goesBy(name)){
-				return item;
-			}
-		}
-		throw new Item.NoItemException();
-	}
-	/**
-	  *Returns an ArrayList of verbs in this. Each verb is a String.
-	  *@author Nathanael Woodhead
-	  */
-	ArrayList<String> getVerbs(){
-		return verbs;
 	}
 }
