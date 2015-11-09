@@ -119,6 +119,15 @@ public class Dungeon{
 		map.put(title, room);
 	}
 	/**
+	*Returns ArrayList of Room titles.
+	*@author Carson Meadows
+	*/
+	public ArrayList getRooms () {
+		ArrayList <String> cool = map.keySet();
+		return cool;
+	}
+
+	/**
 	*Returns the Room object with title roomKey and null if no such Room exists.
 	*@author Jim Bramnick
 	*/
