@@ -9,3 +9,5 @@ class HealthCommand extends Command{
 			text = "You couldn't feel better!";
 		}	
 		return text;
+	}
+}
