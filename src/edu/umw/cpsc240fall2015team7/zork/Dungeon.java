@@ -118,14 +118,6 @@ public class Dungeon{
 		String title = room.getTitle();
 		map.put(title, room);
 	}
-	/**
-	*Returns ArrayList of Room titles.
-	*@author Carson Meadows
-	*/
-	public ArrayList getRooms () {
-		ArrayList <String> cool = map.keySet();
-		return cool;
-	}
 
 	/**
 	*Returns the Room object with title roomKey and null if no such Room exists.
@@ -133,6 +125,14 @@ public class Dungeon{
 	*/
 	public Room getRoom(String roomKey){
 		return map.get(roomKey);
+	}
+	/**
+	*Returns an ArrayList of Room titles.
+	*@author Carson Meadows
+	*/
+	public ArrayList <String> getKeys () {
+		ArrayList <String> swag = new ArrayList <String> (map.keys());
+		return swag;
 	}
 	/**
 	*Returns a String of the full path to the file that was used to make this Dungeon.

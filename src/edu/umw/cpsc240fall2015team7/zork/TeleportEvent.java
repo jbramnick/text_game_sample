@@ -1,5 +1,5 @@
 package edu.umw.cpsc240fall2015team7.zork;
-import java.util.*
+import java.util.*;
 /**
   *Moves the player to another Room randomly.
   *@author Nathanael Woodhead
@@ -21,11 +21,11 @@ class TeleportEvent extends Event{
 	  */
 	String execute(){
 		//Get list of Rooms from Dungeon
-		ArrayList <String> rooms = Dungeon.getRooms();
+		ArrayList <String> rooms = GameState.instance().getDungeon().getKeys();
 
 		//Choose random Room
 		int select = selector.nextInt(rooms.size());
-		String newRoom = room.get(select);
+		String newRoom = rooms.get(select);
 		Room swag = Dungeon.getRoom(newRoom);
 
 		//Make that Room the CurrentRoom
