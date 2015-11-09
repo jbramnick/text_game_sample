@@ -7,7 +7,7 @@ import java.util.Hashtable;
 class Player{
 	public class NoSnackException extends Exception{};
 	private Hashtable<String, Item> inventory;
-	private int ammo, snack, medkit,health,hunger;
+	private int ammo, snack, medkit,health,hunger,score;
 	public static Player theInstance;
 	/**
 	 *If a player does not already exist creates a new player and return it. Otherwise will return the Player object.
@@ -71,5 +71,14 @@ class Player{
 	void addItemtoInventory(Item item){
 		String name = item.getPrimaryName();	
 	}	
+	void addScore(int score){
+		this.score = this.score + score;
+	}
+	int getScore(){
+		return score;
+	}
+	void removeScore(int score){
+		this.score = this.score - score;
+	}
 
 }
