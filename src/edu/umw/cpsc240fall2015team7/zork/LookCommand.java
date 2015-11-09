@@ -15,7 +15,7 @@ class LookCommand extends Command{
 	*@author Carson Meadows
 	*/
 	public String execute(){
-		Room currentRoom = GameState.instance().getAdventurersCurrentRoom();
+		Room currentRoom = Player.instance().getCurrentRoom();
 		return " \n \n"+currentRoom.describe(false);
 	}
 }	

@@ -22,7 +22,7 @@ class Interpreter {
 			try{
 				GameState.instance().restore(args[0]);
 				game = GameState.instance().getDungeon();
-				System.out.println(GameState.instance().getAdventurersCurrentRoom().describe());
+				System.out.println(Player.instance().getCurrentRoom().describe());
 			}
 			catch(Dungeon.IllegalDungeonFormatException e){
 				System.out.println("Invalid .bork format.");
@@ -42,7 +42,7 @@ class Interpreter {
 			try{
 				game = new Dungeon(args[0],true); 
 				GameState.instance().initialize(game);
-				GameState.instance().setAdventurersCurrentRoom(game.getEntry());
+				Player.instance().setCurrentRoom(game.getEntry());
 				System.out.println(game.getEntry().describe());
 
 			}
@@ -56,7 +56,7 @@ class Interpreter {
 			try{
 				Command move = CommandFactory.instance().parse(input);
 				System.out.println(move.execute());
-				System.out.println(GameState.instance().getAdventurersCurrentRoom().describe());
+				System.out.println(Player.instance().getCurrentRoom().describe());
 			}
 
 			catch(java.lang.IllegalArgumentException e){

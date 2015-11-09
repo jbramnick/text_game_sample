@@ -19,10 +19,10 @@ class MovementCommand extends Command{
 	*@author Carson Meadows
 	*/
 	String execute(){
-		Room currentRoom = GameState.instance().getAdventurersCurrentRoom();
+		Room currentRoom = Player.instance().getCurrentRoom();
 		try{
 			Room newRoom = currentRoom.leaveBy(dir);
-			GameState.instance().setAdventurersCurrentRoom(newRoom);
+			Player.instance().setCurrentRoom(newRoom);
 			return "";
 		}
 		catch(IllegalArgumentException e){
