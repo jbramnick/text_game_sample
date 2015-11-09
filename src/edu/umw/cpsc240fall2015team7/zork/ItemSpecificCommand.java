@@ -25,7 +25,7 @@ class ItemSpecificCommand extends Command{
 	  */
 	String execute(){
 		try{
-			Item item = GameState.instance().getItemFromInventoryNamed(noun);
+			Item item = Player.instance().getItemInInventoryNamed(noun);
 			String text = item.getMessageForVerb(verb);
 			return text;
 		}

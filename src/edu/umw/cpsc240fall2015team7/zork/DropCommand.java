@@ -32,10 +32,10 @@ class DropCommand extends Command{
 	*/
 	String execute(){
 		try{
-			Room currentRoom = GameState.instance().getAdventurersCurrentRoom();
+			Room currentRoom = Player.instance().getCurrentRoom();
 			if(commandString.contains("all")){
 			 	ArrayList<Item> inventory = new ArrayList<Item>();
-				for(Item thing : GameState.instance().removeAllFromInventory()){
+				for(Item thing : Player.instance().removeAllFromInventory()){
 					inventory.add(thing);
 				}	
 				for(Item thing : inventory){
@@ -43,8 +43,8 @@ class DropCommand extends Command{
 				}
 				return "Dropped everything" + "\n";
 			}
-			Item item = GameState.instance().getItemFromInventoryNamed(itemName);
-			GameState.instance().removeFromInventory(item);
+			Item item = Player.instance().getItemInInventoryNamed(itemName);
+			Player.instance().removeFromInventory(item);
 			currentRoom.add(item);
 
 			return "Dropped: " + itemName + "\n";

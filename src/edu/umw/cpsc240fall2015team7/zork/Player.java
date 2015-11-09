@@ -80,7 +80,7 @@ class Player{
 	  *Adds a item to this inventory. If the item is already in the inventory then it will quietly do nothing.
 	  *@author Nathanael Woodhead
 	  */
-	void addItemtoInventory(Item item){
+	void addToInventory(Item item){
 		verbs.removeAll(item.getVerbs());
 		verbs.addAll(item.getVerbs());
 		inventory.add(item);
@@ -106,7 +106,7 @@ class Player{
 		this.currentRoom = room;
 	}
 	int getLoad(){
-		load = 0;
+		int load = 0;
 		for(Item item : inventory){
 			load += item.getWeight();
 		}
@@ -121,7 +121,7 @@ class Player{
 			oldInventory.add(item);
 		}
 		inventory.clear();
-		return oldInventoy;
+		return oldInventory;
 	}
 	/**
 	 *Returns the Item object in this inventory that goes by the name inputed.
