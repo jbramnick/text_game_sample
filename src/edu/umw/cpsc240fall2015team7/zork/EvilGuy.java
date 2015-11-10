@@ -14,7 +14,7 @@ class EvilGuy extends Npc {
 	}
 
 	/**
-	*Spawns an NPC.
+	*Spawns an opponent using the {@link Spawner}.
 	*@author Carson Meadows
 	*/
 	public void spawn() {

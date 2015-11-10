@@ -2,7 +2,7 @@ package edu.umw.cpsc240fall2015team7.zork;
 import java.util.Scanner;
 import java.io.*;
 /**
- *The main for the Zork program. 
+ *The main for the Zork program. This is a command line game that is controlled from this class. 
  *@author Nathanael Woodhead
  */
 class Interpreter {

@@ -35,7 +35,14 @@ public class FlashLight{
 		batteryLvl=100;
 	}
 	/**
-	  *Reduces the battery.
+	  *Toggles the flashlight on and off. While on the {@link use()} method will be called every turn.
+	  *@author Nathanael Woodhead
+	  */
+	public void onOff(boolean power){
+		this.power = power;
+	}
+	/**
+	  *Reduces the battery. This will be called every move that the Flashlight is on. 
 	  *@author Nathanael Woodhead
 	  *@throws NoPowerException If the battery level is 0.
 	  */

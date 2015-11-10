@@ -6,7 +6,7 @@ import java.util.ArrayList;
  *@author Nathanael Woodhead
  */
 class Player{
-	private ArrayList<String> verbs;
+	private ArrayList<String> verbs = new ArrayList<String>();
 	private Room currentRoom;
 	public class NoSnackException extends Exception{};
 	private ArrayList<Item> inventory;
@@ -27,6 +27,7 @@ class Player{
 	 *@author Nathanael Woodhead
 	 */
 	private Player(){
+		this.inventory = new ArrayList<Item>();
 		this.ammo = 0;
 		this.snack = 0;
 		this.medkit = 0;
@@ -67,7 +68,8 @@ class Player{
 		}
 	}
 	/**
-	  *Lowers the heath of the player. If this causes the player's heath to fall below 1 then this will make a new die event and execute it.
+	  *Lowers the heath of the player. If this causes the player's health to fall below 1 then this will make a new die event 
+	  *and execute it. This will cause the game to end and the player to loose the game.
 	  *@author Nathanael Woodhead
 	  */
 	void takeWound(int damage){

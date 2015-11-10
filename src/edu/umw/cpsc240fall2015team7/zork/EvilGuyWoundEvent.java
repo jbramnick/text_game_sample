@@ -5,12 +5,17 @@ package edu.umw.cpsc240fall2015team7.zork;
 */
 class EvilGuyWoundEvent {
         private EvilGuy evilGuy;
+	private int damage;
 
         /**
         *Constructs this Event.
-        *@author Carson Meadows
+	*@param evilGuy The evilGuy who will be receiving the damage. 
+        *@param damage The damage amount that will be inflicted. 
+	*@author Carson Meadows and Nathanael Woodhead
         */
-        public EvilGuyWoundEvent(EvilGuy evilGuy){
+        public EvilGuyWoundEvent(EvilGuy evilGuy, int damage){
+		this.evilGuy = evilGuy;
+		this.damage = damage;
         }
 
         /**

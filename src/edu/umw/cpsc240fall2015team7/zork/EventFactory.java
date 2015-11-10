@@ -1,6 +1,6 @@
 package edu.umw.cpsc240fall2015team7.zork;
 /**
-  *A singleton class that parses event strings and returns Event objects.
+  *A singleton class that parses event strings and returns {@link Event} objects.
   *@author Nathanael Woodhead
   */
 class EventFactory{
@@ -18,7 +18,7 @@ class EventFactory{
 		return theInstance;
 	}
 	/**
-	  *Empty Constructor.
+	  *Creates a new EventFactory object.
 	  *@author Nathanael Woodhead
 	  */
 	private EventFactory(){
