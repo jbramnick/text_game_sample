@@ -17,7 +17,7 @@ public class TransformEvent extends Event{
 		this.endItem = endItem;
 	}
 	/**
-	  *Replaces the item with endItem.
+	  *Replaces the item with endItem. If endItem does not exist then it will return "Error No endItem.".
 	  *@author Nathanael Woodhead
 	  */
 	String execute(){

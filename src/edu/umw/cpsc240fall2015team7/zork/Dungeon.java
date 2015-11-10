@@ -20,9 +20,9 @@ public class Dungeon{
 
 	/**
 	*Constructs this Dungeon from a file.
-	*@param filename The .bork filename
+	*@param filename The .zork filename
 	*@param initState If true, this Dungeon is reset to its original state. If false, the Items will not be placed in the Rooms.
-	*@throws IllegalDungeonFormatException If the .bork file does not follow the correct format.
+	*@throws IllegalDungeonFormatException If the .zork file does not follow the correct format.
 	*@author Carson Meadows and Nathanael Woodhead
 	*/
 	public Dungeon (String filename, boolean initState) throws IllegalDungeonFormatException{

@@ -149,7 +149,7 @@ public class Room{
 		return title;
 	}
 	/**
-	 *Adds passed exit to this Room's possible exits.
+	 *Adds passed exit to this Room's possible exits. If exit already exists then it will quietly do nothing. 
 	 *@author Carson Meadows
 	 */
 	public void addExit(Exit exit){
@@ -157,9 +157,9 @@ public class Room{
 	}
 	/**
 	 *Returns Room connected to the Exit associated with the passed direction. 
-	 *If this Room has no Exits associated with the passed direction, throws
-	 * IllegalArgumentException.
-	 *@author Carson Meadows
+	 *If this Room does not have an exit in the passed direction then it will throw a Exit.NoExitException.
+	 *@throws Exit.NoExitException When the direction passed does not match any exit in the room. 
+	 *@author Carson Meadows and Nathanael Woodhead
 	 */
 	Room leaveBy(String dir){
 		Exit out = null;
@@ -173,13 +173,13 @@ public class Room{
 			return out.getDest();
 		}
 		else{
-			throw new IllegalArgumentException("ERROR");
+			throw new Exit.NoExitException();
 		}
 
 	}
 	/**
 	 *Writes save game info to the passed PrintWriter. Info includes this Room's
-	 * title, whether the player has been here yet, and it's contents.
+	 * title, beenHere status, and it's contents.
 	 *@author Carson Meadows
 	 */
 	void storeState(PrintWriter save){
@@ -235,7 +235,7 @@ public class Room{
 		return contents;
 	}
 	/**
-	 *Removes passed Item from this Room's contents.
+	 *Removes passed Item from this Room's contents. If the item is not in the room then it will quietly do nothing. 
 	 *@author Carson Meadows
 	 */
 	void remove(Item item){

@@ -14,9 +14,9 @@ class UniqueNpcDieEvent{
 
 	}
 	/**
-	Executes the killing of the UniqueNpc.
+	Executes the event.
 	Calls an {@link ScoreEvent} to add to the {@link Player} score.
-	Removes the UniqueNpc from the current {@link Dungeon} and the {@link Room}.
+	Removes the Npc from the current {@link Dungeon} and the {@link Room}.
 	@author Jim Bramnick
 	*/
 	public String execute(){
