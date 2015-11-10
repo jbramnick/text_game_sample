@@ -14,7 +14,7 @@ public class Melee{
 	  *@param weight How much the Melee object weighs.
 	  *@author Nathanael Woodhead
 	  */
-	public Melee(String primaryName, int weight){
+	public Melee(int power,String primaryName, int weight){
 		this.power = 25;
 		this.primaryName  = primaryName;
 	       	this.weight = weight;

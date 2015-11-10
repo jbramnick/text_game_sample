@@ -1,6 +1,6 @@
 package edu.umw.cpsc240fall2015team7.zork;
 /**
-Event used to add item to inventory received from {@link NPC}.
+Event used to add item to inventory received from {@link Npc}.
 @author Jim Bramnick
 */
 class ReceiveEvent extends Event{

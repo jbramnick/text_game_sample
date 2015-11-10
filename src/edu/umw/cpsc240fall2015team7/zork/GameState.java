@@ -25,7 +25,6 @@ class GameState{
 			theInstance = new GameState();
 		}
 		return theInstance;
-
 	}
 	/**
 	  *Creates a new GameState object. GameState.instance() should be called in order to instantiate a GameState object..
@@ -43,7 +42,6 @@ class GameState{
 		inventory = new ArrayList<Item>();
 		verbs = new ArrayList<String>();
 		}
-	}
 	/**
 	  *Returns the Dungeon object for this. If there is no Dungeon, will return null.
 	  *@author Nathanael Woodhead

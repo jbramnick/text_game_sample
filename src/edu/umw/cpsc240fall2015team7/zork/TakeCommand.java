@@ -9,7 +9,7 @@ class TakeCommand extends Command{
 	private String commandString;
 	/**
 	  *Creates a new TakeCommand object.
-	  *@param commandString a string containing an item name.
+	  *@param commandString A string containing an item name.
 	  *@author Nathanael Woodhead
 	  */
 	TakeCommand(String commandString){
@@ -21,7 +21,7 @@ class TakeCommand extends Command{
 	  *the item is too heavy to carry. If no item name is given it will return a string saying "Take what?". When the item is 
 	  *taken this will return a String saying "Taken itemName".
 	  *If command string contains "Ammo", "Medkit", or "Snack" this adds it to {@link Player} number of Ammo, Medkit, or snack.
-	  *@author Nathanael Woodhead && Jim Bramnick
+	  *@author Nathanael Woodhead and Jim Bramnick
 	  */
 	String execute(){
 		String itemName = "";

@@ -19,8 +19,8 @@ class ItemSpecificCommand extends Command{
 	/**
 	  *Executes this command and returns the text associated with the verb. If the verb has Events associated with it, 
 	  *it will create the Event objects and execute them.
-	  *@throws Item.NoItemException when you do not have the specified item.
-	  *@throws Item.NoVerbException When the given noun does not have the specified verb.
+	  *catches Item.NoItemException when you do not have the specified item.
+	  *catches Item.NoVerbException When the given noun does not have the specified verb.
 	  *@author Nathanael Woodhead
 	  */
 	String execute(){
