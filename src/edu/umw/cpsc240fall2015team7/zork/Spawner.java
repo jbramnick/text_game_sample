@@ -1,6 +1,7 @@
 package edu.umw.cpsc240fall2015team7.zork;
 /**
-  *Spawns opponents.
+  *The engine that controls the creation of opponents by Npcs or by events. The first opponent listed in the .zork file will be the
+  *opponent that will be spawned by the spawner. This is a Singleton class. 
   *@author Nathanael Woodhead
   */
 class Spawner{

@@ -25,7 +25,7 @@ class DropCommand extends Command{
 		System.out.println(itemName);
 	}
 	/**
-	*Removes the Item specified within the commandString from the inventory of GameState or all the Items if all is specified. 
+	*Removes the Item specified within the commandString from the inventory of GameState or all the Items if "all" is specified. 
 	*If Item specified in commandString is not in inventory of GameState, an error message is printed.
 	*@author Nathanael Woodhead
 	*@return A message to the user regarding their drop action

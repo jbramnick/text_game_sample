@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import java.util.Scanner;
 import java.io.*;
 /**
-*Creates objects to be found and used in the Dungeon.
+*Represents an object to be found and used in the Dungeon.
 *@author Carson Meadows
 */
 public class Item{

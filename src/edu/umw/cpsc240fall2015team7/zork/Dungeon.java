@@ -1,5 +1,5 @@
 package edu.umw.cpsc240fall2015team7.zork;
-import java.util.Enumeration;
+import java.util.Iterator;
 import java.util.ArrayList;
 import java.util.Hashtable;
 import java.util.Scanner;
@@ -20,9 +20,9 @@ public class Dungeon{
 
 	/**
 	*Constructs this Dungeon from a file.
-	*@param filename The .bork filename
+	*@param filename The .zork filename
 	*@param initState If true, this Dungeon is reset to its original state. If false, the Items will not be placed in the Rooms.
-	*@throws IllegalDungeonFormatException If the .bork file does not follow the correct format.
+	*@throws IllegalDungeonFormatException If the .zork file does not follow the correct format.
 	*@author Carson Meadows and Nathanael Woodhead
 	*/
 	public Dungeon (String filename, boolean initState) throws IllegalDungeonFormatException{
@@ -132,13 +132,12 @@ public class Dungeon{
 	*@author Carson Meadows
 	*/
 	public ArrayList <String> getKeys () {
-		ArrayList<String> swag = new ArrayList<String>();
-		Enumeration keys = map.keys();
-		while(keys.hasMoreElements()){
-			String key = keys.nextElement();
-			swag.add(key);
+		ArrayList<String> roomNames = new ArrayList<String>();
+		Iterator keys = map.keySet().iterator();
+		while(keys.hasNext()){
+			roomNames.add(keys.next().toString());
 		}
-		return swag;
+		return roomNames;
 	}
 	/**
 	*Returns a String of the full path to the file that was used to make this Dungeon.

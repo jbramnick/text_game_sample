@@ -1,7 +1,7 @@
 package edu.umw.cpsc240fall2015team7.zork;
 import java.util.ArrayList;
 /**
-  *Takes an item from the current room and moves it to the players inventory.
+  *Takes an item from the surrounding area and moves it into the players inventory.
   *@author Nathanael Woodhead
   */
 class TakeCommand extends Command{
@@ -9,19 +9,19 @@ class TakeCommand extends Command{
 	private String commandString;
 	/**
 	  *Creates a new TakeCommand object.
-	  *@param commandString a string containing an item name.
+	  *@param commandString A string containing an item name.
 	  *@author Nathanael Woodhead
 	  */
 	TakeCommand(String commandString){
 		this.commandString = commandString;
 	}
 	/**
-	  *Executes the TakeCommand by parsing the commandString to extract the item name and moving that item to the players inventory
-	  *that item is then removed from the current room. If the item is too heavy this will return a String with a message saying that
+	  *Executes the TakeCommand by parsing the commandString to extract the item and moves the item to the players inventory
+	  *removing it from the current room. If the item is too heavy this will return a String with a message saying that
 	  *the item is too heavy to carry. If no item name is given it will return a string saying "Take what?". When the item is 
 	  *taken this will return a String saying "Taken itemName".
 	  *If command string contains "Ammo", "Medkit", or "Snack" this adds it to {@link Player} number of Ammo, Medkit, or snack.
-	  *@author Nathanael Woodhead && Jim Bramnick
+	  *@author Nathanael Woodhead and Jim Bramnick
 	  */
 	String execute(){
 		String itemName = "";

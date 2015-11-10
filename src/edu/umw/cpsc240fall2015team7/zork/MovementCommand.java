@@ -15,7 +15,7 @@ class MovementCommand extends Command{
 		this.dir = dir;
 	}
 	/**
-	*Moves the player to the adjacent Room in the direction of this.
+	*Moves the player to the adjacent Room in the direction passed.
 	*@author Carson Meadows
 	*/
 	String execute(){

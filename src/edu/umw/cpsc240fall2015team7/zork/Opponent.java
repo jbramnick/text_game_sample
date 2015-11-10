@@ -1,6 +1,6 @@
 package edu.umw.cpsc240fall2015team7.zork;
 /**
-*An intrinsically aggressive NPC.
+*An intrinsically aggressive NPC. 
 *@author Nathanael Woodhead 
 */
 class Opponent extends Npc {

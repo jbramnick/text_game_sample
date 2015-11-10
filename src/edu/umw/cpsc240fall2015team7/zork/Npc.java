@@ -29,7 +29,7 @@ abstract class Npc{
 	void removeHealth(int damage){
 	}
 	/**
-	  *Returns the aggression value for this NPC.
+	  *Returns the aggression value for this NPC. Non-Aggressive Npcs can become aggressive if they are attacked or through an event.
 	  *@author Nathanael Woodhead
 	  */
 	boolean getAggression(){

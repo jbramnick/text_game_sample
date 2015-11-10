@@ -2,13 +2,13 @@ package edu.umw.cpsc240fall2015team7.zork;
 import java.util.Scanner;
 import java.io.*;
 /**
- *The main for the Zork program. 
+ *The main for the Zork program. This is a command line game that is controlled from this class. 
  *@author Nathanael Woodhead
  */
 class Interpreter {
 	public static void main (String args[]){
 		if(args.length == 0){
-			System.out.println("You must enter a .bork file or a .sav file");
+			System.out.println("You must enter a .zork file or a .sav file");
 			System.exit(0);
 		}
 		String input;
@@ -25,7 +25,7 @@ class Interpreter {
 				System.out.println(Player.instance().getCurrentRoom().describe());
 			}
 			catch(Dungeon.IllegalDungeonFormatException e){
-				System.out.println("Invalid .bork format.");
+				System.out.println("Invalid .zork format.");
 				System.exit(0);
 			}
 			catch(GameState.IllegalSaveFormatException e){
@@ -38,7 +38,7 @@ class Interpreter {
 			}			
 		}
 
-		else if(extention.equals(".bork")){			
+		else if(extention.equals(".zork")){			
 			try{
 				game = new Dungeon(args[0],true); 
 				GameState.instance().initialize(game);
@@ -47,7 +47,7 @@ class Interpreter {
 
 			}
 			catch (Dungeon.IllegalDungeonFormatException e){
-				System.out.println("Invalid .bork format.");
+				System.out.println("Invalid .zork format.");
 				System.exit(0);
 			}
 		}

@@ -2,7 +2,7 @@ package edu.umw.cpsc240fall2015team7.zork;
 import java.util.ArrayList;
 import java.lang.IllegalArgumentException;
 /**
-*Parses input String and returns a Command object. 
+*A singleton class that parses input String and returns a Command object. 
 *@author Nathanael Woodhead
 */
 class CommandFactory{
@@ -21,7 +21,7 @@ class CommandFactory{
 
 	}
 	/**
-	*Empty Constructor.
+	*Creates a new CommandFactory object.
 	*@author Carson Meadows
 	*/
 	private CommandFactory(){

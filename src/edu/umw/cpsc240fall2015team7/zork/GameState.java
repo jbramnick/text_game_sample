@@ -25,16 +25,15 @@ class GameState{
 			theInstance = new GameState();
 		}
 		return theInstance;
-
 	}
 	/**
-	  *An empty constructor. Instead GameState.instance() should be called.
+	  *Creates a new GameState object. GameState.instance() should be called in order to instantiate a GameState object..
 	  *@author Nathanael Woodhead
 	  */
 	private GameState(){
 	}
 	/**
-	  *Initializes a Dungeon in this GameState instance. 
+	  *Initializes a Dungeon in this GameState instance. Sets the map, creates an empty inventory, and list of verbs. 
 	  *@param The Dungeon object.
 	  *@author Nathanael Woodhead
 	  */
@@ -42,20 +41,17 @@ class GameState{
 		this.map = dungeon;
 		inventory = new ArrayList<Item>();
 		verbs = new ArrayList<String>();
-		for(Item item : inventory){
-			verbs.removeAll(item.getVerbs());
-			verbs.addAll(item.getVerbs());
 		}
-	}
 	/**
-	  *Returns the Dungeon for this. If there is no Dungeon, will return null
+	  *Returns the Dungeon object for this. If there is no Dungeon, will return null.
 	  *@author Nathanael Woodhead
 	  */
 	Dungeon getDungeon(){
 		return map;
 	}
 	/**
-	  *Creates a savefile of the current GameState. Stores the file as myProgress.sav
+	  *Creates a savefile of the current GameState. Stores the file as myProgress.sav. Catches the FileNotFoundException and prints
+	  *"File not found".
 	  *@author Nathanael Woodhead
 	  */
 	void store(){

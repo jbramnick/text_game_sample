@@ -13,7 +13,7 @@ class Gun{
         *@author Carson Meadows
         */
         public Gun (int capacity, int power, String primaryName, int weight) {
-        }
+	}
 
         /**
         *Adds passed int to this Gun's capacity.

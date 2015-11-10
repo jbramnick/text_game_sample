@@ -1,6 +1,6 @@
 package edu.umw.cpsc240fall2015team7.zork;
 /**
-*The Event that handles the death of the EvilGuy NPC.
+*The Event that handles the death of an EvilGuy NPC.
 *@author Carson Meadows
 */
 class EvilGuyDieEvent {

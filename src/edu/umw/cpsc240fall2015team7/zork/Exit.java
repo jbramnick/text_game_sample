@@ -1,7 +1,7 @@
 package edu.umw.cpsc240fall2015team7.zork;
 import java.util.Scanner;
 /**
- *Connects Rooms in the Dungeon to each other.
+ *Connects Rooms in the Dungeon to each other. Each exit is only one way.
  *@author Carson Meadows
  */
 public class Exit{

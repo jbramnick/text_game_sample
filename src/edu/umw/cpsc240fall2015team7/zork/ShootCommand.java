@@ -17,8 +17,8 @@ class ShootCommand {
         }
 
         /**
-        *Executes this and depletes the NPC's health and the Gun's ammo. 
-	*Determines the correct amount of health to deplete based on the Gun's power..
+        *Executes this and depletes the Npc's health and the Gun's ammo. 
+	*Determines the correct amount of health to deplete based on the Gun's power.
         *@author Carson Meadows
         */
         public String execute () {
