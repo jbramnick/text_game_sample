@@ -66,6 +66,32 @@ public class Item{
 		String message = scan.nextLine();
 		while(!message.equals("---")){
 			String[] x = message.split(":");
+			if(x[0].contains("["){
+				String part = x[0].split("[");
+				String[] events = part.split(",");
+				for(String event : events){
+					String con = "";
+					if(event.contains("("){
+						con = event.substring(event.indexOf("(")+1,event.indexOf(")")-1);
+						event = event.substring(0,event.indexOf("("));
+						}
+					event = "edu.umw.cpsc240fall2015team7.zork."+event+"Event";
+					Class clazz = Class.forName(event);
+					if(!con.equals("")){
+						int value;
+						String[] cons = con.split(",");
+						for (String i : cons){
+							values.add(Integer.getInteger(i));
+						}
+						Constructor constructor;
+						if(value != null){
+							constructor = clazz.getDeclaredConstructor([Integer.Class]);
+							}
+						else{
+							constructor = clazz.getDeclaredConstructor();
+						}
+
+			}
 			String[] other = x[0].split(",");
 			for(String verb : other){
 				messages.put(verb,x[1]);
