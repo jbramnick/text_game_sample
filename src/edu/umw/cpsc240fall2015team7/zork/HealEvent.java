@@ -18,8 +18,8 @@ class HealEvent
 	@throws MaxHealthException If {@link Player} health is equal to {@link Player} MaxHealth.
 	@author Jim Bramnick
 	*/
-	public String Execute()
-	{
+	public String execute() {
+		Player.instance().setHealth(100);
 		return "";
 	}
 

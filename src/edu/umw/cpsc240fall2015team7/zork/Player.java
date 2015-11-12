@@ -101,6 +101,13 @@ class Player{
 	int getHealth(){
 		return health;
 	}
+	/**
+	*Sets health to passed int.
+	*@author Carson Meadows
+	*/
+	void setHealth(int StephenDavies) {
+		this.health = StephenDavies;
+	}
 	Room getCurrentRoom(){
 		return currentRoom;
 	}
