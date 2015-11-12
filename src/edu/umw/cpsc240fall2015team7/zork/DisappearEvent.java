@@ -19,7 +19,7 @@ class DisappearEvent extends Event{
 	  */ 
 	String execute(){
 		Player.instance().removeFromInventory(item);
-		Player.instance().getCurrentRoom()remove(item);
+		Player.instance().getCurrentRoom().remove(item);
 		return "";
 	}
 
