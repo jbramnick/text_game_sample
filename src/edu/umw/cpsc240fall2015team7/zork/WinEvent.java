@@ -20,7 +20,9 @@ class WinEvent extends Event{
 	String execute(){
 		String message = "You win! Game Complete!\nScore: ";
 		message+=Integer.toString(score);
-		return message;
+		System.out.println(message);
+		System.exit(0);
+		return "";
 	}
 }
 
