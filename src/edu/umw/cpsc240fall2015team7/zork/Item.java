@@ -75,7 +75,7 @@ public class Item{
 				String part = x[0].substring(x[0].indexOf("\\["),x[0].indexOf("\\]"));
 				x[0] = x[0].substring(0,x[0].indexOf("\\["));
 				try{
-					consequences = EventFactory.instance().parse(part);
+					consequences = EventFactory.instance().parse(this,part);
 				}catch(Exception e){
 					throw new Dungeon.IllegalDungeonFormatException();
 				}
