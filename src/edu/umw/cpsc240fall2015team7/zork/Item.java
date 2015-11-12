@@ -66,19 +66,20 @@ public class Item{
 		messages = new Hashtable <String, String>();
 		String message = scan.nextLine();
 		while(!message.equals("---")){
-			Constructor con;
-			Event action  null;
+			Constructor constructor;
+			ArrayList<Event> consequences = new ArrayList<Event>();
 			String[] x = message.split(":");
-			if(x[0].contains("["){
-				String part = x[0].split("[");
-				String[] events = part.split(",");
+			if(x[0].contains("[")){
+				String[] part = x[0].split("[");
+				String[] events = part[1].split(",");
 				for(String event : events){
 					String con = "";
-					if(event.contains("("){
+					if(event.contains("(")){
 						con = event.substring(event.indexOf("(")+1,event.indexOf(")")-1);
 						event = event.substring(0,event.indexOf("("));
 						}
 					event = "edu.umw.cpsc240fall2015team7.zork."+event+"Event";
+					try{
 					Class clazz = Class.forName(event);
 					if(!con.equals("")){
 						String[] cons = con.split(",");
@@ -87,18 +88,22 @@ public class Item{
 							classes[i] = String.class;
 						}
 						constructor = clazz.getDeclaredConstructor(classes);
-							action = constructor.newInstance(cons);
+							consequences.add((Event)constructor.newInstance((Object)cons));
 						}
 					else{
 						constructor = clazz.getDeclaredConstructor();
-						action = constructor.newInstance();
+						consequences.add((Event)constructor.newInstance());
+					}
+					}catch(Exception e){
+						throw new Dungeon.IllegalDungeonFormatException();
 					}
 					
-						
+				}
 			}
 			String[] other = x[0].split(",");
 			for(String verb : other){
 				messages.put(verb,x[1]);
+				actions.put(verb,consequences);
 			}
 			message = scan.nextLine();
 		}
