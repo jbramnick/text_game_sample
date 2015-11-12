@@ -176,6 +176,13 @@ public class Dungeon{
 
 	}
 	/**
+	*Removes passed Item from Hashtable items.
+	*@author Carson Meadows
+	*/
+	public void removeItem (Item item) {
+		items.remove(item.getPrimaryName());
+	}
+	/**
 	*Adds the passed Item to this Dungeon. Does nothing if the Item already exists, or is null.
 	*@author Jim Bramnick
 	*/
