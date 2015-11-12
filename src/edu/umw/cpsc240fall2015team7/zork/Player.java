@@ -108,6 +108,15 @@ class Player{
 	void setHealth(int StephenDavies) {
 		this.health = StephenDavies;
 	}
+	void addMedkits (int add) {
+		medkits += add;
+	}
+	void addAmmo (int add) {
+		ammo += add;
+	}
+	void addSnacks (int add) {
+		snacks += add;
+	}
 	Room getCurrentRoom(){
 		return currentRoom;
 	}
