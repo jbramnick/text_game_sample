@@ -1,4 +1,5 @@
 package edu.umw.cpsc240fall2015team7.zork;
+import java.lang.reflect.Constructor;
 import java.util.Hashtable;
 import java.util.Enumeration;
 import java.util.ArrayList;
@@ -12,7 +13,7 @@ public class Item{
 	static class NoVerbException extends Exception {}
 	static class NoItemException extends Exception {}
 
-	private Hashtable<String, ArrayList> actions;
+	private Hashtable<String, ArrayList<Event> > actions;
 	private String primaryName;
 	private ArrayList<String> secondaryNames;
 	private int weight;
@@ -65,6 +66,8 @@ public class Item{
 		messages = new Hashtable <String, String>();
 		String message = scan.nextLine();
 		while(!message.equals("---")){
+			Constructor con;
+			Event action  null;
 			String[] x = message.split(":");
 			if(x[0].contains("["){
 				String part = x[0].split("[");
@@ -78,19 +81,20 @@ public class Item{
 					event = "edu.umw.cpsc240fall2015team7.zork."+event+"Event";
 					Class clazz = Class.forName(event);
 					if(!con.equals("")){
-						int value;
 						String[] cons = con.split(",");
-						for (String i : cons){
-							values.add(Integer.getInteger(i));
+						Class[] classes = new Class[cons.length-1];
+						for (int i=0; i<cons.length-1; i++){
+							classes[i] = String.class;
 						}
-						Constructor constructor;
-						if(value != null){
-							constructor = clazz.getDeclaredConstructor([Integer.Class]);
-							}
-						else{
-							constructor = clazz.getDeclaredConstructor();
+						constructor = clazz.getDeclaredConstructor(classes);
+							action = constructor.newInstance(cons);
 						}
-
+					else{
+						constructor = clazz.getDeclaredConstructor();
+						action = constructor.newInstance();
+					}
+					
+						
 			}
 			String[] other = x[0].split(",");
 			for(String verb : other){
