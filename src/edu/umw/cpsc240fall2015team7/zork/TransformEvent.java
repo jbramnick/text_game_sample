@@ -17,10 +17,18 @@ public class TransformEvent extends Event{
 		this.endItem = endItem;
 	}
 	/**
-	  *Replaces the item with endItem. If endItem does not exist then it will return "Error No endItem.".
+	  *Replaces the item with endItem. If endItem does not exist,
+	  * then it will return "Error: No endItem.".
 	  *@author Nathanael Woodhead
 	  */
 	String execute(){
-		return "";
+		try {
+			Player.instance().addToInventory(endItem);
+			Player.instance().removeFromInventory(item);
+			return item.getPrimaryName() + " became " + 
+				endItem.getPrimaryName();
+		} catch (Item.NoItemException e) {
+			return "Error: No endItem";
+		}
 	}
 }
