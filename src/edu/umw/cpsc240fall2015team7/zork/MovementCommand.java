@@ -25,7 +25,7 @@ class MovementCommand extends Command{
 			Player.instance().setCurrentRoom(newRoom);
 			return "";
 		}
-		catch(IllegalArgumentException e){
+		catch(Exit.NoExitException e){
 			return "There is no exit there.";
 		}
 	}

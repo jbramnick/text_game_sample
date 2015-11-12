@@ -161,7 +161,7 @@ public class Room{
 	 *@throws Exit.NoExitException When the direction passed does not match any exit in the room. 
 	 *@author Carson Meadows and Nathanael Woodhead
 	 */
-	Room leaveBy(String dir){
+	Room leaveBy(String dir) throws Exit.NoExitException{
 		Exit out = null;
 		boolean found = false;
 		for(Exit exit : exits){

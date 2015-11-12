@@ -5,6 +5,7 @@ package edu.umw.cpsc240fall2015team7.zork;
   */
 public class FlashLight{
 	private String primaryName;
+	private boolean power;
 	private int weight;
 	private int batteryLvl;
 	static class NoPowerException extends Exception {}
@@ -20,6 +21,7 @@ public class FlashLight{
 		this.batteryLvl=batteryLvl;
 		this.primaryName=primaryName;
 		this.weight=weight;
+		this.power = false;
 	}
 	/**
 	  *Returns the current battery level.
