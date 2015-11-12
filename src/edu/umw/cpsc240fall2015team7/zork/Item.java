@@ -70,7 +70,7 @@ public class Item{
 			ArrayList<Event> consequences = new ArrayList<Event>();
 			String[] x = message.split(":");
 			if(x[0].contains("[")){
-				String[] part = x[0].split("[");
+				String[] part = x[0].split("\\[");
 				String[] events = part[1].split(",");
 				for(String event : events){
 					String con = "";
@@ -80,9 +80,11 @@ public class Item{
 						}
 					event = "edu.umw.cpsc240fall2015team7.zork."+event+"Event";
 					try{
+					System.out.println(event);
 					Class clazz = Class.forName(event);
 					if(!con.equals("")){
 						String[] cons = con.split(",");
+						
 						Class[] classes = new Class[cons.length-1];
 						for (int i=0; i<cons.length-1; i++){
 							classes[i] = String.class;

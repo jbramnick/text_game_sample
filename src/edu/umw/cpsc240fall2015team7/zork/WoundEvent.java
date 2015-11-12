@@ -10,8 +10,8 @@ class WoundEvent extends Event{
 	  *@param damage Number of hitpoints to remove from player.
 	  *@author Nathanael Woodhead
 	  */
-	WoundEvent(int damage){
-		this.damage=damage;
+	WoundEvent(String damage){
+		this.damage= Integer.parseInt(damage);
 	}
 	/**
 	  *Changes the player's health. Subtracts the damage from the player's current health
