@@ -70,36 +70,12 @@ public class Item{
 			ArrayList<Event> consequences = new ArrayList<Event>();
 			String[] x = message.split(":");
 			if(x[0].contains("[")){
-				String[] part = x[0].split("\\[");
-				String[] events = part[1].split(",");
-				for(String event : events){
-					String con = "";
-					if(event.contains("(")){
-						con = event.substring(event.indexOf("(")+1,event.indexOf(")")-1);
-						event = event.substring(0,event.indexOf("("));
-						}
-					event = "edu.umw.cpsc240fall2015team7.zork."+event+"Event";
-					try{
-					System.out.println(event);
-					Class clazz = Class.forName(event);
-					if(!con.equals("")){
-						String[] cons = con.split(",");
-						
-						Class[] classes = new Class[cons.length-1];
-						for (int i=0; i<cons.length-1; i++){
-							classes[i] = String.class;
-						}
-						constructor = clazz.getDeclaredConstructor(classes);
-							consequences.add((Event)constructor.newInstance((Object)cons));
-						}
-					else{
-						constructor = clazz.getDeclaredConstructor();
-						consequences.add((Event)constructor.newInstance());
-					}
-					}catch(Exception e){
-						throw new Dungeon.IllegalDungeonFormatException();
-					}
-					
+				String part = x[0].substring(x[0].indexOf("\\["),x[0].indexOf("\\]"));
+				x[0] = x[0].substring(0,x[0].indexOf("\\["));
+				try{
+					consequences = EventFactory.instance().parse(part);
+				}catch(Exception e){
+					throw new Dungeon.IllegalDungeonFormatException();
 				}
 			}
 			String[] other = x[0].split(",");
