@@ -1,4 +1,5 @@
 package edu.umw.cpsc240fall2015team7.zork;
+import java.lang.reflect.Constructor;
 import java.util.Hashtable;
 import java.util.Enumeration;
 import java.util.ArrayList;
@@ -12,7 +13,7 @@ public class Item{
 	static class NoVerbException extends Exception {}
 	static class NoItemException extends Exception {}
 
-	private Hashtable<String, ArrayList> actions;
+	private Hashtable<String, ArrayList<Event> > actions;
 	private String primaryName;
 	private ArrayList<String> secondaryNames;
 	private int weight;
@@ -65,10 +66,46 @@ public class Item{
 		messages = new Hashtable <String, String>();
 		String message = scan.nextLine();
 		while(!message.equals("---")){
+			Constructor constructor;
+			ArrayList<Event> consequences = new ArrayList<Event>();
 			String[] x = message.split(":");
+			if(x[0].contains("[")){
+				String[] part = x[0].split("\\[");
+				String[] events = part[1].split(",");
+				for(String event : events){
+					String con = "";
+					if(event.contains("(")){
+						con = event.substring(event.indexOf("(")+1,event.indexOf(")")-1);
+						event = event.substring(0,event.indexOf("("));
+						}
+					event = "edu.umw.cpsc240fall2015team7.zork."+event+"Event";
+					try{
+					System.out.println(event);
+					Class clazz = Class.forName(event);
+					if(!con.equals("")){
+						String[] cons = con.split(",");
+						
+						Class[] classes = new Class[cons.length-1];
+						for (int i=0; i<cons.length-1; i++){
+							classes[i] = String.class;
+						}
+						constructor = clazz.getDeclaredConstructor(classes);
+							consequences.add((Event)constructor.newInstance((Object)cons));
+						}
+					else{
+						constructor = clazz.getDeclaredConstructor();
+						consequences.add((Event)constructor.newInstance());
+					}
+					}catch(Exception e){
+						throw new Dungeon.IllegalDungeonFormatException();
+					}
+					
+				}
+			}
 			String[] other = x[0].split(",");
 			for(String verb : other){
 				messages.put(verb,x[1]);
+				actions.put(verb,consequences);
 			}
 			message = scan.nextLine();
 		}

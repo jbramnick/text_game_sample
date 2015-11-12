@@ -33,7 +33,7 @@ public class Dungeon{
 			System.out.println(this.name);
 			version = scanner.nextLine();
 			System.out.println(this.version);
-			if (!version.equals("Bork v3.0")){
+			if (!version.equals("Zork v1.0")){
 				throw new IllegalDungeonFormatException();
 			}
 

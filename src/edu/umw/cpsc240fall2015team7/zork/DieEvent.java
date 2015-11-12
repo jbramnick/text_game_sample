@@ -15,6 +15,9 @@ class DieEvent extends Event{
 	  *@author Nathanael Woodhead
 	  */
 	String execute(){
-		return "";
+		String message = "You died! Game Over!\nScore: ";
+		int score = Player.instance().getScore();
+		message += Integer.toString(score);
+		return message;
 	}
 }

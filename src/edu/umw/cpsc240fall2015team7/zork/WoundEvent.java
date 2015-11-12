@@ -10,8 +10,8 @@ class WoundEvent extends Event{
 	  *@param damage Number of hitpoints to remove from player.
 	  *@author Nathanael Woodhead
 	  */
-	WoundEvent(int damage){
-
+	WoundEvent(String damage){
+		this.damage= Integer.parseInt(damage);
 	}
 	/**
 	  *Changes the player's health. Subtracts the damage from the player's current health
@@ -19,6 +19,7 @@ class WoundEvent extends Event{
 	  *@author Nathanael Woodhead
 	  */
 	String execute(){
+		Player.instance().takeWound(damage);
 		return "";
 	}
 	/**
@@ -27,7 +28,11 @@ class WoundEvent extends Event{
 	  *@author Nathanael Woodhead
 	  */
 	boolean checkDead(){
-		return false;
+		if (Player.instance().getHealth()<1) {
+			return true;
+		} else {
+			return false;
+		}
 	}
 
 }
