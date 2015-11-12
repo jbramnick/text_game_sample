@@ -29,7 +29,9 @@ public class Item{
 	}
 	/**
 	*Hydrates this Item by reading passed Scanner object. Reads in primary and any
-	*secondary names, weight, and messages used for ItemSpecificCommands.
+	*secondary names, weight, and messages used for ItemSpecificCommands. Any consequences will be stored where they can be retrieve at
+	*when the verb is called.
+	*@throws Dungeon.IllegalDungeonFormatException When the actions do not match any existing action.
 	*@author Carson Meadows
 	*/
 	public Item(Scanner scan) throws NoItemException, Dungeon.IllegalDungeonFormatException{
@@ -67,7 +69,7 @@ public class Item{
 		String message = scan.nextLine();
 		while(!message.equals("---")){
 			Constructor constructor;
-			ArrayList<Event> consequences = new ArrayList<Event>();
+			ArrayList<Event> consequences;
 			String[] x = message.split(":");
 			if(x[0].contains("[")){
 				String part = x[0].substring(x[0].indexOf("\\["),x[0].indexOf("\\]"));
@@ -81,7 +83,9 @@ public class Item{
 			String[] other = x[0].split(",");
 			for(String verb : other){
 				messages.put(verb,x[1]);
-				actions.put(verb,consequences);
+				if(consequences != null){
+					actions.put(verb,consequences);
+				}
 			}
 			message = scan.nextLine();
 		}
@@ -111,7 +115,7 @@ public class Item{
 		return primaryName;
 	}
 	/**
-	*Returns message associated with passed String. 
+	*Returns message associated with passed String and executes all the events associated with the message. 
 	*@throws NoVerbException If this Item does not contain the passed String. 
 	*@author Carson Meadows
 	*/
@@ -120,6 +124,11 @@ public class Item{
 			throw new NoVerbException();
 		}
 		String text = messages.get(verb);
+		if(actions.containsKey(verb)){
+			for(Event event : actions.get(verb)){
+				text = text + event.execute();
+			}
+		}
 		return text;
 	}
 	/**
@@ -170,5 +179,4 @@ public class Item{
 	  */
 	void addEventToVerb(String verb, Event event){
 	}
-
 }
