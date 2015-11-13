@@ -1,6 +1,7 @@
 package edu.umw.cpsc240fall2015team7.zork;
 import java.util.Hashtable;
 import java.util.ArrayList;
+import java.io.*;
 /**
  *The Player of the game.
  *@author Nathanael Woodhead
@@ -174,7 +175,7 @@ class Player{
 		}
 		return names;
 	}
-	public void store(Printwriter save)
+	public void store(PrintWriter save)
 	{
 		save.println("===");
 		save.println("Adventurer:");
