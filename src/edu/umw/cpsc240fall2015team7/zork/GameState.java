@@ -76,7 +76,7 @@ class GameState{
 			save.println("Bork v3.0 save data");
 			map.storeState(save);
 			save.println("===");
-			}
+			Player.instance().store(save);	
 			save.close();
 		}
 		catch(FileNotFoundException e){
