@@ -13,7 +13,7 @@ public class Item{
 	static class NoVerbException extends Exception {}
 	static class NoItemException extends Exception {}
 
-	private Hashtable<String, ArrayList<Event> > actions;
+	private Hashtable<String, ArrayList<Event> > actions = new Hashtable<String, ArrayList<Event> >();
 	private String primaryName;
 	private ArrayList<String> secondaryNames;
 	private int weight;
@@ -83,12 +83,11 @@ public class Item{
 				}
 			}
 			String[] other = x[0].split(",");
-			for(String r : other){
-				System.out.println(r);
-			}
 			for(String verb : other){
 				messages.put(verb,x[1]);
 				if(consequences != null){
+					System.out.println("Verb: " + verb);
+					System.out.println(consequences);
 					actions.put(verb,consequences);
 				}
 			}
