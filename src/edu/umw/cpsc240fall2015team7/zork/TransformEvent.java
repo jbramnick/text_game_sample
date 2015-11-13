@@ -12,9 +12,9 @@ public class TransformEvent extends Event{
 	 *@param endItem The item that it becomes
 	 *@author Nathanael Woodhead
 	 */
-	TransformEvent(Item item, Item endItem){
+	TransformEvent(Item item, String endItem){
 		this.item = item;
-		this.endItem = endItem;
+		this. endItem = GameState.instance().getDungeon().getItem(endItem);
 	}
 	/**
 	 *Replaces the item with endItem. If endItem does not exist,
