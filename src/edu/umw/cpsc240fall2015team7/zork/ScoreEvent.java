@@ -14,11 +14,15 @@ class ScoreEvent extends Event{
 	ScoreEvent(int score){
 		this.score=score;
 	}
+	ScoreEvent(Item i,String score){
+		this.score=Integer.parseInt(score);
+	}
+
 	/**
-	*Adds this Event's score to the overall in-game score. If the score is negative will subtract from the player's score. 
-	*@return A message concerning the score added or subtracted. If score is 0 then will return an empty string. 
-	*@author Carson Meadows and Nathanael Woodhead
-	*/
+	 *Adds this Event's score to the overall in-game score. If the score is negative will subtract from the player's score. 
+	 *@return A message concerning the score added or subtracted. If score is 0 then will return an empty string. 
+	 *@author Carson Meadows and Nathanael Woodhead
+	 */
 	String execute() {
 		String text = "";
 		Player.instance().changeScore(score);

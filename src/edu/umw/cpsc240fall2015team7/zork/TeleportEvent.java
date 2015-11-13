@@ -10,6 +10,9 @@ class TeleportEvent extends Event{
 	  *Constructs this TeleportEvent object.
 	  *@author Nathanael Woodhead
 	  */
+	TeleportEvent(Item i){
+		selector = new Random();
+	}
 	TeleportEvent(){
 		selector = new Random();
 	}
