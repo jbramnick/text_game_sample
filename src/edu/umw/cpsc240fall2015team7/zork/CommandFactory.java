@@ -75,10 +75,12 @@ class CommandFactory{
 		}
 		else if(verbs.contains(command[0])){
 			String verb = command[0];
+			String noun = "";
 			try{
-				String noun = command[1];
+				noun = command[1];
 			}catch(Exception e){
-				return verb + "  what?";
+				throw new Item.NoItemException();	
+			}
 			ItemSpecificCommand action = new ItemSpecificCommand(verb,noun);
 			return action;
 		}
