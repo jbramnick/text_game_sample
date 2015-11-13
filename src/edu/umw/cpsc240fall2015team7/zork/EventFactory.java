@@ -34,6 +34,7 @@ class EventFactory{
 	{
 		try
 		{
+			System.out.println(eventString);
 			String[] eventsStrings=eventString.split(",");
 			ArrayList<String> parenEvents=new ArrayList<String>();
 			ArrayList<String> normalEvents=new ArrayList<String>();
@@ -78,7 +79,8 @@ class EventFactory{
 			return events;
 		}
 		catch(Exception e)
-		{
+		{	
+			e.printStackTrace();
 			System.out.println("Shit went down");
 			return null;
 		}
