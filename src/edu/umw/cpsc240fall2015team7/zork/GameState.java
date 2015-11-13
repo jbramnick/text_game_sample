@@ -87,7 +87,7 @@ class GameState{
 	*@throws FileNotFoundException If the file is not found.
 	*@throws Dungeon.IllegalDungeonFormatException If the Dungeon file contained in the savefile is invalid.
 	* @author Nathanael Woodhead
-	*/	
+	 */	
 	void restore(String filename) throws IllegalSaveFormatException, FileNotFoundException, Dungeon.IllegalDungeonFormatException{
 		try{
 			File f = new File(filename);
@@ -102,6 +102,7 @@ class GameState{
 					String room = restore.nextLine();
 					int junk = 14;
 					room = room.substring(14,room.length());
+				}
 
 
 				catch(Dungeon.IllegalDungeonFormatException e){
