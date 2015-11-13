@@ -41,28 +41,51 @@ class EventFactory{
 			for(int i=0;i<eventsStrings.length;i++)
 			{
 				if(eventsStrings[i].contains("("))
-				{
 					parenEvents.add(eventsStrings[i]);
-				}
 				else
 					normalEvents.add(eventsStrings[i]);
 			}
 			for(int i=0;i<parenEvents.size();i++)
 			{
 				String event=parenEvents.get(i).substring(0,parenEvents.get(i).indexOf("("));
+				System.out.println(event);
 				event = "edu.umw.cpsc240fall2015team7.zork."+event+"Event";
 				Class clazz=Class.forName(event);
 				Constructor cons=clazz.getDeclaredConstructor(Item.class,String.class);
-				Event theEvent=(Event)cons.newInstance(item,parenEvents.get(i).substring(parenEvents.get(i).indexOf("(")+1,parenEvents.get(i).indexOf(")")));
+				String value=parenEvents.get(i).substring(parenEvents.get(i).indexOf("(")+1,parenEvents.get(i).indexOf(")"));
+				Event theEvent=(Event)cons.newInstance(item,value);
 				events.add(theEvent);
 			}
-			return null;
+			for(int i=0;i<normalEvents.size();i++)
+			{
+				String event=normalEvents.get(i);
+				System.out.println(event);
+				event = "edu.umw.cpsc240fall2015team7.zork."+event+"Event";
+				Class clazz=Class.forName(event);
+				Constructor cons=clazz.getDeclaredConstructor(Item.class);
+				Event theEvent=(Event)cons.newInstance(item);
+				events.add(theEvent);
+			}
+			return events;
 		}
 		catch(Exception e)
 		{
+			System.out.println("Shit went down");
 			return null;
 		}
 		
+
+	}
+	public static void main(String args[])
+	{
+		try
+		{
+			Item item=null;
+			EventFactory.instance().parse(item,"Heal");
+
+		}
+		catch(Exception e)
+		{}
 
 	}
 }
