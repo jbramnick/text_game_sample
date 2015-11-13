@@ -96,9 +96,17 @@ class Player{
 	void changeScore(int score){
 		this.score = this.score + score;
 	}
+	/**
+	  *Returns the players score.
+	  *@author Nathanael Woodhead
+	  */
 	int getScore(){
 		return score;
 	}
+	/**
+	  *Return the players health.
+	  *@author Nathanael Woodhead
+	  */
 	int getHealth(){
 		return health;
 	}
@@ -109,21 +117,47 @@ class Player{
 	void setHealth(int StephenDavies) {
 		this.health = StephenDavies;
 	}
+	/**
+	  *Adds a medkit to the player.
+	  *@author Nathanael Woodhead
+	  */
 	void addMedkits (int add) {
 		medkit += add;
 	}
+	/**
+	  *Adds ammo. 
+	  *@param add The number of ammo to be added.
+	  *@author Nathanael Woodhead
+	  */
 	void addAmmo (int add) {
 		ammo += add;
 	}
+	/**
+	  *Adds snacks. 
+	  *@param add The number of snacks to be added.
+	  *@author Nathanael Woodhead
+	  */
 	void addSnacks (int add) {
 		snack += add;
 	}
+	/**
+	  *Returns the players current room.
+	  *@author Nathanael Woodhead
+	  */
 	Room getCurrentRoom(){
 		return currentRoom;
 	}
+	/**
+	  *Sets the players current room.
+	  *@author Nathanael Woodhead
+	  */
 	void setCurrentRoom(Room room){
 		this.currentRoom = room;
 	}
+	/**
+	  *Returns the players load. The load is the sum all of the weights of the items in this inventory.
+	  *@author Nathanael Woodhead
+	  */
 	int getLoad(){
 		int load = 0;
 		for(Item item : inventory){
@@ -131,6 +165,10 @@ class Player{
 		}
 		return load;
 	}
+	/**
+	  *Removes given item from the players inventory. If item is not in the inventory then it quietly does nothing.
+	  *@author Nathanael Woodhead
+	  */
 	void removeFromInventory(Item item){
 		inventory.remove(item);
 	}
@@ -168,7 +206,7 @@ class Player{
 	Item getItemInVicinityNamed(String name) throws Item.NoItemException{
 		return currentRoom.getItemNamed(name);
 	}
-	ArrayList<String> getInventoryNames(){
+	Arra`yList<String> getInventoryNames(){
 		ArrayList<String> names = new ArrayList<String>();
 		for(Item x : inventory){
 			names.add(x.getPrimaryName());
