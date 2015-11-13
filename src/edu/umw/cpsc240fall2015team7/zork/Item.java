@@ -69,13 +69,13 @@ public class Item{
 		String message = scan.nextLine();
 		while(!message.equals("---")){
 			Constructor constructor;
-			ArrayList<Event> consequences=new ArrayList<Event>();
+			ArrayList<Event> consequences= null;
 			String[] x = message.split(":");
 			if(x[0].contains("[")){
-				int start = x[0].indexOf("[");
+				int start = x[0].indexOf("[")+1;
 				int end = x[0].indexOf("]");
-				String part = x[0].substring(start+1,end);
-				x[0] = x[0].substring(0,start);
+				String part = x[0].substring(start,end);
+				x[0] = x[0].substring(0,start-1);
 				try{
 					consequences = EventFactory.instance().parse(this,part);
 				}catch(Exception e){
@@ -83,6 +83,9 @@ public class Item{
 				}
 			}
 			String[] other = x[0].split(",");
+			for(String r : other){
+				System.out.println(r);
+			}
 			for(String verb : other){
 				messages.put(verb,x[1]);
 				if(consequences != null){
