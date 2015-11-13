@@ -62,7 +62,9 @@ class EventFactory{
 				System.out.println(event);
 				event = "edu.umw.cpsc240fall2015team7.zork."+event+"Event";
 				Class clazz=Class.forName(event);
+				System.out.println("Hello");
 				Constructor cons=clazz.getDeclaredConstructor(Item.class);
+				System.out.println("Hello");
 				Event theEvent=(Event)cons.newInstance(item);
 				events.add(theEvent);
 			}
@@ -80,7 +82,7 @@ class EventFactory{
 	{
 		try
 		{
-			Item item=null;
+			Item item=new Item("test",7);
 			EventFactory.instance().parse(item,"Heal");
 
 		}

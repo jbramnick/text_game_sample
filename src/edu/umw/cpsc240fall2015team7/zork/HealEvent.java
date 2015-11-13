@@ -3,7 +3,7 @@ package edu.umw.cpsc240fall2015team7.zork;
 Event used to set health in {@link Player} to {@link Player} MaxHealth.
 @author Jim Bramnick
 */
-class HealEvent
+class HealEvent extends Event
 {
 	/**
 	Creates this HealEvent Object.
