@@ -125,7 +125,8 @@ public class Room{
 	 */
 	public void giveSnacks()
 	{
-
+		Player.instance().addSnacks(snacks);
+		snacks=0;
 	}
 	/**
 	  Adds this medkits to {@link Player} medkits and sets this medkits to zero.
@@ -133,7 +134,8 @@ public class Room{
 	 */
 	public void giveMedkits()
 	{
-
+		Player.instance().addMedkits(medkits);
+		medkits=0;
 	}
 	/**
 	  Adds this ammo to {@link Player} ammo and sets this ammo to zero.
@@ -141,7 +143,8 @@ public class Room{
 	 */
 	public void giveAmmo()
 	{
-
+		Player.instance().addAmmo(ammo);
+		ammo=0;
 	}
 	/**
 	 *Returns this Room's title.

@@ -13,13 +13,17 @@ class TeleportEvent extends Event{
 	TeleportEvent(Item i){
 		selector = new Random();
 	}
+	/**
+	*Constructs this TeleportEvent without an Item passed.
+	*@author Carson Meadows
+	*/
 	TeleportEvent(){
 		selector = new Random();
 	}
 	
 	/**
-	  *Moves the player randomly to another Room in the Dungeon. The player could be teleported into the 
-	  *current Room.
+	  *Moves the player randomly to another Room in the Dungeon. 
+	  *The player could be teleported into the current Room.
 	  *@author Nathanael Woodhead
 	  */
 	String execute(){
