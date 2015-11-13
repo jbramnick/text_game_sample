@@ -174,7 +174,7 @@ class Player{
 		}
 		return names;
 	}
-	public void store(Printwriter save)
+	public void store(PrintWriter save)
 	{
 		save.println("===");
 		save.println("Adventurer:");
