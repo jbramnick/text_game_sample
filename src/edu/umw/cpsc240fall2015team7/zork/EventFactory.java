@@ -67,9 +67,7 @@ class EventFactory{
 					String event=normalEvents.get(i);
 					event = "edu.umw.cpsc240fall2015team7.zork."+event+"Event";
 					Class clazz=Class.forName(event);
-					System.out.println("Hello");
 					Constructor cons=clazz.getDeclaredConstructor(Item.class);
-					System.out.println("Hello");
 					Event theEvent=(Event)cons.newInstance(item);
 					events.add(theEvent);
 				}

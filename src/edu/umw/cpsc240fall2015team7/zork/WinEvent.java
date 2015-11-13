@@ -10,6 +10,9 @@ class WinEvent extends Event{
 	  *Constructs this WinEvent object.
 	  *@author Nathanael Woodhead
 	  */
+	WinEvent(Item i){
+		this.score=Player.instance().getScore();
+	}
 	WinEvent(){
 		this.score=Player.instance().getScore();
 	}
