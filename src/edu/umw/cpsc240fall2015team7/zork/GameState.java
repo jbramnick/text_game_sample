@@ -99,9 +99,7 @@ class GameState{
 					this.map = new Dungeon(name,false); 
 					map.restoreState(restore);
 					restore.nextLine();
-					String room = restore.nextLine();
-					int junk = 14;
-					room = room.substring(14,room.length());
+					Player.instance().restore(restore);
 				}
 
 
