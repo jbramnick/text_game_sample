@@ -124,6 +124,10 @@ class Player{
 	void setCurrentRoom(Room room){
 		this.currentRoom = room;
 	}
+	/**
+        *Returns the total weight of Items in the inventory of this.
+        *@author Carson Meadows
+        */
 	int getLoad(){
 		int load = 0;
 		for(Item item : inventory){
@@ -131,6 +135,10 @@ class Player{
 		}
 		return load;
 	}
+	/**
+        *Removes the passed Item from the inventory of this.
+        *@author Carson Meadows
+        */
 	void removeFromInventory(Item item){
 		inventory.remove(item);
 	}
@@ -162,12 +170,25 @@ class Player{
 		}
 		throw new Item.NoItemException();
 	}
+	/**
+        *Returns an ArrayList of verbs this holds.
+        *@author Carson Meadows
+        */
 	ArrayList<String> getVerbs(){
 		return verbs;
 	}
+	/**
+        *Returns item in the current Room named the parameter.
+        *@author Carson Meadows
+	*@throws Item.NoItemException
+        */
 	Item getItemInVicinityNamed(String name) throws Item.NoItemException{
 		return currentRoom.getItemNamed(name);
 	}
+	/**
+	*Returns an ArrayList of item names in the inventory of this.
+	*@author Carson Meadows
+	*/
 	ArrayList<String> getInventoryNames(){
 		ArrayList<String> names = new ArrayList<String>();
 		for(Item x : inventory){
@@ -175,6 +196,10 @@ class Player{
 		}
 		return names;
 	}
+	/**
+	*Saves progress to a Printwriter.
+	*@author Carson Meadows
+	*/
 	public void store(PrintWriter save)
 	{
 		save.println("===");
