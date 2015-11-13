@@ -42,6 +42,10 @@ class CommandFactory{
 			HealthCommand i = new HealthCommand();
 			return i;
 		}
+		else if (commandString.contains("verbose")) {
+			VerboseCommand v = new VerboseCommand();
+			return v;
+		}
 
 		else if(commandString.equals("score")){
 			ScoreCommand i = new ScoreCommand();
