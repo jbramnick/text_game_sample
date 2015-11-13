@@ -11,6 +11,8 @@ class HealEvent
 	*/
 	public HealEvent()
 	{
+	public HealEvent(Item i)
+	{
 
 	}
 	/**

@@ -12,6 +12,8 @@ class EvilGuyDieEvent {
         */
         public EvilGuyDieEvent(EvilGuy evilGuy) {
         }
+        public EvilGuyDieEvent(Item i, EvilGuy evilGuy) {
+        }
         
 	/**
         *Executes this Event to kill the evilGuy.
