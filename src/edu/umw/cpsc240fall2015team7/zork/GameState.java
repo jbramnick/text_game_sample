@@ -74,19 +74,6 @@ class GameState{
 			save.println("Bork v3.0 save data");
 			map.storeState(save);
 			save.println("===");
-			save.println("Adventurer:");
-			save.println("Current room: " + 
-				adeventurersCurrentRoom.getTitle());
-			if(inventory.size()>0){
-				save.print("Inventory: ");
-				String text = "";
-				for(Item item : inventory){
-					text = text + (item + ",");
-				}
-				text = text.substring(0,text.length()-1);
-				save.print(text);
-			} 
-			
 			Player.instance().store(save);	
 			save.close();
 		}
@@ -115,18 +102,8 @@ class GameState{
 					String room = restore.nextLine();
 					int junk = 14;
 					room = room.substring(14,room.length());
-					this.adeventurersCurrentRoom = map.getRoom(room);
-				/*	inventory = new ArrayList<Item>();
-					if(restore.hasNextLine()){
-						String stuff = restore.nextLine();
-						stuff = stuff.substring(11,stuff.length());
-						String[] things = stuff.split(",");
-						for (String item : things){
-							Item crap = map.getItem(item);
-							inventory.add(crap);
-						}
-					} */
-				}
+
+
 				catch(Dungeon.IllegalDungeonFormatException e){
 					throw new Dungeon.IllegalDungeonFormatException();
 				} 
@@ -142,16 +119,4 @@ class GameState{
 			throw new FileNotFoundException();	
 		}
 	}
-
-	/**
-	  *Returns an ArrayList of all the Item names in the inventory of this.
-	  *@author Nathanael Woodhead
-	  */
-/*	ArrayList<String> getInventoryNames(){
-		ArrayList<String> names = new ArrayList<String>();
-		for(Item x : inventory){
-			names.add(x.getPrimaryName());
-		}
-		return names;
-	} */ 
 }
