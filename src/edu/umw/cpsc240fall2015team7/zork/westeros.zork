@@ -11,7 +11,7 @@ examine:It's a rough-hewn obsidian sliver, sharp as a needle.
 shards
 4
 examine:These are a loose collection of dark, sharp, pieces of glass.
-touch[Wound(1)]:Ow! Stop that!
+Touch[Wound(1)]:Ow! Stop that!
 throw[Disappear]:The shards scatter everywhere. Good luck picking them up.
 ---
 BastardSword
@@ -175,7 +175,7 @@ This fortress is carved out of a great stone colossal rock beside the Sunset
 Sea. It resembles a lion in repose at sunset. A ringfort appears on the peak,
 as well as walls, gates, and watchtowers. The base of the Rock contains large
 sea-carved caverns. The stone has been mined for thousands of years, so there
-are hundreds of mineshafts in the depths of the Rock, as well as yet untouched
+are hundreds of mineshafts in the depths of the Rock, as well as yet uned
 gold veins. From below the Rock thunder can be heard, where the sea comes in.
 ---
 King's Landing
