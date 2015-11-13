@@ -11,12 +11,15 @@ class DisappearEvent extends Event{
 	  *@author Nathanael Woodhead
 	  */
 	DisappearEvent(Item item){
+		this.item=item;
 	}
 	/**
 	  *Removes the Item from the game.
 	  *@author Nathanael Woodhead
 	  */ 
 	String execute(){
+		Player.instance().removeFromInventory(item);
+		Player.instance().getCurrentRoom().remove(item);
 		return "";
 	}
 

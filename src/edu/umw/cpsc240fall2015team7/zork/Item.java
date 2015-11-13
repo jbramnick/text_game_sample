@@ -29,7 +29,9 @@ public class Item{
 	}
 	/**
 	*Hydrates this Item by reading passed Scanner object. Reads in primary and any
-	*secondary names, weight, and messages used for ItemSpecificCommands.
+	*secondary names, weight, and messages used for ItemSpecificCommands. Any consequences will be stored where they can be retrieve at
+	*when the verb is called.
+	*@throws Dungeon.IllegalDungeonFormatException When the actions do not match any existing action.
 	*@author Carson Meadows
 	*/
 	public Item(Scanner scan) throws NoItemException, Dungeon.IllegalDungeonFormatException{
@@ -67,45 +69,23 @@ public class Item{
 		String message = scan.nextLine();
 		while(!message.equals("---")){
 			Constructor constructor;
-			ArrayList<Event> consequences = new ArrayList<Event>();
+			ArrayList<Event> consequences;
 			String[] x = message.split(":");
 			if(x[0].contains("[")){
-				String[] part = x[0].split("\\[");
-				String[] events = part[1].split(",");
-				for(String event : events){
-					String con = "";
-					if(event.contains("(")){
-						con = event.substring(event.indexOf("(")+1,event.indexOf(")")-1);
-						event = event.substring(0,event.indexOf("("));
-						}
-					event = "edu.umw.cpsc240fall2015team7.zork."+event+"Event";
-					try{
-					System.out.println(event);
-					Class clazz = Class.forName(event);
-					if(!con.equals("")){
-						String[] cons = con.split(",");
-						
-						Class[] classes = new Class[cons.length-1];
-						for (int i=0; i<cons.length-1; i++){
-							classes[i] = String.class;
-						}
-						constructor = clazz.getDeclaredConstructor(classes);
-							consequences.add((Event)constructor.newInstance((Object)cons));
-						}
-					else{
-						constructor = clazz.getDeclaredConstructor();
-						consequences.add((Event)constructor.newInstance());
-					}
-					}catch(Exception e){
-						throw new Dungeon.IllegalDungeonFormatException();
-					}
-					
+				String part = x[0].substring(x[0].indexOf("\\["),x[0].indexOf("\\]"));
+				x[0] = x[0].substring(0,x[0].indexOf("\\["));
+				try{
+					consequences = EventFactory.instance().parse(this,part);
+				}catch(Exception e){
+					throw new Dungeon.IllegalDungeonFormatException();
 				}
 			}
 			String[] other = x[0].split(",");
 			for(String verb : other){
 				messages.put(verb,x[1]);
-				actions.put(verb,consequences);
+				if(consequences != null){
+					actions.put(verb,consequences);
+				}
 			}
 			message = scan.nextLine();
 		}
@@ -135,7 +115,7 @@ public class Item{
 		return primaryName;
 	}
 	/**
-	*Returns message associated with passed String. 
+	*Returns message associated with passed String and executes all the events associated with the message. 
 	*@throws NoVerbException If this Item does not contain the passed String. 
 	*@author Carson Meadows
 	*/
@@ -144,6 +124,11 @@ public class Item{
 			throw new NoVerbException();
 		}
 		String text = messages.get(verb);
+		if(actions.containsKey(verb)){
+			for(Event event : actions.get(verb)){
+				text = text + event.execute();
+			}
+		}
 		return text;
 	}
 	/**
@@ -194,5 +179,4 @@ public class Item{
 	  */
 	void addEventToVerb(String verb, Event event){
 	}
-
 }

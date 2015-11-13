@@ -11,7 +11,10 @@ class ReceiveEvent extends Event{
 	@author Jim Bramnick
 	*/
 	public ReceiveEvent(Item item, int medkits, int snacks, int ammo){
-
+		this.item=item;
+		this.medkits=medkits;
+		this.snacks=snacks;
+		this.ammo=ammo;
 	}
 	/**
 	Adds the item to the {@link Player} Inventory and adds medkits, ammo and snacks to {@link Player} medkits, ammo and snacks. 
@@ -19,8 +22,13 @@ class ReceiveEvent extends Event{
 	If item is null silently does nothing.
 	@author Jim Bramnick
 	*/
-	public String execute(){
-
+	public String execute() {
+		if (!item.equals(null)) {
+			Player.instance().addToInventory(item);
+		}
+		Player.instance().addMedkits (medkits);
+		Player.instance().addAmmo (ammo);
+		Player.instance().addSnacks (snacks);
 		return "";
 
 	}

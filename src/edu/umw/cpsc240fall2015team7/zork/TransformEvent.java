@@ -27,4 +27,3 @@ public class TransformEvent extends Event{
 		return item.getPrimaryName() + " became " + endItem.getPrimaryName();
 	}
 }
-
