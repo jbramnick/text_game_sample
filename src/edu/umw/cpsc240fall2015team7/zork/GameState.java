@@ -76,16 +76,6 @@ class GameState{
 			save.println("Bork v3.0 save data");
 			map.storeState(save);
 			save.println("===");
-			save.println("Adventurer:");
-			save.println("Current room: " + adeventurersCurrentRoom.getTitle());
-			if(inventory.size()>0){
-				save.print("Inventory: ");
-				String text = "";
-				for(Item item : inventory){
-					text = text + (item + ",");
-				}
-				text = text.substring(0,text.length()-1);
-				save.print(text);
 			}
 			save.close();
 		}
