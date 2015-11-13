@@ -13,7 +13,6 @@ class GameState{
 	private Room adeventurersCurrentRoom;
 	private Dungeon map;
 	private int load;
-	private ArrayList<Item> inventory;
 	private ArrayList<String> verbs;
 	public class IllegalSaveFormatException extends Exception {};
 	/**
@@ -39,7 +38,6 @@ class GameState{
 	  */
 	void initialize(Dungeon dungeon){
 		this.map = dungeon;
-		inventory = new ArrayList<Item>();
 		verbs = new ArrayList<String>();
 		}
 	/**
@@ -77,8 +75,9 @@ class GameState{
 			map.storeState(save);
 			save.println("===");
 			save.println("Adventurer:");
-			save.println("Current room: " + adeventurersCurrentRoom.getTitle());
-			if(inventory.size()>0){
+			save.println("Current room: " + 
+				adeventurersCurrentRoom.getTitle());
+	/*		if(inventory.size()>0){
 				save.print("Inventory: ");
 				String text = "";
 				for(Item item : inventory){
@@ -86,7 +85,8 @@ class GameState{
 				}
 				text = text.substring(0,text.length()-1);
 				save.print(text);
-			}
+			} */
+			
 			save.close();
 		}
 		catch(FileNotFoundException e){
@@ -104,7 +104,7 @@ class GameState{
 		try{
 			File f = new File(filename);
 			Scanner restore = new Scanner(f);
-			if(restore.nextLine().equals("Bork v3.0 save data")){
+			if(restore.nextLine().equals("Zork v1.0 save data")){
 				try{
 					String name = restore.nextLine();
 					name = name.substring(14,name.length());
@@ -115,7 +115,7 @@ class GameState{
 					int junk = 14;
 					room = room.substring(14,room.length());
 					this.adeventurersCurrentRoom = map.getRoom(room);
-					inventory = new ArrayList<Item>();
+				/*	inventory = new ArrayList<Item>();
 					if(restore.hasNextLine()){
 						String stuff = restore.nextLine();
 						stuff = stuff.substring(11,stuff.length());
@@ -124,7 +124,7 @@ class GameState{
 							Item crap = map.getItem(item);
 							inventory.add(crap);
 						}
-					}
+					} */
 				}
 				catch(Dungeon.IllegalDungeonFormatException e){
 					throw new Dungeon.IllegalDungeonFormatException();
@@ -141,15 +141,16 @@ class GameState{
 			throw new FileNotFoundException();	
 		}
 	}
+
 	/**
 	  *Returns an ArrayList of all the Item names in the inventory of this.
 	  *@author Nathanael Woodhead
 	  */
-	ArrayList<String> getInventoryNames(){
+/*	ArrayList<String> getInventoryNames(){
 		ArrayList<String> names = new ArrayList<String>();
 		for(Item x : inventory){
 			names.add(x.getPrimaryName());
 		}
 		return names;
-	}
+	} */ 
 }

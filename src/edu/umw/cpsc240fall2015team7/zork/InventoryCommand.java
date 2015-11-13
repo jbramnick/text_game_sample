@@ -17,7 +17,7 @@ class InventoryCommand extends Command{
 	*@author Carson Meadows
 	*/
 	String execute(){
-		ArrayList<String> inventory  = GameState.instance().getInventoryNames();
+		ArrayList<String> inventory  = Player.instance().getInventoryNames();
 		if(inventory.size()>0){
 			String text = "You are carrying:"+ "\n";
 			for(String item : inventory){
