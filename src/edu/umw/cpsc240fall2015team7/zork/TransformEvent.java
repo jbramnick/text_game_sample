@@ -25,6 +25,6 @@ public class TransformEvent extends Event{
 		Item end = GameState.instance().getDungeon().getItem(endItem);
 		Player.instance().addToInventory(end);
 		Player.instance().removeFromInventory(item);
-		return item.getPrimaryName() + " became " + end.getPrimaryName();
+		return item.getPrimaryName() + " became " + end.getPrimaryName()+"\n";
 	}
 }

@@ -27,10 +27,10 @@ class ScoreEvent extends Event{
 		String text = "";
 		Player.instance().changeScore(score);
 		if(score < 0){
-			text = "You have lost " +  score + " points!";
+			text = "You have lost " +  score + " points!"+"\n";
 		}
 		else if(score > 0){
-			text = "You have gained " + score + "points!";
+			text = "You have gained " + score + "points!"+"\n";
 		}
 		return text;
 	}
