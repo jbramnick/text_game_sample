@@ -34,7 +34,6 @@ class EventFactory{
 	{
 		try
 		{
-			System.out.println(eventString);
 			String[] eventsStrings=eventString.split(",");
 			ArrayList<String> parenEvents=new ArrayList<String>();
 			ArrayList<String> normalEvents=new ArrayList<String>();
@@ -48,6 +47,7 @@ class EventFactory{
 			}
 			if(parenEvents.size()>0)
 			{
+
 				for(int i=0;i<parenEvents.size();i++)
 				{
 					String event=parenEvents.get(i).substring(0,parenEvents.get(i).indexOf("("));
