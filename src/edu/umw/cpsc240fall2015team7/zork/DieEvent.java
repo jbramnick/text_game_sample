@@ -20,5 +20,6 @@ class DieEvent extends Event{
 		message += Integer.toString(score);
 		System.out.println(message);
 		System.exit(0);
+		return "";
 	}
 }

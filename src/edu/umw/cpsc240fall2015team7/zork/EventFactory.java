@@ -32,30 +32,38 @@ class EventFactory{
 	 */
 	ArrayList<Event> parse(Item item,String eventString) throws Dungeon.IllegalDungeonFormatException
 	{
-		String[] eventsStrings=eventString.split(",");
-		ArrayList<String> parenEvents=new ArrayList<String>();
-		ArrayList<String> normalEvents=new ArrayList<String>();
-		ArrayList<Event> events=new ArrayList<Event>();
-		for(int i=0;i<eventsStrings.length;i++)
+		try
 		{
-			if(eventsStrings[i].contains("("))
+			String[] eventsStrings=eventString.split(",");
+			ArrayList<String> parenEvents=new ArrayList<String>();
+			ArrayList<String> normalEvents=new ArrayList<String>();
+			ArrayList<Event> events=new ArrayList<Event>();
+			for(int i=0;i<eventsStrings.length;i++)
 			{
-				parenEvents.add(eventsStrings[i]);
+				if(eventsStrings[i].contains("("))
+				{
+					parenEvents.add(eventsStrings[i]);
+				}
+				else
+					normalEvents.add(eventsStrings[i]);
 			}
-			else
-				normalEvents.add(eventsStrings[i]);
+			for(int i=0;i<parenEvents.size();i++)
+			{
+				String event=parenEvents.get(i).substring(0,parenEvents.get(i).indexOf("("));
+				event = "edu.umw.cpsc240fall2015team7.zork."+event+"Event";
+				Class clazz=Class.forName(event);
+				Constructor cons=clazz.getDeclaredConstructor(Item.class,String.class);
+				Event theEvent=(Event)cons.newInstance(item,parenEvents.get(i).substring(parenEvents.get(i).indexOf("(")+1,parenEvents.get(i).indexOf(")")));
+				events.add(theEvent);
+			}
+			return null;
 		}
-		for(int i=0;i<parenEvents.size();i++)
+		catch(Exception e)
 		{
-			String event=parenEvents.get(i).substring(0,parenEvents.get(i).indexOf("("));
-			event = "edu.umw.cpsc240fall2015team7.zork."+event+"Event";
-			Class clazz=Class.forName(event);
-			Constructor cons=clazz.getDeclaredConstructor(Item.class,String.class);
-			Event theEvent=(Event)cons.newInstance(item,parenEvents.get(i).substring(parenEvents.get(i).indexOf("(")+1,parenEvents.get(i).indexOf(")")));
-			events.add(theEvent);
+			return null;
 		}
-		return null;
 		
+
 	}
 }
 

@@ -38,7 +38,7 @@ class Player{
 	/**
 	 *Removes one snack and refills hunger.
 	 *@author Nathanael Woodhead
-	 *@throws NoSnackException If snacks is equal to 0;
+	 *@throws NoSnackException If snack is equal to 0;
 	 */
 	void eat() throws NoSnackException{
 		if(snack == 0){
@@ -109,13 +109,13 @@ class Player{
 		this.health = StephenDavies;
 	}
 	void addMedkits (int add) {
-		medkits += add;
+		medkit += add;
 	}
 	void addAmmo (int add) {
 		ammo += add;
 	}
 	void addSnacks (int add) {
-		snacks += add;
+		snack += add;
 	}
 	Room getCurrentRoom(){
 		return currentRoom;
