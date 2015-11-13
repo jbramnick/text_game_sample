@@ -80,8 +80,10 @@ public class Room{
 			beenHere = true;
 			text = text+": "+desc;
 		}
-		for(Exit exit: exits){
-			text = text +"\n"+exit.describe();
+		if (GameState.instance().getVerbose()==true) {
+			for(Exit exit: exits){
+				text = text +"\n"+exit.describe();
+			}
 		}
 		if(contents.size()>0){
 			text = text + "\n";

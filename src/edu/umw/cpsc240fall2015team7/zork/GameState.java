@@ -8,7 +8,7 @@ import java.util.Scanner;
   */
 class GameState{
 
-
+	private boolean verbose;
 	private static GameState theInstance;
 	private Room adeventurersCurrentRoom;
 	private Dungeon map;
@@ -48,6 +48,20 @@ class GameState{
 	  */
 	Dungeon getDungeon(){
 		return map;
+	}
+	/**
+	*Returns whether or not verbose is on.
+	*@author Carson Meadows
+	*/
+	public boolean getVerbose () {
+		return verbose;
+	}
+	/**
+	*Sets verbose to the passed boolean.
+	*@author Carson Meadows
+	*/
+	public void setVerbose (boolean mew) {
+		verbose = mew;
 	}
 	/**
 	  *Creates a savefile of the current GameState. Stores the file as myProgress.sav. Catches the FileNotFoundException and prints
