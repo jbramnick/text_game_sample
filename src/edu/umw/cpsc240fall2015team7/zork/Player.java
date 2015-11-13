@@ -174,4 +174,21 @@ class Player{
 		}
 		return names;
 	}
+	public void store(Printwriter save)
+	{
+		save.println("===");
+		save.println("Adventurer:");
+		save.println("Current room: " + currentRoom.getTitle());
+		if(inventory.size()>0){
+			save.print("Inventory: ");
+			String text = "";
+			for(Item item : inventory){
+				text = text + (item + ",");
+			}
+			text = text.substring(0,text.length()-1);
+			save.print(text);
+		}
+
+
+	}
 }

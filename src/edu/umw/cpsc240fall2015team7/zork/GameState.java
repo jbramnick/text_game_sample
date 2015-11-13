@@ -77,7 +77,7 @@ class GameState{
 			save.println("Adventurer:");
 			save.println("Current room: " + 
 				adeventurersCurrentRoom.getTitle());
-	/*		if(inventory.size()>0){
+			if(inventory.size()>0){
 				save.print("Inventory: ");
 				String text = "";
 				for(Item item : inventory){
@@ -85,8 +85,9 @@ class GameState{
 				}
 				text = text.substring(0,text.length()-1);
 				save.print(text);
-			} */
+			} 
 			
+			Player.instance().store(save);	
 			save.close();
 		}
 		catch(FileNotFoundException e){

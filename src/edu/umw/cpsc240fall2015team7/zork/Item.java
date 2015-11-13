@@ -86,8 +86,6 @@ public class Item{
 			for(String verb : other){
 				messages.put(verb,x[1]);
 				if(consequences != null){
-					System.out.println("Verb: " + verb);
-					System.out.println(consequences);
 					actions.put(verb,consequences);
 				}
 			}
