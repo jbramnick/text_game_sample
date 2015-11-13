@@ -9,10 +9,9 @@ class HealEvent
 	Creates this HealEvent Object.
 	@author Jim Bramnick
 	*/
-	public HealEvent()
-	{
-	public HealEvent(Item i)
-	{
+	public HealEvent(){
+	}
+	public HealEvent(Item i){
 
 	}
 	/**
