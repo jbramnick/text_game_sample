@@ -33,6 +33,9 @@ class CommandFactory{
 	*/
 	Command parse(String commandString)throws Item.NoItemException{
 		ArrayList<String> verbs = Player.instance().getVerbs();
+		for(String verb : Player.instance().getCurrentRoom().getVerbs()){
+			verbs.add(verb);
+		}
 		String[] command = commandString.split(" ");
 		if(commandString.equals("u")||commandString.equals("d")||commandString.equals("n")||commandString.equals("s")||commandString.equals("e")||commandString.equals("w")){
 			MovementCommand move = new MovementCommand(commandString);

@@ -30,11 +30,25 @@ class ItemSpecificCommand extends Command{
 			return text;
 		}
 		catch(Item.NoItemException e){
-			return "You don't have a: " + noun;
+			try 
+			{
+				Item i=Player.instance().getCurrentRoom().getItemNamed(noun);
+				String t=i.getMessageForVerb(verb);
+				return t;
+
+			}
+			catch(Item.NoItemException ex)
+			{
+				return "There is not a "+ noun + " in the room or your inventory";
+
+			}
+			catch(Item.NoVerbException ex){
+				return  "You can't "+ verb + " a " + noun;
+			}
 		}
 		catch(Item.NoVerbException e){
 			return  "You can't "+ verb + " a " + noun;
 		}
 	}
 }
-		
+

@@ -71,7 +71,7 @@ class GameState{
 		PrintWriter save;
 		try{
 			save = new PrintWriter(s);
-			save.println("Bork v3.0 save data");
+			save.println("Zork v1.0 save data");
 			map.storeState(save);
 			save.println("===");
 			Player.instance().store(save);	
@@ -99,9 +99,7 @@ class GameState{
 					this.map = new Dungeon(name,false); 
 					map.restoreState(restore);
 					restore.nextLine();
-					String room = restore.nextLine();
-					int junk = 14;
-					room = room.substring(14,room.length());
+					Player.instance().restore(restore);
 				}
 
 

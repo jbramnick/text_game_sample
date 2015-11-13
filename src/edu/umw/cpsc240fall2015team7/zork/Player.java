@@ -1,6 +1,7 @@
 package edu.umw.cpsc240fall2015team7.zork;
 import java.util.Hashtable;
 import java.util.ArrayList;
+import java.util.Scanner;
 import java.io.*;
 /**
  *The Player of the game.
@@ -247,4 +248,25 @@ class Player{
 
 
 	}
+	public void restore(Scanner scan)
+	{
+		String current=scan.nextLine();
+		current=current.trim();
+		current=current.split(":")[1];
+		current=current.trim();
+		currentRoom=GameState.instance().getDungeon().getRoom(current);
+		current=scan.nextLine();
+		current=current.trim();
+		if(current.split(":")[1].length()>0)
+		{
+			String itemlist=current.split(":")[1].trim();
+			String[] itemList=itemlist.split(",");
+			for(int i=0;i<itemList.length;i++)
+			{
+				this.addToInventory(GameState.instance().getDungeon().getItem(itemList[i]));	
+			}
+
+		}
+	}
+
 }

@@ -263,6 +263,13 @@ public class Room{
 		}
 		return named;
 	}
-
-
+	ArrayList<String> getVerbs(){
+		ArrayList<String> verbs = new ArrayList<String>();
+		for(Item i : contents){
+			for(String verb : i.getVerbs()){
+				verbs.add(verb);
+			}
+		}
+		return verbs;
+	}
 }
