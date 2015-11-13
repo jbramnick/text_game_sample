@@ -69,7 +69,7 @@ public class Item{
 		String message = scan.nextLine();
 		while(!message.equals("---")){
 			Constructor constructor;
-			ArrayList<Event> consequences;
+			ArrayList<Event> consequences=new ArrayList<Event>();
 			String[] x = message.split(":");
 			if(x[0].contains("[")){
 				String part = x[0].substring(x[0].indexOf("\\["),x[0].indexOf("\\]"));

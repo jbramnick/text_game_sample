@@ -19,8 +19,15 @@ class EatEvent extends Event {
 	@author Jim Bramnick
 	*/
 	public String execute() {
-		Player.instance().eat();
-		return "That was delicious!";
+		try
+		{
+			Player.instance().eat();
+			return "That was delicious!";
+		}
+		catch(Exception e)
+		{
+			return "Didn't eat";
+		}
 	}
 
 }
