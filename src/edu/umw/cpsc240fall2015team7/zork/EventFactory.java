@@ -34,7 +34,6 @@ class EventFactory{
 	{
 		try
 		{
-			System.out.println(eventString);
 			String[] eventsStrings=eventString.split(",");
 			ArrayList<String> parenEvents=new ArrayList<String>();
 			ArrayList<String> normalEvents=new ArrayList<String>();
@@ -54,6 +53,7 @@ class EventFactory{
 				Class clazz=Class.forName(event);
 				Constructor cons=clazz.getDeclaredConstructor(Item.class,String.class);
 				String value=parenEvents.get(i).substring(parenEvents.get(i).indexOf("(")+1,parenEvents.get(i).indexOf(")"));
+				System.out.println(value);
 				Event theEvent=(Event)cons.newInstance(item,value);
 				System.out.println("here");
 				events.add(theEvent);
