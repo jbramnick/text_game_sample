@@ -10,6 +10,9 @@ class ReceiveEvent extends Event{
 	Constructs this ReceiveEvent.
 	@author Jim Bramnick
 	*/
+	public ReceiveEvent(Item i , Item item, int medkits, int snacks, int ammo){
+
+	}
 	public ReceiveEvent(Item item, int medkits, int snacks, int ammo){
 		this.item=item;
 		this.medkits=medkits;

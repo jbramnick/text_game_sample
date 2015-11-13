@@ -17,6 +17,10 @@ class EvilGuyWoundEvent {
 		this.evilGuy = evilGuy;
 		this.damage = damage;
         }
+        public EvilGuyWoundEvent(Item i,EvilGuy evilGuy, int damage){
+		this.evilGuy = evilGuy;
+		this.damage = damage;
+        }
 
         /**
         *Executes this Event to wound the evilGuy.

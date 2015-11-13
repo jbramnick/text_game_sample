@@ -10,6 +10,13 @@ class OpponentDieEvent
 	Sets the opponent to be killed.
 	@author Jim Bramnick
 	*/
+	public OpponentDieEvent(Item i, Opponent opponent)
+	{
+	}
+	/**
+	Sets the opponent to be killed.
+	@author Jim Bramnick
+	*/
 	public OpponentDieEvent(Opponent opponent)
 	{
 	}

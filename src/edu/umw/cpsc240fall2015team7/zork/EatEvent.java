@@ -10,6 +10,8 @@ class EatEvent extends Event {
 	*/
 	public EatEvent() {
 	}
+	public EatEvent(Item i) {
+	}
 	/**
 	Executes this EatEvent and adds amt to the hunger in {@link Player}.
 	If {@link Player} hunger is equal to {@link Player} hunger maximum, silently does nothing.

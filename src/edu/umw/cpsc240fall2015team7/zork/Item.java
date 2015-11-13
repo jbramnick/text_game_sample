@@ -72,7 +72,7 @@ public class Item{
 			ArrayList<Event> consequences=new ArrayList<Event>();
 			String[] x = message.split(":");
 			if(x[0].contains("[")){
-				String part = x[0].substring(x[0].indexOf("\\["),x[0].indexOf("\\]"));
+				String part = x[0].substring(x[0].indexOf("\\["),x[0].indexOf("\\]")-1);
 				x[0] = x[0].substring(0,x[0].indexOf("\\["));
 				try{
 					consequences = EventFactory.instance().parse(this,part);

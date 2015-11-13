@@ -10,8 +10,9 @@ class OpponentWoundEvent
 	Sets the Opponent to be wounded.
 	@author Jim Bramnick
 	*/
-	public OpponentWoundEvent(Opponent opponent)
-	{
+	public OpponentWoundEvent(Item i, Opponent opponent){
+	}
+	public OpponentWoundEvent(Opponent opponent){
 	}
 	/**
 	Executes this Event to reduce the Opponent's health.

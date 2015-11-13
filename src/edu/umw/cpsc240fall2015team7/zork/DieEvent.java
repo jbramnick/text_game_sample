@@ -10,6 +10,8 @@ class DieEvent extends Event{
 	  */
 	DieEvent(){
 	}
+	DieEvent(Item i){
+	}
 	/**
 	  *Returns the ending score and a "You lose" message.
 	  *@author Nathanael Woodhead
