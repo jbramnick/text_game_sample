@@ -45,28 +45,34 @@ class EventFactory{
 				else
 					normalEvents.add(eventsStrings[i]);
 			}
-			for(int i=0;i<parenEvents.size();i++)
+			if(parenEvents.size()>0)
 			{
-				String event=parenEvents.get(i).substring(0,parenEvents.get(i).indexOf("("));
-				System.out.println(event);
-				event = "edu.umw.cpsc240fall2015team7.zork."+event+"Event";
-				Class clazz=Class.forName(event);
-				Constructor cons=clazz.getDeclaredConstructor(Item.class,String.class);
-				String value=parenEvents.get(i).substring(parenEvents.get(i).indexOf("(")+1,parenEvents.get(i).indexOf(")"));
-				Event theEvent=(Event)cons.newInstance(item,value);
-				events.add(theEvent);
+				for(int i=0;i<parenEvents.size();i++)
+				{
+					String event=parenEvents.get(i).substring(0,parenEvents.get(i).indexOf("("));
+					event = "edu.umw.cpsc240fall2015team7.zork."+event+"Event";
+					Class clazz=Class.forName(event);
+					Constructor cons=clazz.getDeclaredConstructor(Item.class,String.class);
+					String value=parenEvents.get(i).substring(parenEvents.get(i).indexOf("(")+1,parenEvents.get(i).indexOf(")"));
+					Event theEvent=(Event)cons.newInstance(item,value);
+					events.add(theEvent);
+				}
+
 			}
-			for(int i=0;i<normalEvents.size();i++)
+			if(normalEvents.size()>0)
 			{
-				String event=normalEvents.get(i);
-				System.out.println(event);
-				event = "edu.umw.cpsc240fall2015team7.zork."+event+"Event";
-				Class clazz=Class.forName(event);
-				System.out.println("Hello");
-				Constructor cons=clazz.getDeclaredConstructor(Item.class);
-				System.out.println("Hello");
-				Event theEvent=(Event)cons.newInstance(item);
-				events.add(theEvent);
+				for(int i=0;i<normalEvents.size();i++)
+				{
+					String event=normalEvents.get(i);
+					event = "edu.umw.cpsc240fall2015team7.zork."+event+"Event";
+					Class clazz=Class.forName(event);
+					System.out.println("Hello");
+					Constructor cons=clazz.getDeclaredConstructor(Item.class);
+					System.out.println("Hello");
+					Event theEvent=(Event)cons.newInstance(item);
+					events.add(theEvent);
+				}
+
 			}
 			return events;
 		}
@@ -75,7 +81,7 @@ class EventFactory{
 			System.out.println("Shit went down");
 			return null;
 		}
-		
+
 
 	}
 	public static void main(String args[])
