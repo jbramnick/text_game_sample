@@ -34,7 +34,6 @@ class EventFactory{
 	{
 		try
 		{
-			System.out.println(eventString);
 			String[] eventsStrings=eventString.split(",");
 			ArrayList<String> parenEvents=new ArrayList<String>();
 			ArrayList<String> normalEvents=new ArrayList<String>();

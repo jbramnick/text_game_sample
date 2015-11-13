@@ -5,7 +5,7 @@ package edu.umw.cpsc240fall2015team7.zork;
  */
 public class TransformEvent extends Event{
 	private Item item;
-	private Item endItem;
+	private String endItem;
 	/**
 	 *Constructs this TransformEvent object.
 	 *@param item The item that is transforming
@@ -14,7 +14,7 @@ public class TransformEvent extends Event{
 	 */
 	TransformEvent(Item item, String endItem){
 		this.item = item;
-		this. endItem = GameState.instance().getDungeon().getItem(endItem);
+		this. endItem = endItem;
 	}
 	/**
 	 *Replaces the item with endItem. If endItem does not exist,
