@@ -18,6 +18,12 @@ public class VerboseCommand extends Command{
 	   *@author Nathanael Woodhead
 	   */
 	 public String execute(){
-		 return "";
+		if (GameState.instance().getVerbose()==true) {
+			GameState.instance().setVerbose(false);
+			return "Verbose Off";
+		} else {
+			GameState.instance().setVerbose(true);
+		 	return "Verbose On";
+		}
 	 }
 }
