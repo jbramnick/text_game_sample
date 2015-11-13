@@ -37,6 +37,6 @@ class TeleportEvent extends Event{
 
 		//Make that Room the CurrentRoom
 		Player.instance().setCurrentRoom(newRoom);
-		return "Teleported to "+newRoomTitle+"!";
+		return"\n" + "Teleported to "+newRoomTitle+"!";
 	}
 }

@@ -71,7 +71,7 @@ class GameState{
 		PrintWriter save;
 		try{
 			save = new PrintWriter(s);
-			save.println("Bork v3.0 save data");
+			save.println("Zork v1.0 save data");
 			map.storeState(save);
 			save.println("===");
 			Player.instance().store(save);	
