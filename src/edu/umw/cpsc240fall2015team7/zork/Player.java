@@ -133,6 +133,11 @@ class Player{
 	void removeFromInventory(Item item){
 		inventory.remove(item);
 	}
+	/**
+	*Removes all items from the inventory and returns an ArrayList
+	* of the old inventory.
+	*@author Carson Meadows
+	*/
 	ArrayList<Item> removeAllFromInventory(){
 		ArrayList<Item> oldInventory = new ArrayList<Item>();
 		for(Item item : inventory){
