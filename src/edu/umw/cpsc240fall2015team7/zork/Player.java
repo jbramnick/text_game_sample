@@ -254,6 +254,7 @@ class Player{
 		current=current.trim();
 		current=current.split(":")[1];
 		current=current.trim();
+		System.out.println(current);
 		currentRoom=GameState.instance().getDungeon().getRoom(current);
 		current=scan.nextLine();
 		current=current.trim();
