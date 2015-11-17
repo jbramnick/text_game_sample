@@ -28,12 +28,24 @@ public class Melee extends Weapon{
 	public int getPower(){
 		return power;
 	}
+	/**
+	*Returns the primaryName of this.
+	*@author Carson Meadows
+	*/
 	public String getName(){
 		return primaryName;
 	}
+	/**
+	*Returns thew weight of this.
+	*@author Carson Meadows
+	*/
 	public int getWeight(){
 		return weight;
 	}
+	/**
+	*Returns the speed of this.
+	*@author Carson Meadows
+	*/
 	public int getSpeed(){
 		return speed;
 	}

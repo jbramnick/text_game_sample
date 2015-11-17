@@ -22,6 +22,7 @@ class ShootCommand {
         *@author Carson Meadows
         */
         public String execute () {
+		CombatEngine.instance().fight(weapon, npc);
         	return "";
 	}
 
