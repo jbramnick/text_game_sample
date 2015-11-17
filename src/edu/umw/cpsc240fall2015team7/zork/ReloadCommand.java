@@ -21,7 +21,18 @@ class ReloadCommand extends Command{
 	  *@author Nathanael Woodhead
 	  */
 	String execute(){
+		int playersAmmo = Player.instance().getAmmo();
+		int capacity = weapon.getCapacity();
+		int currAmmo = weapon.getAmmo();
+		int toAdd = capacity - currAmmo;
+		if (playersAmmo >= toAdd) {
+			weapon.addAmmo(toAdd);
+			Player.instance().addAmmo(toAdd * -1);
+		} else {
+			weapon.addAmmo(playersAmmo);
+			Player.instance().addAmmo(playersAmmo * -1);
+		}
 		return "";	
 	}
-	}
+}
 	

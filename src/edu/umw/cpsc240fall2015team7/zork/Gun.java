@@ -35,7 +35,10 @@ class Gun extends Weapon {
 	public int getAmmo () {
 		return ammo;
 	}
-
+	
+	public int getCapacity() {
+		return capacity;
+	}
 	/**
 	*Returns this Gun's power.
 	*@author Carson Meadows

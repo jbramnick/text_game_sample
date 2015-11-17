@@ -12,6 +12,7 @@ class Player{
 	private Room currentRoom;
 	public class NoSnackException extends Exception{};
 	private ArrayList<Item> inventory;
+	private ArrayList<Weapon> weapons;
 	private int ammo, snack, medkit,health,hunger,score;
 	public static Player theInstance;
 	/**
@@ -90,6 +91,13 @@ class Player{
 		inventory.add(item);
 	}
 	/**
+	*Adds passed Weapon to ArrayList of Weapons in this.
+	*@author Carson Meadows
+	*/
+	void addWeapon (Weapon w) {
+		weapons.add(w);
+	}
+	/**
   	*Changes the score. 
 	*@param score the amount this score should be changed by.
 	*@author Nathanael Woodhead	
@@ -134,6 +142,13 @@ class Player{
 		ammo += add;
 	}
 	/**
+	*Returns current ammo.
+	*@author Carson Meadows
+	*/
+	public int getAmmo() {
+		return ammo;
+	}
+	/**
 	  *Adds snacks. 
 	  *@param add The number of snacks to be added.
 	  *@author Nathanael Woodhead
@@ -156,13 +171,16 @@ class Player{
 		this.currentRoom = room;
 	}
 	/**
-        *Returns the total weight of Items in the inventory of this.
+        *Returns the total weight of Items and Weapons this holds.
         *@author Carson Meadows
         */
 	int getLoad(){
 		int load = 0;
 		for(Item item : inventory){
 			load += item.getWeight();
+		}
+		for (Weapon w : weapons) {
+			load += w.getWeight();
 		}
 		return load;
 	}
@@ -228,7 +246,7 @@ class Player{
 		return names;
 	}
 	/**
-	*Saves progress to a Printwriter.
+	*Saves progress to passed Printwriter.
 	*@author Carson Meadows
 	*/
 	public void store(PrintWriter save)
@@ -248,6 +266,10 @@ class Player{
 
 
 	}
+	/**
+	*Restores progress from passed  Scanner.
+	*@author Carson Meadows
+	*/
 	public void restore(Scanner scan)
 	{
 		scan.nextLine();
