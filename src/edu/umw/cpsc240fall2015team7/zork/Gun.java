@@ -4,7 +4,7 @@ package edu.umw.cpsc240fall2015team7.zork;
 *@author Carson Meadows
 */
 class Gun extends Weapon {
-        private int power;
+        private int power,speed;
 	private int ammo;
 	private int capacity;
 
@@ -17,6 +17,7 @@ class Gun extends Weapon {
 		this.power=power;
 		this.primaryName=primaryName;
 		this.weight=weight;
+		this.speed = -1;
 	}
 
         /**
@@ -48,5 +49,8 @@ class Gun extends Weapon {
 	*/
 	public void reduceAmmo() {
 		this.ammo--;
+	}
+	public String getName(){
+		return primaryName;
 	}
 }
