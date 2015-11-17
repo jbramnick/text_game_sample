@@ -7,14 +7,16 @@ import java.util.*;
 class Opponent extends Npc {
 	protected int health;
 	protected int power;
+	protected int speed;
 	protected String primaryName;
 	protected Room room;
         /**
         *Constructs this Opponent.
         *@author Carson Meadows
         */
-        public Opponent (int health, int power, String primaryName, Room room) {
+        public Opponent (int health, int power,int speed, String primaryName, Room room) {
 		this.health=health;
+		this.speed=speed;
 		this.power=power;
 		this.primaryName=primaryName;
 		this.room=room;

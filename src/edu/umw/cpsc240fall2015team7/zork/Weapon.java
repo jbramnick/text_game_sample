@@ -5,8 +5,8 @@ package edu.umw.cpsc240fall2015team7.zork;
 *@author Carson Meadows
 */
 abstract class Weapon{
-	String primaryName;
-	int weight, speed;
+	protected String primaryName;
+	protected int weight, speed, power;
 
 	/**
 	*Returns the weight of this.
@@ -28,6 +28,9 @@ abstract class Weapon{
 	*/
 	public String getName() {
 		return primaryName;
+	}
+	public int getPower() {
+		return power;
 	}
 }
 

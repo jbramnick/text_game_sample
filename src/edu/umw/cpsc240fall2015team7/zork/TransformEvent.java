@@ -22,9 +22,31 @@ public class TransformEvent extends Event{
 	 *@author Nathanael Woodhead
 	 */
 	String execute(){
-		Item end = GameState.instance().getDungeon().getItem(endItem);
-		Player.instance().addToInventory(end);
-		Player.instance().removeFromInventory(item);
-		return item.getPrimaryName() + " became " + end.getPrimaryName()+"\n";
+		try
+		{
+			Item end = GameState.instance().getDungeon().getItem(endItem);
+			Player.instance().getItemInInventoryNamed(item.getPrimaryName());
+			Player.instance().addToInventory(end);
+			Player.instance().removeFromInventory(item);
+			return item.getPrimaryName() + " became " + end.getPrimaryName()+"\n";
+
+		}
+		catch(Item.NoItemException e)
+		{
+			try
+			{
+				Item end = GameState.instance().getDungeon().getItem(endItem);
+				Player.instance().getCurrentRoom().remove(item);
+				Player.instance().getCurrentRoom().add(end);
+				return item.getPrimaryName() + " became " + end.getPrimaryName()+"\n";
+
+			}
+			catch(Exception ex)
+			{
+				return "";
+
+			}
+		}
+
 	}
 }
