@@ -1,15 +1,23 @@
 package edu.umw.cpsc240fall2015team7.zork;
+import java.util.*;
 /**
 *An intrinsically aggressive NPC. 
 *@author Nathanael Woodhead 
 */
 class Opponent extends Npc {
-
+	protected int health;
+	protected int power;
+	protected String primaryName;
+	protected Room room;
         /**
         *Constructs this Opponent.
         *@author Carson Meadows
         */
         public Opponent (int health, int power, String primaryName, Room room) {
+		this.health=health;
+		this.power=power;
+		this.primaryName=primaryName;
+		this.room=room;
         }
 
         /**
@@ -17,12 +25,18 @@ class Opponent extends Npc {
         *@author Carson Meadows
         */
         public void attackPlayer () {
+		Player.instance().takeWound(power);
         }
 	/**
 	*Moves this Opponent to an adjacent Room.
 	*@author Carson Meadows
 	*/
 	public void move () {
+		ArrayList<Exit> exits = room.getExits();
+		Random selector = new Random();
+		int select = selector.nextInt(exits.size());
+		Exit go = exits.get(select);
+		room = go.getDest();
 	}
 }
 

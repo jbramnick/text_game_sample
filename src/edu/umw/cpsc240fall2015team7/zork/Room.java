@@ -118,7 +118,13 @@ public class Room{
 		return text;
 	}
 	
-
+	/**
+	*Returns an ArrayList of this Room's Exits.
+	*@author Carson Meadows
+	*/
+	public ArrayList<Exit> getExits () {
+		return exits;
+	}
 	/**
 	  Adds this snacks to {@link Player} snacks and sets this snacks to zero.
 	  @author Jim Bramnick

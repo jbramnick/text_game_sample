@@ -3,7 +3,7 @@ package edu.umw.cpsc240fall2015team7.zork;
   *An Item that runs on batteries. When used the batteries are reduced.
   *@author Nathanael Woodhead
   */
-public class FlashLight{
+public class FlashLight {
 	private String primaryName;
 	private boolean power;
 	private int weight;
