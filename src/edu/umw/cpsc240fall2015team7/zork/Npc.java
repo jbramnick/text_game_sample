@@ -5,7 +5,7 @@ package edu.umw.cpsc240fall2015team7.zork;
   */
 abstract class Npc{
 	protected String primaryName;
-	protected int health, power;
+	protected int health, power, speed;
 	private boolean aggression;
 	protected Room currentRoom;
 	/**

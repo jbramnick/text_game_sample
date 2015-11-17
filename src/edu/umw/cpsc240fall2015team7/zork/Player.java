@@ -243,8 +243,15 @@ class Player{
 				text = text + (item + ",");
 			}
 			text = text.substring(0,text.length()-1);
-			save.print(text);
+			save.println(text);
 		}
+		save.println("Score: " + score);
+		save.println("Health: " +health);
+		save.println("Hunger: "+hunger);
+		save.println("Snacks: "+snack);
+		save.println("Medkits: " + medkit);
+		save.println("Ammo: "+ ammo);
+		
 
 
 	}
@@ -264,6 +271,22 @@ class Player{
 			}
 
 		}
+		current=scan.nextLine();
+		this.score=Integer.parseInt(current.split(" ")[1]);
+		current=scan.nextLine();
+		this.health=Integer.parseInt(current.split(" ")[1]);
+		current=scan.nextLine();
+		this.hunger=Integer.parseInt(current.split(" ")[1]);
+		current=scan.nextLine();
+		this.snack=Integer.parseInt(current.split(" ")[1]);
+		current=scan.nextLine();
+		this.medkit=Integer.parseInt(current.split(" ")[1]);
+		current=scan.nextLine();
+		this.ammo=Integer.parseInt(current.split(" ")[1]);
+
+
+
+
 	}
 
 }

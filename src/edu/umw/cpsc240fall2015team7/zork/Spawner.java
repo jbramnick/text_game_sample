@@ -37,7 +37,7 @@ class Spawner{
 		Room RandRoom = GameState.instance().getDungeon().getRoom(RandRoomTitle);
 		//Create new Opponent in Random Room
 		//Using default values for now
-		Opponent op = new Opponent (100, 20, "Zombie", RandRoom);
+		Opponent op = new Opponent (100, 20,2, "Zombie", RandRoom);
 	}
 }
 
