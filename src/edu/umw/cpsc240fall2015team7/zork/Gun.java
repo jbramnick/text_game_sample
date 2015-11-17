@@ -1,9 +1,9 @@
 package edu.umw.cpsc240fall2015team7.zork;
 /**
-*An Item used to fight enemies in the Dungeon.
+*A weapon used to fight enemies in the Dungeon.
 *@author Carson Meadows
 */
-class Gun{
+class Gun extends Weapon {
         private int power;
 	private int ammo;
 	private int capacity;
@@ -13,6 +13,10 @@ class Gun{
         *@author Carson Meadows
         */
         public Gun (int capacity, int power, String primaryName, int weight) {
+		this.capacity=capacity;
+		this.power=power;
+		this.primaryName=primaryName;
+		this.weight=weight;
 	}
 
         /**

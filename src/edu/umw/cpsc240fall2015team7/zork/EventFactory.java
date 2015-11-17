@@ -78,7 +78,7 @@ class EventFactory{
 		catch(Exception e)
 		{	
 			e.printStackTrace();
-			System.out.println("Shit went down");
+			System.out.println("Error in EventFacory\n");
 			return null;
 		}
 

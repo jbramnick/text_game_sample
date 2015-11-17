@@ -250,16 +250,12 @@ class Player{
 	}
 	public void restore(Scanner scan)
 	{
+		scan.nextLine();
 		String current=scan.nextLine();
-		current=current.trim();
-		current=current.split(":")[1];
-		current=current.trim();
-		System.out.println(current);
+		current=current.substring(14,current.length());
 		currentRoom=GameState.instance().getDungeon().getRoom(current);
-		current=scan.nextLine();
-		current=current.trim();
-		if(current.split(":")[1].length()>0)
-		{
+		if(scan.hasNextLine()){
+			current=scan.nextLine();
 			String itemlist=current.split(":")[1].trim();
 			String[] itemList=itemlist.split(",");
 			for(int i=0;i<itemList.length;i++)

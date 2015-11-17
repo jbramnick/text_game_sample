@@ -1,4 +1,5 @@
 package edu.umw.cpsc240fall2015team7.zork;
+import java.util.*;
 /**
   *The engine that controls the creation of opponents by Npcs or by events. The first opponent listed in the .zork file will be the
   *opponent that will be spawned by the spawner. This is a Singleton class. 
@@ -11,6 +12,9 @@ class Spawner{
 	  *@author Nathanael Woodhead
 	  */
 	public static Spawner instance(){
+		if (theInstance == null) {
+			theInstance = new Spawner();
+		}
 		return theInstance;
 	}
 	/**
@@ -25,7 +29,15 @@ class Spawner{
 	  *@author Nathanael Woodhead, Caron Meadows and Jim Bramnick
 	  */
 	void spawn(){
-	
+		//Select Random Room from Dungeon
+		Random selector = new Random();
+		ArrayList <String> rooms = GameState.instance().getDungeon().getKeys();
+		int select = selector.nextInt(rooms.size());
+		String RandRoomTitle = rooms.get(select);
+		Room RandRoom = GameState.instance().getDungeon().getRoom(RandRoomTitle);
+		//Create new Opponent in Random Room
+		//Using default values for now
+		Opponent op = new Opponent (100, 20, "Zombie", RandRoom);
 	}
 }
 

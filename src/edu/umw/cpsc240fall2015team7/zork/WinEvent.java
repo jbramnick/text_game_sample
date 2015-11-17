@@ -5,6 +5,7 @@ package edu.umw.cpsc240fall2015team7.zork;
   */
 class WinEvent extends Event{
 	private int score;
+	private Item i;
 	
 	/**
 	  *Constructs this WinEvent object.
@@ -12,6 +13,7 @@ class WinEvent extends Event{
 	  */
 	WinEvent(Item i){
 		this.score=Player.instance().getScore();
+		this.i=i;
 	}
 	WinEvent(){
 		this.score=Player.instance().getScore();
@@ -21,7 +23,7 @@ class WinEvent extends Event{
 	  *@author Nathanael Woodhead
 	  */
 	String execute(){
-		String message = "You win! Game Complete!\nScore: ";
+		String message = "You win!\nScore: ";
 		message+=Integer.toString(score);
 		System.out.println(message);
 		System.exit(0);
