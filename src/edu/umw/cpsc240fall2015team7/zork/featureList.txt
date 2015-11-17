@@ -1,0 +1,2 @@
+Combat (25 xp) - Added the ability to fight Npcs in the dungeon. When you are in the same room as an Npc you will have the opportunity to fight
+with them. The fighting is a turn based system. Both the npc and the players weapon have 

@@ -6,7 +6,13 @@ package edu.umw.cpsc240fall2015team7.zork;
 */
 abstract class Weapon{
 	String primaryName;
-	int weight, speed;
+	int power,weight, speed;
+	int getSpeed(){
+		return speed;
+	}
+	int getPower(){
+		return power;
+	}
 }
 
 	
