@@ -3,17 +3,17 @@ package edu.umw.cpsc240fall2015team7.zork;
 *Command to use a Gun against an NPC.
 *@author Carson Meadows
 */
-class ShootCommand {
+class ShootCommand extends Command {
         private Gun weapon;
+	private String commandString;
 	private Npc npc;
 
         /**
         *Constructs this ShootCommand.
         *@author Carson Meadows
         */
-        public ShootCommand (Npc npc, Gun weapon) {
-		this.npc=npc;
-		this.weapon=weapon;
+        public ShootCommand (String commandString) {
+		this.commandString=commandString;
         }
 
         /**
@@ -22,7 +22,7 @@ class ShootCommand {
         *@author Carson Meadows
         */
         public String execute () {
-		CombatEngine.instance().fight(weapon, npc);
+		CombatEngine.instance().fight(npc,weapon);
         	return "";
 	}
 
