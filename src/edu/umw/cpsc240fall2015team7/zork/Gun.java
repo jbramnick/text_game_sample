@@ -50,7 +50,19 @@ class Gun extends Weapon {
 	public void reduceAmmo() {
 		this.ammo--;
 	}
+	/**
+	  *Returns the name of the gun.
+	  *@author Nathanael Woodhead
+	  */
 	public String getName(){
 		return primaryName;
 	}
+	/**
+	  *Returns the speed. Speed is used for deciding what who hits first in combat.
+	  *@author Nathanael Woodhead
+	  */
+	public int getSpeed(){
+		return speed;
+	}
+
 }
