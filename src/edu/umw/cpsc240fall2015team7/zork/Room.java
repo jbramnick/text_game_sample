@@ -102,6 +102,7 @@ public class Room{
 			}
 			text = text.substring(0,text.length()-2);
 		}
+		text=text+"\nThere are "+snacks+" snacks, " + medkits+ " medkits, " + ammo + " Ammo in here.";
 		return text;
 	}
 	/**
@@ -125,6 +126,7 @@ public class Room{
 				text = text + "\n" + "There is a " + item + " here."; 
 			}
 		}
+		text=text+"\nThere are "+snacks+" snacks, " + medkits+ " medkits, " + ammo + " Ammo in here.";
 		return text;
 	}
 	/**

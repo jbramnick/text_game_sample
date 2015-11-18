@@ -24,6 +24,25 @@ class TakeCommand extends Command{
 	  *@author Nathanael Woodhead and Jim Bramnick
 	  */
 	String execute(){
+		String tempComString=commandString.toLowerCase();
+		if(tempComString.equals("take medkits")||tempComString.equals("take medkit"))
+		{
+			Player.instance().getCurrentRoom().giveMedkits();
+			return "Took all medkits";
+
+		}
+		if(tempComString.equals("take ammo"))
+		{
+			Player.instance().getCurrentRoom().giveAmmo();
+			return "Took all Ammo";
+
+		}
+		if(tempComString.equals("take snacks")||tempComString.equals("take snack"))
+		{
+			Player.instance().getCurrentRoom().giveSnacks();
+			return "Took all snacks";
+
+		}
 		String itemName = "";
 		int weight = 0;
 		try{
