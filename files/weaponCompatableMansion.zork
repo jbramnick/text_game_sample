@@ -3,7 +3,7 @@ Zork v1.0
 ===
 Weapons:
 Melee
-CombatKnife
+Combat Knife
 5
 2
 25
@@ -29,7 +29,7 @@ shoot:BANG! Now your shoulder hurts.
 reload:You reload your weapon.
 ---
 Gun
-RocketLauncher
+Rocket Launcher
 20
 1
 300
@@ -46,7 +46,7 @@ sniff:It smells like...
 MansionKey
 1
 unlock:There are no locked doors here.
-examine[Transform(SwordKey),Score(5)]:There is an engraving of a sword on the side.
+examine[Transform(Sword Key),Score(5)]:There is an engraving of a sword on the side.
 ---
 SwordKey
 1
@@ -59,7 +59,7 @@ examine:You can use this with a typewriter.
 ---
 Flask
 5
-pour[Transform(emptyFlask)]:You pour the contents onto the floor.
+pour[Transform(empty Flask)]:You pour the contents onto the floor.
 examine:An alcoholic's best friend, or a zombie slayer's...
 ---
 EmptyFlask
@@ -79,7 +79,7 @@ unlock:Nothing is locked here.
 T-VirusSample
 5
 inject[Die]:You feel dizzy, dehydrated, and weak. You pass out, and within an hour, arise as a zombie.
-break[Disappear,Score(50)]:The glass shatters and spills the clear, visceous liquid onto the floor.
+break[Disappear,Score(50)]:The glass shatters and spills the clear, viscous liquid onto the floor.
 ---
 Helicopter
 10000
@@ -87,14 +87,14 @@ fly[Win]:You have escaped from Spencer Mansion with your life! You see the estat
 ---
 ===
 Rooms:
-MainHall
+Main Hall
 You are in a great hall with a tile floor and many decorations. You have a bad feeling about this place.
 ---
-DiningHall
+Dining Hall
 Contents: InkRibbon
 This is a fancy dining room with gorgeous paintings on the walls and a lit fireplace. The food on the table has been left mid-meal.
 ---
-SittingRoom
+Sitting Room
 Contents: Handgun
 A room with comfy chairs. The body of a police officer is on the floor with his throat torn out. His gun is still in his hand.
 ---
@@ -102,10 +102,10 @@ Gallery
 Contents: CombatKnife
 A stone statue stand in the center of the room.
 ---
-LongHall
-A long L-shaped corridor. Tree branches cast their shadowsw through the windows eerily.
+Long Hall
+A long L-shaped corridor. Tree branches cast their shadows through the windows eerily.
 ---
-SafeRoom
+Safe Room
 Contents: Flask
 A small storage room. There is a large box and a typewriter here.
 ---
@@ -113,7 +113,7 @@ Garden
 Contents: Shotgun
 An overgrown garden with pretty statues. There is a staircase leading underground at the end of it.
 ---
-TortureChamber
+Torture Chamber
 Contents: MansionKey
 The only light here is fire from an incinerator. Many coffins line the floor. You can hear groans and taps from the inside of them.
 ---
@@ -138,73 +138,81 @@ A high-tech lab. A muscular, blue-skinned figure is floating in a large tube fil
 ---
 ===
 Exits:
-MainHall
+Main Hall
 d
 Laboratory
 ---
-MainHall
-w
-DiningHall
+Laboratory
+u
+Main Hall
 ---
-MainHall
+Laboratory
+u
+Main Hall
+---
+Main Hall
+w
+Dining Hall
+---
+Main Hall
 e
 Gallery
 ---
-MainHall
+Main Hall
 u
 Walkway
 ---
-DiningHall
+Dining Hall
 e
-MainHall
+Main Hall
 ---
-DiningHall
+Dining Hall
 n
-SittingRoom
+Sitting Room
 ---
-SittingRoom
+Sitting Room
 s
-DiningHall
+Dining Hall
 ---
-SittingRoom
+Sitting Room
 n
 Garden
 ---
 Garden
 s
-SittingRoom
+Sitting Room
 ---
 Garden
 d
-TortureChamber
+Torture Chamber
 ---
-TortureChamber
+Torture Chamber
 u
 Garden
 ---
 Gallery
 w
-MainHall
+Main Hall
 ---
 Gallery
 e
-LongHall
+Long Hall
 ---
-LongHall
+Long Hall
 w
 Gallery
 ---
-LongHall
+Long Hall
 n
-SafeRoom
+Safe Room
 ---
-SafeRoom
+Safe Room
 s
-LongHall
+Long Hall
 ---
 Walkway
 d
-MainHall
+Main Hall
 ---
 Walkway
 e
