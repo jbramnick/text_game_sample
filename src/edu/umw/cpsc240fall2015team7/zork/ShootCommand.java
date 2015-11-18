@@ -22,8 +22,8 @@ class ShootCommand extends Command {
         *@author Carson Meadows
         */
         public String execute () {
-		CombatEngine.instance().fight(npc,weapon);
-        	return "";
+		String text = CombatEngine.instance().fight(npc,weapon);
+        	return text;
 	}
 
 }

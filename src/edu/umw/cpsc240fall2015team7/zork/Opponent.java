@@ -11,6 +11,17 @@ class Opponent extends Npc {
 	protected String primaryName;
 	protected Room room;
         /**
+        *Constructs this Opponent with the default Speed value of 2.
+        *@author Carson Meadows
+        */
+        public Opponent (int health, int power, String primaryName, Room room) {
+		this.health=health;
+		this.speed= 2;
+		this.power=power;
+		this.primaryName=primaryName;
+		this.room=room;
+        }
+        /**
         *Constructs this Opponent.
         *@author Carson Meadows
         */
