@@ -1,6 +1,7 @@
 package edu.umw.cpsc240fall2015team7.zork;
 import java.util.Scanner;
 import java.util.ArrayList;
+import java.util.Hashtable;
 /**
 *Abstract class which all weapons extend from.
 *@author Carson Meadows
@@ -8,6 +9,7 @@ import java.util.ArrayList;
 abstract class Weapon{
 	class NoWeaponException extends Exception{}
 	protected String primaryName;
+	protected Hashtable<String, String> messages = new Hashtable<String, String>();
 	protected ArrayList<String> secondaryNames = new ArrayList <String>();
 	protected int weight, speed, power;
 	/**
