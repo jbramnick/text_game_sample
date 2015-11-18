@@ -38,22 +38,22 @@ examine:Perfect for a final boss...if there was one.
 ---
 ===
 Items:
-Green Herb
+GreenHerb
 2
 use[Wound(-10)]:You consume the herb. Your head feels light.
 sniff:It smells like...
 ---
-Mansion Key
+MansionKey
 1
 unlock:There are no locked doors here.
 examine[Transform(Sword Key),Score(5)]:There is an engraving of a sword on the side.
 ---
-Sword Key
+SwordKey
 1
 unlock:There are no locked sword doors here.
 examine:There is an engraving of a sword on the side.
 ---
-Ink Ribbon
+InkRibbon
 1
 examine:You can use this with a typewriter.
 ---
@@ -62,7 +62,7 @@ Flask
 pour[Transform(empty Flask)]:You pour the contents onto the floor.
 examine:An alcoholic's best friend, or a zombie slayer's...
 ---
-Empty Flask
+EmptyFlask
 2
 pour:Nothing remains.
 refill[Transform(Flask)]:You fill the flask with a nearby gasoline container.
@@ -76,7 +76,7 @@ Lockpick
 examine:This can unlock simple locks.
 unlock:Nothing is locked here.
 ---
-T-Virus Sample
+T-VirusSample
 5
 inject[Die]:You feel dizzy, dehydrated, and weak. You pass out, and within an hour, arise as a zombie.
 break[Disappear,Score(50)]:The glass shatters and spills the clear, viscous liquid onto the floor.
@@ -91,7 +91,7 @@ Main Hall
 You are in a great hall with a tile floor and many decorations. You have a bad feeling about this place.
 ---
 Dining Hall
-Contents: Ink Ribbon
+Contents: InkRibbon
 This is a fancy dining room with gorgeous paintings on the walls and a lit fireplace. The food on the table has been left mid-meal.
 ---
 Sitting Room
@@ -99,7 +99,7 @@ Contents: Handgun
 A room with comfy chairs. The body of a police officer is on the floor with his throat torn out. His gun is still in his hand.
 ---
 Gallery
-Contents: Combat Knife
+Contents: CombatKnife
 A stone statue stand in the center of the room.
 ---
 Long Hall
@@ -114,14 +114,14 @@ Contents: Shotgun
 An overgrown garden with pretty statues. There is a staircase leading underground at the end of it.
 ---
 Torture Chamber
-Contents: Mansion Key
+Contents: MansionKey
 The only light here is fire from an incinerator. Many coffins line the floor. You can hear groans and taps from the inside of them.
 ---
 Walkway
 The carpet up here is marvelous, but the huge window at the front gives you the creeps.
 ---
 Balcony
-Contents: Green Herb
+Contents: GreenHerb
 The cool wind soothes and refreshes you. In the distance you can see mountains and trees.
 ---
 Library
@@ -129,11 +129,11 @@ Contents: Lighter,Lockpick
 Hundreds of books line the walls. This could be either Heaven or Hell depending on the person. There is a ladder to the attic here.
 ---
 Attic
-Contents: Rocket Launcher
+Contents: RocketLauncher
 Cobwebs are everywhere up here! Also, there is a giant snake curled up in a ball. Don't worry, though, he's full from eating your best friend.
 ---
 Laboratory
-Contents: T-Virus Sample
+Contents: T-VirusSample
 A high-tech lab. A muscular, blue-skinned figure is floating in a large tube filled with an unidentified liquid.
 ---
 ===
@@ -141,6 +141,10 @@ Exits:
 Main Hall
 d
 Laboratory
+---
+Laboratory
+u
+Main Hall
 ---
 Laboratory
 u
