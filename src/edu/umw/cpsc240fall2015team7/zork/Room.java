@@ -49,6 +49,16 @@ public class Room{
 					this.add(d.getItem(x));
 				}
 			}
+			content=scanner.nextLine();
+
+		}
+		if(content.contains("Snacks,"))
+		{
+			content=content.split(" ")[1];
+			this.snacks=Integer.parseInt(content.split(",")[0]);
+			this.medkits=Integer.parseInt(content.split(",")[1]);
+			this.ammo=Integer.parseInt(content.split(",")[2]);
+			content=scanner.nextLine();
 		}
 		else if(content != null){
 			this.desc = content;
@@ -60,19 +70,19 @@ public class Room{
 		}
 	}
 	/**
-	*Sets this Room's description as the parameter.
-	*@author Carson Meadows
-	*/
+	 *Sets this Room's description as the parameter.
+	 *@author Carson Meadows
+	 */
 	public void setDesc(String desc){
 		this.desc = desc;
 	}
 	/**
-	*Returns information about this Room. If the player has never been to this room, 
-	*returned text includes Room's title, description, exits, and contents.
-	*Otherwise returns only exits and contents.
-	*@param beenHere If false, will give a full description.
-	*@author Nathanael Woodhead
-	*/
+	 *Returns information about this Room. If the player has never been to this room, 
+	 *returned text includes Room's title, description, exits, and contents.
+	 *Otherwise returns only exits and contents.
+	 *@param beenHere If false, will give a full description.
+	 *@author Nathanael Woodhead
+	 */
 	String describe(boolean beenHere){
 		String text = title;
 		this.beenHere = beenHere;
@@ -95,11 +105,11 @@ public class Room{
 		return text;
 	}
 	/**
-        *Returns information about this Room. If the player has never been here,
-        *returned text includes Room's title, description, exits, and contents.
-        *If the player has been here before, returns only exits and contents.
-        *@author Carson Meadows
-	*/
+	 *Returns information about this Room. If the player has never been here,
+	 *returned text includes Room's title, description, exits, and contents.
+	 *If the player has been here before, returns only exits and contents.
+	 *@author Carson Meadows
+	 */
 	String describe(){
 		String text = title;
 		if(beenHere == false){
@@ -117,11 +127,10 @@ public class Room{
 		}
 		return text;
 	}
-	
 	/**
-	*Returns an ArrayList of this Room's Exits.
-	*@author Carson Meadows
-	*/
+	 *Returns an ArrayList of this Room's Exits.
+	 *@author Carson Meadows
+	 */
 	public ArrayList<Exit> getExits () {
 		return exits;
 	}
