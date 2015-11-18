@@ -9,7 +9,7 @@ class HealthCommand extends Command{
 	String execute(){
 		String text = "";
 		int health = Player.instance().getHealth();
-		if(health == 100){
+		if(health >= 100){
 			text = "You couldn't feel better!";
 		} else if (health > 75) {
 			text = "You feel fine, but not perfect.";

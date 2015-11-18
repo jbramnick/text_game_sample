@@ -73,101 +73,104 @@ class Player{
 	  *Lowers the heath of the player. If this causes the player's health to fall below 1 then this will make a new die event 
 	  *and execute it. This will cause the game to end and the player to loose the game.
 	  *@author Nathanael Woodhead
-	  */
+	 */
 	String takeWound(int damage){
+		if(damage<0)
+			damage=damage*-1;
 		health = health - damage;
+
 		if(health == 0){
 			new DieEvent();
 		}
 		return "";
 	}
 	/**
-	  *Adds a item to this inventory. If the item is already in the inventory then it will quietly do nothing.
-	  *@author Nathanael Woodhead
-	  */
+	 *Adds a item to this inventory. If the item is already in the inventory then it will quietly do nothing.
+	 *@author Nathanael Woodhead
+	 */
 	void addToInventory(Item item){
 		verbs.removeAll(item.getVerbs());
 		verbs.addAll(item.getVerbs());
 		inventory.add(item);
 	}
 	/**
-  	*Changes the score. 
-	*@param score the amount this score should be changed by.
-	*@author Nathanael Woodhead	
-	*/
+	 *Changes the score. 
+	 *@param score the amount this score should be changed by.
+	 *@author Nathanael Woodhead	
+	 */
 	void changeScore(int score){
 		this.score = this.score + score;
 	}
 	/**
-	  *Returns the players score.
-	  *@author Nathanael Woodhead
-	  */
+	 *Returns the players score.
+	 *@author Nathanael Woodhead
+	 */
 	int getScore(){
 		return score;
 	}
 	/**
-	  *Return the players health.
-	  *@author Nathanael Woodhead
-	  */
+	 *Return the players health.
+	 *@author Nathanael Woodhead
+	 */
 	int getHealth(){
 		return health;
 	}
 	/**
-	*Sets health to passed int.
-	*@author Carson Meadows
-	*/
+	 *Sets health to passed int.
+	 *@author Carson Meadows
+	 */
 	void setHealth(int StephenDavies) {
 		this.health = StephenDavies;
 	}
 	/**
-	  *Adds a medkit to the player.
-	  *@author Nathanael Woodhead
-	  */
+	 *Adds a medkit to the player.
+	 *@author Nathanael Woodhead
+	 */
 	void addMedkits (int add) {
 		medkit += add;
 	}
 	/**
-	  *Adds ammo. 
-	  *@param add The number of ammo to be added.
-	  *@author Nathanael Woodhead
-	  */
+	 *Adds ammo. 
+	 *@param add The number of ammo to be added.
+	 *@author Nathanael Woodhead
+	 */
 	void addAmmo (int add) {
 		ammo += add;
 	}
 	/**
-	  *Adds snacks. 
-	  *@param add The number of snacks to be added.
-	  *@author Nathanael Woodhead
-	  */
+	 *Adds snacks. 
+	 *@param add The number of snacks to be added.
+	 *@author Nathanael Woodhead
+	 */
 	void addSnacks (int add) {
 		snack += add;
 	}
 	/**
-	  *Returns the players current room.
-	  *@author Nathanael Woodhead
-	  */
+	 *Returns the players current room.
+	 *@author Nathanael Woodhead
+	 */
 	Room getCurrentRoom(){
 		return currentRoom;
 	}
 	/**
-	Returns the value of ammo.
-	@author Jim Bramnick
-	*/
+	  Returns the value of ammo.
+	  @author Jim Bramnick
+	 */
 	int getAmmo()
 	{
 		return ammo;
 	}
 	/**
-	  *Sets the players current room.
-	  *@author Nathanael Woodhead
-	  */
+	 *Sets the players current room.
+	 *@author Nathanael Woodhead
+	 */
 	void setCurrentRoom(Room room){
 		this.currentRoom = room;
 	}
 	/**
-        *Returns the total weight of Items in the inventory of this.
-        *@author Carson Meadows
-        */
+	 *Returns the total weight of Items in the inventory of this.
+	 *@author Carson Meadows
+	 */
 	int getLoad(){
 		int load = 0;
 		if(inventory.size()>0)
@@ -269,32 +272,45 @@ class Player{
 	}
 	public void restore(Scanner scan)
 	{
-		scan.nextLine();
-		String current=scan.nextLine();
-		current=current.substring(14,current.length());
-		currentRoom=GameState.instance().getDungeon().getRoom(current);
-		if(scan.hasNextLine()){
+		String current="";
+		try
+		{
+			scan.nextLine();
 			current=scan.nextLine();
-			String itemlist=current.split(":")[1].trim();
-			String[] itemList=itemlist.split(",");
-			for(int i=0;i<itemList.length;i++)
-			{
-				this.addToInventory(GameState.instance().getDungeon().getItem(itemList[i]));	
+			current=current.substring(14,current.length());
+			currentRoom=GameState.instance().getDungeon().getRoom(current);
+			if(scan.hasNextLine()){
+				current=scan.nextLine();
+				if(!(current.contains("Inventory: ")))
+					throw new Exception();
+				String itemlist=current.split(":")[1].trim();
+				String[] itemList=itemlist.split(",");
+				for(int i=0;i<itemList.length;i++)
+				{
+					this.addToInventory(GameState.instance().getDungeon().getItem(itemList[i]));	
+				}
+
 			}
 
 		}
-		current=scan.nextLine();
-		this.score=Integer.parseInt(current.split(" ")[1]);
-		current=scan.nextLine();
-		this.health=Integer.parseInt(current.split(" ")[1]);
-		current=scan.nextLine();
-		this.hunger=Integer.parseInt(current.split(" ")[1]);
-		current=scan.nextLine();
-		this.snack=Integer.parseInt(current.split(" ")[1]);
-		current=scan.nextLine();
-		this.medkit=Integer.parseInt(current.split(" ")[1]);
-		current=scan.nextLine();
-		this.ammo=Integer.parseInt(current.split(" ")[1]);
+		catch(Exception e)
+		{
+			this.score=Integer.parseInt(current.split(" ")[1]);
+			current=scan.nextLine();
+			this.health=Integer.parseInt(current.split(" ")[1]);
+			current=scan.nextLine();
+			this.hunger=Integer.parseInt(current.split(" ")[1]);
+			current=scan.nextLine();
+			this.snack=Integer.parseInt(current.split(" ")[1]);
+			current=scan.nextLine();
+			this.medkit=Integer.parseInt(current.split(" ")[1]);
+			current=scan.nextLine();
+			this.ammo=Integer.parseInt(current.split(" ")[1]);
+
+		}
+
+
+
 
 
 
