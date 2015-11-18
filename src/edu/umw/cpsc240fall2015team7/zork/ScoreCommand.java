@@ -14,7 +14,18 @@ class ScoreCommand extends Command{
 		String text = "";
 		int score = 0;
 		score = Player.instance().getScore();
-		text = "You have " + score + " points.";
+		if(score>=50 && score<100)
+		{
+			text+="You are a dececnt adventurer.\n";
+
+		}
+		if(score>=100)
+		{
+			text+="You are an awesome adventurer!!!\n";
+
+		}
+
+		text += "You have " + score + " points.";
 		return text + "\n";
 	}
 }

@@ -26,14 +26,18 @@ class ItemSpecificCommand extends Command{
 	String execute(){
 		try{
 			Item item = Player.instance().getItemInInventoryNamed(noun);
-			String text = item.getMessageForVerb(verb);
+			System.out.println(item.getMessageForVerb(verb));
+			String text="";
+			text+=item.executeEventsFor(verb);
 			return text;
 		}
 		catch(Item.NoItemException e){
 			try 
 			{
 				Item i=Player.instance().getCurrentRoom().getItemNamed(noun);
-				String t=i.getMessageForVerb(verb);
+				System.out.println(i.getMessageForVerb(verb));
+				String t="";
+				t+=i.executeEventsFor(verb);
 				return t;
 
 			}

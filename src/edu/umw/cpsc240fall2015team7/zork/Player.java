@@ -12,7 +12,6 @@ class Player{
 	private Room currentRoom;
 	public class NoSnackException extends Exception{};
 	private ArrayList<Item> inventory;
-	private ArrayList<Weapon> weapons;
 	private int ammo, snack, medkit,health,hunger,score;
 	public static Player theInstance;
 	/**
@@ -80,7 +79,7 @@ class Player{
 		if(health == 0){
 			new DieEvent();
 		}
-		return "\n You take " + damage +".";
+		return "";
 	}
 	/**
 	  *Adds a item to this inventory. If the item is already in the inventory then it will quietly do nothing.
@@ -90,13 +89,6 @@ class Player{
 		verbs.removeAll(item.getVerbs());
 		verbs.addAll(item.getVerbs());
 		inventory.add(item);
-	}
-	/**
-	*Adds passed Weapon to ArrayList of Weapons in this.
-	*@author Carson Meadows
-	*/
-	void addWeapon (Weapon w) {
-		weapons.add(w);
 	}
 	/**
   	*Changes the score. 
@@ -143,13 +135,6 @@ class Player{
 		ammo += add;
 	}
 	/**
-	*Returns current ammo.
-	*@author Carson Meadows
-	*/
-	public int getAmmo() {
-		return ammo;
-	}
-	/**
 	  *Adds snacks. 
 	  *@param add The number of snacks to be added.
 	  *@author Nathanael Woodhead
@@ -165,6 +150,14 @@ class Player{
 		return currentRoom;
 	}
 	/**
+	Returns the value of ammo.
+	@author Jim Bramnick
+	*/
+	int getAmmo()
+	{
+		return ammo;
+	}
+	/**
 	  *Sets the players current room.
 	  *@author Nathanael Woodhead
 	  */
@@ -172,31 +165,31 @@ class Player{
 		this.currentRoom = room;
 	}
 	/**
-        *Returns the total weight of Items and Weapons this holds.
+        *Returns the total weight of Items in the inventory of this.
         *@author Carson Meadows
         */
 	int getLoad(){
 		int load = 0;
-		for(Item item : inventory){
-			load += item.getWeight();
-		}
-		for (Weapon w : weapons) {
-			load += w.getWeight();
+		if(inventory.size()>0)
+		{
+			for(Item item : inventory){
+				load += item.getWeight();
+			}
 		}
 		return load;
 	}
 	/**
-        *Removes the passed Item from the inventory of this.
-        *@author Carson Meadows
-        */
+	 *Removes the passed Item from the inventory of this.
+	 *@author Carson Meadows
+	 */
 	void removeFromInventory(Item item){
 		inventory.remove(item);
 	}
 	/**
-	*Removes all items from the inventory and returns an ArrayList
-	* of the old inventory.
-	*@author Carson Meadows
-	*/
+	 *Removes all items from the inventory and returns an ArrayList
+	 * of the old inventory.
+	 *@author Carson Meadows
+	 */
 	ArrayList<Item> removeAllFromInventory(){
 		ArrayList<Item> oldInventory = new ArrayList<Item>();
 		for(Item item : inventory){
@@ -221,24 +214,24 @@ class Player{
 		throw new Item.NoItemException();
 	}
 	/**
-        *Returns an ArrayList of verbs this holds.
-        *@author Carson Meadows
-        */
+	 *Returns an ArrayList of verbs this holds.
+	 *@author Carson Meadows
+	 */
 	ArrayList<String> getVerbs(){
 		return verbs;
 	}
 	/**
-        *Returns item in the current Room named the parameter.
-        *@author Carson Meadows
-	*@throws Item.NoItemException
-        */
+	 *Returns item in the current Room named the parameter.
+	 *@author Carson Meadows
+	 *@throws Item.NoItemException
+	 */
 	Item getItemInVicinityNamed(String name) throws Item.NoItemException{
 		return currentRoom.getItemNamed(name);
 	}
 	/**
-	*Returns an ArrayList of item names in the inventory of this.
-	*@author Carson Meadows
-	*/
+	 *Returns an ArrayList of item names in the inventory of this.
+	 *@author Carson Meadows
+	 */
 	ArrayList<String> getInventoryNames(){
 		ArrayList<String> names = new ArrayList<String>();
 		for(Item x : inventory){
@@ -247,9 +240,9 @@ class Player{
 		return names;
 	}
 	/**
-	*Saves progress to passed Printwriter.
-	*@author Carson Meadows
-	*/
+	 *Saves progress to a Printwriter.
+	 *@author Carson Meadows
+	 */
 	public void store(PrintWriter save)
 	{
 		save.println("===");
@@ -270,14 +263,10 @@ class Player{
 		save.println("Snacks: "+snack);
 		save.println("Medkits: " + medkit);
 		save.println("Ammo: "+ ammo);
-		
+
 
 
 	}
-	/**
-	*Restores progress from passed  Scanner.
-	*@author Carson Meadows
-	*/
 	public void restore(Scanner scan)
 	{
 		scan.nextLine();

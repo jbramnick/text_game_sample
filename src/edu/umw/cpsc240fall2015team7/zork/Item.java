@@ -126,12 +126,19 @@ public class Item{
 			throw new NoVerbException();
 		}
 		String text = messages.get(verb);
+		return text;
+	}
+	public String executeEventsFor(String verb) 
+	{
+		String text="";
 		if(actions.containsKey(verb)){
 			for(Event event : actions.get(verb)){
 				text = text + event.execute();
 			}
 		}
 		return text;
+
+
 	}
 	/**
 	*Returns this Item's primary name.
