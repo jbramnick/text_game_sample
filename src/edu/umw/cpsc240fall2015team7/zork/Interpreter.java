@@ -25,7 +25,8 @@ class Interpreter {
 				System.out.println(Player.instance().getCurrentRoom().describe());
 			}
 			catch(Dungeon.IllegalDungeonFormatException e){
-				System.out.println("Invalid .zork format.");
+				e.printStackTrace();
+				e.printStackTrace();
 				System.exit(0);
 			}
 			catch(GameState.IllegalSaveFormatException e){

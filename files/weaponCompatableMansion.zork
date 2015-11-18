@@ -6,10 +6,10 @@ Melee
 CombatKnife
 5
 2
+25
 stab:You thrust your knife forward, but there are no monsters in the room.
 lick[Wound(3)]:Ow! You cut your tongue.
 examine:The edge could split hairs!
-25
 ---
 Gun
 Handgun
