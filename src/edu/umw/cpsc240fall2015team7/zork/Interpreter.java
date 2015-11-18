@@ -66,7 +66,8 @@ class Interpreter {
 			catch(Item.NoItemException e){
 				System.out.println("What item?");
 			}
-			input = promptUser(buffy); 
+			input = promptUser(buffy);
+			
 		}
 
 	}

@@ -45,6 +45,11 @@ class CommandFactory{
 			HealthCommand i = new HealthCommand();
 			return i;
 		}
+		else if(commandString.equals("eat"))
+		{
+			EatCommand e=new EatCommand();
+			return e;
+		}
 		else if (commandString.contains("attack")) {
 			AttackCommand a = new AttackCommand(commandString);
 			return a;
