@@ -1,13 +1,47 @@
 package edu.umw.cpsc240fall2015team7.zork;
+import java.util.Hashtable;
+import java.util.Scanner;
+import java.util.ArrayList;
 /**
 *A weapon used to fight enemies in the Dungeon.
 *@author Carson Meadows
 */
 class Gun extends Weapon {
-        private int power,speed;
+        private int power,speed,weight;
 	private int ammo;
 	private int capacity;
+	private String primaryName;
+	private ArrayList<String> secondaryNames;
+	private Hashtable<String, String> messages = new Hashtable<String, String>();
 
+        /**
+        *Constructs this Gun from a scanner.
+        *@author Carson Meadows
+        */
+        public Gun (Scanner scanner) {
+		String name = scanner.nextLine();	
+		if(name.equals("===")){
+			throw new Weapon.NoWeaponException();
+		}
+		String[] names = name.split(",");
+		this.primaryName = names[0];
+		for(String x : names){
+			if(!x.equals(primaryName)){
+				secondaryNames.add(x);
+			}
+		}
+		String heavy = scanner.nextLine();
+		this.weight = Integer.parseInt(heavy);
+		this.capacity = Integer.parseInt(scanner.nextLine());
+		this.power = Integer.parseInt(scanner.nextLine());
+		String text = scanner.nextLine();
+		while(!text.equals("---")){
+			String[] parts = text.split(":");
+			messages.put(parts[0],parts[1]);
+			text = scanner.nextLine();
+		}
+
+	}
         /**
         *Constructs this Gun.
         *@author Carson Meadows

@@ -14,25 +14,27 @@ examine:The edge could split hairs!
 Gun
 Handgun
 7
+15
+100
 shoot:You fire a round. Now your ears are ringing.
 reload:You reload your weapon.
 examine:An m9 Beretta.
-100
 ---
 Gun
 Shotgun
 10
+15
+125
 shoot:BANG! Now your shoulder hurts.
 reload:You reload your weapon.
-125
 ---
 Gun
 RocketLauncher
 20
+1
+300
 shoot[Disappear,Score(10)]:BOOM! Nothing could have survived that.
 examine:Perfect for a final boss...if there was one.
-300
-
 ---
 ===
 Items:
