@@ -1,19 +1,17 @@
 package edu.umw.cpsc240fall2015team7.zork;
 /**
-The Event that handles {@link Player} hunger.
+The Command that handles {@link Player} hunger.
 @author Jim Bramnick
 */
-class EatEvent extends Event {
+class EatCommand extends Command {
 	/**
-	Create new EatEvent object and set the amt.
+	Create new EatCommand object and set the amt.
 	@author Jim Bramnick
 	*/
-	public EatEvent() {
-	}
-	public EatEvent(Item i) {
+	public EatCommand() {
 	}
 	/**
-	Executes this EatEvent and adds amt to the hunger in {@link Player}.
+	Executes this EatCommand and adds amt to the hunger in {@link Player}.
 	If {@link Player} hunger is equal to {@link Player} hunger maximum, silently does nothing.
 	@return A confirmation message of the format "That Snack was good".
 	@author Jim Bramnick
@@ -22,11 +20,11 @@ class EatEvent extends Event {
 		try
 		{
 			Player.instance().eat();
-			return "That was delicious!";
+			return "That was a delicious snack!";
 		}
 		catch(Exception e)
 		{
-			return "Didn't eat";
+			return "No Snacks to consume!!!";
 		}
 	}
 

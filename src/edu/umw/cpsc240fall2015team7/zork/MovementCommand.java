@@ -16,6 +16,7 @@ class MovementCommand extends Command{
 	}
 	/**
 	*Moves the player to the adjacent Room in the direction passed.
+	This method also creates a new {@link PassTimeEvent} and calls execute() on it.
 	*@author Carson Meadows
 	*/
 	String execute(){
@@ -23,7 +24,8 @@ class MovementCommand extends Command{
 		try{
 			Room newRoom = currentRoom.leaveBy(dir);
 			Player.instance().setCurrentRoom(newRoom);
-			return "";
+			PassTimeEvent pass=new PassTimeEvent(null,"1");
+			return pass.execute();
 		}
 		catch(Exit.NoExitException e){
 			return "There is no exit there.";
