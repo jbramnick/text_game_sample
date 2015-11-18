@@ -6,10 +6,10 @@ Melee
 CombatKnife
 5
 2
+25
 stab:You thrust your knife forward, but there are no monsters in the room.
 lick[Wound(3)]:Ow! You cut your tongue.
 examine:The edge could split hairs!
-25
 ---
 Gun
 Handgun
@@ -84,6 +84,7 @@ break[Disappear,Score(50)]:The glass shatters and spills the clear, visceous liq
 Helicopter
 10000
 fly[Win]:You have escaped from Spencer Mansion with your life! You see the estate explode in an intense inferno.
+---
 ===
 Rooms:
 MainHall
@@ -134,6 +135,7 @@ Cobwebs are everywhere up here! Also, there is a giant snake curled up in a ball
 Laboratory
 Contents: T-VirusSample
 A high-tech lab. A muscular, blue-skinned figure is floating in a large tube filled with an unidentified liquid.
+---
 ===
 Exits:
 MainHall

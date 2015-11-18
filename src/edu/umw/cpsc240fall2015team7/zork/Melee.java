@@ -31,13 +31,13 @@ public class Melee extends Weapon{
 		}
 		this.weight = Integer.parseInt(scanner.nextLine());
 		this.speed = Integer.parseInt(scanner.nextLine());
+		this.power = Integer.parseInt(scanner.nextLine());
 		String next = scanner.nextLine();
 		while(!next.equals("---")){
 			String[] message = next.split(":");
 			this.messages.put(message[0],message[1]);
 			next = scanner.nextLine();
 		}
-
 	}
 	/**
 	  *Creates a new Melee object. A Melee weapon is a weapon that hits at close range. This allows opponents to hit back at the

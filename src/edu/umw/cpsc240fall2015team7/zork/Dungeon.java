@@ -55,9 +55,11 @@ public class Dungeon{
 						this.addWeapon(weapon);
 					}
 				}
-				catch(Exception e){}
+				catch(Exception e){
+				custom = scanner.nextLine();
+				}
 			}
-			else if(custom.equals("Items:")){
+			if(custom.equals("Items:")){
 				try{
 					while(true){
 						this.add(new Item(scanner));
