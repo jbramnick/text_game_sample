@@ -1,0 +1,229 @@
+Spencer Mansion
+Zork v1.0
+===
+Weapons:
+Melee
+CombatKnife
+5
+2
+stab:You thrust your knife forward, but there are no monsters in the room.
+lick[Wound(3)]:Ow! You cut your tongue.
+examine:The edge could split hairs!
+25
+---
+Gun
+Handgun
+7
+shoot:You fire a round. Now your ears are ringing.
+reload:You reload your weapon.
+examine:An m9 Beretta.
+100
+---
+Gun
+Shotgun
+10
+shoot:BANG! Now your shoulder hurts.
+reload:You reload your weapon.
+125
+---
+Gun
+RocketLauncher
+20
+shoot[Disappear,Score(10)]:BOOM! Nothing could have survived that.
+examine:Perfect for a final boss...if there was one.
+300
+
+---
+===
+Items:
+GreenHerb
+2
+use[Wound(-10)]:You consume the herb. Your head feels light.
+sniff:It smells like...
+---
+MansionKey
+1
+unlock:There are no locked doors here.
+examine[Transform(SwordKey),Score(5)]:There is an engraving of a sword on the side.
+---
+SwordKey
+1
+unlock:There are no locked sword doors here.
+examine:There is an engraving of a sword on the side.
+---
+InkRibbon
+1
+examine:You can use this with a typewriter.
+---
+Flask
+5
+pour[Transform(emptyFlask)]:You pour the contents onto the floor.
+examine:An alcoholic's best friend, or a zombie slayer's...
+---
+EmptyFlask
+2
+pour:Nothing remains.
+refill[Transform(Flask)]:You fill the flask with a nearby gasoline container.
+---
+Lighter
+2
+ignite:The flame is comforting in the darkness.
+---
+Lockpick
+2
+examine:This can unlock simple locks.
+unlock:Nothing is locked here.
+---
+T-VirusSample
+5
+inject[Die]:You feel dizzy, dehydrated, and weak. You pass out, and within an hour, arise as a zombie.
+break[Disappear,Score(50)]:The glass shatters and spills the clear, visceous liquid onto the floor.
+---
+Helicopter
+10000
+fly[Win]:You have escaped from Spencer Mansion with your life! You see the estate explode in an intense inferno.
+===
+Rooms:
+MainHall
+You are in a great hall with a tile floor and many decorations. You have a bad feeling about this place.
+---
+DiningHall
+Contents: InkRibbon
+This is a fancy dining room with gorgeous paintings on the walls and a lit fireplace. The food on the table has been left mid-meal.
+---
+SittingRoom
+Contents: Handgun
+A room with comfy chairs. The body of a police officer is on the floor with his throat torn out. His gun is still in his hand.
+---
+Gallery
+Contents: CombatKnife
+A stone statue stand in the center of the room.
+---
+LongHall
+A long L-shaped corridor. Tree branches cast their shadowsw through the windows eerily.
+---
+SafeRoom
+Contents: Flask
+A small storage room. There is a large box and a typewriter here.
+---
+Garden
+Contents: Shotgun
+An overgrown garden with pretty statues. There is a staircase leading underground at the end of it.
+---
+TortureChamber
+Contents: MansionKey
+The only light here is fire from an incinerator. Many coffins line the floor. You can hear groans and taps from the inside of them.
+---
+Walkway
+The carpet up here is marvelous, but the huge window at the front gives you the creeps.
+---
+Balcony
+Contents: GreenHerb
+The cool wind soothes and refreshes you. In the distance you can see mountains and trees.
+---
+Library
+Contents: Lighter,Lockpick
+Hundreds of books line the walls. This could be either Heaven or Hell depending on the person. There is a ladder to the attic here.
+---
+Attic
+Contents: RocketLauncher
+Cobwebs are everywhere up here! Also, there is a giant snake curled up in a ball. Don't worry, though, he's full from eating your best friend.
+---
+Laboratory
+Contents: T-VirusSample
+A high-tech lab. A muscular, blue-skinned figure is floating in a large tube filled with an unidentified liquid.
+===
+Exits:
+MainHall
+d
+Laboratory
+---
+MainHall
+w
+DiningHall
+---
+MainHall
+e
+Gallery
+---
+MainHall
+u
+Walkway
+---
+DiningHall
+e
+MainHall
+---
+DiningHall
+n
+SittingRoom
+---
+SittingRoom
+s
+DiningHall
+---
+SittingRoom
+n
+Garden
+---
+Garden
+s
+SittingRoom
+---
+Garden
+d
+TortureChamber
+---
+TortureChamber
+u
+Garden
+---
+Gallery
+w
+MainHall
+---
+Gallery
+e
+LongHall
+---
+LongHall
+w
+Gallery
+---
+LongHall
+n
+SafeRoom
+---
+SafeRoom
+s
+LongHall
+---
+Walkway
+d
+MainHall
+---
+Walkway
+e
+Balcony
+---
+Walkway
+w
+Library
+---
+Balcony
+w
+Walkway
+---
+Library
+e
+Walkway
+---
+Library
+u
+Attic
+---
+Attic
+d
+Library
+---
+===
