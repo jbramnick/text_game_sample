@@ -204,6 +204,7 @@ public class Room{
 			stuff = stuff.substring(0,stuff.length()-1);	
 			save.println(stuff);
 		}
+		save.println("Snacks,Medkits,Ammo: "+snacks+","+medkits+","+ammo);
 		save.println("---");
 	}
 	/**
@@ -228,6 +229,14 @@ public class Room{
 				Item item = d.getItem(name);
 				this.add(item);
 			}
+			inventory=restore.nextLine();
+		}
+		if(inventory.contains("Snacks,Medkits,Ammo:"))
+		{
+			inventory=inventory.split(" ")[1];
+			this.snacks=Integer.parseInt(inventory.split(",")[0]);
+			this.medkits=Integer.parseInt(inventory.split(",")[1]);
+			this.ammo=Integer.parseInt(inventory.split(",")[2]);
 			restore.nextLine();
 		}
 	}

@@ -1,2 +1,4 @@
 Combat (25 xp) - Added the ability to fight Npcs in the dungeon. When you are in the same room as an Npc you will have the opportunity to fight
 with them. The fighting is a turn based system. Both the npc and the players weapon have 
+Hunger System wih snacks-Added the abiltiy to hunger every time you move. Executing an EatCommand will reduce your snacks and add to hunger and throw a now snack exception if you have no snacks
+
