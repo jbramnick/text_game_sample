@@ -43,7 +43,8 @@ public class Dungeon{
 
 				throw new IllegalDungeonFormatException();
 			}
-			if(scanner.nextLine().equals("Weapons:")){
+			String custom = scanner.nextLine();
+			if(custom.equals("Weapons:")){
 				try{
 					while(true){
 						String type = scanner.nextLine();
@@ -56,7 +57,7 @@ public class Dungeon{
 				}
 				catch(Exception e){}
 			}
-			if(scanner.nextLine().equals("Items:")){
+			else if(custom.equals("Items:")){
 				try{
 					while(true){
 						this.add(new Item(scanner));
