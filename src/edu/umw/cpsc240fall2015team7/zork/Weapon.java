@@ -1,4 +1,5 @@
 package edu.umw.cpsc240fall2015team7.zork;
+import java.util.Scanner;
 import java.util.ArrayList;
 /**
 *Abstract class which all weapons extend from.
@@ -9,7 +10,6 @@ abstract class Weapon{
 	protected String primaryName;
 	protected ArrayList<String> secondaryNames = new ArrayList <String>();
 	protected int weight, speed, power;
-
 	/**
 	*Returns the weight of this.
 	*@author Carson Meadows

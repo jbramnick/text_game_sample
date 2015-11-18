@@ -54,7 +54,7 @@ public class Dungeon{
 						this.addWeapon(weapon);
 					}
 				}
-				catch(Weapon.NoWeaponException e){}
+				catch(Exception e){}
 			}
 			if(scanner.nextLine().equals("Items:")){
 				try{

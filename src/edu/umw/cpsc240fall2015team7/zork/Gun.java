@@ -18,7 +18,7 @@ class Gun extends Weapon {
         *Constructs this Gun from a scanner.
         *@author Carson Meadows
         */
-        public Gun (Scanner scanner) {
+        public Gun (Scanner scanner) throws Weapon.NoWeaponException{
 		String name = scanner.nextLine();	
 		if(name.equals("===")){
 			throw new Weapon.NoWeaponException();
