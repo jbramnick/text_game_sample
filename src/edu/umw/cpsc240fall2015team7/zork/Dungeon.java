@@ -50,7 +50,7 @@ public class Dungeon{
 			
 				
 			}
-			if(custom.equals("Weapons:")){
+			if(custom.equals("Guns:")){
 				try{
 					while(true){
 						String type = scanner.nextLine();
@@ -66,6 +66,7 @@ public class Dungeon{
 					custom = scanner.nextLine();
 				}
 			}
+
 			if(custom.equals("Items:")){
 				try{
 					while(true){

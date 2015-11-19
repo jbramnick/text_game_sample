@@ -4,7 +4,7 @@ import java.util.Scanner;
   *Abstract superclass for all NPC's. An NPC is a non-player character.
   *@author Nathanael Woodhead
   */
-abstract class Npc{
+class Npc{
 	protected String primaryName;
 	protected String secondaryName;
 	protected int health, power, speed;
