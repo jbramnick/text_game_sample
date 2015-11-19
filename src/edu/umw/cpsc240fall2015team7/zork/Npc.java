@@ -1,13 +1,43 @@
 package edu.umw.cpsc240fall2015team7.zork;
+import java.util.Scanner;
 /**
   *Abstract superclass for all NPC's. An NPC is a non-player character.
   *@author Nathanael Woodhead
   */
 abstract class Npc{
 	protected String primaryName;
+	protected String secondaryName;
 	protected int health, power, speed;
+	protected String talkText;
 	private boolean aggression;
 	protected Room currentRoom;
+
+	static class NoNpcException extends Exception{}
+
+	public Npc(Scanner scan, boolean initState) throws NoNpcException
+	{
+		String current=scan.nextLine();
+		if(current.equals("==="))
+			throw new NoNpcException();
+		this.primaryName=current;
+		current=scan.nextLine();
+		if(initState)
+			this.health=Integer.parseInt(current);
+		current=scan.nextLine();
+		this.power=Integer.parseInt(current);
+		current=scan.nextLine();
+		this.speed=Integer.parseInt(current);
+		current=scan.nextLine();
+		this.aggression=Boolean.valueOf(current);
+		current=scan.nextLine();
+		this.talkText="";
+		while(!(current.equals("---")))
+		{
+			this.talkText+=current+"\n";
+			current=scan.nextLine();
+
+		}
+	}
 	/**
 	  *Changes the aggression variable.
 	  *@param aggression The desired value of aggression.

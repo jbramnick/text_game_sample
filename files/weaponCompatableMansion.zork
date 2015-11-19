@@ -1,6 +1,16 @@
 Spencer Mansion
 Zork v1.0
 ===
+Npcs:
+zombie
+copies:2
+100
+2
+2
+true
+arflblarf
+---
+===
 Weapons:
 Melee
 Combat Knife

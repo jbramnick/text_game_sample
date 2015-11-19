@@ -17,6 +17,7 @@ public class Dungeon{
 	private Room entry;
 	private Hashtable <String, Weapon> weapons = new Hashtable <String, Weapon>(5);
 	private Hashtable <String, Item> items = new Hashtable<String, Item>(5);
+	private Hashtable <String, Npc> npcs=new Hashtable<String, Npc>();
 	private String version;
 	private String filename;
 
@@ -44,6 +45,11 @@ public class Dungeon{
 				throw new IllegalDungeonFormatException();
 			}
 			String custom = scanner.nextLine();
+			if(custom.equals("Npcs:"))
+			{
+			
+				
+			}
 			if(custom.equals("Weapons:")){
 				try{
 					while(true){
