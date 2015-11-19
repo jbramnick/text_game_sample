@@ -15,7 +15,6 @@ public class Dungeon{
 	private String name;
 	private Hashtable <String,Room> map =  new Hashtable<String,Room>(5);
 	private Room entry;
-	private Hashtable <String, Weapon> weapons = new Hashtable <String, Weapon>(5);
 	private Hashtable <String, Item> items = new Hashtable<String, Item>(5);
 	private Hashtable <String, Npc> npcs=new Hashtable<String, Npc>();
 	private String version;
@@ -49,22 +48,6 @@ public class Dungeon{
 			{
 			
 				
-			}
-			if(custom.equals("Weapons:")){
-				try{
-					while(true){
-						String type = scanner.nextLine();
-						type = "edu.umw.cpsc240fall2015team7.zork."+type;
-						Class clazz = Class.forName(type);
-						Constructor con = clazz.getDeclaredConstructor(Scanner.class);
-						Weapon weapon = (Weapon)con.newInstance(scanner);
-						this.addWeapon(weapon);
-						
-					}
-				}
-				catch(Exception e){
-					custom = scanner.nextLine();
-				}
 			}
 			if(custom.equals("Items:")){
 				try{
@@ -223,25 +206,5 @@ public class Dungeon{
 	 */
 	public Item getItem(String name){
 		return items.get(name);
-	}
-	/**
-	 *Adds a weapon to the this Dungeon. Does nothing if the weapon already exists, or is null.
-	 *@author Nathanael Woodhead
-	 */
-	void addWeapon(Weapon weapon){
-		String name = weapon.getName();
-		weapons.put(name, weapon);
-		for(String x : weapon.getSecondaryNames()){
-			weapons.put(x,weapon);
-		}
-		
-	}
-	/**
-	  Returns the weapon with the given name. If no weapon by that name exists in this Dungeon returns null.
-	  @param name The name of a weapon to look for.
-	  @author Nathanael Woodhead
-	 */
-	Weapon getWeapon(String name){
-		return weapons.get(name);
 	}
 }
