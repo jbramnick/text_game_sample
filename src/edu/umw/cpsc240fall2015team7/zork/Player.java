@@ -117,8 +117,8 @@ class Player{
 	 *Sets health to passed int.
 	 *@author Carson Meadows
 	 */
-	void setHealth(int StephenDavies) {
-		this.health = StephenDavies;
+	void setHealth(int health) {
+		this.health = health;
 	}
 
 	/**

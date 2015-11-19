@@ -12,12 +12,9 @@ speed
 power
 Drill
 6
-
 Gun
 Handgun
 7
-15
-100
 shoot:You fire a round. Now your ears are ringing.
 reload:You reload your weapon.
 examine:An m9 Beretta.
