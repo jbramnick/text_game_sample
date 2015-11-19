@@ -10,10 +10,8 @@ import java.io.*;
 class Player{
 	private ArrayList<String> verbs = new ArrayList<String>();
 	private Room currentRoom;
-	public class NoSnackException extends Exception{};
 	private ArrayList<Item> inventory;
-	private ArrayList<Weapon> weapons;
-	private int ammo, snack, medkit,health,hunger,score;
+	private int health,hunger,score;
 	public static Player theInstance;
 	/**
 	 *If a player does not already exist creates a new player and return it. Otherwise will return the Player object.
@@ -31,14 +29,12 @@ class Player{
 	 */
 	private Player(){
 		this.inventory = new ArrayList<Item>();
-		this.weapons=new ArrayList<Weapon>();
-		this.ammo = 0;
-		this.snack = 0;
-		this.medkit = 0;
 		this.health = 100;
 		this.hunger = 5;
 		this.score = 0;
 	}
+
+//!!!!!!!!!!!!!!!!! FIX ME !!!!!!!!!!!!!!!!!!!!!!11111one
 	/**
 	 *Removes one snack and refills hunger.
 	 *@author Nathanael Woodhead
@@ -124,33 +120,7 @@ class Player{
 	void setHealth(int StephenDavies) {
 		this.health = StephenDavies;
 	}
-	/**
-	 *Adds a medkit to the player.
-	 *@author Nathanael Woodhead
-	 */
-	void addMedkits (int add) {
-		medkit += add;
-	}
-	void addWeapon(Weapon weapon)
-	{
-		weapons.add(weapon);
-	}
-	/**
-	 *Adds ammo. 
-	 *@param add The number of ammo to be added.
-	 *@author Nathanael Woodhead
-	 */
-	void addAmmo (int add) {
-		ammo += add;
-	}
-	/**
-	 *Adds snacks. 
-	 *@param add The number of snacks to be added.
-	 *@author Nathanael Woodhead
-	 */
-	void addSnacks (int add) {
-		snack += add;
-	}
+
 	/**
 	 *Returns the players current room.
 	 *@author Nathanael Woodhead
@@ -158,22 +128,7 @@ class Player{
 	Room getCurrentRoom(){
 		return currentRoom;
 	}
-	/**
-	  Returns the value of ammo.
-	  @author Jim Bramnick
-	 */
-	int getAmmo()
-	{
-		return ammo;
-	}
-	int getSnacks()
-	{
-		return snack;
-	}
-	int getMedkits()
-	{
-		return medkit;
-	}
+
 	/**
 	 *Sets the players current room.
 	 *@author Nathanael Woodhead
@@ -256,21 +211,7 @@ class Player{
 		}
 		return names;
 	}
-	/**
-	Returns an ArrayList of weapon names in weapons of this.
-	@author Jim Bramnick
-	*/
-	ArrayList<String> getWeaponNames()
-	{
-		ArrayList<String> names=new ArrayList<String>();
-		for(Weapon x: weapons)
-		{
-			names.add(x.getName());
 
-		}
-		return names;
-
-	}
 	/**
 	 *Saves progress to a Printwriter.
 	 *@author Carson Meadows
@@ -330,11 +271,6 @@ class Player{
 			current=scan.nextLine();
 			this.hunger=Integer.parseInt(current.split(" ")[1]);
 			current=scan.nextLine();
-			this.snack=Integer.parseInt(current.split(" ")[1]);
-			current=scan.nextLine();
-			this.medkit=Integer.parseInt(current.split(" ")[1]);
-			current=scan.nextLine();
-			this.ammo=Integer.parseInt(current.split(" ")[1]);
 
 		}
 
