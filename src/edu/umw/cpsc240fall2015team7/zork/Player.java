@@ -160,6 +160,14 @@ class Player{
 	{
 		return ammo;
 	}
+	int getSnacks()
+	{
+		return snack;
+	}
+	int getMedkits()
+	{
+		return medkit;
+	}
 	/**
 	 *Sets the players current room.
 	 *@author Nathanael Woodhead
