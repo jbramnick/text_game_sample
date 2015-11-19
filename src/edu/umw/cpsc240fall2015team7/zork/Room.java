@@ -127,7 +127,8 @@ public class Room{
 			}
 			text = text.substring(0,text.length()-2);
 		}
-		text=text+"\nThere are "+snacks+" snacks, " + medkits+ " medkits, " + ammo + " Ammo in here.";
+		if((snacks>0)||(medkits>0)||(ammo>0))
+			text=text+"\nThere are "+snacks+" snacks, " + medkits+ " medkits, " + ammo + " Ammo in here.";
 		return text;
 	}
 	/**
@@ -157,8 +158,8 @@ public class Room{
 				text = text + "\n" + "There is a " + wep + " here."; 
 			}
 		}
-
-		text=text+"\nThere are "+snacks+" snacks, " + medkits+ " medkits, " + ammo + " Ammo in here.";
+		if((snacks>0)||(medkits>0)||(ammo>0))
+			text=text+"\nThere are "+snacks+" snacks, " + medkits+ " medkits, " + ammo + " Ammo in here.";
 		return text;
 	}
 	/**
@@ -257,7 +258,8 @@ public class Room{
 			save.println(stuff);
 
 		}
-		save.println("Snacks,Medkits,Ammo: "+snacks+","+medkits+","+ammo);
+		if((snacks>0)||(medkits>0)||(ammo>0))
+			save.println("Snacks,Medkits,Ammo: "+snacks+","+medkits+","+ammo);
 		save.println("---");
 	}
 	/**
@@ -339,6 +341,13 @@ public class Room{
 	 */
 	void remove(Item item){
 		contents.remove(item);
+	}
+/**
+	 *Removes passed {@link Weapon} from this Room's contents. If the weapon is not in the room then it will quietly do nothing. 
+	 *@author Jim Bramnick
+	 */
+	void remove(Weapon weap){
+		contents.remove(weap);
 	}
 	/**
 	 *Returns Item in this Room whose name is the parameter. 
