@@ -88,6 +88,7 @@ fly[Win]:You have escaped from Spencer Mansion with your life! You see the estat
 ===
 Rooms:
 Main Hall
+Weapons: Combat Knife,Shotgun
 You are in a great hall with a tile floor and many decorations. You have a bad feeling about this place.
 ---
 Dining Hall
@@ -95,11 +96,9 @@ Contents: InkRibbon
 This is a fancy dining room with gorgeous paintings on the walls and a lit fireplace. The food on the table has been left mid-meal.
 ---
 Sitting Room
-Contents: Handgun
 A room with comfy chairs. The body of a police officer is on the floor with his throat torn out. His gun is still in his hand.
 ---
 Gallery
-Weapons: CombatKnife
 A stone statue stand in the center of the room.
 ---
 Long Hall
@@ -110,7 +109,6 @@ Contents: Flask
 A small storage room. There is a large box and a typewriter here.
 ---
 Garden
-Weapons: Shotgun
 An overgrown garden with pretty statues. There is a staircase leading underground at the end of it.
 ---
 Torture Chamber
@@ -129,8 +127,6 @@ Contents: Lighter,Lockpick
 Hundreds of books line the walls. This could be either Heaven or Hell depending on the person. There is a ladder to the attic here.
 ---
 Attic
-Weapons
-Weapons: RocketLauncher
 Cobwebs are everywhere up here! Also, there is a giant snake curled up in a ball. Don't worry, though, he's full from eating your best friend.
 ---
 Laboratory

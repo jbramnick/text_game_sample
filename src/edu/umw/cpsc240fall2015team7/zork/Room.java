@@ -14,6 +14,7 @@ public class Room{
 	private ArrayList<Exit> exits;
 	private boolean beenHere = false;
 	private ArrayList<Item> contents;
+	private ArrayList<Weapon> weapons;
 
 	/**
 	*Constructs basic Room.
@@ -40,9 +41,11 @@ public class Room{
 		}
 		exits = new ArrayList<Exit>();
 		contents = new ArrayList<Item>();
+		weapons=new ArrayList<Weapon>();
 		String content = scanner.nextLine();
 		if(content.contains("Contents: ")){
 			if(initState == true){
+				
 				content = content.substring(10,content.length());
 				String[] list = content.split(",");
 				for(String x : list){
@@ -52,13 +55,35 @@ public class Room{
 			content=scanner.nextLine();
 
 		}
+		if(content.contains("Weapons: "))
+		{
+			if(initState==true)
+			{
+
+				content = content.substring(9,content.length());
+				String[] list=content.split(",");
+				for(String x:list)
+				{
+					this.add(d.getWeapon(x));
+				}
+
+
+			}
+			content=scanner.nextLine();
+
+		}
 		if(content.contains("Snacks,"))
 		{
-			content=content.split(" ")[1];
-			this.snacks=Integer.parseInt(content.split(",")[0]);
-			this.medkits=Integer.parseInt(content.split(",")[1]);
-			this.ammo=Integer.parseInt(content.split(",")[2]);
+			if(initState==true)
+			{
+				content=content.split(" ")[1];
+				this.snacks=Integer.parseInt(content.split(",")[0]);
+				this.medkits=Integer.parseInt(content.split(",")[1]);
+				this.ammo=Integer.parseInt(content.split(",")[2]);
+
+			}
 			content=scanner.nextLine();
+
 		}
 		else if(content != null){
 			this.desc = content;
@@ -126,6 +151,13 @@ public class Room{
 				text = text + "\n" + "There is a " + item + " here."; 
 			}
 		}
+		if(weapons.size()>0){
+			text = text + "\n";
+			for(Weapon wep: weapons){
+				text = text + "\n" + "There is a " + wep + " here."; 
+			}
+		}
+
 		text=text+"\nThere are "+snacks+" snacks, " + medkits+ " medkits, " + ammo + " Ammo in here.";
 		return text;
 	}
@@ -215,6 +247,16 @@ public class Room{
 			stuff = stuff.substring(0,stuff.length()-1);	
 			save.println(stuff);
 		}
+		if(weapons.size()>0)
+		{
+			String stuff = ("Weapons: ");
+			for(Weapon wep : weapons){
+				stuff = stuff + wep+",";
+			}
+			stuff = stuff.substring(0,stuff.length()-1);	
+			save.println(stuff);
+
+		}
 		save.println("Snacks,Medkits,Ammo: "+snacks+","+medkits+","+ammo);
 		save.println("---");
 	}
@@ -242,6 +284,16 @@ public class Room{
 			}
 			inventory=restore.nextLine();
 		}
+		if(inventory.contains("Weapons: "))
+		{
+			inventory = inventory.substring(9, inventory.length());
+			String [] inventroryList = inventory.split(",");
+			for(String name : inventroryList){
+				Weapon wep= d.getWeapon(name);
+				this.add(wep);
+			}
+			inventory=restore.nextLine();
+		}
 		if(inventory.contains("Snacks,Medkits,Ammo:"))
 		{
 			inventory=inventory.split(" ")[1];
@@ -257,6 +309,22 @@ public class Room{
 	 */
 	void add(Item item){
 		contents.add(item);
+	}
+	/**
+	  Adds passed {@link Weapon} to weapons
+	  @author Jim Bramnick
+	 */
+	void add(Weapon wep)
+	{
+		weapons.add(wep);
+	}
+	/**
+	  Returns weapons
+	  @author Jim Bramnick
+	 */
+	ArrayList<Weapon> getWeapons()
+	{
+		return weapons;
 	}
 	/**
 	 *Returns ArrayList of this Room's contents.

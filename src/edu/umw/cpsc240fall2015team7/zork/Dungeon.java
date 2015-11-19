@@ -53,10 +53,11 @@ public class Dungeon{
 						Constructor con = clazz.getDeclaredConstructor(Scanner.class);
 						Weapon weapon = (Weapon)con.newInstance(scanner);
 						this.addWeapon(weapon);
+						
 					}
 				}
 				catch(Exception e){
-				custom = scanner.nextLine();
+					custom = scanner.nextLine();
 				}
 			}
 			if(custom.equals("Items:")){
@@ -67,7 +68,6 @@ public class Dungeon{
 				}
 				catch(Item.NoItemException e){}
 			}
-
 			if(scanner.nextLine().equals("Rooms:")){
 				boolean x = true;
 				try{
@@ -115,40 +115,40 @@ public class Dungeon{
 		}
 	}
 	/**
-	*Returns the entry room object of this Dungeon.
-	*@author Jim Bramnick
-	*/
+	 *Returns the entry room object of this Dungeon.
+	 *@author Jim Bramnick
+	 */
 	public Room getEntry(){
 		return entry;
 	}
 	/**
-	*Returns the name of this Dungeon object.
-	*@author Jim Bramnick
-	*/
+	 *Returns the name of this Dungeon object.
+	 *@author Jim Bramnick
+	 */
 	public String getName(){
 		return name;
 	}
 	/**
-	*Adds the passed Room to this Dungeon object.
-	*Does nothing if the passed Room is null, or already exists in this Dungeon.
-	*@author Jim Bramnick
-	*/
+	 *Adds the passed Room to this Dungeon object.
+	 *Does nothing if the passed Room is null, or already exists in this Dungeon.
+	 *@author Jim Bramnick
+	 */
 	public void add(Room room){
 		String title = room.getTitle();
 		map.put(title, room);
 	}
 
 	/**
-	*Returns the Room object with title roomKey and null if no such Room exists.
-	*@author Jim Bramnick
-	*/
+	 *Returns the Room object with title roomKey and null if no such Room exists.
+	 *@author Jim Bramnick
+	 */
 	public Room getRoom(String roomKey){
 		return map.get(roomKey);
 	}
 	/**
-	*Returns an ArrayList of Room titles.
-	*@author Carson Meadows
-	*/
+	 *Returns an ArrayList of Room titles.
+	 *@author Carson Meadows
+	 */
 	public ArrayList <String> getKeys () {
 		ArrayList<String> roomNames = new ArrayList<String>();
 		Iterator keys = map.keySet().iterator();
@@ -158,17 +158,17 @@ public class Dungeon{
 		return roomNames;
 	}
 	/**
-	*Returns a String of the full path to the file that was used to make this Dungeon.
-	*@author Jim Bramnick
-	*/
+	 *Returns a String of the full path to the file that was used to make this Dungeon.
+	 *@author Jim Bramnick
+	 */
 	public String getFilename(){
 		return filename;
 	}
 	/**
-	*Stores the current state of this Dungeon to a file in accordance with the .sav file format.
-	*@param save The PrintWriter to be used to save the current state.
-	*@author Jim Bramnick
-	*/
+	 *Stores the current state of this Dungeon to a file in accordance with the .sav file format.
+	 *@param save The PrintWriter to be used to save the current state.
+	 *@author Jim Bramnick
+	 */
 	void storeState(PrintWriter save){
 		save.println("Dungeon file: " + filename);
 		save.println("Room states:");
@@ -179,10 +179,10 @@ public class Dungeon{
 
 	}
 	/**
-	*Restores the state of a previously written Dungeon from a .sav file. Starts reading from the passed Scanner's current state.
-	*@param restore The Scanner object.
-	*@author Jim Bramnick and Nathanael Woodhead
-	*/
+	 *Restores the state of a previously written Dungeon from a .sav file. Starts reading from the passed Scanner's current state.
+	 *@param restore The Scanner object.
+	 *@author Jim Bramnick and Nathanael Woodhead
+	 */
 	void restoreState(Scanner restore){
 		restore.nextLine();
 		String title = restore.nextLine();
@@ -194,16 +194,16 @@ public class Dungeon{
 
 	}
 	/**
-	*Removes passed Item from Hashtable items.
-	*@author Carson Meadows
-	*/
+	 *Removes passed Item from Hashtable items.
+	 *@author Carson Meadows
+	 */
 	public void removeItem (Item item) {
 		items.remove(item.getPrimaryName());
 	}
 	/**
-	*Adds the passed Item to this Dungeon. Does nothing if the Item already exists, or is null.
-	*@author Jim Bramnick
-	*/
+	 *Adds the passed Item to this Dungeon. Does nothing if the Item already exists, or is null.
+	 *@author Jim Bramnick
+	 */
 	public void add(Item item){
 		String name = item.getPrimaryName();
 		items.put(name, item);
@@ -212,28 +212,29 @@ public class Dungeon{
 		}
 	}
 	/**
-	*Returns the Item in this Dungeon named the passed String. Returns null if the Item named is not in this Dungeon.
-	*@author Jim Bramnick
-	*/
+	 *Returns the Item in this Dungeon named the passed String. Returns null if the Item named is not in this Dungeon.
+	 *@author Jim Bramnick
+	 */
 	public Item getItem(String name){
 		return items.get(name);
 	}
 	/**
-	  *Adds a weapon to the this Dungeon. Does nothing if the weapon already exists, or is null.
-	  *@author Nathanael Woodhead
-	  */
+	 *Adds a weapon to the this Dungeon. Does nothing if the weapon already exists, or is null.
+	 *@author Nathanael Woodhead
+	 */
 	void addWeapon(Weapon weapon){
 		String name = weapon.getName();
 		weapons.put(name, weapon);
 		for(String x : weapon.getSecondaryNames()){
 			weapons.put(x,weapon);
 		}
+		
 	}
 	/**
 	  Returns the weapon with the given name. If no weapon by that name exists in this Dungeon returns null.
 	  @param name The name of a weapon to look for.
 	  @author Nathanael Woodhead
-	  */
+	 */
 	Weapon getWeapon(String name){
 		return weapons.get(name);
 	}

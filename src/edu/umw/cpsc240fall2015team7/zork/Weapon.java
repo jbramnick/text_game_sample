@@ -29,7 +29,7 @@ abstract class Weapon{
 	/**
 	  Returns a boolean true if this goes by the string passed.
 	  @author Nathanael Woodhead
-	  */
+	 */
 	boolean goesBy(String name){
 		for(String x : secondaryNames){
 			if(x.equals(name)){
@@ -37,29 +37,37 @@ abstract class Weapon{
 			}
 		}
 		return false;
-	}	
+	}
 	/**
-	*Returns the name of this.
-	*@author Carson Meadows
+	Returns PrimaryName
+	@author Jim Bramnick
 	*/
+	public String toString(){
+		return primaryName;	
+	}
+	/**
+	 *Returns the name of this.
+	 *@author Carson Meadows
+	 */
 	public String getName() {
 		return primaryName;
 	}
 	/**
 	  Returns the power for this weapon.
 	  @author Nathanael Woodhead
-	  */
+	 */
 	public int getPower() {
 		return power;
 	}
+
 	/**
 	  Returns an ArrayList consisting of the secondary names for this Weapon.
 	  @author Nathanael Woodhead
-	  */
+	 */
 	ArrayList<String> getSecondaryNames(){
 		return secondaryNames;
 	}
 
 }
 
-	
+
