@@ -3,9 +3,8 @@ package edu.umw.cpsc240fall2015team7.zork;
   *An Item that runs on batteries. When used the batteries are reduced.
   *@author Nathanael Woodhead
   */
-public class FlashLight {
+public class FlashLight extends Item {
 	private String primaryName;
-	private boolean power;
 	private int weight;
 	private int batteryLvl;
 	static class NoPowerException extends Exception {}
@@ -21,7 +20,6 @@ public class FlashLight {
 		this.batteryLvl=batteryLvl;
 		this.primaryName=primaryName;
 		this.weight=weight;
-		this.power = false;
 	}
 	/**
 	  *Returns the current battery level.
@@ -40,8 +38,9 @@ public class FlashLight {
 	  *Toggles the flashlight on and off. While on the {@link use()} method will be called every turn.
 	  *@author Nathanael Woodhead
 	  */
-	public void onOff(boolean power){
-		this.power = power;
+	public void onOff(){
+		use();
+		Player.instance().getCurrentRoom().light();
 	}
 	/**
 	  *Reduces the battery. This will be called every move that the Flashlight is on. 

@@ -10,11 +10,10 @@ public class Room{
 	static class NoRoomException extends Exception {}
 	private String title;
 	private String desc = "";
-	private int ammo, snacks, medkits;
 	private ArrayList<Exit> exits;
 	private boolean beenHere = false;
 	private ArrayList<Item> contents;
-	private ArrayList<Weapon> weapons;
+	private boolean dark;
 
 	/**
 	*Constructs basic Room.
@@ -55,36 +54,6 @@ public class Room{
 			content=scanner.nextLine();
 
 		}
-		if(content.contains("Weapons: "))
-		{
-			if(initState==true)
-			{
-
-				content = content.substring(9,content.length());
-				String[] list=content.split(",");
-				for(String x:list)
-				{
-					this.add(d.getWeapon(x));
-				}
-
-
-			}
-			content=scanner.nextLine();
-
-		}
-		if(content.contains("Snacks,"))
-		{
-			if(initState==true)
-			{
-				content=content.split(" ")[1];
-				this.snacks=Integer.parseInt(content.split(",")[0]);
-				this.medkits=Integer.parseInt(content.split(",")[1]);
-				this.ammo=Integer.parseInt(content.split(",")[2]);
-
-			}
-			content=scanner.nextLine();
-
-		}
 		else if(content != null){
 			this.desc = content;
 		}
@@ -93,6 +62,9 @@ public class Room{
 			this.desc = this.desc + "\n" + part;
 			part = scanner.nextLine();
 		}
+	}
+	public void light() {
+		dark=false;
 	}
 	/**
 	 *Sets this Room's description as the parameter.
