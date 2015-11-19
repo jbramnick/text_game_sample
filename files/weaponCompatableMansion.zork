@@ -1,18 +1,7 @@
 Spencer Mansion
 Zork v1.0
 ===
-Npcs:
-zombie
-copies:2
-100
-2
-2
-true
-arflblarf
----
-===
-Items:
-Type: Melee
+Melee
 Combat Knife
 5
 stab:You thrust your knife forward, but there are no monsters in the room.
@@ -21,7 +10,9 @@ examine:The edge could split hairs!
 ---
 speed
 power
----
+Drill
+6
+
 Gun
 Handgun
 7
