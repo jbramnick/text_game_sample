@@ -347,7 +347,7 @@ public class Room{
 	 *@author Jim Bramnick
 	 */
 	void remove(Weapon weap){
-		contents.remove(weap);
+		weapons.remove(weap);
 	}
 	/**
 	 *Returns Item in this Room whose name is the parameter. 
@@ -364,6 +364,20 @@ public class Room{
 		if(named == null){
 			throw new Item.NoItemException();
 		}
+		return named;
+	}
+	Weapon getWeaponNamed(String name) throws Weapon.NoWeaponException
+	{
+		Weapon named=null;
+		for(Weapon weapon: weapons)
+		{
+			if(weapon.goesBy(name))
+			{
+				named=weapon;
+			}
+		}
+		if(named==null)
+			throw new Weapon.NoWeaponException();
 		return named;
 	}
 	ArrayList<String> getVerbs(){

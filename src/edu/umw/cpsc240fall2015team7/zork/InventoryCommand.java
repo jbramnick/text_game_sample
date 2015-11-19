@@ -19,10 +19,20 @@ class InventoryCommand extends Command{
 	String execute(){
 		String text="";
 		ArrayList<String> inventory  = Player.instance().getInventoryNames();
-		if((inventory.size()>0)||(Player.instance().getMedkits()>0)||(Player.instance().getSnacks()>0)||(Player.instance().getAmmo()>0)){
+		ArrayList<String> weaponInventory=Player.instance().getWeaponNames();
+		if((inventory.size()>0)||(weaponInventory.size()>0)||(Player.instance().getMedkits()>0)||(Player.instance().getSnacks()>0)||(Player.instance().getAmmo()>0)){
 			text = "You are carrying:"+ "\n";
 			for(String item : inventory){
 				text = text + item + "\n";
+			}
+			if(weaponInventory.size()>0)
+			{
+				text+="Weapons:\n";
+				for(String weapon:weaponInventory)
+				{
+					text+=weapon+"\n";
+				}
+
 			}
 			if(Player.instance().getMedkits()>0)
 			{

@@ -61,7 +61,6 @@ public class Item{
 				throw new Dungeon.IllegalDungeonFormatException();
 			}
 		}
-
 		catch(Exception e){
 			throw new Dungeon.IllegalDungeonFormatException();
 		} 

@@ -56,13 +56,22 @@ class TakeCommand extends Command{
 		try{
 			if(commandString.contains("all")){
 				ArrayList<Item> items = new ArrayList<Item>();
+				ArrayList<Weapon> weapons=new ArrayList<Weapon>();
 				for(Item item : currentRoom.getContents()){
 					items.add(item);
+				}
+				for(Weapon weapon: currentRoom.getWeapons())
+				{
+					weapons.add(weapon);
 				}
 				for(Item item : items){
 					 weight += item.getWeight();
 				}
-				if(items.size()== 0){
+				for(Weapon weapon: weapons)
+				{
+					weight+=weapon.getWeight();
+				}
+				if((items.size()== 0)&&(weapons.size()==0)){
 					return "There is nothing here to take." + "\n";
 				}
 				int load = Player.instance().getLoad();
@@ -74,6 +83,12 @@ class TakeCommand extends Command{
 					currentRoom.remove(item);
 					Player.instance().addToInventory(item);
 					text += item+ "\n"; 
+				}
+				for(Weapon weapon: weapons)
+				{
+					currentRoom.remove(weapon);
+					Player.instance().addWeapon(weapon);
+					text+=weapon+"\n";
 				}
 				return text;
 			}
@@ -88,7 +103,26 @@ class TakeCommand extends Command{
 			return "Taken: " + itemName+"\n";
 		}
 		catch(Item.NoItemException e){
-			return "There is no " + itemName + " here."+ "\n";
+			
+			try
+			{
+				Weapon weapon=currentRoom.getWeaponNamed(itemName);
+				System.out.println(itemName);
+				weight=weapon.getWeight();
+				int load=Player.instance().getLoad();
+				if((weight+load)>40)
+					return "You cannot carry that much weight.";
+				currentRoom.remove(weapon);
+				Player.instance().addWeapon(weapon);
+				return "Taken: "+itemName+"\n";
+
+			}
+			catch(Weapon.NoWeaponException ex)
+			{
+				return "There is no " + itemName + " here."+ "\n";
+
+			}
+
 		}
 	}
 }	

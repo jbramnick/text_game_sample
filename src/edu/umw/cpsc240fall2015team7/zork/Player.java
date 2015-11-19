@@ -12,6 +12,7 @@ class Player{
 	private Room currentRoom;
 	public class NoSnackException extends Exception{};
 	private ArrayList<Item> inventory;
+	private ArrayList<Weapon> weapons;
 	private int ammo, snack, medkit,health,hunger,score;
 	public static Player theInstance;
 	/**
@@ -30,6 +31,7 @@ class Player{
 	 */
 	private Player(){
 		this.inventory = new ArrayList<Item>();
+		this.weapons=new ArrayList<Weapon>();
 		this.ammo = 0;
 		this.snack = 0;
 		this.medkit = 0;
@@ -128,6 +130,10 @@ class Player{
 	 */
 	void addMedkits (int add) {
 		medkit += add;
+	}
+	void addWeapon(Weapon weapon)
+	{
+		weapons.add(weapon);
 	}
 	/**
 	 *Adds ammo. 
@@ -249,6 +255,21 @@ class Player{
 			names.add(x.getPrimaryName());
 		}
 		return names;
+	}
+	/**
+	Returns an ArrayList of weapon names in weapons of this.
+	@author Jim Bramnick
+	*/
+	ArrayList<String> getWeaponNames()
+	{
+		ArrayList<String> names=new ArrayList<String>();
+		for(Weapon x: weapons)
+		{
+			names.add(x.getName());
+
+		}
+		return names;
+
 	}
 	/**
 	 *Saves progress to a Printwriter.

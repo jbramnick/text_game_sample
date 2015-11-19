@@ -7,7 +7,7 @@ import java.util.Hashtable;
 *@author Carson Meadows
 */
 abstract class Weapon{
-	class NoWeaponException extends Exception{}
+	static class NoWeaponException extends Exception{}
 	protected String primaryName;
 	protected Hashtable<String, String> messages = new Hashtable<String, String>();
 	protected ArrayList<String> secondaryNames = new ArrayList <String>();
@@ -31,12 +31,15 @@ abstract class Weapon{
 	  @author Nathanael Woodhead
 	 */
 	boolean goesBy(String name){
-		for(String x : secondaryNames){
-			if(x.equals(name)){
-				return true;
-			}
+		if(primaryName.equals(name)){
+			return true;
 		}
-		return false;
+		else if(secondaryNames.contains(name)){
+			return true;
+		}	
+		else{
+			return false;
+		}
 	}
 	/**
 	Returns PrimaryName
