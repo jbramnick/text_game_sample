@@ -6,7 +6,7 @@ import java.util.Hashtable;
 *Abstract class which all weapons extend from.
 *@author Carson Meadows
 */
-abstract class Weapon{
+abstract class Weapon extends Item{
 	static class NoWeaponException extends Exception{}
 	protected String primaryName;
 	protected Hashtable<String, String> messages = new Hashtable<String, String>();
