@@ -11,8 +11,8 @@ public class Melee extends Weapon{
 	  *hit back at the same time.
 	  *@param power The amount of damage done by the weapon with one hit.
 	  */
-	public Melee(Scanner scanner) throws Item.NoItemException{
-		Super(scanner);
+	public Melee(Scanner scanner) throws Item.NoItemException,Dungeon.IllegalDungeonFormatException{
+		super(scanner);
 		super.power = Integer.parseInt(scanner.nextLine());
 		super.speed = Integer.parseInt(scanner.nextLine());
 		}

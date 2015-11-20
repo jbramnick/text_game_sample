@@ -6,12 +6,32 @@ import java.util.Hashtable;
 *Abstract class which all weapons extend from.
 *@author Carson Meadows
 */
-abstract class Weapon extends Item{
+class Weapon extends Item{
 	static class NoWeaponException extends Exception{}
 	protected String primaryName;
 	protected Hashtable<String, String> messages = new Hashtable<String, String>();
 	protected ArrayList<String> secondaryNames = new ArrayList <String>();
 	protected int weight, speed, power;
+	/**
+	Constructs an instance of this using the Items superclass constructer.
+	@author Jim Bramnick
+	*/
+	public Weapon(Scanner scan) throws Item.NoItemException, Dungeon.IllegalDungeonFormatException
+	{
+		super(scan);
+		String current=scan.nextLine();
+		this.speed=Integer.parseInt(current);
+		current=scan.nextLine();
+		this.power=Integer.parseInt(current);
+		current=scan.nextLine();
+	}
+	public Weapon(String primaryName, int weight)
+	{
+		super.primaryName=primaryName;
+		super.weight=weight;
+
+	}
+	public Weapon(){}
 	/**
 	*Returns the weight of this.
 	*@author Carson Meadows

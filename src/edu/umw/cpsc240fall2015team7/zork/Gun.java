@@ -9,12 +9,13 @@ import java.util.ArrayList;
 class Gun extends Weapon {
 	private int ammo;
 	private int capacity;
+	private String ammoType;
         /**
         *Constructs this Gun from a scanner.
         *@author Carson Meadows
         */
-        public Gun (Scanner scanner) throws Item.NoItemException{
-		Super(scanner);
+        public Gun (Scanner scanner) throws Item.NoItemException,Dungeon.IllegalDungeonFormatException{
+		super(scanner);
 		super.power = Integer.parseInt(scanner.nextLine());
 		super.speed = Integer.parseInt(scanner.nextLine());
 		this.capacity = Integer.parseInt(scanner.nextLine());
@@ -36,7 +37,7 @@ class Gun extends Weapon {
 	 *Adds passed int to this Gun's capacity.
 	 *@author Carson Meadows
 	 */
-	public void addAmmo(int ammo) {
+	public void reload(int ammo) {
 		this.ammo+=ammo;
 	}
 
@@ -50,6 +51,10 @@ class Gun extends Weapon {
 
 	public int getCapacity() {
 		return capacity;
+	}
+	public String getAmmoType()
+	{
+		return ammoType;
 	}
 	/**
 	 *Returns this Gun's power.

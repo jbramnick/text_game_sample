@@ -13,11 +13,11 @@ public class Item{
 	static class NoVerbException extends Exception {}
 	static class NoItemException extends Exception {}
 
-	private Hashtable<String, ArrayList<Event> > actions = new Hashtable<String, ArrayList<Event> >();
-	private String primaryName;
-	private ArrayList<String> secondaryNames;
-	private int weight;
-	private Hashtable <String, String>  messages;
+	protected Hashtable<String, ArrayList<Event> > actions = new Hashtable<String, ArrayList<Event> >();
+	protected String primaryName;
+	protected ArrayList<String> secondaryNames;
+	protected int weight;
+	protected Hashtable <String, String>  messages;
 
 	/**
 	*Constructs this Item with parameters.
@@ -27,6 +27,8 @@ public class Item{
 		this.primaryName = primaryName;
 		this.weight = weight;
 	}
+	public Item()
+	{}
 	/**
 	*Hydrates this Item by reading passed Scanner object. Reads in primary and any
 	*secondary names, weight, and messages used for ItemSpecificCommands. Any consequences will be stored where they can be retrieve at

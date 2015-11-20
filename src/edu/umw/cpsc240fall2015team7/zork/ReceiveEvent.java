@@ -5,19 +5,12 @@ Event used to add item to inventory received from {@link Npc}.
 */
 class ReceiveEvent extends Event{
 	private Item item;
-	private int medkits,ammo,snacks;
 	/**
 	Constructs this ReceiveEvent.
 	@author Jim Bramnick
 	*/
-	public ReceiveEvent(Item i , Item item, int medkits, int snacks, int ammo){
-
-	}
-	public ReceiveEvent(Item item, int medkits, int snacks, int ammo){
+	public ReceiveEvent(Item item){
 		this.item=item;
-		this.medkits=medkits;
-		this.snacks=snacks;
-		this.ammo=ammo;
 	}
 	/**
 	Adds the item to the {@link Player} Inventory and adds medkits, ammo and snacks to {@link Player} medkits, ammo and snacks. 
@@ -29,9 +22,6 @@ class ReceiveEvent extends Event{
 		if (!item.equals(null)) {
 			Player.instance().addToInventory(item);
 		}
-		Player.instance().addMedkits (medkits);
-		Player.instance().addAmmo (ammo);
-		Player.instance().addSnacks (snacks);
 		return "";
 
 	}
