@@ -29,9 +29,6 @@ public class Item{
 	}
 	public Item(String PrimaryName,Hashtable<String,ArrayList<Event>> actions,ArrayList<String> secondaryNames,int weight,Hashtable<String,String> messages)
 	{
-		Hashtable<String,ArryaList<Event>> actions=new Hashtable<String,ArrayList<Event>>();
-		ArrayList<String> secondaryNames=new ArrayList<String>();
-		Hashtable<String,String> messages=new HashTable<String,String>();
 		this.primaryName=PrimaryName;
 		this.actions=actions;
 		this.secondaryNames=secondaryNames;
