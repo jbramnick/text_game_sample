@@ -4,16 +4,16 @@ import java.util.Scanner;
   *Superclass for all NPC's. An NPC is a non-player character.
   *@author Nathanael Woodhead
   */
-class Npc{
+class Npc implements Prototype{
 	protected String primaryName;
 	protected String secondaryName;
 	protected int health, power, speed;
 	protected String talkText;
-	protected boolean aggression;
+	private boolean aggression;
 	protected Room currentRoom;
 	static class NoNpcException extends Exception{}
-	public Npc(Scanner scan, boolean initState) throws NoNpcException
-	{
+	
+	public Npc(Scanner scan, boolean initState) throws NoNpcException{
 		String current=scan.nextLine();
 		if(current.equals("==="))
 			throw new NoNpcException();
@@ -36,17 +36,6 @@ class Npc{
 			current=scan.nextLine();
 
 		}
-	}
-	public Npc(String primaryName,int power,int speed,int health,String talkText,boolean aggression,Room currentRoom)
-	{
-		this.primaryName=primaryName;
-		this.power=power;
-		this.speed=speed;
-		this.health=health;
-		this.talkText=talkText;
-		this.aggression=agression;
-		this.currentRoom=Room;
-
 	}
 	/**
 	  *Changes the aggression variable.
