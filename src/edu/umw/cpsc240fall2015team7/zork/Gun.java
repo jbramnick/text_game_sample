@@ -17,7 +17,7 @@ class Gun extends Weapon {
         public Gun (Scanner scanner) throws Item.NoItemException,Dungeon.IllegalDungeonFormatException{
 		super(scanner);
 		super.power = Integer.parseInt(scanner.nextLine());
-		super.speed = Integer.parseInt(scanner.nextLine());
+		super.speed =  -1; 
 		this.capacity = Integer.parseInt(scanner.nextLine());
 		this.ammo = capacity;
 	}

@@ -4,40 +4,41 @@ Zork v1.0
 Melee:
 Combat Knife
 5
-stab:You thrust your knife forward, but there are no monsters in the room.
 lick[Wound(3)]:Ow! You cut your tongue.
 examine:The edge could split hairs!
 ---
-speed
-power
+25
+2
 Drill
 6
-Gun
+drill:You happily drill random objects around you.
+examine:It is a green Ryobi drill with a big drill bit attached.
+---
+10
+8
+===
+Guns:
 Handgun
 7
 shoot:You fire a round. Now your ears are ringing.
 reload:You reload your weapon.
 examine:An m9 Beretta.
 ---
-20
-30
----
+100
 15
----
 Shotgun
-10
-15
-125
 shoot:BANG! Now your shoulder hurts.
 reload:You reload your weapon.
 ---
+150
+5
 Rocket Launcher
-20
-
-300
+10
 shoot[Disappear,Score(10)]:BOOM! Nothing could have survived that.
 examine:Perfect for a final boss...if there was one.
 ---
+2000
+1
 ===
 Items:
 GreenHerb
@@ -87,14 +88,10 @@ Helicopter
 10000
 fly[Win]:You have escaped from Spencer Mansion with your life! You see the estate explode in an intense inferno.
 ---
-Npcs:
-many:400
-zombie
-100
-2
-2
-true
-asl;;ldsldjfsdljfsdl;jfsdljfsaldfj
+Num:25
+Ham
+1
+eat[Eat(15),Disappear]:Yummmm.
 ---
 ===
 Rooms:
@@ -271,4 +268,16 @@ d
 Library
 true
 ---
+===
+Npcs:
+Num:400
+zombie
+100
+25
+2
+true
+Hi[Wound(25)]:Brains!!!!
+Dining Hall
+---
+Num:
 ===
