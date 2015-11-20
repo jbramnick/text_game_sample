@@ -16,12 +16,24 @@ public class Melee extends Weapon{
 		super(scanner);
 		
 		}
+	public Melee(Weapon i)
+	{
+		this.primaryName=i.primaryName;
+		this.actions=i.actions;
+		this.secondaryNames=i.secondaryNames;
+		this.weight=i.weight;
+		this.messages=i.messages;
+		this.speed=i.speed;
+		this.power=i.power;
+	}
+	/*
 	public Melee(String primaryName,Hashtable<String,ArrayList<Event>> actions,ArrayList<String> secondaryNames,int weight,Hashtable<String,String> messages,int speed,int power){
 	       super(primaryName,actions,secondaryNames,weight,messages,power,speed);
 	       
 	}
+	*/
 	public Melee clone(){
-		return new Melee(this.primaryName,this.actions,this.secondaryNames,this.weight,this.messages,this.speed,this.power);
+		return new Melee(super.clone());
 	}
 	/**
 	  *Returns the power.

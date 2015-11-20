@@ -27,9 +27,9 @@ public class Item{
 		this.primaryName = primaryName;
 		this.weight = weight;
 	}
-	public Item(String PrimaryName,Hashtable<String,ArrayList<Event>> actions,ArrayList<String> secondaryNames,int weight,Hashtable<String,String> messages)
+	public Item(String primaryName,Hashtable<String,ArrayList<Event>> actions,ArrayList<String> secondaryNames,int weight,Hashtable<String,String> messages)
 	{
-		this.primaryName=PrimaryName;
+		this.primaryName=primaryName;
 		this.actions=actions;
 		this.secondaryNames=secondaryNames;
 		this.weight=weight;

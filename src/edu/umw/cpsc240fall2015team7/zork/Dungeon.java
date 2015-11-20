@@ -49,7 +49,8 @@ public class Dungeon{
 			if(custom.equals("Guns:")){
 				try{
 					while(true){
-						this.add(new Gun(scanner));
+						Gun g=new Gun(scanner);
+						this.add(g);
 					}
 				}
 				catch(Item.NoItemException e){}
@@ -270,16 +271,30 @@ public class Dungeon{
 
 	}
 	/**
-	  Returns an ArrayList of Items currently in any of the {@link Room}s of this or in inventory of {@link Player}
+	  Returns an ArrayList of {@link Guns} currently in any of the {@link Room}s of this or in inventory of {@link Player}
 	  @author Jim Bramnick
 	 */
-	ArrayList<Item> getInPlayItems()
+	ArrayList<Gun> getInPlayGuns()
 	{
 		Collection<Room> rooms=map.values();
-		ArrayList<Item> theItems=new ArrayList<Item>();
+		ArrayList<Gun> theItems=new ArrayList<Gun>();
+		Class clazz=Gun.class;
 		for(Room r:rooms)
-			theItems.addAll(r.getContents());
-		theItems.addAll(Player.instance().getInventory());
+		{
+			ArrayList<Item> items=r.getContents();
+			for(int i=0;i<items.size();i++)
+			{	
+				if (clazz.isInstance(items.get(i)))
+					theItems.add((Gun)items.get(i));
+			}
+		}
+		ArrayList<Item> items=Player.instance().getInventory();
+		for(int i=0;i<items.size();i++)
+		{
+			if (clazz.isInstance(items.get(i)))
+				theItems.add((Gun)items.get(i));
+
+		}
 		return theItems;
 	}
 }

@@ -8,10 +8,7 @@ import java.util.Hashtable;
 */
 class Weapon extends Item{
 	static class NoWeaponException extends Exception{}
-	protected String primaryName;
-	protected Hashtable<String, String> messages = new Hashtable<String, String>();
-	protected ArrayList<String> secondaryNames = new ArrayList <String>();
-	protected int weight, speed, power;
+	protected int  speed, power;
 	/**
 	Constructs an instance of this using the Items superclass constructer.
 	@author Jim Bramnick
@@ -25,25 +22,38 @@ class Weapon extends Item{
 		this.power=Integer.parseInt(current);
 		current=scan.nextLine();
 	}
+	public Weapon(Item i,int speed,int power)
+	{
+		this.primaryName=i.primaryName;
+		//test
+		//System.out.println(primaryName);
+		this.actions=i.actions;
+		this.secondaryNames=i.secondaryNames;
+		this.weight=i.weight;
+		this.messages=i.messages;
+		this.speed=speed;
+		this.power=power;
+	}
+	/*
 	public Weapon(String primaryName,Hashtable<String,ArrayList<Event>> actions,ArrayList<String> secondaryNames,int weight,Hashtable<String,String> messages,int speed,int power)
 	{
 		super(primaryName,actions,secondaryNames,weight,messages);
 		this.speed=speed;
 		this.power=power;
 	}
-
+*/
 	public Weapon(){}
 	/**
-	*Returns the weight of this.
-	*@author Carson Meadows
-	*/
+	 *Returns the weight of this.
+	 *@author Carson Meadows
+	 */
 	public int getWeight() {
 		return weight;
 	}
 	/**
-	*Returns the speed of this.
-	*@author Carson Meadows
-	*/
+	 *Returns the speed of this.
+	 *@author Carson Meadows
+	 */
 	public int getSpeed() {
 		return speed;
 	}
@@ -63,9 +73,9 @@ class Weapon extends Item{
 		}
 	}
 	/**
-	Returns PrimaryName
-	@author Jim Bramnick
-	*/
+	  Returns PrimaryName
+	  @author Jim Bramnick
+	 */
 	public String toString(){
 		return primaryName;	
 	}
@@ -83,7 +93,6 @@ class Weapon extends Item{
 	public int getPower() {
 		return power;
 	}
-
 	/**
 	  Returns an ArrayList consisting of the secondary names for this Weapon.
 	  @author Nathanael Woodhead
@@ -93,7 +102,9 @@ class Weapon extends Item{
 	}
 	public Weapon clone()
 	{
-		return new Weapon(this.primaryName,this.actions,this.secondaryNames,this.weight,this.messages,this.speed,this.power);
+		Weapon wep=new Weapon(super.clone(),this.speed,this.power);
+		//System.out.println(wep.getPrimaryName());
+		return new Weapon(super.clone(),this.speed,this.power);
 
 	}
 

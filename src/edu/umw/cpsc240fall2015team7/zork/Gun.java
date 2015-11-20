@@ -33,6 +33,20 @@ class Gun extends Weapon{
 		super.weight=weight;
 		super.speed = -1;
 	}
+	public Gun(Weapon i,int capacity,int ammo,String ammoType)
+	{
+		this.primaryName=i.primaryName;
+		this.actions=i.actions;
+		this.secondaryNames=i.secondaryNames;
+		this.weight=i.weight;
+		this.messages=i.messages;
+		this.speed=i.speed;
+		this.power=i.power;
+		this.capacity=capacity;
+		this.ammo=ammo;
+		this.ammoType=ammoType;
+	}
+	/*
 	public Gun(String primaryName,Hashtable<String,ArrayList<Event>> actions,ArrayList<String> secondaryNames,int weight,Hashtable<String,String> messages,int speed,int power,int capacity,int ammo,String ammoType)
 	{
 		super(primaryName,actions,secondaryNames,weight,messages,speed,power);
@@ -40,6 +54,7 @@ class Gun extends Weapon{
 		this.ammo=ammo;
 		this.ammoType=ammoType;
 	}
+	*/
 	/**
 	 *Adds passed int to this Gun's capacity.
 	 *@author Carson Meadows
@@ -73,8 +88,18 @@ class Gun extends Weapon{
 	}
 	public Gun clone()
 	{
-		return new Gun(this.primaryName,this.actions,this.secondaryNames,this.weight,this.messages,this.speed,this.power,this.capacity,this.ammo,this.ammoType);
+		return new Gun(super.clone(),this.capacity,this.ammo,this.ammoType);
 
 	}
+	/**
+	  Stroes the state of this Gun according to the zork sav format
+	  @author Jim Bramnick
+	 */
+	public void storeState(PrintWriter save)
+	{
+
+	}
+
+
 
 }
