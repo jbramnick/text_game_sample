@@ -11,9 +11,11 @@ public class Room{
 	private String title;
 	private String desc = "";
 	private ArrayList<Exit> exits;
+	private boolean lightdefault;
+	private boolean light;
 	private boolean beenHere = false;
 	private ArrayList<Item> contents;
-	private boolean dark;
+	private ArrayList<Npc> npcs  = new ArrayList<Npc>();
 
 	/**
 	*Constructs basic Room.
@@ -38,13 +40,28 @@ public class Room{
 		if(this.getTitle().equals("===")){
 			throw new NoRoomException();
 		}
+		
 		exits = new ArrayList<Exit>();
 		contents = new ArrayList<Item>();
-		weapons=new ArrayList<Weapon>();
 		String content = scanner.nextLine();
+		if(content.contains("Light: "))
+		{
+			content=content.split(" ")[1];
+			this.light = Boolean.valueOf(content);
+			this.lightdefault = light;
+			content = scanner.nextLine();
+		}
+		if(content.contains("Occupants: ")){
+			content = content.substring(11,content.length());
+			String[] list = content.split(",");
+			for(String x : list){
+				addNpc(GameState.instance().getDungeon().getNpc(x));
+			}
+			content= scanner.nextLine();
+		}
+
 		if(content.contains("Contents: ")){
 			if(initState == true){
-				
 				content = content.substring(10,content.length());
 				String[] list = content.split(",");
 				for(String x : list){
@@ -64,7 +81,7 @@ public class Room{
 		}
 	}
 	public void light() {
-		dark=false;
+		light=true;
 	}
 	/**
 	 *Sets this Room's description as the parameter.
@@ -83,6 +100,9 @@ public class Room{
 	String describe(boolean beenHere){
 		String text = title;
 		this.beenHere = beenHere;
+	if (light==false) {
+		return "It's too dark to see in here.";
+	} else {
 		if(beenHere == false){
 			beenHere = true;
 			text = text+": "+desc;
@@ -99,9 +119,8 @@ public class Room{
 			}
 			text = text.substring(0,text.length()-2);
 		}
-		if((snacks>0)||(medkits>0)||(ammo>0))
-			text=text+"\nThere are "+snacks+" snacks, " + medkits+ " medkits, " + ammo + " Ammo in here.";
 		return text;
+	}
 	}
 	/**
 	 *Returns information about this Room. If the player has never been here,
@@ -111,6 +130,9 @@ public class Room{
 	 */
 	String describe(){
 		String text = title;
+	if (light==false) {
+		return "It's too dark to see in here.";
+	} else {
 		if(beenHere == false){
 			beenHere = true;
 			text = text+": "+desc;
@@ -124,15 +146,8 @@ public class Room{
 				text = text + "\n" + "There is a " + item + " here."; 
 			}
 		}
-		if(weapons.size()>0){
-			text = text + "\n";
-			for(Weapon wep: weapons){
-				text = text + "\n" + "There is a " + wep + " here."; 
-			}
-		}
-		if((snacks>0)||(medkits>0)||(ammo>0))
-			text=text+"\nThere are "+snacks+" snacks, " + medkits+ " medkits, " + ammo + " Ammo in here.";
 		return text;
+	}
 	}
 	/**
 	 *Returns an ArrayList of this Room's Exits.
@@ -140,33 +155,6 @@ public class Room{
 	 */
 	public ArrayList<Exit> getExits () {
 		return exits;
-	}
-	/**
-	  Adds this snacks to {@link Player} snacks and sets this snacks to zero.
-	  @author Jim Bramnick
-	 */
-	public void giveSnacks()
-	{
-		Player.instance().addSnacks(snacks);
-		snacks=0;
-	}
-	/**
-	  Adds this medkits to {@link Player} medkits and sets this medkits to zero.
-	  @author Jim Bramnick
-	 */
-	public void giveMedkits()
-	{
-		Player.instance().addMedkits(medkits);
-		medkits=0;
-	}
-	/**
-	  Adds this ammo to {@link Player} ammo and sets this ammo to zero.
-	  @author Jim Bramnick
-	 */
-	public void giveAmmo()
-	{
-		Player.instance().addAmmo(ammo);
-		ammo=0;
 	}
 	/**
 	 *Returns this Room's title.
@@ -220,19 +208,6 @@ public class Room{
 			stuff = stuff.substring(0,stuff.length()-1);	
 			save.println(stuff);
 		}
-		if(weapons.size()>0)
-		{
-			String stuff = ("Weapons: ");
-			for(Weapon wep : weapons){
-				stuff = stuff + wep+",";
-			}
-			stuff = stuff.substring(0,stuff.length()-1);	
-			save.println(stuff);
-
-		}
-		if((snacks>0)||(medkits>0)||(ammo>0))
-			save.println("Snacks,Medkits,Ammo: "+snacks+","+medkits+","+ammo);
-		save.println("---");
 	}
 	/**
 	 *Hydrates this Room's "been here" status and contents from passed Scanner.
@@ -258,47 +233,13 @@ public class Room{
 			}
 			inventory=restore.nextLine();
 		}
-		if(inventory.contains("Weapons: "))
-		{
-			inventory = inventory.substring(9, inventory.length());
-			String [] inventroryList = inventory.split(",");
-			for(String name : inventroryList){
-				Weapon wep= d.getWeapon(name);
-				this.add(wep);
-			}
-			inventory=restore.nextLine();
-		}
-		if(inventory.contains("Snacks,Medkits,Ammo:"))
-		{
-			inventory=inventory.split(" ")[1];
-			this.snacks=Integer.parseInt(inventory.split(",")[0]);
-			this.medkits=Integer.parseInt(inventory.split(",")[1]);
-			this.ammo=Integer.parseInt(inventory.split(",")[2]);
-			restore.nextLine();
-		}
 	}
 	/**
 	 *Adds passed Item to this Room's contents.
 	 *@author Carson Meadows
 	 */
 	void add(Item item){
-		contents.add(item);
-	}
-	/**
-	  Adds passed {@link Weapon} to weapons
-	  @author Jim Bramnick
-	 */
-	void add(Weapon wep)
-	{
-		weapons.add(wep);
-	}
-	/**
-	  Returns weapons
-	  @author Jim Bramnick
-	 */
-	ArrayList<Weapon> getWeapons()
-	{
-		return weapons;
+		contents.add(item.clone());
 	}
 	/**
 	 *Returns ArrayList of this Room's contents.
@@ -313,13 +254,6 @@ public class Room{
 	 */
 	void remove(Item item){
 		contents.remove(item);
-	}
-/**
-	 *Removes passed {@link Weapon} from this Room's contents. If the weapon is not in the room then it will quietly do nothing. 
-	 *@author Jim Bramnick
-	 */
-	void remove(Weapon weap){
-		weapons.remove(weap);
 	}
 	/**
 	 *Returns Item in this Room whose name is the parameter. 
@@ -338,20 +272,6 @@ public class Room{
 		}
 		return named;
 	}
-	Weapon getWeaponNamed(String name) throws Weapon.NoWeaponException
-	{
-		Weapon named=null;
-		for(Weapon weapon: weapons)
-		{
-			if(weapon.goesBy(name))
-			{
-				named=weapon;
-			}
-		}
-		if(named==null)
-			throw new Weapon.NoWeaponException();
-		return named;
-	}
 	ArrayList<String> getVerbs(){
 		ArrayList<String> verbs = new ArrayList<String>();
 		for(Item i : contents){
@@ -361,4 +281,17 @@ public class Room{
 		}
 		return verbs;
 	}
+	void addNpc(Npc npc){
+		npcs.add(npc);
+	}
+	void removeNpc(Npc npc){
+		npcs.remove(npc);
+	}
+	void changeLight(boolean light){
+		this.light = light;
+	}
+	void reset(){
+		this.light = this.lightdefault;
+	}
+
 }

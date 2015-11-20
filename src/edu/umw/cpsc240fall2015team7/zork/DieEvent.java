@@ -10,7 +10,7 @@ class DieEvent extends Event{
 	  */
 	DieEvent(){
 	}
-	DieEvent(Item i){
+	DieEvent(Object i){
 	}
 	/**
 	  *Returns the ending score and a "You lose" message.

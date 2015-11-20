@@ -11,7 +11,7 @@ class Player{
 	private ArrayList<String> verbs = new ArrayList<String>();
 	private Room currentRoom;
 	private ArrayList<Item> inventory;
-	private int health,hunger,score;
+	private int health,food,score;
 	public static Player theInstance;
 	/**
 	 *If a player does not already exist creates a new player and return it. Otherwise will return the Player object.
@@ -30,37 +30,28 @@ class Player{
 	private Player(){
 		this.inventory = new ArrayList<Item>();
 		this.health = 100;
-		this.hunger = 5;
+		this.food = 5;
 		this.score = 0;
 	}
-
-//!!!!!!!!!!!!!!!!! FIX ME !!!!!!!!!!!!!!!!!!!!!!11111one
 	/**
-	 *Removes one snack and refills hunger.
+	 *Adds food to the player.
 	 *@author Nathanael Woodhead
-	 *@throws NoSnackException If snack is equal to 0;
 	 */
-	void eat() throws NoSnackException{
-		if(snack == 0){
-			throw new NoSnackException();
-		}
-		else{
-			snack = snack - 1;
-			hunger  = hunger+5;
-		}
+	void eat(int food){
+		this.food += food;
 	}
 	/**
-	 *Increases hunger and once hunger gets too high starts to remove health.
+	 *Increases food and once food gets too high starts to remove health.
 	 *@return A message relating to how hungry the player is. If the player is not hungry then this will return an empty String.
 	 *@author Nathanael Woodhead
 	 */
 	String hunger(){
-		hunger = hunger - 1;
-		if (hunger < 0){
+		food = food - 1;
+		if (food < 0){
 			health = health - 5;
 			return "You are starving to death";
 		}
-		else if (hunger < 2){
+		else if (food < 2){
 			return "You are hungry.";
 		}
 		else{
@@ -68,9 +59,9 @@ class Player{
 		}
 	}
 	/**
-	  *Lowers the heath of the player. If this causes the player's health to fall below 1 then this will make a new die event 
-	  *and execute it. This will cause the game to end and the player to loose the game.
-	  *@author Nathanael Woodhead
+	 *Lowers the heath of the player. If this causes the player's health to fall below 1 then this will make a new die event 
+	 *and execute it. This will cause the game to end and the player to loose the game.
+	 *@author Nathanael Woodhead
 	 */
 	String takeWound(int damage){
 		if(damage<0)
@@ -117,8 +108,8 @@ class Player{
 	 *Sets health to passed int.
 	 *@author Carson Meadows
 	 */
-	void setHealth(int StephenDavies) {
-		this.health = StephenDavies;
+	void setHealth(int health) {
+		this.health = health;
 	}
 
 	/**
@@ -156,6 +147,19 @@ class Player{
 	 */
 	void removeFromInventory(Item item){
 		inventory.remove(item);
+	}
+	/**
+	  Takes a String an removes the first item in the inventory that goes by that name.
+	  @author Nathanael Woodhead
+	  */
+	void removeItem(String name){
+		Item itemNamed=null;
+		for(Item item : inventory){
+			if(item.goesBy(name)){
+				itemNamed = item;
+			}
+		}
+		inventory.remove(itemNamed);
 	}
 	/**
 	 *Removes all items from the inventory and returns an ArrayList
@@ -232,10 +236,7 @@ class Player{
 		}
 		save.println("Score: " + score);
 		save.println("Health: " +health);
-		save.println("Hunger: "+hunger);
-		save.println("Snacks: "+snack);
-		save.println("Medkits: " + medkit);
-		save.println("Ammo: "+ ammo);
+		save.println("Food: "+food);
 
 
 
@@ -269,17 +270,24 @@ class Player{
 			current=scan.nextLine();
 			this.health=Integer.parseInt(current.split(" ")[1]);
 			current=scan.nextLine();
-			this.hunger=Integer.parseInt(current.split(" ")[1]);
+			this.food=Integer.parseInt(current.split(" ")[1]);
 			current=scan.nextLine();
 
 		}
-
-
-
-
-
+	}
+	public int countAmmo(String type){
+		int count = 0;
+		for(Item item : inventory){
+			if(item.goesBy(type)){
+					count++;
+			}
+		}
+		return count;
+	}
+	public static void main(String args[])
+	{
+		Item i=new Item("test",0);
 
 
 	}
-
 }

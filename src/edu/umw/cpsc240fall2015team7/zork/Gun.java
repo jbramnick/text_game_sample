@@ -6,41 +6,19 @@ import java.util.ArrayList;
 *A weapon used to fight enemies in the Dungeon.
 *@author Carson Meadows
 */
-class Gun extends Weapon {
-        //private int power,speed,weight;
+class Gun extends Weapon{
 	private int ammo;
 	private int capacity;
-	//private String primaryName;
-	//private ArrayList<String> secondaryNames;
-	//private Hashtable<String, String> messages = new Hashtable<String, String>();
-
+	private String ammoType;
         /**
         *Constructs this Gun from a scanner.
-        *@author Carson Meadows
+u       *@author Carson Meadows
         */
-        public Gun (Scanner scanner) throws Weapon.NoWeaponException{
-		String name = scanner.nextLine();	
-		if(name.equals("===")){
-			throw new Weapon.NoWeaponException();
-		}
-		String[] names = name.split(",");
-		super.primaryName = names[0];
-		for(String x : names){
-			if(!x.equals(primaryName)){
-				super.secondaryNames.add(x);
-			}
-		}
-		String heavy = scanner.nextLine();
-		super.weight = Integer.parseInt(heavy);
+        public Gun (Scanner scanner) throws Item.NoItemException,Dungeon.IllegalDungeonFormatException{
+		super(scanner);
 		this.capacity = Integer.parseInt(scanner.nextLine());
-		super.power = Integer.parseInt(scanner.nextLine());
-		String text = scanner.nextLine();
-		while(!text.equals("---")){
-			String[] parts = text.split(":");
-			super.messages.put(parts[0],parts[1]);
-			text = scanner.nextLine();
-		}
-
+		this.ammo = capacity;
+		scanner.nextLine();
 	}
 	/**
 	 *Constructs this Gun.
@@ -53,12 +31,17 @@ class Gun extends Weapon {
 		super.weight=weight;
 		super.speed = -1;
 	}
-
+	public Gun(String primaryName,Hashtable<String,ArrayList<Event>> actions,ArrayList<String> secondaryNames,int weight,Hashtable<String,String> messages,int speed,int power,int capacity,int ammo)
+	{
+		super(primaryName,actions,secondaryNames,weight,messages,speed,power);
+		this.capacity=capacity;
+		this.ammo=ammo;
+	}
 	/**
 	 *Adds passed int to this Gun's capacity.
 	 *@author Carson Meadows
 	 */
-	public void addAmmo(int ammo) {
+	public void reload(int ammo) {
 		this.ammo+=ammo;
 	}
 
@@ -73,16 +56,10 @@ class Gun extends Weapon {
 	public int getCapacity() {
 		return capacity;
 	}
-	/**
-	 *Returns this Gun's power.
-	 *@author Carson Meadows
-	 */
-
-	/*
-	public int getPower () {
-		return power;
+	public String getAmmoType()
+	{
+		return ammoType;
 	}
-	*/
 	/**
 	 *Reduces this Gun's ammo by 1 unit.
 	 *@author Carson Meadows
@@ -91,24 +68,10 @@ class Gun extends Weapon {
 	public void reduceAmmo() {
 		this.ammo--;
 	}
-	
-	/**
-	 *Returns the name of the gun.
-	 *@author Nathanael Woodhead
-	 */
-	/*
-	public String getName(){
-		return primaryName;
+	public Gun clone()
+	{
+		return new Gun(this.primaryName,this.actions,this.secondaryNames,this.weight,this.messages,this.speed,this.power,this.capacity,this.ammo);
+
 	}
-	*/
-	/**
-	 *Returns the speed. Speed is used for deciding what who hits first in combat.
-	 *@author Nathanael Woodhead
-	 */
-	/*
-	public int getSpeed(){
-		return speed;
-	}
-	*/
 
 }

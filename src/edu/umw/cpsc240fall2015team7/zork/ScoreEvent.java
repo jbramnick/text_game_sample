@@ -14,7 +14,7 @@ class ScoreEvent extends Event{
 	ScoreEvent(int score){
 		this.score=score;
 	}
-	ScoreEvent(Item i,String score){
+	ScoreEvent(Object i,String score){
 		this.score=Integer.parseInt(score);
 	}
 

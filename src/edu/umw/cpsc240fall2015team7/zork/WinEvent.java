@@ -5,13 +5,13 @@ package edu.umw.cpsc240fall2015team7.zork;
   */
 class WinEvent extends Event{
 	private int score;
-	private Item i;
+	private Object i;
 	
 	/**
 	  *Constructs this WinEvent object.
 	  *@author Nathanael Woodhead
 	  */
-	WinEvent(Item i){
+	WinEvent(Object i){
 		this.score=Player.instance().getScore();
 		this.i=i;
 	}

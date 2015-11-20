@@ -1,52 +1,44 @@
 Spencer Mansion
 Zork v1.0
 ===
-Npcs:
-zombie
-copies:2
-100
-2
-2
-true
-arflblarf
----
-===
-Items:
-Type: Melee
+Melee:
 Combat Knife
 5
-stab:You thrust your knife forward, but there are no monsters in the room.
 lick[Wound(3)]:Ow! You cut your tongue.
 examine:The edge could split hairs!
 ---
-speed
-power
+25
+2
+Drill
+6
+drill:You happily drill random objects around you.
+examine:It is a green Ryobi drill with a big drill bit attached.
 ---
-Gun
+10
+8
+===
+Guns:
 Handgun
 7
-15
-100
 shoot:You fire a round. Now your ears are ringing.
 reload:You reload your weapon.
 examine:An m9 Beretta.
 ---
-Gun
-Shotgun
-10
+100
 15
-125
+Shotgun
 shoot:BANG! Now your shoulder hurts.
 reload:You reload your weapon.
 ---
-Gun
+150
+5
 Rocket Launcher
-20
-1
-300
+10
 shoot[Disappear,Score(10)]:BOOM! Nothing could have survived that.
 examine:Perfect for a final boss...if there was one.
 ---
+2000
+1
 ===
 Items:
 GreenHerb
@@ -95,6 +87,11 @@ break[Disappear,Score(50)]:The glass shatters and spills the clear, viscous liqu
 Helicopter
 10000
 fly[Win]:You have escaped from Spencer Mansion with your life! You see the estate explode in an intense inferno.
+---
+Num:25
+Ham
+1
+eat[Eat(15),Disappear]:Yummmm.
 ---
 ===
 Rooms:
@@ -149,101 +146,138 @@ Exits:
 Main Hall
 d
 Laboratory
+false
 ---
 Laboratory
 u
 Main Hall
+false
 ---
 Laboratory
 u
 Main Hall
+false
 ---
 Main Hall
 w
 Dining Hall
+false
 ---
 Main Hall
 e
 Gallery
+false
 ---
 Main Hall
 u
 Walkway
+false
 ---
 Dining Hall
 e
 Main Hall
+false
 ---
 Dining Hall
 n
 Sitting Room
+false
 ---
 Sitting Room
 s
 Dining Hall
+false
 ---
 Sitting Room
 n
 Garden
+false
 ---
 Garden
 s
 Sitting Room
+false
 ---
 Garden
 d
 Torture Chamber
+false
 ---
 Torture Chamber
 u
 Garden
+false
 ---
 Gallery
 w
 Main Hall
+false
 ---
 Gallery
 e
 Long Hall
+false
 ---
 Long Hall
 w
 Gallery
+false
 ---
 Long Hall
 n
 Safe Room
+false
 ---
 Safe Room
 s
 Long Hall
+false
 ---
 Walkway
 d
 Main Hall
+false
 ---
 Walkway
 e
 Balcony
+false
 ---
 Walkway
 w
 Library
+false
 ---
 Balcony
 w
 Walkway
+false
 ---
 Library
 e
 Walkway
 ---
+false
 Library
 u
 Attic
+false
 ---
 Attic
 d
 Library
+true
 ---
+===
+Npcs:
+Num:400
+zombie
+100
+25
+2
+true
+Hi[Wound(25)]:Brains!!!!
+Dining Hall
+---
+Num:
 ===

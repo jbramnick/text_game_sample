@@ -12,8 +12,8 @@ public class TransformEvent extends Event{
 	 *@param endItem The item that it becomes
 	 *@author Nathanael Woodhead
 	 */
-	TransformEvent(Item item, String endItem){
-		this.item = item;
+	TransformEvent(Object item, String endItem){
+		this.item = (Item)item;
 		this. endItem = endItem;
 	}
 	/**

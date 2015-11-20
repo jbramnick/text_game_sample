@@ -1,4 +1,5 @@
 package edu.umw.cpsc240fall2015team7.zork;
+import java.util.Hashtable;
 import java.util.Scanner;
 import java.util.ArrayList;
 /**
@@ -6,90 +7,48 @@ import java.util.ArrayList;
   *@author Nathanael Woodhead
   */
 public class Melee extends Weapon{
-	//private int power, weight,speed;
-	//private String primaryName;
 	/**
-	  *Creates a new Melee object from a scanner. A Melee weapon is a weapon that hits at close range. This allows opponents to hit back at the
-	  *same time.
+	  *Creates a new Melee object from a scanner. A Melee weapon is a weapon that hits at close range. This allows opponents to 
+	  *hit back at the same time.
 	  *@param power The amount of damage done by the weapon with one hit.
-	  *@param primaryName The name of the Melee weapon object.
-	  *@param weight How much the Melee object weighs.
-	  *@param speed Used by the combat engine to determine who hits who first.
-	  *@author Nathanael Woodhead
 	  */
-	public Melee(Scanner scanner) throws Weapon.NoWeaponException{
-		String name = scanner.nextLine();
-		if(name.equals("===")){
-			throw new Weapon.NoWeaponException();
+	public Melee(Scanner scanner) throws Item.NoItemException,Dungeon.IllegalDungeonFormatException{
+		super(scanner);
+		
 		}
-		String[] names = name.split(",");
-		super.primaryName = names[0];
-		for(String x : names){
-			if(!x.equals(primaryName)){
-				super.secondaryNames.add(x);
-			}
-		}
-		super.weight = Integer.parseInt(scanner.nextLine());
-		super.speed = Integer.parseInt(scanner.nextLine());
-		super.power = Integer.parseInt(scanner.nextLine());
-		String next = scanner.nextLine();
-		while(!next.equals("---")){
-			String[] message = next.split(":");
-			super.messages.put(message[0],message[1]);
-			next = scanner.nextLine();
-		}
+	public Melee(String primaryName,Hashtable<String,ArrayList<Event>> actions,ArrayList<String> secondaryNames,int weight,Hashtable<String,String> messages,int speed,int power){
+	       super(primaryName,actions,secondaryNames,weight,messages,power,speed);
+	       
 	}
-	/**
-	  *Creates a new Melee object. A Melee weapon is a weapon that hits at close range. This allows opponents to hit back at the
-	  *same time.
-	  *@param power The amount of damage done by the weapon with one hit.
-	  *@param primaryName The name of the Melee weapon object.
-	  *@param weight How much the Melee object weighs.
-	  *@param speed Used by the combat engine to determine who hits who first.
-	  *@author Nathanael Woodhead
-	  */
-	public Melee(int power,String primaryName, int weight, int speed){
-		super.power = 25;
-		super.primaryName  = primaryName;
-	       	super.weight = weight;
-		super.speed = speed;
+	public Melee clone(){
+		return new Melee(this.primaryName,this.actions,this.secondaryNames,this.weight,this.messages,this.speed,this.power);
 	}
-	
-
 	/**
 	  *Returns the power.
 	  *@author Nathanael Woodhead
 	  */
-	/*
 	public int getPower(){
 		return power;
 	}
-	*/
 	/**
 	*Returns the primaryName of this.
 	*@author Carson Meadows
 	*/
-	/*
 	public String getName(){
 		return primaryName;
 	}
-	*/
 	/**
 	*Returns thew weight of this.
 	*@author Carson Meadows
 	*/
-	/*
 	public int getWeight(){
 		return weight;
 	}
-	*/
 	/**
 	*Returns the speed of this.
 	*@author Carson Meadows
 	*/
-	/*
 	public int getSpeed(){
 		return speed;
 	}
-	*/
 }

@@ -19,6 +19,7 @@ public class Dungeon{
 	private Hashtable <String, Npc> npcs=new Hashtable<String, Npc>();
 	private String version;
 	private String filename;
+	private Npc spawnedNpc;
 
 	/**
 	*Constructs this Dungeon from a file.
@@ -44,9 +45,26 @@ public class Dungeon{
 				throw new IllegalDungeonFormatException();
 			}
 			String custom = scanner.nextLine();
-			if(custom.equals("Npcs:"))
+			if(custom.equals("Guns:")){
+				try{
+					while(true){
+						this.add(new Gun(scanner));
+					}
+				}
+				catch(Item.NoItemException e){}
+				custom=scanner.nextLine();
+			}
+			if(custom.equals("Melee:"))
 			{
-			
+				try{
+					while(true){
+						this.add(new Melee(scanner));
+					}
+				}
+				catch(Item.NoItemException e){}
+				custom=scanner.nextLine();
+
+
 				
 			}
 			if(custom.equals("Items:")){
@@ -56,8 +74,23 @@ public class Dungeon{
 					}
 				}
 				catch(Item.NoItemException e){}
+				custom=scanner.nextLine();
 			}
-			if(scanner.nextLine().equals("Rooms:")){
+			
+			if(custom.equals("Npc:"))
+			{
+				try{
+					while(true){
+						new Npc(scanner,initState);
+					}
+				}
+				catch(Npc.NoNpcException e){}
+				custom=scanner.nextLine();
+
+			}
+			
+			if(custom.equals("Rooms:")){
+
 				boolean x = true;
 				try{
 
@@ -206,5 +239,11 @@ public class Dungeon{
 	 */
 	public Item getItem(String name){
 		return items.get(name);
+	}
+	public Npc getSpawnedNpc(){
+		return spawnedNpc;
+	}
+	Npc getNpc(String name){
+		return npcs.get(name);
 	}
 }

@@ -45,11 +45,6 @@ class CommandFactory{
 			HealthCommand i = new HealthCommand();
 			return i;
 		}
-		else if(commandString.equals("eat"))
-		{
-			EatCommand e=new EatCommand();
-			return e;
-		}
 		else if (commandString.contains("attack")) {
 			AttackCommand a = new AttackCommand(commandString);
 			return a;
@@ -75,10 +70,6 @@ class CommandFactory{
 		else if(commandString.contains("take")){
 			TakeCommand take = new TakeCommand(commandString);
 			return take;
-		}
-		else if (commandString.contains("reload")) {
-			ReloadCommand reload = new ReloadCommand(commandString);
-			return reload;
 		}
 		else if(commandString.equals("i")||commandString.equals("inventory")){
 			InventoryCommand i = new InventoryCommand();

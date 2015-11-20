@@ -7,6 +7,7 @@ public class FlashLight extends Item {
 	private String primaryName;
 	private int weight;
 	private int batteryLvl;
+	private int max;
 	static class NoPowerException extends Exception {}
 
 	/**
@@ -16,8 +17,9 @@ public class FlashLight extends Item {
 	  *@param weight The weight of the object.
 	  *@author Nathanael Woodhead
 	  */
-	public FlashLight(int batteryLvl, String primaryName, int weight){
-		this.batteryLvl=batteryLvl;
+	public FlashLight(int max, String primaryName, int weight){
+		this.max=max;
+		this.batteryLvl=max;
 		this.primaryName=primaryName;
 		this.weight=weight;
 	}
@@ -32,18 +34,10 @@ public class FlashLight extends Item {
 	  *Restores the battery to 100.
 	  */
 	public void charge(){
-		batteryLvl=100;
+		batteryLvl=max;
 	}
 	/**
-	  *Toggles the flashlight on and off. While on the {@link use()} method will be called every turn.
-	  *@author Nathanael Woodhead
-	  */
-	public void onOff(){
-		use();
-		Player.instance().getCurrentRoom().light();
-	}
-	/**
-	  *Reduces the battery. This will be called every move that the Flashlight is on. 
+	  *Reduces the batteryLvl of this and light's up the current Room.
 	  *@author Nathanael Woodhead
 	  *@throws NoPowerException If the battery level is 0.
 	  */
@@ -51,6 +45,8 @@ public class FlashLight extends Item {
 		batteryLvl--;
 		if (batteryLvl<1) {
 			throw new NoPowerException();
+		} else {
+			Player.instance().getCurrentRoom().light();
 		}
 	}
 }
