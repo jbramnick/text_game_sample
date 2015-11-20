@@ -102,10 +102,4 @@ class Npc{
 	int getPower(){
 		return power;
 	}
-	public static void main(String args[])
-	{
-		File f=new File("npctest.txt");
-		Scanner scan=File(
-
-	}
 }
