@@ -20,9 +20,9 @@ class UnlockEvent{
 	@author Jim Bramnick
 	*/
 	public String execute(){
-		ArrayList<Exit> exits = Player.instance().GetCurrentRoom().getExits();
+		ArrayList<Exit> exits = Player.instance().getCurrentRoom().getExits();
 		boolean needed = false;
-		for(Exit exit : Exits){
+		for(Exit exit : exits){
 			if(exit.unlock()){
 				needed = true;
 			}
