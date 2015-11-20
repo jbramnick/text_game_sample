@@ -7,6 +7,7 @@ import java.util.Scanner;
 public class Exit{
 	static class NoExitException extends Exception {}
 
+	private boolean locked;
 	private String dir;
 	private Room dest;
 	private Room src;
@@ -33,6 +34,7 @@ public class Exit{
 		this.dir = scanner.nextLine();
 		this.src = d.getRoom(source);
 		this.dest = d.getRoom(scanner.nextLine());
+		this.locked = Boolean.valueOf(scanner.nextLine());
 		this.src.addExit(this);
 		scanner.nextLine();		
 
@@ -59,6 +61,13 @@ public class Exit{
 	public Room getDest(){
 
 		return dest;
+	}
+	public boolean unlock(){
+		if(locked == true){
+			locked = false;
+			return true;
+		}
+		return false;
 	}
 	/**
 	 *Returns the Room this Exit came from.
