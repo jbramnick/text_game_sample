@@ -11,6 +11,8 @@ public class Room{
 	private String title;
 	private String desc = "";
 	private ArrayList<Exit> exits;
+	private boolean lightdefault;
+	private boolean light;
 	private boolean beenHere = false;
 	private ArrayList<Item> contents;
 	private ArrayList<Npc> npcs  = new ArrayList<Npc>();
@@ -40,10 +42,19 @@ public class Room{
 		}
 		exits = new ArrayList<Exit>();
 		contents = new ArrayList<Item>();
+		this.light = Boolean.parseBoolean(scanner.nextLine());
+		this.lightdefault = light;
 		String content = scanner.nextLine();
+		if(content.contains("Occupants: ")){
+			content = content.substring(11,content.length());
+			String[] list = content.split(",");
+			for(String x : list){
+				addNpc(GameState.instance().getDungeon().getNpc(x));
+			}
+			content= scanner.nextLine();
+		}
 		if(content.contains("Contents: ")){
 			if(initState == true){
-				
 				content = content.substring(10,content.length());
 				String[] list = content.split(",");
 				for(String x : list){
@@ -212,7 +223,7 @@ public class Room{
 	 *@author Carson Meadows
 	 */
 	void add(Item item){
-		contents.add(item);
+		contents.add(item.clone());
 	}
 	/**
 	 *Returns ArrayList of this Room's contents.
@@ -260,4 +271,11 @@ public class Room{
 	void removeNpc(Npc npc){
 		npcs.remove(npc);
 	}
+	void changeLight(boolean light){
+		this.light = light;
+	}
+	void reset(){
+		this.light = this.lightdefault;
+	}
+
 }

@@ -235,4 +235,7 @@ public class Dungeon{
 	public Npc getSpawnedNpc(){
 		return spawnedNpc;
 	}
+	Npc getNpc(String name){
+		return npcs.get(name);
+	}
 }
