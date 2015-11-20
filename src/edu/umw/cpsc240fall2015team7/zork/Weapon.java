@@ -32,7 +32,6 @@ class Weapon extends Item{
 		this.power=power;
 	}
 
-	public Weapon(
 	public Weapon(){}
 	/**
 	*Returns the weight of this.
@@ -94,7 +93,7 @@ class Weapon extends Item{
 	}
 	public Weapon clone()
 	{
-		return new Weapon(this.primaryName,this.actions,ArrayList<String> secondaryNames,int weight,Hashtable<String,String> messages,int speed,int power)
+		return new Weapon(this.primaryName,this.actions,this.secondaryNames,this.weight,this.messages,this.speed,this.power);
 
 	}
 

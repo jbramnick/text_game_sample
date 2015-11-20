@@ -32,7 +32,12 @@ class Gun extends Weapon{
 		super.weight=weight;
 		super.speed = -1;
 	}
-
+	public Gun(String primaryName,Hashtable<String,ArrayList<Event>> actions,ArrayList<String> secondaryNames,int weight,Hashtable<String,String> messages,int speed,int power,int capacity,int ammo)
+	{
+		super(primaryName,actions,secondaryNames,weight,messages,speed,power);
+		this.capacity=capacity;
+		this.ammo=ammo;
+	}
 	/**
 	 *Adds passed int to this Gun's capacity.
 	 *@author Carson Meadows
@@ -66,7 +71,7 @@ class Gun extends Weapon{
 	}
 	public Gun clone()
 	{
-		return new Gun(this.capacity, this.power, this.primaryName,this.weight);
+		return new Gun(this.primaryName,this.actions,this.secondaryNames,this.weight,this.messages,this.speed,this.power,this.capacity,this.ammo);
 
 	}
 
