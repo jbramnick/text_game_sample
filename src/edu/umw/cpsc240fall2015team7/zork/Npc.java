@@ -4,7 +4,7 @@ import java.util.Scanner;
   *Superclass for all NPC's. An NPC is a non-player character.
   *@author Nathanael Woodhead
   */
-class Npc implements Prototype{
+class Npc{
 	protected String primaryName;
 	protected String secondaryName;
 	protected int health, power, speed;
@@ -21,7 +21,7 @@ class Npc implements Prototype{
 		this.talkText = talkText;
 		this.aggression = aggression;
 	}
-	public Prototype doClone() {
+	public Npc clone() {
 			return new Npc(this.primaryName, this.health, this.power, this.speed, this.talkText, this.aggression);
 	}
 	public Npc(Scanner scan, boolean initState) throws NoNpcException{

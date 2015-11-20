@@ -32,7 +32,13 @@ class Gun extends Weapon implements Protyotype{
 		super.weight=weight;
 		super.speed = -1;
 	}
-
+	/**
+	  *Returns an exact copy of this gun.
+	  *@author Nathanael Woodhead
+	  */
+	public Gun clone(){
+		return new Gun(this.capacity, this.power, this.primaryName, this.weight);
+	}
 	/**
 	 *Adds passed int to this Gun's capacity.
 	 *@author Carson Meadows

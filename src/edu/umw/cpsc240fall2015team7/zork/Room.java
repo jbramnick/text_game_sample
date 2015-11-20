@@ -10,10 +10,10 @@ public class Room{
 	static class NoRoomException extends Exception {}
 	private String title;
 	private String desc = "";
-	private int ammo, snacks, medkits;
 	private ArrayList<Exit> exits;
 	private boolean beenHere = false;
 	private ArrayList<Item> contents;
+	private ArrayList<Npc> npcs  = new ArrayList<Npc>();
 
 	/**
 	*Constructs basic Room.
@@ -253,5 +253,11 @@ public class Room{
 			}
 		}
 		return verbs;
+	}
+	void addNpc(Npc npc){
+		npcs.add(npc);
+	}
+	void removeNpc(Npc npc){
+		npcs.remove(npc);
 	}
 }
