@@ -7,22 +7,23 @@ import java.util.Scanner;
 class Npc{
 	protected String primaryName;
 	protected String secondaryName;
-	protected int health, power, speed;
+	protected int health, power, speed, score;
 	protected String talkText;
 	private boolean aggression;
 	protected Room currentRoom;
 	static class NoNpcException extends Exception{}
-	public Npc(String primaryName, int health, int power, int speed, String talkText, boolean aggression){
+	public Npc(String primaryName, int health, int power, int speed,int score, String talkText, boolean aggression){
 		this.primaryName = primaryName;
 		this.secondaryName = "";
 		this.health = health;
 		this.power = power;
 		this.speed = speed;
+		this.score=score;
 		this.talkText = talkText;
 		this.aggression = aggression;
 	}
 	public Npc clone() {
-			return new Npc(this.primaryName, this.health, this.power, this.speed, this.talkText, this.aggression);
+			return new Npc(this.primaryName, this.health, this.power, this.speed,this.score, this.talkText, this.aggression);
 	}
 	public Npc(Scanner scan, boolean initState) throws NoNpcException{
 		String current=scan.nextLine();
@@ -36,6 +37,8 @@ class Npc{
 		this.power=Integer.parseInt(current);
 		current=scan.nextLine();
 		this.speed=Integer.parseInt(current);
+		current=scan.nextLine();
+		this.score=Integer.parseInt(current);
 		current=scan.nextLine();
 		if(initState)
 			this.aggression=Boolean.valueOf(current);
