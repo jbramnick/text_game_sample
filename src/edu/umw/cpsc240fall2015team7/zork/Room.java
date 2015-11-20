@@ -11,6 +11,7 @@ public class Room{
 	private String title;
 	private String desc = "";
 	private ArrayList<Exit> exits;
+	private boolean lightdefault;
 	private boolean light;
 	private boolean beenHere = false;
 	private ArrayList<Item> contents;
@@ -41,6 +42,8 @@ public class Room{
 		}
 		exits = new ArrayList<Exit>();
 		contents = new ArrayList<Item>();
+		this.light = Boolean.parseBoolean(scanner.nextLine());
+		this.lightdefault = light;
 		String content = scanner.nextLine();
 		if(content.contains("Occupants: ")){
 			content = content.substring(11,content.length());
@@ -268,4 +271,11 @@ public class Room{
 	void removeNpc(Npc npc){
 		npcs.remove(npc);
 	}
+	void changeLight(boolean light){
+		this.light = light;
+	}
+	void reset(){
+		this.light = this.lightdefault;
+	}
+
 }
