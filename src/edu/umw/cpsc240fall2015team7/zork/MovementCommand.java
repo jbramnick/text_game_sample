@@ -21,6 +21,7 @@ class MovementCommand extends Command{
 	*/
 	String execute(){
 		Room currentRoom = Player.instance().getCurrentRoom();
+		currentRoom.reset();
 		try{
 			Room newRoom = currentRoom.leaveBy(dir);
 			Player.instance().setCurrentRoom(newRoom);

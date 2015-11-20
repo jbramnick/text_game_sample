@@ -1,4 +1,5 @@
 package edu.umw.cpsc240fall2015team7.zork;
+import java.util.Hashtable;
 import java.util.Scanner;
 import java.util.ArrayList;
 /**
@@ -16,7 +17,14 @@ public class Melee extends Weapon{
 		super.power = Integer.parseInt(scanner.nextLine());
 		super.speed = Integer.parseInt(scanner.nextLine());
 		}
-	public Melee(this.primaryName
+	public Melee(String primaryName, Hashtable<String, ArrayList<Event>> actions, ArrayList<String> secondaryNames,int weight, Hashtable<String,String> messages,int speed, int power){
+	       super(primaryName,actions,secondaryNames,weight,messages);
+	       super.power= power;
+	       super.speed = speed;
+	}
+	public Melee clone(){
+		return new Melee(primaryName,actions,secondaryNames,weight, messages, speed, power);
+	}
 	/**
 	  *Returns the power.
 	  *@author Nathanael Woodhead
