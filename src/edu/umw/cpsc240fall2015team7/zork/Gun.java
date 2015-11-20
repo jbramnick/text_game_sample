@@ -6,7 +6,7 @@ import java.util.ArrayList;
 *A weapon used to fight enemies in the Dungeon.
 *@author Carson Meadows
 */
-class Gun extends Weapon {
+class Gun extends Weapon implements Protyotype{
 	private int ammo;
 	private int capacity;
 	private String ammoType;
@@ -17,7 +17,7 @@ class Gun extends Weapon {
         public Gun (Scanner scanner) throws Item.NoItemException,Dungeon.IllegalDungeonFormatException{
 		super(scanner);
 		super.power = Integer.parseInt(scanner.nextLine());
-		super.speed =  -1; 
+		super.speed = Integer.parseInt(scanner.nextLine());
 		this.capacity = Integer.parseInt(scanner.nextLine());
 		this.ammo = capacity;
 	}
@@ -57,16 +57,6 @@ class Gun extends Weapon {
 		return ammoType;
 	}
 	/**
-	 *Returns this Gun's power.
-	 *@author Carson Meadows
-	 */
-
-	/*
-	public int getPower () {
-		return power;
-	}
-	*/
-	/**
 	 *Reduces this Gun's ammo by 1 unit.
 	 *@author Carson Meadows
 	 */
@@ -74,24 +64,6 @@ class Gun extends Weapon {
 	public void reduceAmmo() {
 		this.ammo--;
 	}
-	
-	/**
-	 *Returns the name of the gun.
-	 *@author Nathanael Woodhead
-	 */
-	/*
-	public String getName(){
-		return primaryName;
-	}
-	*/
-	/**
-	 *Returns the speed. Speed is used for deciding what who hits first in combat.
-	 *@author Nathanael Woodhead
-	 */
-	/*
-	public int getSpeed(){
-		return speed;
-	}
-	*/
+	public Object 
 
 }

@@ -47,12 +47,6 @@ public class Dungeon{
 			if(custom.equals("Melee:"))
 			{
 				custom=scanner.nextLine();
-				int count=0;
-				if(custom.contains("num: ")
-				{
-					count=Integer.parseInt(custom.split(" ")[1]);
-
-				}
 				
 
 			}
