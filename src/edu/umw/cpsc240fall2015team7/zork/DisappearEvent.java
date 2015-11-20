@@ -10,8 +10,8 @@ class DisappearEvent extends Event{
 	  *@param item  The item that will be disappearing.
 	  *@author Nathanael Woodhead
 	  */
-	DisappearEvent(Item item){
-		this.item=item;
+	DisappearEvent(Object item){
+		this.item=(Item)item;
 	}
 	/**
 	  *Removes the Item from the game.

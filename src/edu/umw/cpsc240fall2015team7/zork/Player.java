@@ -153,8 +153,8 @@ class Player{
 	  @author Nathanael Woodhead
 	  */
 	void removeItem(String name){
-		Item itemNamed;
-		for(Item item : Inventory){
+		Item itemNamed=null;
+		for(Item item : inventory){
 			if(item.goesBy(name)){
 				itemNamed = item;
 			}
@@ -277,11 +277,17 @@ class Player{
 	}
 	public int countAmmo(String type){
 		int count = 0;
-		for(Item item : Inventory){
+		for(Item item : inventory){
 			if(item.goesBy(type)){
 					count++;
 			}
 		}
 		return count;
+	}
+	public static void main(String args[])
+	{
+		Item i=new Item("test",0);
+
+
 	}
 }

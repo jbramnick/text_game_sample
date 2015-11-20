@@ -28,7 +28,9 @@ class UnlockEvent{
 			}
 		}
 		if(needed == false){
-			throw new UnlockEvent.NoLockedDoorException();
+			//execute cant throw exceptions because the super class doesnt throw an exception
+			//throw new UnlockEvent.NoLockedDoorException();
+			return "";
 		}
 		return "Door Unlocked!";
 	}
