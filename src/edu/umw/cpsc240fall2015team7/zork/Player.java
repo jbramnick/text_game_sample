@@ -229,7 +229,6 @@ class Player{
 	 */
 	public void store(PrintWriter save)
 	{
-		save.println("===");
 		save.println("Adventurer:");
 		save.println("Current room: " + currentRoom.getTitle());
 		if(inventory.size()>0){
@@ -253,7 +252,6 @@ class Player{
 		String current="";
 		try
 		{
-			scan.nextLine();
 			current=scan.nextLine();
 			current=current.substring(14,current.length());
 			currentRoom=GameState.instance().getDungeon().getRoom(current);
@@ -278,7 +276,6 @@ class Player{
 			this.health=Integer.parseInt(current.split(" ")[1]);
 			current=scan.nextLine();
 			this.food=Integer.parseInt(current.split(" ")[1]);
-			current=scan.nextLine();
 
 		}
 	}

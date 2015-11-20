@@ -199,6 +199,7 @@ public class Dungeon{
 		for(String key: keys){
 			map.get(key).storeState(save);
 		}
+		
 
 	}
 	/**
@@ -239,7 +240,7 @@ public class Dungeon{
 	 *@author Jim Bramnick
 	 */
 	public Item getItem(String name){
-		return items.get(name);
+		return items.get(name).clone();
 	}
 	/**
 	Returns spawnedNpc
@@ -253,7 +254,7 @@ public class Dungeon{
 	returns null if no npc with that name exists in this
 	*/
 	Npc getNpc(String name){
-		return npcs.get(name);
+		return npcs.get(name).clone();
 	}
 	/**
 	Returns an ArrayList of npcs currently in any of the {@link Room}s of this

@@ -208,6 +208,7 @@ public class Room{
 			stuff = stuff.substring(0,stuff.length()-1);	
 			save.println(stuff);
 		}
+		save.println("---");
 	}
 	/**
 	 *Hydrates this Room's "been here" status and contents from passed Scanner.
