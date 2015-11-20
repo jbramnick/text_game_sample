@@ -16,6 +16,7 @@ public class Melee extends Weapon{
 		super.power = Integer.parseInt(scanner.nextLine());
 		super.speed = Integer.parseInt(scanner.nextLine());
 		}
+	public Melee(this.primaryName
 	/**
 	  *Returns the power.
 	  *@author Nathanael Woodhead
