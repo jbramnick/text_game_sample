@@ -14,8 +14,7 @@ public class Melee extends Weapon{
 	  */
 	public Melee(Scanner scanner) throws Item.NoItemException,Dungeon.IllegalDungeonFormatException{
 		super(scanner);
-		super.power = Integer.parseInt(scanner.nextLine());
-		super.speed = Integer.parseInt(scanner.nextLine());
+		
 		}
 	public Melee(String primaryName,Hashtable<String,ArrayList<Event>> actions,ArrayList<String> secondaryNames,int weight,Hashtable<String,String> messages,int speed,int power){
 	       super(primaryName,actions,secondaryNames,weight,messages,power,speed);
