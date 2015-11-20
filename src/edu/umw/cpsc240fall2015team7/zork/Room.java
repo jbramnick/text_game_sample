@@ -40,11 +40,17 @@ public class Room{
 		if(this.getTitle().equals("===")){
 			throw new NoRoomException();
 		}
+		
 		exits = new ArrayList<Exit>();
 		contents = new ArrayList<Item>();
-		this.light = Boolean.parseBoolean(scanner.nextLine());
-		this.lightdefault = light;
 		String content = scanner.nextLine();
+		if(content.contains("Light: "))
+		{
+			content=content.split(" ")[1];
+			this.light = Boolean.valueOf(content);
+			this.lightdefault = light;
+			content = scanner.nextLine();
+		}
 		if(content.contains("Occupants: ")){
 			content = content.substring(11,content.length());
 			String[] list = content.split(",");
@@ -53,6 +59,7 @@ public class Room{
 			}
 			content= scanner.nextLine();
 		}
+
 		if(content.contains("Contents: ")){
 			if(initState == true){
 				content = content.substring(10,content.length());

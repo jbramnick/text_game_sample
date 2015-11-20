@@ -71,6 +71,7 @@ public class Dungeon{
 				}
 
 
+				
 			}
 			if(custom.equals("Items:")){
 				try{
@@ -81,11 +82,21 @@ public class Dungeon{
 				catch(Item.NoItemException e){}
 				custom=scanner.nextLine();
 			}
+			
 			if(custom.equals("Npc:"))
 			{
-				
+				try{
+					while(true){
+						new Npc(scanner,initState);
+					}
+				}
+				catch(Npc.NoNpcException e){}
+				custom=scanner.nextLine();
+
 			}
+			
 			if(custom.equals("Rooms:")){
+
 				boolean x = true;
 				try{
 
@@ -108,6 +119,7 @@ public class Dungeon{
 			else{
 				throw new IllegalDungeonFormatException();
 			}
+
 			if(scanner.nextLine().equals("Exits:")){
 				boolean y = true;
 				while(y){

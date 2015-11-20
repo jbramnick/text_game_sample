@@ -12,7 +12,7 @@ class Gun extends Weapon{
 	private String ammoType;
         /**
         *Constructs this Gun from a scanner.
-        *@author Carson Meadows
+u       *@author Carson Meadows
         */
         public Gun (Scanner scanner) throws Item.NoItemException,Dungeon.IllegalDungeonFormatException{
 		super(scanner);
