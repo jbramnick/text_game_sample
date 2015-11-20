@@ -17,13 +17,12 @@ public class Melee extends Weapon{
 		super.power = Integer.parseInt(scanner.nextLine());
 		super.speed = Integer.parseInt(scanner.nextLine());
 		}
-	public Melee(String primaryName, Hashtable<String, ArrayList<Event>> actions, ArrayList<String> secondaryNames,int weight, Hashtable<String,String> messages,int speed, int power){
-	       super(primaryName,actions,secondaryNames,weight,messages);
-	       super.power= power;
-	       super.speed = speed;
+	public Melee(String primaryName,Hashtable<String,ArrayList<Event>> actions,ArrayList<String> secondaryNames,int weight,Hashtable<String,String> messages,int speed,int power){
+	       super(primaryName,actions,secondaryNames,weight,messages,power,speed);
+	       
 	}
 	public Melee clone(){
-		return new Melee(primaryName,actions,secondaryNames,weight, messages, speed, power);
+		return new Melee(this.primaryName,this.actions,this.secondaryNames,this.weight,this.messages,this.speed,this.power);
 	}
 	/**
 	  *Returns the power.
