@@ -57,7 +57,7 @@ public class Dungeon{
 						Class clazz = Class.forName(type);
 						Constructor con = clazz.getDeclaredConstructor(Scanner.class);
 						Weapon weapon = (Weapon)con.newInstance(scanner);
-						this.addWeapon(weapon);
+						this.add(weapon);
 						
 					}
 				}

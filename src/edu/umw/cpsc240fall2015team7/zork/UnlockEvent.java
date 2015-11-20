@@ -1,4 +1,5 @@
 package edu.umw.cpsc240fall2015team7.zork;
+import java.util.ArrayList;
 /**
 The {@link Event} used to unlock locked {@link Exit}s.
 @author Jim Bramnick
