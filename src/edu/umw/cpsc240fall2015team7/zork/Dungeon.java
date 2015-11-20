@@ -6,6 +6,7 @@ import java.util.Hashtable;
 import java.util.Scanner;
 import java.io.*;
 import java.util.Set;
+import java.util.Collection;
 /**
 *The map that the player can explore.
 *@author Nathanael Woodhead
@@ -240,10 +241,44 @@ public class Dungeon{
 	public Item getItem(String name){
 		return items.get(name);
 	}
+	/**
+	Returns spawnedNpc
+	@author Jim Bramnick
+	*/
 	public Npc getSpawnedNpc(){
 		return spawnedNpc;
 	}
+	/**
+	retuns {@Link Npc} with that name.
+	returns null if no npc with that name exists in this
+	*/
 	Npc getNpc(String name){
 		return npcs.get(name);
+	}
+	/**
+	Returns an ArrayList of npcs currently in any of the {@link Room}s of this
+	@author Jim Bramnick
+	*/
+	ArrayList<Npc> getInPlayNpcs()
+	{
+		Collection<Room> rooms=map.values();
+		ArrayList<Npc> theNpcs=new ArrayList<Npc>();
+		for(Room r:rooms)
+			theNpcs.addAll(r.getInhabitants());
+		return theNpcs;
+
+	}
+	/**
+	  Returns an ArrayList of Items currently in any of the {@link Room}s of this or in inventory of {@link Player}
+	  @author Jim Bramnick
+	 */
+	ArrayList<Item> getInPlayItems()
+	{
+		Collection<Room> rooms=map.values();
+		ArrayList<Item> theItems=new ArrayList<Item>();
+		for(Room r:rooms)
+			theItems.addAll(r.getContents());
+		theItems.addAll(Player.instance().getInventory());
+		return theItems;
 	}
 }

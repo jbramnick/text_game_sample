@@ -215,7 +215,14 @@ class Player{
 		}
 		return names;
 	}
-
+	/**
+	Returns the ArrayList inventory of this
+	@author Jim Bramnick
+	*/
+	ArrayList<Item> getInventory()
+	{
+		return inventory;
+	}
 	/**
 	 *Saves progress to a Printwriter.
 	 *@author Carson Meadows

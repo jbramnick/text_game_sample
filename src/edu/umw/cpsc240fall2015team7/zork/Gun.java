@@ -2,6 +2,7 @@ package edu.umw.cpsc240fall2015team7.zork;
 import java.util.Hashtable;
 import java.util.Scanner;
 import java.util.ArrayList;
+import java.io.*;
 /**
 *A weapon used to fight enemies in the Dungeon.
 *@author Carson Meadows
@@ -10,11 +11,11 @@ class Gun extends Weapon{
 	private int ammo;
 	private int capacity;
 	private String ammoType;
-        /**
-        *Constructs this Gun from a scanner.
-u       *@author Carson Meadows
-        */
-        public Gun (Scanner scanner) throws Item.NoItemException,Dungeon.IllegalDungeonFormatException{
+	/**
+	 *Constructs this Gun from a scanner.
+	 *@author Carson Meadows
+	 */
+	public Gun (Scanner scanner) throws Item.NoItemException,Dungeon.IllegalDungeonFormatException{
 		super(scanner);
 		this.capacity = Integer.parseInt(scanner.nextLine());
 		this.ammoType=scanner.nextLine();
@@ -66,7 +67,7 @@ u       *@author Carson Meadows
 	 *Reduces this Gun's ammo by 1 unit.
 	 *@author Carson Meadows
 	 */
-	
+
 	public void reduceAmmo() {
 		this.ammo--;
 	}

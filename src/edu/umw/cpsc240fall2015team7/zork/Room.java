@@ -293,5 +293,10 @@ public class Room{
 	void reset(){
 		this.light = this.lightdefault;
 	}
+	ArrayList<Npc> getInhabitants()
+	{
+		return npcs;
+
+	}
 
 }

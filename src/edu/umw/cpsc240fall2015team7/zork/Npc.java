@@ -15,6 +15,7 @@ class Npc{
 	public Npc(String primaryName, int health, int power, int speed,int score, String talkText, boolean aggression){
 		this.primaryName = primaryName;
 		this.secondaryName = "";
+		this.currentRoom=null;
 		this.health = health;
 		this.power = power;
 		this.speed = speed;
@@ -26,6 +27,8 @@ class Npc{
 			return new Npc(this.primaryName, this.health, this.power, this.speed,this.score, this.talkText, this.aggression);
 	}
 	public Npc(Scanner scan, boolean initState) throws NoNpcException{
+		this.secondaryName="";
+		this.currentRoom=null;
 		String current=scan.nextLine();
 		if(current.equals("==="))
 			throw new NoNpcException();
@@ -48,7 +51,6 @@ class Npc{
 		{
 			this.talkText+=current+"\n";
 			current=scan.nextLine();
-
 		}
 	}
 	/**
@@ -113,7 +115,27 @@ class Npc{
 		}
 		return false;
 	}
+	/**
+	Returns power of this
+	@author Jim Bramnick
+	*/
 	int getPower(){
 		return power;
+	}
+	/**
+	Returns currentRoom of this
+	@author Jim Bramnick
+	*/
+	Room getCurrentRoom()
+	{
+		return currentRoom;
+	}
+	/**
+	Sets currentRoom of this to room
+	@author Jim Bramnick
+	*/
+	public void setRoom(Room room)
+	{
+		currentRoom=room;	
 	}
 }
