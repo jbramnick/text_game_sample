@@ -1,5 +1,6 @@
 package edu.umw.cpsc240fall2015team7.zork;
 import java.util.Scanner;
+import java.io.*;
 /**
   *Superclass for all NPC's. An NPC is a non-player character.
   *@author Nathanael Woodhead
@@ -34,8 +35,7 @@ class Npc{
 			throw new NoNpcException();
 		this.primaryName=current;
 		current=scan.nextLine();
-		if(initState)
-			this.health=Integer.parseInt(current);
+		this.health=Integer.parseInt(current);
 		current=scan.nextLine();
 		this.power=Integer.parseInt(current);
 		current=scan.nextLine();
@@ -43,8 +43,7 @@ class Npc{
 		current=scan.nextLine();
 		this.score=Integer.parseInt(current);
 		current=scan.nextLine();
-		if(initState)
-			this.aggression=Boolean.valueOf(current);
+		this.aggression=Boolean.valueOf(current);
 		current=scan.nextLine();
 		this.talkText="";
 		while(!(current.equals("---")))
@@ -137,5 +136,14 @@ class Npc{
 	public void setRoom(Room room)
 	{
 		currentRoom=room;	
+	}
+	/**
+	Stores the this to a text file according to .sav file format
+	*/
+	public void storeState(PrintWriter save)
+	{
+		save.println(this.primaryName+":");
+		save.println(health);
+		save.println(aggression);
 	}
 }

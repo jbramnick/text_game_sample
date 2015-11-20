@@ -25,8 +25,6 @@ class Weapon extends Item{
 	public Weapon(Item i,int speed,int power)
 	{
 		this.primaryName=i.primaryName;
-		//test
-		//System.out.println(primaryName);
 		this.actions=i.actions;
 		this.secondaryNames=i.secondaryNames;
 		this.weight=i.weight;
@@ -34,14 +32,6 @@ class Weapon extends Item{
 		this.speed=speed;
 		this.power=power;
 	}
-	/*
-	public Weapon(String primaryName,Hashtable<String,ArrayList<Event>> actions,ArrayList<String> secondaryNames,int weight,Hashtable<String,String> messages,int speed,int power)
-	{
-		super(primaryName,actions,secondaryNames,weight,messages);
-		this.speed=speed;
-		this.power=power;
-	}
-*/
 	public Weapon(){}
 	/**
 	 *Returns the weight of this.

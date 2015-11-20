@@ -97,6 +97,8 @@ class Gun extends Weapon{
 	 */
 	public void storeState(PrintWriter save)
 	{
+		save.println(this.primaryName+":");
+		save.println(ammo);
 
 	}
 
