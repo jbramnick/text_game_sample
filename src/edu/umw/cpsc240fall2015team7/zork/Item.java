@@ -40,7 +40,8 @@ public class Item{
 	{}
 	/**
 	*Hydrates this Item by reading passed Scanner object. Reads in primary and any
-	*secondary names, weight, and messages used for ItemSpecificCommands. Any consequences will be stored where they can be retrieve at
+	*secondary names, weight, and messages used for ItemSpecificCommands. 
+	*Any consequences will be stored where they can be retrieved
 	*when the verb is called.
 	*@throws Dungeon.IllegalDungeonFormatException When the actions do not match any existing action.
 	*@author Carson Meadows
@@ -50,7 +51,7 @@ public class Item{
 		if(chunk.equals("===")){
 			throw new NoItemException();
 		}
-	       	secondaryNames = new ArrayList<String>();	
+	       	secondaryNames = new ArrayList<String>();
 		try{
 			if(chunk.contains(",")){
 				String[] names = chunk.split(",");
@@ -66,7 +67,7 @@ public class Item{
 			if(scan.hasNextInt()){
 				int mass = scan.nextInt();
 				this.weight = mass;
-				scan.nextLine();
+				//scan.nextLine();
 			}		
 			else{
 				throw new Dungeon.IllegalDungeonFormatException();

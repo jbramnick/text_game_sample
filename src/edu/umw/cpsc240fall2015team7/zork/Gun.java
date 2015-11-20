@@ -18,6 +18,7 @@ u       *@author Carson Meadows
 		super(scanner);
 		this.capacity = Integer.parseInt(scanner.nextLine());
 		this.ammo = capacity;
+		this.power = Integer.parseInt(scanner.nextLine());
 		scanner.nextLine();
 	}
 	/**

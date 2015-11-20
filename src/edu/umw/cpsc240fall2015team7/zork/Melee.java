@@ -7,6 +7,8 @@ import java.util.ArrayList;
   *@author Nathanael Woodhead
   */
 public class Melee extends Weapon{
+	private int speed;
+	private int power;
 	/**
 	  *Creates a new Melee object from a scanner. A Melee weapon is a weapon that hits at close range. This allows opponents to 
 	  *hit back at the same time.
@@ -14,17 +16,29 @@ public class Melee extends Weapon{
 	  */
 	public Melee(Scanner scanner) throws Item.NoItemException,Dungeon.IllegalDungeonFormatException{
 		super(scanner);
-		
-		}
+		String current = scanner.nextLine();
+		this.speed = Integer.parseInt(current);
+		current = scanner.nextLine();
+		this.power = Integer.parseInt(current);
+	}
+	/**
+	*Constructs this with parameters.
+	*@author Carson Meadows
+	*/
 	public Melee(String primaryName,Hashtable<String,ArrayList<Event>> actions,ArrayList<String> secondaryNames,int weight,Hashtable<String,String> messages,int speed,int power){
 	       super(primaryName,actions,secondaryNames,weight,messages,power,speed);
 	       
 	}
+	/**
+	*Constructs and returns a copy of this object.
+	*@author Carson Meadows
+	*/
 	public Melee clone(){
-		return new Melee(this.primaryName,this.actions,this.secondaryNames,this.weight,this.messages,this.speed,this.power);
+		return new Melee(this.primaryName,this.actions,this.secondaryNames,
+			this.weight,this.messages,this.speed,this.power);
 	}
 	/**
-	  *Returns the power.
+	  *Returns the power of this.
 	  *@author Nathanael Woodhead
 	  */
 	public int getPower(){
@@ -38,7 +52,7 @@ public class Melee extends Weapon{
 		return primaryName;
 	}
 	/**
-	*Returns thew weight of this.
+	*Returns the weight of this.
 	*@author Carson Meadows
 	*/
 	public int getWeight(){
