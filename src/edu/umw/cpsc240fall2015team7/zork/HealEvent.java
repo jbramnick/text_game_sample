@@ -11,7 +11,7 @@ class HealEvent extends Event
 	*/
 	public HealEvent(){
 	}
-	public HealEvent(Item i){
+	public HealEvent(Object i){
 
 	}
 	/**

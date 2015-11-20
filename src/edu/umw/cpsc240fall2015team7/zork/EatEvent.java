@@ -9,8 +9,8 @@ class EatEvent extends Event {
 	Create new EatEvent object and set the amt.
 	@author Jim Bramnick
 	*/
-	public EatEvent(int food) {
-	this.food = food;
+	public EatEvent(Object i,String food) {
+	this.food =Integer.parseInt(food);
 	}
 	/**
 	Executes this EatEvent and adds amt to the food in {@link Player}.

@@ -30,7 +30,7 @@ class EventFactory{
 	 *@throws NoEventException If no Event matches the String passed.
 	 *@author Nathanael Woodhead
 	 */
-	ArrayList<Event> parse(Item item,String eventString) throws Dungeon.IllegalDungeonFormatException
+	ArrayList<Event> parse(Object item,String eventString) throws Dungeon.IllegalDungeonFormatException
 	{
 		try
 		{
@@ -53,7 +53,7 @@ class EventFactory{
 					String event=parenEvents.get(i).substring(0,parenEvents.get(i).indexOf("("));
 					event = "edu.umw.cpsc240fall2015team7.zork."+event+"Event";
 					Class clazz=Class.forName(event);
-					Constructor cons=clazz.getDeclaredConstructor(Item.class,String.class);
+					Constructor cons=clazz.getDeclaredConstructor(Object.class,String.class);
 					String value=parenEvents.get(i).substring(parenEvents.get(i).indexOf("(")+1,parenEvents.get(i).indexOf(")"));
 					Event theEvent=(Event)cons.newInstance(item,value);
 					events.add(theEvent);
@@ -67,7 +67,7 @@ class EventFactory{
 					String event=normalEvents.get(i);
 					event = "edu.umw.cpsc240fall2015team7.zork."+event+"Event";
 					Class clazz=Class.forName(event);
-					Constructor cons=clazz.getDeclaredConstructor(Item.class);
+					Constructor cons=clazz.getDeclaredConstructor(Object.class);
 					Event theEvent=(Event)cons.newInstance(item);
 					events.add(theEvent);
 				}

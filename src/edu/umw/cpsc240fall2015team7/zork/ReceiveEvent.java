@@ -9,8 +9,8 @@ class ReceiveEvent extends Event{
 	Constructs this ReceiveEvent.
 	@author Jim Bramnick
 	*/
-	public ReceiveEvent(Item item){
-		this.item=item;
+	public ReceiveEvent(Object item,String s){
+		this.item=(Item)item;
 	}
 	/**
 	Adds the item to the {@link Player} Inventory and adds medkits, ammo and snacks to {@link Player} medkits, ammo and snacks. 
