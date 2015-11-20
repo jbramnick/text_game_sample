@@ -17,6 +17,7 @@ u       *@author Carson Meadows
         public Gun (Scanner scanner) throws Item.NoItemException,Dungeon.IllegalDungeonFormatException{
 		super(scanner);
 		this.capacity = Integer.parseInt(scanner.nextLine());
+		this.ammoType=scanner.nextLine();
 		this.ammo = capacity;
 		scanner.nextLine();
 	}
@@ -31,11 +32,12 @@ u       *@author Carson Meadows
 		super.weight=weight;
 		super.speed = -1;
 	}
-	public Gun(String primaryName,Hashtable<String,ArrayList<Event>> actions,ArrayList<String> secondaryNames,int weight,Hashtable<String,String> messages,int speed,int power,int capacity,int ammo)
+	public Gun(String primaryName,Hashtable<String,ArrayList<Event>> actions,ArrayList<String> secondaryNames,int weight,Hashtable<String,String> messages,int speed,int power,int capacity,int ammo,String ammoType)
 	{
 		super(primaryName,actions,secondaryNames,weight,messages,speed,power);
 		this.capacity=capacity;
 		this.ammo=ammo;
+		this.ammoType=ammoType;
 	}
 	/**
 	 *Adds passed int to this Gun's capacity.
@@ -70,7 +72,7 @@ u       *@author Carson Meadows
 	}
 	public Gun clone()
 	{
-		return new Gun(this.primaryName,this.actions,this.secondaryNames,this.weight,this.messages,this.speed,this.power,this.capacity,this.ammo);
+		return new Gun(this.primaryName,this.actions,this.secondaryNames,this.weight,this.messages,this.speed,this.power,this.capacity,this.ammo,this.ammoType);
 
 	}
 
