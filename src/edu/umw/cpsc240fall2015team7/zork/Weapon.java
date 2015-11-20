@@ -11,7 +11,7 @@ class Weapon extends Item{
 	protected String primaryName;
 	protected Hashtable<String, String> messages = new Hashtable<String, String>();
 	protected ArrayList<String> secondaryNames = new ArrayList <String>();
-	protected int weight, power;
+	protected int weight, speed, power;
 	/**
 	Constructs an instance of this using the Items superclass constructer.
 	@author Jim Bramnick
@@ -19,12 +19,10 @@ class Weapon extends Item{
 	public Weapon(Scanner scan) throws Item.NoItemException, Dungeon.IllegalDungeonFormatException
 	{
 		super(scan);
-		/*
 		String current=scan.nextLine();
 		this.speed=Integer.parseInt(current);
 		current=scan.nextLine();
 		this.power=Integer.parseInt(current);
-		*/
 		current=scan.nextLine();
 	}
 	public Weapon(String primaryName,Hashtable<String,ArrayList<Event>> actions,ArrayList<String> secondaryNames,int weight,Hashtable<String,String> messages,int speed,int power)

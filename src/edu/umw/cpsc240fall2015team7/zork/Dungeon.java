@@ -45,19 +45,6 @@ public class Dungeon{
 				throw new IllegalDungeonFormatException();
 			}
 			String custom = scanner.nextLine();
-                        if(custom.equals("Melee:"))
-                        {
-                                try{
-                                        while(true){
-                                                this.add(new Melee(scanner));
-                                        }
-                                }
-                                catch(Item.NoItemException e){}
-                                custom=scanner.nextLine();
-
-
-
-                        }
 			if(custom.equals("Guns:")){
 				try{
 					while(true){
@@ -67,7 +54,19 @@ public class Dungeon{
 				catch(Item.NoItemException e){}
 				custom=scanner.nextLine();
 			}
+			if(custom.equals("Melee:"))
+			{
+				try{
+					while(true){
+						this.add(new Melee(scanner));
+					}
+				}
+				catch(Item.NoItemException e){}
+				custom=scanner.nextLine();
 
+
+				
+			}
 			if(custom.equals("Items:")){
 				try{
 					while(true){

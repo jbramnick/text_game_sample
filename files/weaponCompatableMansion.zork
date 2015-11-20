@@ -2,45 +2,43 @@ Spencer Mansion
 Zork v1.0
 ===
 Melee:
-CombatKnife,Knife
+Combat Knife
 5
 lick[Wound(3)]:Ow! You cut your tongue.
 examine:The edge could split hairs!
 ---
 25
-20
-Drill,RyobiDrill
+2
+Drill
 6
 drill:You happily drill random objects around you.
 examine:It is a green Ryobi drill with a big drill bit attached.
 ---
 10
-25
+8
 ===
 Guns:
-Handgun,Beretta
+Handgun
 7
 shoot:You fire a round. Now your ears are ringing.
 reload:You reload your weapon.
 examine:An m9 Beretta.
 ---
-15
 100
-Shotgun,M1014
-10
+15
+Shotgun
 shoot:BANG! Now your shoulder hurts.
 reload:You reload your weapon.
-examine:An M1014 semi-automatic shotgun.
 ---
-5
 150
-RocketLauncher,Bazooka,RPG
-15
+5
+Rocket Launcher
+10
 shoot[Disappear,Score(10)]:BOOM! Nothing could have survived that.
 examine:Perfect for a final boss...if there was one.
 ---
-1
 2000
+1
 ===
 Items:
 GreenHerb
