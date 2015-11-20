@@ -8,15 +8,14 @@ stab:You thrust your knife forward, but there are no monsters in the room.
 lick[Wound(3)]:Ow! You cut your tongue.
 examine:The edge could split hairs!
 ---
-20
-30
----
-===
-Gun:
+speed
+power
+Drill
+6
+Gun
+>>>>>>> 7d5935bdd3af6e0f63cf4dd657a868e70c00861f
 Handgun
 7
-15
-100
 shoot:You fire a round. Now your ears are ringing.
 reload:You reload your weapon.
 examine:An m9 Beretta.
