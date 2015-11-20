@@ -34,10 +34,10 @@ class Spawner{
 		ArrayList <String> rooms = GameState.instance().getDungeon().getKeys();
 		int select = selector.nextInt(rooms.size());
 		String RandRoomTitle = rooms.get(select);
-		Room RandRoom = GameState.instance().getDungeon().getRoom(RandRoomTitle);
-		//Create new Opponent in Random Room
-		//Using default values for now
-		Opponent op = new Opponent (100, 20,2, "Zombie", RandRoom);
+		Room room = GameState.instance().getDungeon().getRoom(RandRoomTitle);
+		Npc original = GameState.instance().getDungeon().getSpawnedNpc();
+		Npc clone = original.clone();
+		room.addNpc(clone);
 	}
 }
 

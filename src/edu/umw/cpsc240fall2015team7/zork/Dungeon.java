@@ -19,6 +19,7 @@ public class Dungeon{
 	private Hashtable <String, Npc> npcs=new Hashtable<String, Npc>();
 	private String version;
 	private String filename;
+	private Npc spawnedNpc;
 
 	/**
 	*Constructs this Dungeon from a file.
@@ -230,5 +231,8 @@ public class Dungeon{
 	 */
 	public Item getItem(String name){
 		return items.get(name);
+	}
+	public Npc getSpawnedNpc(){
+		return spawnedNpc;
 	}
 }
