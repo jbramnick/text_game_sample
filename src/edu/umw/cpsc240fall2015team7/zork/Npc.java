@@ -9,7 +9,7 @@ class Npc{
 	protected String secondaryName;
 	protected int health, power, speed;
 	protected String talkText;
-	private boolean aggression;
+	protected boolean aggression;
 	protected Room currentRoom;
 	static class NoNpcException extends Exception{}
 	public Npc(Scanner scan, boolean initState) throws NoNpcException
@@ -36,6 +36,17 @@ class Npc{
 			current=scan.nextLine();
 
 		}
+	}
+	public Npc(String primaryName,int power,int speed,int health,String talkText,boolean aggression,Room currentRoom)
+	{
+		this.primaryName=primaryName;
+		this.power=power;
+		this.speed=speed;
+		this.health=health;
+		this.talkText=talkText;
+		this.aggression=agression;
+		this.currentRoom=Room;
+
 	}
 	/**
 	  *Changes the aggression variable.
