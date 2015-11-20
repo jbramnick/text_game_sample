@@ -45,17 +45,6 @@ public class Dungeon{
 				throw new IllegalDungeonFormatException();
 			}
 			String custom = scanner.nextLine();
-			if(custom.equals("Melee:"))
-			{
-				custom=scanner.nextLine();
-				int count=0;
-				if(custom.contains("num: ")){
-					count=Integer.parseInt(custom.split(" ")[1]);
-
-				}
-				
-
-			}
 			if(custom.equals("Guns:")){
 				try{
 					while(true){
@@ -72,8 +61,17 @@ public class Dungeon{
 					custom = scanner.nextLine();
 				}
 			}
+			if(custom.equals("Melee:"))
+			{
+				custom=scanner.nextLine();
+				int count=0;
+				if(custom.contains("num: ")){
+					count=Integer.parseInt(custom.split(" ")[1]);
+
+				}
 
 
+			}
 			if(custom.equals("Items:")){
 				try{
 					while(true){
@@ -81,8 +79,13 @@ public class Dungeon{
 					}
 				}
 				catch(Item.NoItemException e){}
+				custom=scanner.nextLine();
 			}
-			if(scanner.nextLine().equals("Rooms:")){
+			if(custom.equals("Npc:"))
+			{
+				
+			}
+			if(custom.equals("Rooms:")){
 				boolean x = true;
 				try{
 
@@ -105,7 +108,6 @@ public class Dungeon{
 			else{
 				throw new IllegalDungeonFormatException();
 			}
-
 			if(scanner.nextLine().equals("Exits:")){
 				boolean y = true;
 				while(y){
