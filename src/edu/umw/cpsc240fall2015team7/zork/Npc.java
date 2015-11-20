@@ -12,7 +12,18 @@ class Npc implements Prototype{
 	private boolean aggression;
 	protected Room currentRoom;
 	static class NoNpcException extends Exception{}
-	
+	public Npc(String primaryName, int health, int power, int speed, String talkText, boolean aggression){
+		this.primaryName = primaryName;
+		this.secondaryName = "";
+		this.health = health;
+		this.power = power;
+		this.speed = speed;
+		this.talkText = talkText;
+		this.aggression = aggression;
+	}
+	public Prototype doClone() {
+			return new Npc(this.primaryName, this.health, this.power, this.speed, this.talkText, this.aggression);
+	}
 	public Npc(Scanner scan, boolean initState) throws NoNpcException{
 		String current=scan.nextLine();
 		if(current.equals("==="))

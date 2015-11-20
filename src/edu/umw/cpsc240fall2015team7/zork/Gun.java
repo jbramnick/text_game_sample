@@ -64,6 +64,10 @@ class Gun extends Weapon implements Protyotype{
 	public void reduceAmmo() {
 		this.ammo--;
 	}
-	public Object 
+	public Gun clone()
+	{
+		return new Gun(this.capacity, this.power, this.primaryName,this.weight);
+
+	}
 
 }

@@ -27,6 +27,18 @@ public class Item{
 		this.primaryName = primaryName;
 		this.weight = weight;
 	}
+	public Item(String PrimaryName,Hashtable<String,ArrayList<Event>> actions,ArrayList<String> secondaryNames,int weight,Hashtable<String,String> messages)
+	{
+		Hashtable<String,ArryaList<Event>> actions=new Hashtable<String,ArrayList<Event>>();
+		ArrayList<String> secondaryNames=new ArrayList<String>();
+		Hashtable<String,String> messages=new HashTable<String,String>();
+		this.primaryName=PrimaryName;
+		this.actions=actions;
+		this.secondaryNames=secondaryNames;
+		this.weight=weight;
+		this.messages=messages;
+
+	}
 	public Item()
 	{}
 	/**
@@ -188,5 +200,10 @@ public class Item{
 	  *@author Nathanael Woodhead
 	  */
 	void addEventToVerb(String verb, Event event){
+	}
+	public Item clone()
+	{
+		return new Item(this.primaryName,this.actions,this.secondaryNames,this.weight,this.messages);
+
 	}
 }
