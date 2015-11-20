@@ -1,19 +1,18 @@
 Spencer Mansion
 Zork v1.0
 ===
-Melee
+Melee:
 Combat Knife
 5
 stab:You thrust your knife forward, but there are no monsters in the room.
 lick[Wound(3)]:Ow! You cut your tongue.
 examine:The edge could split hairs!
 ---
-speed
-power
-Drill
-6
-
-Gun
+20
+30
+---
+===
+Gun:
 Handgun
 7
 15
@@ -22,7 +21,11 @@ shoot:You fire a round. Now your ears are ringing.
 reload:You reload your weapon.
 examine:An m9 Beretta.
 ---
-Gun
+20
+30
+---
+15
+---
 Shotgun
 10
 15
@@ -30,10 +33,9 @@ Shotgun
 shoot:BANG! Now your shoulder hurts.
 reload:You reload your weapon.
 ---
-Gun
 Rocket Launcher
 20
-1
+
 300
 shoot[Disappear,Score(10)]:BOOM! Nothing could have survived that.
 examine:Perfect for a final boss...if there was one.
@@ -86,6 +88,15 @@ break[Disappear,Score(50)]:The glass shatters and spills the clear, viscous liqu
 Helicopter
 10000
 fly[Win]:You have escaped from Spencer Mansion with your life! You see the estate explode in an intense inferno.
+---
+Npcs:
+many:400
+zombie
+100
+2
+2
+true
+asl;;ldsldjfsdljfsdl;jfsdljfsaldfj
 ---
 ===
 Rooms:
