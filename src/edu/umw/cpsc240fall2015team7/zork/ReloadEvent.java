@@ -10,9 +10,11 @@ class ReloadEvent extends Event{
 	  *Creates a new ReloadEvent object.
 	  *@author Nathanael Woodhead
 	  */
-	ReloadEvent(Object item, String commandString){
+	ReloadEvent(Object item, String commandString)
+	{
 		this.commandString = commandString;
 	}
+	
 	/**
 	  *Parses the commandString and carries out the necessary actions. 
 	  *The commandString should be in the format "reload gun". This should parse the commandString and extract the gun's name. 

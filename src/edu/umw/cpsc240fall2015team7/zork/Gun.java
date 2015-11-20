@@ -16,10 +16,9 @@ u       *@author Carson Meadows
         */
         public Gun (Scanner scanner) throws Item.NoItemException,Dungeon.IllegalDungeonFormatException{
 		super(scanner);
-		super.power = Integer.parseInt(scanner.nextLine());
-		super.speed = Integer.parseInt(scanner.nextLine());
 		this.capacity = Integer.parseInt(scanner.nextLine());
 		this.ammo = capacity;
+		scanner.nextLine();
 	}
 	/**
 	 *Constructs this Gun.

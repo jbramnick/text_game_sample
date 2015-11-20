@@ -48,18 +48,11 @@ public class Dungeon{
 			if(custom.equals("Guns:")){
 				try{
 					while(true){
-						String type = scanner.nextLine();
-						type = "edu.umw.cpsc240fall2015team7.zork."+type;
-						Class clazz = Class.forName(type);
-						Constructor con = clazz.getDeclaredConstructor(Scanner.class);
-						Weapon weapon = (Weapon)con.newInstance(scanner);
-						this.add(weapon);
-						
+						this.add(new Gun(scanner));
 					}
 				}
-				catch(Exception e){
-					custom = scanner.nextLine();
-				}
+				catch(Item.NoItemException e){}
+				custom=scanner.nextLine();
 			}
 			if(custom.equals("Melee:"))
 			{
