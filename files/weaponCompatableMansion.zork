@@ -13,7 +13,6 @@ power
 Drill
 6
 Gun
->>>>>>> 7d5935bdd3af6e0f63cf4dd657a868e70c00861f
 Handgun
 7
 shoot:You fire a round. Now your ears are ringing.
@@ -150,101 +149,126 @@ Exits:
 Main Hall
 d
 Laboratory
+false
 ---
 Laboratory
 u
 Main Hall
+false
 ---
 Laboratory
 u
 Main Hall
+false
 ---
 Main Hall
 w
 Dining Hall
+false
 ---
 Main Hall
 e
 Gallery
+false
 ---
 Main Hall
 u
 Walkway
+false
 ---
 Dining Hall
 e
 Main Hall
+false
 ---
 Dining Hall
 n
 Sitting Room
+false
 ---
 Sitting Room
 s
 Dining Hall
+false
 ---
 Sitting Room
 n
 Garden
+false
 ---
 Garden
 s
 Sitting Room
+false
 ---
 Garden
 d
 Torture Chamber
+false
 ---
 Torture Chamber
 u
 Garden
+false
 ---
 Gallery
 w
 Main Hall
+false
 ---
 Gallery
 e
 Long Hall
+false
 ---
 Long Hall
 w
 Gallery
+false
 ---
 Long Hall
 n
 Safe Room
+false
 ---
 Safe Room
 s
 Long Hall
+false
 ---
 Walkway
 d
 Main Hall
+false
 ---
 Walkway
 e
 Balcony
+false
 ---
 Walkway
 w
 Library
+false
 ---
 Balcony
 w
 Walkway
+false
 ---
 Library
 e
 Walkway
 ---
+false
 Library
 u
 Attic
+false
 ---
 Attic
 d
 Library
+true
 ---
 ===
