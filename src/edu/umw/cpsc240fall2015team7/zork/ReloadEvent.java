@@ -10,7 +10,7 @@ class ReloadEvent extends Event{
 	  *Creates a new ReloadEvent object.
 	  *@author Nathanael Woodhead
 	  */
-	ReloadEvent(Item item, String commandString){
+	ReloadEvent(Object item, String commandString){
 		this.commandString = commandString;
 	}
 	/**
@@ -22,7 +22,11 @@ class ReloadEvent extends Event{
 	  */
 	String execute(){
 		String weaponString = commandString.substring(7,commandString.length()+1);
-		this.weapon = Player.instance().getItemInInventoryNamed(weaponString);
+		try{
+			this.weapon =(Gun)Player.instance().getItemInInventoryNamed(weaponString);
+		}catch (Exception e){
+			return "You can't reload a " +  weaponString+".";
+		}
 		if(weapon == null){
 			return "You don't have a " + weaponString + ".";
 		}
@@ -34,13 +38,13 @@ class ReloadEvent extends Event{
 		if (supply >= toAdd) {
 			weapon.reload(toAdd);
 			while(toAdd>0){
-				Player.instace.removeItem(ammoType);
+				Player.instance().removeItem(ammoType);
 				toAdd = toAdd - 1;
 			}
 		}else{
 			weapon.reload(supply);
 			while(toAdd>0){
-				Player.instace().removeItem(ammoType);
+				Player.instance().removeItem(ammoType);
 				toAdd = toAdd -1;
 			}
 		}
