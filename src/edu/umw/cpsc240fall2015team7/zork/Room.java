@@ -12,7 +12,7 @@ public class Room{
 	private String desc = "";
 	private ArrayList<Exit> exits;
 	private boolean lightdefault;
-	private boolean light;
+	private boolean light=true;
 	private boolean beenHere = false;
 	private ArrayList<Item> contents;
 	private ArrayList<Npc> npcs  = new ArrayList<Npc>();
