@@ -1,7 +1,7 @@
 package edu.umw.cpsc240fall2015team7.zork;
 import java.util.Scanner;
 /**
-  *Abstract superclass for all NPC's. An NPC is a non-player character.
+  *Superclass for all NPC's. An NPC is a non-player character.
   *@author Nathanael Woodhead
   */
 class Npc{
@@ -11,9 +11,7 @@ class Npc{
 	protected String talkText;
 	private boolean aggression;
 	protected Room currentRoom;
-
 	static class NoNpcException extends Exception{}
-
 	public Npc(Scanner scan, boolean initState) throws NoNpcException
 	{
 		String current=scan.nextLine();
@@ -28,7 +26,8 @@ class Npc{
 		current=scan.nextLine();
 		this.speed=Integer.parseInt(current);
 		current=scan.nextLine();
-		this.aggression=Boolean.valueOf(current);
+		if(initState)
+			this.aggression=Boolean.valueOf(current);
 		current=scan.nextLine();
 		this.talkText="";
 		while(!(current.equals("---")))
@@ -102,5 +101,11 @@ class Npc{
 	}
 	int getPower(){
 		return power;
+	}
+	public static void main(String args[])
+	{
+		File f=new File("npctest.txt");
+		Scanner scan=File(
+
 	}
 }
