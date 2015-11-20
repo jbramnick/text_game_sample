@@ -25,12 +25,14 @@ class Weapon extends Item{
 		this.power=Integer.parseInt(current);
 		current=scan.nextLine();
 	}
-	public Weapon(String primaryName, int weight)
+	public Weapon(String primaryName,Hashtable<String,ArrayList<Event>> actions,ArrayList<String> secondaryNames,int weight,Hashtable<String,String> messages,int speed,int power)
 	{
-		super.primaryName=primaryName;
-		super.weight=weight;
-
+		super(primaryName,actions,secondaryNames,weight,messages);
+		this.speed=speed;
+		this.power=power;
 	}
+
+	public Weapon(
 	public Weapon(){}
 	/**
 	*Returns the weight of this.
@@ -89,6 +91,11 @@ class Weapon extends Item{
 	 */
 	ArrayList<String> getSecondaryNames(){
 		return secondaryNames;
+	}
+	public Weapon clone()
+	{
+		return new Weapon(this.primaryName,this.actions,ArrayList<String> secondaryNames,int weight,Hashtable<String,String> messages,int speed,int power)
+
 	}
 
 }
