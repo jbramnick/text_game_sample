@@ -33,8 +33,6 @@ class Player{
 		this.food = 5;
 		this.score = 0;
 	}
-
-//!!!!!!!!!!!!!!!!! FIX ME !!!!!!!!!!!!!!!!!!!!!!11111one
 	/**
 	 *Adds food to the player.
 	 *@author Nathanael Woodhead
@@ -61,9 +59,9 @@ class Player{
 		}
 	}
 	/**
-	  *Lowers the heath of the player. If this causes the player's health to fall below 1 then this will make a new die event 
-	  *and execute it. This will cause the game to end and the player to loose the game.
-	  *@author Nathanael Woodhead
+	 *Lowers the heath of the player. If this causes the player's health to fall below 1 then this will make a new die event 
+	 *and execute it. This will cause the game to end and the player to loose the game.
+	 *@author Nathanael Woodhead
 	 */
 	String takeWound(int damage){
 		if(damage<0)
@@ -149,6 +147,19 @@ class Player{
 	 */
 	void removeFromInventory(Item item){
 		inventory.remove(item);
+	}
+	/**
+	  Takes a String an removes the first item in the inventory that goes by that name.
+	  @author Nathanael Woodhead
+	  */
+	void removeItem(String name){
+		Item itemNamed;
+		for(Item item : Inventory){
+			if(item.goesBy(name)){
+				itemNamed = item;
+			}
+		}
+		inventory.remove(itemNamed);
 	}
 	/**
 	 *Removes all items from the inventory and returns an ArrayList
@@ -263,13 +274,14 @@ class Player{
 			current=scan.nextLine();
 
 		}
-
-
-
-
-
-
-
 	}
-
+	public int countAmmo(String type){
+		int count = 0;
+		for(Item item : Inventory){
+			if(item.goesBy(type)){
+					count++;
+			}
+		}
+		return count;
+	}
 }
