@@ -1,14 +1,44 @@
 Spencer Mansion
 Zork v1.0
 ===
+Guns:
+Handgun,gun,Beretta
+7
+reload[Reload(Handgun]:You reload your weapon.
+---
+-1
+100
+15
+9mm
+~~~
+Shotgun
+reload[Reload(Shotgun)]:You reload your weapon.
+---
+-1
+150
+5
+12Gauge
+~~~
+RocketLauncher
+10
+reload[Reload(RocketLauncher)]:You reload your weapon.
+---
+-1
+2000
+1
+Rocket
+~~~
+===
 Melee:
-Combat Knife
+CombatKnife
 5
 lick[Wound(3)]:Ow! You cut your tongue.
 examine:The edge could split hairs!
+stabyourself[Die()]:I just could not take it anymore!!!
 ---
+1
 25
-2
+~~~
 Drill
 6
 drill:You happily drill random objects around you.
@@ -16,29 +46,7 @@ examine:It is a green Ryobi drill with a big drill bit attached.
 ---
 10
 8
-===
-Guns:
-Handgun
-7
-shoot:You fire a round. Now your ears are ringing.
-reload:You reload your weapon.
-examine:An m9 Beretta.
----
-100
-15
-Shotgun
-shoot:BANG! Now your shoulder hurts.
-reload:You reload your weapon.
----
-150
-5
-Rocket Launcher
-10
-shoot[Disappear,Score(10)]:BOOM! Nothing could have survived that.
-examine:Perfect for a final boss...if there was one.
----
-2000
-1
+~~~
 ===
 Items:
 GreenHerb
@@ -58,7 +66,7 @@ examine:There is an engraving of a sword on the side.
 ---
 InkRibbon
 1
-examine:You can use this with a typewriter.
+examine[Teleport()]:You can use this with a typewriter.
 ---
 Flask
 5
@@ -88,15 +96,24 @@ Helicopter
 10000
 fly[Win]:You have escaped from Spencer Mansion with your life! You see the estate explode in an intense inferno.
 ---
-Num:25
 Ham
 1
 eat[Eat(15),Disappear]:Yummmm.
 ---
 ===
+Npcs:
+zombie
+100
+25
+2
+25
+true
+Brains!!!!
+---
+===
 Rooms:
 Main Hall
-Weapons: Combat Knife,Shotgun
+Contents: CombatKnife,Shotgun
 You are in a great hall with a tile floor and many decorations. You have a bad feeling about this place.
 ---
 Dining Hall
@@ -104,9 +121,11 @@ Contents: InkRibbon
 This is a fancy dining room with gorgeous paintings on the walls and a lit fireplace. The food on the table has been left mid-meal.
 ---
 Sitting Room
+Contents: RocketLauncher
 A room with comfy chairs. The body of a police officer is on the floor with his throat torn out. His gun is still in his hand.
 ---
 Gallery
+Contents: Handgun
 A stone statue stand in the center of the room.
 ---
 Long Hall
@@ -120,6 +139,8 @@ Garden
 An overgrown garden with pretty statues. There is a staircase leading underground at the end of it.
 ---
 Torture Chamber
+Light: false
+Occupants: zombie 
 Contents: MansionKey
 The only light here is fire from an incinerator. Many coffins line the floor. You can hear groans and taps from the inside of them.
 ---
@@ -135,6 +156,7 @@ Contents: Lighter,Lockpick
 Hundreds of books line the walls. This could be either Heaven or Hell depending on the person. There is a ladder to the attic here.
 ---
 Attic
+Contents: Helicopter
 Cobwebs are everywhere up here! Also, there is a giant snake curled up in a ball. Don't worry, though, he's full from eating your best friend.
 ---
 Laboratory
@@ -268,16 +290,4 @@ d
 Library
 true
 ---
-===
-Npcs:
-Num:400
-zombie
-100
-25
-2
-true
-Hi[Wound(25)]:Brains!!!!
-Dining Hall
----
-Num:
 ===
