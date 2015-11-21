@@ -198,16 +198,22 @@ public class Item{
 	  */
 	void addEventToVerb(String verb, Event event){
 	}
-	public Item clone()
-	{
+	public Item clone(){
 		return new Item(this.primaryName,this.actions,this.secondaryNames,this.weight,this.messages);
 
 	}
 	/**
 	Stores the state of the item 
 	*/
-	void storeState(PrintWriter save)
-	{
+	void storeState(PrintWriter save){
 
 	}
+	/**
+	  Returns an empty String. This is used to find what type of item this is. This method should be overwritten in all subclasses.
+	  @author Nathanael Woodhead
+	  */
+	String type(){
+		return "";
 	}
+}
+

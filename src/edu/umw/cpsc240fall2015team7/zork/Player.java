@@ -8,6 +8,7 @@ import java.io.*;
  *@author Nathanael Woodhead
  */
 class Player{
+	class NoMeleeException extends Exception{}
 	class NoGunException extends Exception{}
 	private ArrayList<String> verbs = new ArrayList<String>();
 	private Room currentRoom;
@@ -47,11 +48,8 @@ class Player{
 			if(clazz.isInstance(i)){
 				return (Gun) i;
 			}
-			else{
-				throw new NoGunException();
-			}
 		}
-		return null;
+		throw new NoGunException();
 	}
 	/**
 	 *Increases food and once food gets too high starts to remove health.
@@ -85,7 +83,7 @@ class Player{
 		if(health == 0){
 			new DieEvent();
 		}
-		return "";
+		return "OWWWWWW! That hurt!";
 	}
 	/**
 	 *Adds a item to this inventory. If the item is already in the inventory then it will quietly do nothing.
@@ -313,5 +311,14 @@ class Player{
 			Event die = new DieEvent();
 			die.execute();
 		}
+	}
+	Melee getMelee() throws NoMeleeException{
+		Class clazz = Melee.class;
+		for(Item i : inventory){
+			if(clazz.isInstance(i)){
+				return (Melee) i;
+			}
+		}
+		throw new NoMeleeException();
 	}
 }
