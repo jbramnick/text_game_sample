@@ -78,6 +78,9 @@ public class Dungeon{
 			if(custom.equals("Npc:"))
 			{
 				try{
+					Npc n=new Npc(scanner);
+					this.spawnedNpc=n;
+					this.addNpc(n);
 					while(true){
 						this.addNpc(new Npc(scanner));
 					}

@@ -2,6 +2,7 @@ package edu.umw.cpsc240fall2015team7.zork;
 import java.util.ArrayList;
 import java.util.Scanner;
 import java.io.*;
+import java.util.Collections;
 /**
 *Room objects make up the Dungeon, can be entered and exited, and can hold Items.
 *@author Carson Meadows
@@ -16,7 +17,10 @@ public class Room{
 	private boolean beenHere = false;
 	private ArrayList<Item> contents;
 	private ArrayList<Npc> npcs  = new ArrayList<Npc>();
-
+	private ArrayList<String> npcNames=new ArrayList<String>();
+	private ArrayList<String> itemNames=new ArrayList<String>();
+	private ArrayList<String> uniqueNpcNames=new ArrayList<String>();
+	private ArrayList<String> uniqueItemNames=new ArrayList<String>();
 	/**
 	*Constructs basic Room.
 	*@author Carson Meadows
@@ -121,13 +125,25 @@ public class Room{
 			if(npcs.size()>0)
 			{
 				text=text+"\n";
+				if(npcs.size()>1)
+				{	
+					for(String npcName:uniqueNpcNames)
+					{	
+						if(Collections.frequency(npcNames, npcName)>1);
+						{
+							
+
+						}
+
+					}
+
+				}
 				for(Npc npc:npcs)
 				{
 					text=text+"\n" + "There is a " + npc.getPrimaryName() + " in this room.";
 				}
 
 			}
-
 			return text;
 		}
 	}
@@ -270,7 +286,11 @@ public class Room{
 	 *@author Carson Meadows
 	 */
 	void add(Item item){
-		contents.add(item.clone());
+		contents.add(item);
+		itemNames.add(item.getPrimaryName());
+		if(!uniqueItemNames.contains(item.getPrimaryName()))
+			uniqueItemNames.add(item.getPrimaryName());	
+
 	}
 	/**
 	 *Returns ArrayList of this Room's contents.
@@ -314,6 +334,9 @@ public class Room{
 	}
 	void addNpc(Npc npc){
 		npcs.add(npc);
+		npcNames.add(npc.getPrimaryName());
+		if(!uniqueNpcNames.contains(npc.getPrimaryName()))
+			uniqueNpcNames.add(npc.getPrimaryName());
 	}
 	void removeNpc(Npc npc){
 		npcs.remove(npc);

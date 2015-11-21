@@ -136,6 +136,10 @@ class Npc{
 	{
 		this.health=health;
 	}
+	public void setSecondaryName(String name)
+	{
+		this.secondaryName=name;
+	}
 	/**
 	Returns primaryName of this
 	*/
