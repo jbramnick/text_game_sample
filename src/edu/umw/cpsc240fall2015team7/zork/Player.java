@@ -8,6 +8,7 @@ import java.io.*;
  *@author Nathanael Woodhead
  */
 class Player{
+	class NoMeleeException extends Exception{}
 	class NoGunException extends Exception{}
 	private ArrayList<String> verbs = new ArrayList<String>();
 	private Room currentRoom;
@@ -310,5 +311,14 @@ class Player{
 			Event die = new DieEvent();
 			die.execute();
 		}
+	}
+	Melee getMelee() throws NoMeleeException{
+		Class clazz = Melee.class;
+		for(Item i : inventory){
+			if(clazz.isInstance(i)){
+				return (Melee) i;
+			}
+		}
+		throw new NoMeleeException();
 	}
 }

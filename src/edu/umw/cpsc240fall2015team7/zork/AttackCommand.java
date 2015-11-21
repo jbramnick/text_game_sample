@@ -1,4 +1,5 @@
 package edu.umw.cpsc240fall2015team7.zork;
+import java.util.ArrayList;
 /**
   *A Command for attacking an NPC.
   *@author Nathanael Woodhead
@@ -24,8 +25,57 @@ class AttackCommand extends Command{
 	  *@author Nathanael Woodhead
 	  */
 	String execute(){
-		CombatEngine.instance().fight(npc,weapon);
-		return "";
+		if(commandString.equals("attack")){
+			return "Attack what?";
+		}
+		if(commandString.contains("with")){
+			String[] commandList = commandString.split(" ");
+			int index = -1;
+			for(int i = 0; i<commandList.length; i++){
+				if(commandList[i].equals("with")){
+					index = i;
+					break;
+				}
+			}
+			Item item;
+			try{
+				item = Player.instance().getItemInInventoryNamed(commandList[index+1]);
+			}catch(Item.NoItemException e){
+				return "You do not have a " + commandList[index+1] + ".";
+			}
+			Class clazz = Melee.class;
+			if(clazz.isInstance(item)){
+				this.weapon = (Melee) item;
+			}
+			else{
+				return "You cannot attack with a " + commandList[index+1] + ".";
+			}
+		}
+		else{
+			try{
+				this.weapon = Player.instance().getMelee();
+			}catch(Player.NoMeleeException e){
+				this.weapon = null;
+			}
+		}
+		ArrayList<Npc> targets = Player.instance().getCurrentRoom().getInhabitants();
+		if(targets.size()==0){
+			return "There is nothing to shoot here.";
+		}
+		ArrayList<String> targetNames = new ArrayList<String>();
+		for(Npc target : targets){
+			targetNames.add(target.getPrimaryName());
+		}
+		for(String target : targetNames){
+			if(commandString.contains(target)){
+				this.npc = targets.get(targetNames.indexOf(target));
+			}
+			else{
+				this.npc = targets.get(0);
+			}
+		}
+		String text = CombatEngine.instance().fight(npc,weapon);
+        	return text;
 	}
 }
 
