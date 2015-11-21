@@ -100,6 +100,9 @@ class Gun extends Weapon{
 		save.println(ammo);
 
 	}
+	String type(){
+		return"Gun";
+	}
 
 
 

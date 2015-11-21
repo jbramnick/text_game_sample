@@ -16,7 +16,6 @@ class ShootCommand extends Command {
         public ShootCommand (String commandString) {
 		this.commandString=commandString;
         }
-
         /**
         *Executes this and depletes the Npc's health and the Gun's ammo. 
 	*Determines the correct amount of health to deplete based on the Gun's power.

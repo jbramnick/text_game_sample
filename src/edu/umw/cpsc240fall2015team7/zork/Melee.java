@@ -63,4 +63,11 @@ public class Melee extends Weapon{
 	public int getSpeed(){
 		return speed;
 	}
+	/**
+	  Returns the string "Melee". Used to tell that this is a Melee and not any other kind of Item.
+	  @author Nathanael Woodhead
+	  */
+	String type(){
+		return "Melee";
+	}
 }

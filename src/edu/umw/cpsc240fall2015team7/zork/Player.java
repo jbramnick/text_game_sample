@@ -47,11 +47,8 @@ class Player{
 			if(clazz.isInstance(i)){
 				return (Gun) i;
 			}
-			else{
-				throw new NoGunException();
-			}
 		}
-		return null;
+		throw new NoGunException();
 	}
 	/**
 	 *Increases food and once food gets too high starts to remove health.
