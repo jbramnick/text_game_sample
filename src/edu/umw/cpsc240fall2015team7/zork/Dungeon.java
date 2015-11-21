@@ -65,9 +65,6 @@ public class Dungeon{
 				}
 				catch(Item.NoItemException e){}
 				custom=scanner.nextLine();
-
-
-				
 			}
 			if(custom.equals("Items:")){
 				try{
@@ -78,19 +75,17 @@ public class Dungeon{
 				catch(Item.NoItemException e){}
 				custom=scanner.nextLine();
 			}
-			
 			if(custom.equals("Npc:"))
 			{
 				try{
 					while(true){
-						new Npc(scanner,initState);
+						this.addNpc(new Npc(scanner));
 					}
 				}
 				catch(Npc.NoNpcException e){}
 				custom=scanner.nextLine();
 
 			}
-			
 			if(custom.equals("Rooms:")){
 
 				boolean x = true;
@@ -161,7 +156,10 @@ public class Dungeon{
 		String title = room.getTitle();
 		map.put(title, room);
 	}
-
+	public void addNpc(Npc npc)
+	{
+		npcs.put(npc.getPrimaryName(),npc);
+	}
 	/**
 	 *Returns the Room object with title roomKey and null if no such Room exists.
 	 *@author Jim Bramnick
@@ -201,8 +199,8 @@ public class Dungeon{
 			map.get(key).storeState(save);
 		}
 		save.println("===");
-		save.println("Gun states:");
-		for(Gun g:this.getInPlayGuns())
+		save.println("Item states:");
+		for(Item g:this.getInPlayItems())
 			g.storeState(save);	
 		save.println("===");
 		save.println("Npc states:");
@@ -280,27 +278,15 @@ public class Dungeon{
 	  Returns an ArrayList of {@link Guns} currently in any of the {@link Room}s of this or in inventory of {@link Player}
 	  @author Jim Bramnick
 	 */
-	ArrayList<Gun> getInPlayGuns()
+	ArrayList<Item> getInPlayItems()
 	{
 		Collection<Room> rooms=map.values();
-		ArrayList<Gun> theItems=new ArrayList<Gun>();
-		Class clazz=Gun.class;
+		ArrayList<Item> theItems=new ArrayList<Item>();
 		for(Room r:rooms)
 		{
-			ArrayList<Item> items=r.getContents();
-			for(int i=0;i<items.size();i++)
-			{	
-				if (clazz.isInstance(items.get(i)))
-					theItems.add((Gun)items.get(i));
-			}
+			theItems.addAll(r.getContents());
 		}
-		ArrayList<Item> items=Player.instance().getInventory();
-		for(int i=0;i<items.size();i++)
-		{
-			if (clazz.isInstance(items.get(i)))
-				theItems.add((Gun)items.get(i));
-
-		}
+		theItems.addAll(Player.instance().getInventory());
 		return theItems;
 	}
 }

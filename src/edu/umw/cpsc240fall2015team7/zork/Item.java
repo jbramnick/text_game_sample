@@ -203,4 +203,11 @@ public class Item{
 		return new Item(this.primaryName,this.actions,this.secondaryNames,this.weight,this.messages);
 
 	}
-}
+	/**
+	Stores the state of the item 
+	*/
+	void storeState(PrintWriter save)
+	{
+
+	}
+	}
