@@ -68,54 +68,54 @@ Items:
 Rocket
 0
 ---
-GreenHerb
+GreenHerb,herb
 2
 use[Wound(-10)]:You consume the herb. Your head feels light.
 sniff:It smells like...
 ---
-MansionKey
+MansionKey,key
 1
 unlock:There are no locked doors here.
 examine[Transform(Sword Key),Score(5)]:There is an engraving of a sword on the side.
 ---
-SwordKey
+SwordKey,key
 1
 unlock:There are no locked sword doors here.
 examine:There is an engraving of a sword on the side.
 ---
-InkRibbon
+InkRibbon,ink
 1
 examine[Teleport]:You can use this with a typewriter.
 ---
-Flask
+Flask,flask
 5
 pour[Transform(empty Flask)]:You pour the contents onto the floor.
 examine:An alcoholic's best friend, or a zombie slayer's...
 ---
-EmptyFlask
+EmptyFlask,flask
 2
 pour:Nothing remains.
 refill[Transform(Flask)]:You fill the flask with a nearby gasoline container.
 ---
-Lighter
+Lighter,lighter
 2
 ignite:The flame is comforting in the darkness.
 ---
-Lockpick
+Lockpick,lockpick
 2
 examine:This can unlock simple locks.
 unlock:Nothing is locked here.
 ---
-T-VirusSample
+T-VirusSample,sample
 5
 inject[Die]:You feel dizzy, dehydrated, and weak. You pass out, and within an hour, arise as a zombie.
 break[Disappear,Score(50)]:The glass shatters and spills the clear, viscous liquid onto the floor.
 ---
-Helicopter
+Helicopter,helicopter
 10000
 fly[Win]:You have escaped from Spencer Mansion with your life! You see the estate explode in an intense inferno.
 ---
-Ham
+Ham,ham
 1
 eat[Eat(15),Disappear]:Yummmm.
 ---
@@ -132,7 +132,7 @@ Brains!!!!
 ===
 Rooms:
 Main Hall
-Contents: CombatKnife,Shotgun,flashlight
+Contents: CombatKnife,Shotgun,flashlight,9mm
 You are in a great hall with a tile floor and many decorations. You have a bad feeling about this place.
 ---
 Dining Hall

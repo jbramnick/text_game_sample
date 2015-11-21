@@ -23,8 +23,9 @@ class ReloadEvent extends Event{
 	  *@author Nathanael Woodhead
 	  */
 	String execute(){
-		String weaponString = commandString.substring(7,commandString.length()+1);
+		String weaponString = commandString.substring(7,commandString.length());
 		try{
+			System.out.println(weaponString);
 			this.weapon =(Gun)Player.instance().getItemInInventoryNamed(weaponString);
 		}catch (Exception e){
 			return "You can't reload a " +  weaponString+".";

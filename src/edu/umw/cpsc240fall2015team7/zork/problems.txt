@@ -1,1 +1,6 @@
-You are attacked as soon as you enter a room with an aggressive Npc
+The secondary names are not working.(seems to work for normal items)
+Reload does not work.
+Light does not work. (if you have a light it automatically makes it light in the room. Regardless of if it is on or not.) 
+When there are more then one Npc in the room only the one that you are fighting will attack you. 
+Need a way to check the ammo state of a gun.
+
