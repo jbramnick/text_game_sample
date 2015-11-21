@@ -83,7 +83,7 @@ class Player{
 		if(health == 0){
 			new DieEvent();
 		}
-		return "";
+		return "OWWWWWW! That hurt!";
 	}
 	/**
 	 *Adds a item to this inventory. If the item is already in the inventory then it will quietly do nothing.
