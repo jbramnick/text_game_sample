@@ -106,50 +106,8 @@ public class Room{
 	 *@author Nathanael Woodhead
 	 */
 	String describe(boolean beenHere){
-		String text = title;
+		String text ="";
 		this.beenHere = beenHere;
-		if (light==false) {
-			if(Player.instance().hasLight()){
-				this.light = true;
-			}else{
-				return "It's too dark to see in here.";
-			}
-		} 
-		if(beenHere == false){
-			beenHere = true;
-			text = text+": "+desc;
-		}
-		if ((GameState.instance().getVerbose()==true)||(beenHere)) {
-			for(Exit exit: exits){
-				text = text +"\n"+exit.describe();
-			}
-		}
-		if(contents.size()>0){
-			text=text+"\n";
-			for(String name:uniqueItemNames)
-			{
-				int time=Collections.frequency(itemNames,name);
-				if (time==1)
-					text=text+"\n"+"There is a " +name+ " in this room.";
-				else
-					text=text+"\n"+"There are "+ time +" " +name+"s in this room.";
-			}
-			text = text.substring(0,text.length()-1);
-		}
-		if(npcs.size()>0)
-		{
-			text=text+"\n";
-			for(String name:uniqueNpcNames)
-			{
-				int time=Collections.frequency(npcNames,name);
-				if (time==1)
-					text=text+"\n"+"There is a " +name+ " in this room.";
-				else
-					text=text+"\n"+"There are "+ time +" " +name+"s in this room.";
-			}
-
-
-		}
 		return text;
 	}
 	/**
