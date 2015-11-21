@@ -25,7 +25,7 @@ class Npc{
 		this.aggression = aggression;
 	}
 	public Npc clone() {
-			return new Npc(this.primaryName, this.health, this.power, this.speed,this.score, this.talkText, this.aggression,this.currentRoom);
+		return new Npc(this.primaryName,this.health, this.power, this.speed,this.score, this.talkText, this.aggression,this.currentRoom);
 	}
 	public Npc(Scanner scan) throws NoNpcException{
 		this.secondaryName="";

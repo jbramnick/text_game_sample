@@ -48,16 +48,14 @@ public class Room{
 		exits = new ArrayList<Exit>();
 		contents = new ArrayList<Item>();
 		String content = scanner.nextLine();
-		if(content.contains("Light: "))
-		{
+		if(content.contains("Light: ")){
 			content=content.split(" ")[1];
 			this.light = Boolean.valueOf(content);
 			this.lightdefault= this.light;
 			content = scanner.nextLine();
 		}
 		if(content.contains("Occupants: ")){
-			if(initState)
-			{
+			if(initState){
 				content = content.substring(11,content.length());
 				String[] list = content.split(",");
 				for(String x : list){

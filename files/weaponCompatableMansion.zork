@@ -52,6 +52,12 @@ examine:It is a green Ryobi drill with a big drill bit attached.
 8
 ~~~
 ===
+Lights:
+flashlight
+1
+light[SwitchLightItem]:Click
+---
+===
 Items:
 9mm
 0
@@ -126,7 +132,7 @@ Brains!!!!
 ===
 Rooms:
 Main Hall
-Contents: CombatKnife,Shotgun
+Contents: CombatKnife,Shotgun,flashlight
 You are in a great hall with a tile floor and many decorations. You have a bad feeling about this place.
 ---
 Dining Hall
@@ -154,7 +160,7 @@ An overgrown garden with pretty statues. There is a staircase leading undergroun
 ---
 Torture Chamber
 Light: false
-Occupants:zombie 
+Occupants: zombie
 Contents: MansionKey
 The only light here is fire from an incinerator. Many coffins line the floor. You can hear groans and taps from the inside of them.
 ---
@@ -166,15 +172,16 @@ Contents: GreenHerb
 The cool wind soothes and refreshes you. In the distance you can see mountains and trees.
 ---
 Library
+Occupants: zombie,zombie,zombie,zombie
 Contents: Lighter,Lockpick
 Hundreds of books line the walls. This could be either Heaven or Hell depending on the person. There is a ladder to the attic here.
 ---
 Attic
+Occupants: zombie
 Contents: Helicopter
 Cobwebs are everywhere up here! Also, there is a giant snake curled up in a ball. Don't worry, though, he's full from eating your best friend.
 ---
 Laboratory
-Occupants: zombie
 Contents: T-VirusSample
 A high-tech lab. A muscular, blue-skinned figure is floating in a large tube filled with an unidentified liquid.
 ---
