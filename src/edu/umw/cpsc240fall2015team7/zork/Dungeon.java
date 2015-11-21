@@ -201,14 +201,7 @@ public class Dungeon{
 		for(String key: keys){
 			map.get(key).storeState(save);
 		}
-		save.println("===");
-		save.println("Item states:");
-		for(Item g:this.getInPlayItems())
-			g.storeState(save);	
-		save.println("===");
-		save.println("Npc states:");
-		for(Npc npc:this.getInPlayNpcs())
-			npc.storeState(save);
+	
 	}
 	/**
 	 *Restores the state of a previously written Dungeon from a .sav file. Starts reading from the passed Scanner's current state.

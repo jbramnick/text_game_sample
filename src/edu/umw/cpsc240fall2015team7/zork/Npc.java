@@ -13,10 +13,10 @@ class Npc{
 	private boolean aggression;
 	protected Room currentRoom;
 	static class NoNpcException extends Exception{}
-	public Npc(String primaryName, int health, int power, int speed,int score, String talkText, boolean aggression){
+	public Npc(String primaryName, int health, int power, int speed,int score, String talkText, boolean aggression,Room currentRoom){
 		this.primaryName = primaryName;
 		this.secondaryName = "";
-		this.currentRoom=null;
+		this.currentRoom=currentRoom;
 		this.health = health;
 		this.power = power;
 		this.speed = speed;
@@ -25,7 +25,7 @@ class Npc{
 		this.aggression = aggression;
 	}
 	public Npc clone() {
-			return new Npc(this.primaryName, this.health, this.power, this.speed,this.score, this.talkText, this.aggression);
+			return new Npc(this.primaryName, this.health, this.power, this.speed,this.score, this.talkText, this.aggression,this.currentRoom);
 	}
 	public Npc(Scanner scan) throws NoNpcException{
 		this.secondaryName="";
@@ -158,10 +158,21 @@ class Npc{
 	/**
 	Stores the this to a text file according to .sav file format
 	*/
-	public void storeState(PrintWriter save)
+	public String storeState()
 	{
-		save.println(this.primaryName+":");
-		save.println(health);
-		save.println(aggression);
+		return this.primaryName+":"+health+"/"+aggression;
+	}
+	public static Npc restoreState(String save, Room r)
+	{
+		if(save.contains(" "))
+			save=save.substring(1,save.length());
+		String value=save.split(":")[1];
+		Npc npc=GameState.instance().getDungeon().getNpc(save.split(":")[0]);
+		String[] values=value.split("/");
+		npc.setHealth(Integer.parseInt(values[0]));
+		npc.setAggressive(Boolean.valueOf(values[1]));
+		npc.setRoom(r);
+		return npc;
+
 	}
 }

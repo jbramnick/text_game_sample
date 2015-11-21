@@ -78,6 +78,10 @@ class Gun extends Weapon{
 	{
 		return ammoType;
 	}
+	public void setAmmo(int ammo)
+	{
+		this.ammo=ammo;
+	}
 	/**
 	 *Reduces this Gun's ammo by 1 unit.
 	 *@author Carson Meadows
@@ -94,11 +98,18 @@ class Gun extends Weapon{
 	  Stroes the state of this Gun according to the zork sav format
 	  @author Jim Bramnick
 	 */
-	public void storeState(PrintWriter save)
+	public String storeState()
 	{
-		save.println(this.primaryName+":");
-		save.println(ammo);
-
+		return super.storeState()+":"+ammo;
+	}
+	public static Gun restore(String save)
+	{
+		if(save.contains(" "))
+			save=save.substring(1,save.length());
+		String ammoString=save.split(":")[1];
+		Gun g=(Gun)GameState.instance().getDungeon().getItem(save.split(":")[0]);
+		g.setAmmo(Integer.parseInt(ammoString));
+		return g;
 	}
 	String type(){
 		return"Gun";

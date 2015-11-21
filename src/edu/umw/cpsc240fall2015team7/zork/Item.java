@@ -205,8 +205,13 @@ public class Item{
 	/**
 	Stores the state of the item 
 	*/
-	void storeState(PrintWriter save){
+	String storeState(){
+		return this.primaryName;
 
+	}
+	public static Item restore(String save)
+	{
+		return GameState.instance().getDungeon().getItem(save);
 	}
 	/**
 	  Returns an empty String. This is used to find what type of item this is. This method should be overwritten in all subclasses.

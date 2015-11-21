@@ -247,7 +247,7 @@ class Player{
 			save.print("Inventory: ");
 			String text = "";
 			for(Item item : inventory){
-				text = text + (item + ",");
+				text = text + (item.storeState() + ",");
 			}
 			text = text.substring(0,text.length()-1);
 			save.println(text);

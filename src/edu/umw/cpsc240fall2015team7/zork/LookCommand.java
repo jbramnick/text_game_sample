@@ -16,6 +16,6 @@ class LookCommand extends Command{
 	*/
 	public String execute(){
 		Room currentRoom = Player.instance().getCurrentRoom();
-		return " \n \n"+currentRoom.describe(false);
+		return " \n \n"+currentRoom.describe(false)+"\n\n";
 	}
 }	
