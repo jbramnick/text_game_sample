@@ -27,7 +27,7 @@ class Npc{
 	public Npc clone() {
 			return new Npc(this.primaryName, this.health, this.power, this.speed,this.score, this.talkText, this.aggression);
 	}
-	public Npc(Scanner scan, boolean initState) throws NoNpcException{
+	public Npc(Scanner scan) throws NoNpcException{
 		this.secondaryName="";
 		this.currentRoom=null;
 		String current=scan.nextLine();
@@ -128,6 +128,20 @@ class Npc{
 	Room getCurrentRoom()
 	{
 		return currentRoom;
+	}
+	/**
+	Sets health to health
+	*/
+	public void setHealth(int health)
+	{
+		this.health=health;
+	}
+	/**
+	Returns primaryName of this
+	*/
+	String getPrimaryName()
+	{
+		return primaryName;
 	}
 	/**
 	Sets currentRoom of this to room

@@ -89,7 +89,6 @@ class Gun extends Weapon{
 	public Gun clone()
 	{
 		return new Gun(super.clone(),this.capacity,this.ammo,this.ammoType);
-
 	}
 	/**
 	  Stroes the state of this Gun according to the zork sav format

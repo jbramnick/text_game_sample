@@ -51,15 +51,14 @@ public class Room{
 			this.lightdefault = light;
 			content = scanner.nextLine();
 		}
-		if(content.contains("Occupants: ")){
+		if(content.contains("Occupents: ")){
 			content = content.substring(11,content.length());
 			String[] list = content.split(",");
 			for(String x : list){
-				addNpc(GameState.instance().getDungeon().getNpc(x));
+				addNpc(d.getNpc(x));
 			}
 			content= scanner.nextLine();
 		}
-
 		if(content.contains("Contents: ")){
 			if(initState == true){
 				content = content.substring(10,content.length());
@@ -100,27 +99,37 @@ public class Room{
 	String describe(boolean beenHere){
 		String text = title;
 		this.beenHere = beenHere;
-	if (light==false) {
-		return "It's too dark to see in here.";
-	} else {
-		if(beenHere == false){
-			beenHere = true;
-			text = text+": "+desc;
-		}
-		if (GameState.instance().getVerbose()==true) {
-			for(Exit exit: exits){
-				text = text +"\n"+exit.describe();
+		if (light==false) {
+			return "It's too dark to see in here.";
+		} else {
+			if(beenHere == false){
+				beenHere = true;
+				text = text+": "+desc;
 			}
-		}
-		if(contents.size()>0){
-			text = text + "\n";
-			for(Item item: contents){
-				text = text + "\n" + "There is a " + item + " here."; 
+			if (GameState.instance().getVerbose()==true) {
+				for(Exit exit: exits){
+					text = text +"\n"+exit.describe();
+				}
 			}
-			text = text.substring(0,text.length()-2);
+			if(contents.size()>0){
+				text = text + "\n";
+				for(Item item: contents){
+					text = text + "\n" + "There is a " + item + " here."; 
+				}
+				text = text.substring(0,text.length()-2);
+			}
+			if(npcs.size()>0)
+			{
+				text=text+"\n";
+				for(Npc npc:npcs)
+				{
+					text=text+"\n" + "There is a " + npc.getPrimaryName() + " in this room.";
+				}
+
+			}
+
+			return text;
 		}
-		return text;
-	}
 	}
 	/**
 	 *Returns information about this Room. If the player has never been here,
@@ -130,25 +139,35 @@ public class Room{
 	 */
 	String describe(){
 		String text = title;
-	if (light==false) {
-		return "It's too dark to see in here.";
-	} else {
-		if(beenHere == false){
-			beenHere = true;
-			text = text+": "+desc;
-		}
-		for(Exit exit: exits){
-			text = text +"\n"+exit.describe();
-		}
-		if(contents.size()>0){
-			text = text + "\n";
-			for(Item item: contents){
-				text = text + "\n" + "There is a " + item + " here."; 
+		if (light==false) {
+			return "It's too dark to see in here.";
+		} else {
+			if(beenHere == false){
+				beenHere = true;
+				text = text+": "+desc;
 			}
+			for(Exit exit: exits){
+				text = text +"\n"+exit.describe();
+			}
+			if(contents.size()>0){
+				text = text + "\n";
+				for(Item item: contents){
+					text = text + "\n" + "There is a " + item + " here."; 
+				}
+			}
+			if(npcs.size()>0)
+			{
+				text=text+"\n";
+				for(Npc npc:npcs)
+				{
+					text=text+"\n" + "There is a " + npc.getPrimaryName() + " in this room.";
+				}
+
+			}
+			return text;
 		}
-		return text;
 	}
-	}
+
 	/**
 	 *Returns an ArrayList of this Room's Exits.
 	 *@author Carson Meadows
@@ -206,6 +225,17 @@ public class Room{
 				stuff = stuff + item+",";
 			}
 			stuff = stuff.substring(0,stuff.length()-1);	
+			save.println(stuff);
+		}
+		if(npcs.size()>0)
+		{
+			String stuff=("Occupents: ");
+			for(Npc npc:npcs)
+			{
+				stuff=stuff+npc.getPrimaryName()+",";
+
+			}
+			stuff=stuff.substring(0,stuff.length()-1);
 			save.println(stuff);
 		}
 		save.println("---");
