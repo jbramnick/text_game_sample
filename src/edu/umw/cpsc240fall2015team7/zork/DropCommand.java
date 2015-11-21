@@ -41,12 +41,15 @@ class DropCommand extends Command{
 				for(Item thing : inventory){
 					currentRoom.add(thing);
 				}
+				PassTimeEvent e=new PassTimeEvent(null,"1");
+				e.execute();
 				return "Dropped everything" + "\n";
 			}
 			Item item = Player.instance().getItemInInventoryNamed(itemName);
 			Player.instance().removeFromInventory(item);
 			currentRoom.add(item);
-
+			PassTimeEvent e=new PassTimeEvent(null,"1");
+			e.execute();
 			return "Dropped: " + itemName + "\n";
 		}
 		catch(Item.NoItemException e){

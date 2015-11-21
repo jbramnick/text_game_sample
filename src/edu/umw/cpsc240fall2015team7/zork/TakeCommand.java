@@ -55,20 +55,27 @@ class TakeCommand extends Command{
 					Player.instance().addToInventory(item);
 					text += item+ "\n"; 
 				}
+				PassTimeEvent e=new PassTimeEvent(null,"1");
+				e.execute();
 				return text;
 			}
 			Item item = currentRoom.getItemNamed(itemName);
 			weight = item.getWeight();
 			int load = Player.instance().getLoad();
 			if((weight + load) > 40){
+
 				return "You cannot carry that much weight.";
 			}
 			currentRoom.remove(item);
 			Player.instance().addToInventory(item);
+			PassTimeEvent e=new PassTimeEvent(null,"1");
+			e.execute();
 			return "Taken: " + itemName+"\n";
 		}
 		catch(Item.NoItemException e){
+
 			return "There is no " + itemName + " here."+ "\n";
 		}
+
 	}
 }

@@ -84,6 +84,15 @@ class Npc{
 		}
 		return text;
 	}
+	public void attackPlayer()
+	{
+		if(Player.instance().getCurrentRoom().getTitle().equals(this.currentRoom.getTitle())&&(aggression))
+		{
+			System.out.println(Player.instance().takeWound(this.power,this.primaryName + " hit you!!!"));
+		}
+			
+
+	}
 	/**
 	  *Returns the aggression value for this NPC. Non-Aggressive Npcs can become aggressive if they are attacked or through an event.
 	  *@author Nathanael Woodhead

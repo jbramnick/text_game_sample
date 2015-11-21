@@ -3,23 +3,22 @@ package edu.umw.cpsc240fall2015team7.zork;
 *The event that toggles the lights.
 *@author Jim Bramnick and Nathanael Woodhead
 */
-class ChangeLightEvent
+class LightUpEvent extends Event
 {
 	/**
-	*Create new ChangeLightEvent object.
+	*Create new LightUpEvent object.
 	*@author Jim Bramnick
 	*/
-	public ChangeLightEvent(){
+	public LightUpEvent(){
 	}
-	public ChangeLightEvent(Object i){
+	public LightUpEvent(Object i){
 	}
 	/**
 	*Executes this Event to change the light of the current room.
-	*A score event is called to add score.
 	*@author Jim Bramnick
 	*/
 	public String execute(){
-
+		Player.instance().getCurrentRoom().changeLight(true);
 		return "";
 	}
 

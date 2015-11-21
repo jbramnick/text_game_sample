@@ -75,15 +75,16 @@ class Player{
 	 *and execute it. This will cause the game to end and the player to loose the game.
 	 *@author Nathanael Woodhead
 	 */
-	String takeWound(int damage){
+	String takeWound(int damage,String message){
 		if(damage<0)
 			damage=damage*-1;
 		health = health - damage;
 
-		if(health == 0){
-			new DieEvent();
+		if(health <= 0){
+			DieEvent d=new DieEvent();
+			d.execute();
 		}
-		return "OWWWWWW! That hurt!";
+		return "OWWWWWW! That hurt! "+message;
 	}
 	/**
 	 *Adds a item to this inventory. If the item is already in the inventory then it will quietly do nothing.

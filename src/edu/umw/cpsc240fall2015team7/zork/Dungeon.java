@@ -136,6 +136,12 @@ public class Dungeon{
 			System.out.println("File not found");
 		}
 	}
+	public ArrayList<Room> getRooms()
+	{
+		ArrayList<Room> rooms=new ArrayList<Room>();
+		rooms.addAll(map.values());
+		return rooms;
+	}
 	/**
 	 *Returns the entry room object of this Dungeon.
 	 *@author Jim Bramnick

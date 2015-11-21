@@ -60,7 +60,7 @@ class AttackCommand extends Command{
 		}
 		ArrayList<Npc> targets = Player.instance().getCurrentRoom().getInhabitants();
 		if(targets.size()==0){
-			return "There is nothing to shoot here.";
+			return "There is nothing to attack here.";
 		}
 		ArrayList<String> targetNames = new ArrayList<String>();
 		for(Npc target : targets){
