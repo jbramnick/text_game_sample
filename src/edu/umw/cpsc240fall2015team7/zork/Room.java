@@ -17,6 +17,8 @@ public class Room{
 	private boolean beenHere = false;
 	private ArrayList<Item> contents;
 	private ArrayList<Npc> npcs  = new ArrayList<Npc>();
+	private ArrayList<String> npcNames=new ArrayList<String>();
+	private ArrayList<String> uniqueNpcNames=new ArrayList<String>();
 	/**
 	*Constructs basic Room.
 	*@author Carson Meadows
@@ -120,15 +122,9 @@ public class Room{
 			}
 			if(npcs.size()>0)
 			{
-				for(Npc npc: npcs)
+				for(String name:uniqueNpcNames)
 				{
-					int count=0;
-					for(Npc npcx:npcs)
-					{
-						if(npc.getPrimaryName().equals(npcx.getPrimaryName()))
-							count++;
-
-					}
+					
 
 				}
 			}
@@ -161,11 +157,24 @@ public class Room{
 			}
 			if(npcs.size()>0)
 			{
-				text=text+"\n";
-				for(Npc npc:npcs)
+				int count=0;
+				 
+				for(Npc npc: npcs)
 				{
-					text=text+"\n" + "There is a " + npc.getPrimaryName() + " in this room.";
+					
+					for(Npc npcx:npcs)
+					{
+						if(npc.getPrimaryName().equals(npcx.getPrimaryName()))
+							count++;
+
+					}
+					if(count==1)
+						text=text+"\n"+ "There is a "+npc.getPrimaryName()+" in this room.";
+					else
+						text=text+"\n"+ "There are "+count+" " +npc.getPrimaryName()+"s in this room.";
+
 				}
+
 
 			}
 			return text;
@@ -319,6 +328,9 @@ public class Room{
 	}
 	void addNpc(Npc npc){
 		npcs.add(npc);
+		npcNames.add(npc.getPrimaryName());
+		if(!uniqueNpcNames.contains(npc.getPrimaryName()))
+			uniqueNpcNames.add(npc.getPrimaryName());
 	}
 	void removeNpc(Npc npc){
 		npcs.remove(npc);
