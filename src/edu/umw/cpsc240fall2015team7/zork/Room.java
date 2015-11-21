@@ -55,7 +55,7 @@ public class Room{
 			this.lightdefault = light;
 			content = scanner.nextLine();
 		}
-		if(content.contains("Occupents: ")){
+		if(content.contains("Occupants: ")){
 			content = content.substring(11,content.length());
 			String[] list = content.split(",");
 			for(String x : list){
@@ -245,7 +245,7 @@ public class Room{
 		}
 		if(npcs.size()>0)
 		{
-			String stuff=("Occupents: ");
+			String stuff=("Occupants: ");
 			for(Npc npc:npcs)
 			{
 				stuff=stuff+npc.getPrimaryName()+",";
