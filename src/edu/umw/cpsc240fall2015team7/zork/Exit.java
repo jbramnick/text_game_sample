@@ -50,7 +50,11 @@ public class Exit{
 	 *@author Carson Meadows
 	 */
 	String describe(){
-		String text = "You can go " + dir + " to " + dest.getTitle()+ ".";
+		String text="";
+		if(locked)
+			text = "There is an exit " + dir + " to " + dest.getTitle()+ " but it is locked.";
+		else
+			text = "You can go " + dir + " to " + dest.getTitle()+ ".";
 		return text;
 	}
 	/**
@@ -67,6 +71,14 @@ public class Exit{
 	public Room getDest(){
 
 		return dest;
+	}
+	public boolean isLocked()
+	{
+		return locked;
+	}
+	public void setLocked(boolean lock)
+	{
+		this.locked=lock;
 	}
 	public boolean unlock(){
 		if(locked == true){

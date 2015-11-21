@@ -13,10 +13,10 @@ class Npc{
 	private boolean aggression;
 	protected Room currentRoom;
 	static class NoNpcException extends Exception{}
-	public Npc(String primaryName, int health, int power, int speed,int score, String talkText, boolean aggression){
+	public Npc(String primaryName, int health, int power, int speed,int score, String talkText, boolean aggression,Room currentRoom){
 		this.primaryName = primaryName;
 		this.secondaryName = "";
-		this.currentRoom=null;
+		this.currentRoom=currentRoom;
 		this.health = health;
 		this.power = power;
 		this.speed = speed;
@@ -25,7 +25,7 @@ class Npc{
 		this.aggression = aggression;
 	}
 	public Npc clone() {
-			return new Npc(this.primaryName, this.health, this.power, this.speed,this.score, this.talkText, this.aggression);
+			return new Npc(this.primaryName, this.health, this.power, this.speed,this.score, this.talkText, this.aggression,this.currentRoom);
 	}
 	public Npc(Scanner scan) throws NoNpcException{
 		this.secondaryName="";
@@ -65,6 +65,7 @@ class Npc{
 	  *@author Nathanael Woodhead
 	  */
 	String die(){
+		this.currentRoom.removeNpc(this);
 		return "The "+primaryName+ " is dead.";
 	}
 	/**
@@ -82,6 +83,15 @@ class Npc{
 			text += primaryName + " is hit for " + damage + " health.\n";
 		}
 		return text;
+	}
+	public void attackPlayer()
+	{
+		if(Player.instance().getCurrentRoom().getTitle().equals(this.currentRoom.getTitle())&&(aggression))
+		{
+			System.out.println(Player.instance().takeWound(this.power,this.primaryName + " hit you!!!"));
+		}
+			
+
 	}
 	/**
 	  *Returns the aggression value for this NPC. Non-Aggressive Npcs can become aggressive if they are attacked or through an event.
@@ -158,10 +168,19 @@ class Npc{
 	/**
 	Stores the this to a text file according to .sav file format
 	*/
-	public void storeState(PrintWriter save)
+	public String storeState()
 	{
-		save.println(this.primaryName+":");
-		save.println(health);
-		save.println(aggression);
+		return this.primaryName+":"+health+"/"+aggression;
+	}
+	public static Npc restoreState(String save, Room r)
+	{
+		String value=save.split(":")[1];
+		Npc npc=GameState.instance().getDungeon().getNpc(save.split(":")[0]);
+		String[] values=value.split("/");
+		npc.setHealth(Integer.parseInt(values[0]));
+		npc.setAggressive(Boolean.valueOf(values[1]));
+		npc.setRoom(r);
+		return npc;
+
 	}
 }

@@ -29,7 +29,7 @@ class MovementCommand extends Command{
 			return pass.execute();
 		}
 		catch(Exit.NoExitException e){
-			return "There is no exit there.";
+			return "You can not go that way.";
 		}
 	}
 

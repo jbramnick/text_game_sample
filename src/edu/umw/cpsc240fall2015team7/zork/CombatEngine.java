@@ -12,24 +12,34 @@ class CombatEngine{
 	}
 	String fight(Npc npc, Weapon weapon){
 		int npcSpeed = npc.getSpeed();
-		int weaponSpeed = weapon.getSpeed();
-		String text = "";
-		int npcDammage = npc.getPower();
-		int playerDammage = weapon.getPower();
-		
-		if(npcSpeed == weaponSpeed){
-			text = text + npc.takeWound(playerDammage);
-			text = text + Player.instance().takeWound(npcDammage);
+		int playerSpeed=0;
+		int playerDamage=0;
+		if(weapon==null)
+		{
+			playerSpeed=5;
+			playerDamage=10;
+
 		}
-		else if(npcSpeed > weaponSpeed){
-			text = text + npc.takeWound(playerDammage);
+		else
+		{
+			playerSpeed=weapon.getSpeed();
+			playerDamage=weapon.getPower();
+		}
+		String text = "";
+		int npcDamage = npc.getPower();
+		if(npcSpeed == playerSpeed){
+			text = text + npc.takeWound(playerDamage);
+			text = text + Player.instance().takeWound(npcDamage,npc.getPrimaryName()+ " hit you!!!");
+		}
+		else if(npcSpeed > playerSpeed){
+			text = text + npc.takeWound(playerDamage);
 			if(npc.isAlive()){
-				text += Player.instance().takeWound(npcDammage);
+				text = text + Player.instance().takeWound(npcDamage,npc.getPrimaryName()+ " hit you!!!");
 			}
 		}
 		else{
-			text += Player.instance().takeWound(npcDammage);
-			text += npc.takeWound(playerDammage);
+			text = text + Player.instance().takeWound(npcDamage,npc.getPrimaryName()+ " hit you!!!");
+			text += npc.takeWound(playerDamage);
 		}
 		return text;
 	}

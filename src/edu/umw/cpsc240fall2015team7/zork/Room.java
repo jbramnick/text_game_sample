@@ -17,6 +17,10 @@ public class Room{
 	private boolean beenHere = false;
 	private ArrayList<Item> contents;
 	private ArrayList<Npc> npcs  = new ArrayList<Npc>();
+	private ArrayList<String> npcNames=new ArrayList<String>();
+	private ArrayList<String> uniqueNpcNames=new ArrayList<String>();
+	private ArrayList<String> itemNames=new ArrayList<String>();
+	private ArrayList<String> uniqueItemNames=new ArrayList<String>();
 	/**
 	*Constructs basic Room.
 	*@author Carson Meadows
@@ -48,14 +52,19 @@ public class Room{
 		{
 			content=content.split(" ")[1];
 			this.light = Boolean.valueOf(content);
-			this.lightdefault = light;
+			this.lightdefault= this.light;
 			content = scanner.nextLine();
 		}
 		if(content.contains("Occupants: ")){
-			content = content.substring(11,content.length());
-			String[] list = content.split(",");
-			for(String x : list){
-				addNpc(d.getNpc(x));
+			if(initState)
+			{
+				content = content.substring(11,content.length());
+				String[] list = content.split(",");
+				for(String x : list){
+					Npc npc=d.getNpc(x);
+					npc.setRoom(this);
+					addNpc(npc);
+				}
 			}
 			content= scanner.nextLine();
 		}
@@ -106,31 +115,36 @@ public class Room{
 				beenHere = true;
 				text = text+": "+desc;
 			}
-			if (GameState.instance().getVerbose()==true) {
+			if ((GameState.instance().getVerbose()==true)||(beenHere)) {
 				for(Exit exit: exits){
 					text = text +"\n"+exit.describe();
 				}
 			}
 			if(contents.size()>0){
-				text = text + "\n";
-				for(Item item: contents){
-					text = text + "\n" + "There is a " + item + " here."; 
+				text=text+"\n";
+				for(String name:uniqueItemNames)
+				{
+					int time=Collections.frequency(itemNames,name);
+					if (time==1)
+						text=text+"\n"+"There is a " +name+ " in this room.";
+					else
+						text=text+"\n"+"There are "+ time +" " +name+"s in this room.";
 				}
 				text = text.substring(0,text.length()-1);
 			}
 			if(npcs.size()>0)
 			{
-				for(Npc npc: npcs)
+				text=text+"\n";
+				for(String name:uniqueNpcNames)
 				{
-					int count=0;
-					for(Npc npcx:npcs)
-					{
-						if(npc.getPrimaryName().equals(npcx.getPrimaryName()))
-							count++;
-
-					}
-
+					int time=Collections.frequency(npcNames,name);
+					if (time==1)
+						text=text+"\n"+"There is a " +name+ " in this room.";
+					else
+						text=text+"\n"+"There are "+ time +" " +name+"s in this room.";
 				}
+
+
 			}
 			return text;
 		}
@@ -154,17 +168,26 @@ public class Room{
 				text = text +"\n"+exit.describe();
 			}
 			if(contents.size()>0){
-				text = text + "\n";
-				for(Item item: contents){
-					text = text + "\n" + "There is a " + item + " here."; 
+				text=text+"\n";
+				for(String name:uniqueItemNames)
+				{
+					int time=Collections.frequency(itemNames,name);
+					if (time==1)
+						text=text+"\n"+"There is a " +name+ " in this room.";
+					else
+						text=text+"\n"+"There are "+ time +" " +name+"s in this room.";
 				}
 			}
 			if(npcs.size()>0)
 			{
 				text=text+"\n";
-				for(Npc npc:npcs)
+				for(String name:uniqueNpcNames)
 				{
-					text=text+"\n" + "There is a " + npc.getPrimaryName() + " in this room.";
+					int time=Collections.frequency(npcNames,name);
+					if (time==1)
+						text=text+"\n"+"There is a " +name+ " in this room.";
+					else
+						text=text+"\n"+"There are "+ time +" " +name+"s in this room.";
 				}
 
 			}
@@ -203,7 +226,7 @@ public class Room{
 		Exit out = null;
 		boolean found = false;
 		for(Exit exit : exits){
-			if(exit.getDir().equals(dir)){
+			if((exit.getDir().equals(dir))&&(!exit.isLocked())){
 				out = exit;
 				found = true;
 			}}
@@ -223,10 +246,11 @@ public class Room{
 	void storeState(PrintWriter save){
 		save.println(getTitle() +":");
 		save.println("beenHere="+beenHere);
+		save.println("light="+light);
 		if(contents.size()>0){
 			String stuff = ("Contents: ");
 			for(Item item : contents){
-				stuff = stuff + item+",";
+				stuff = stuff + item.storeState()+",";
 			}
 			stuff = stuff.substring(0,stuff.length()-1);	
 			save.println(stuff);
@@ -236,8 +260,18 @@ public class Room{
 			String stuff=("Occupants: ");
 			for(Npc npc:npcs)
 			{
-				stuff=stuff+npc.getPrimaryName()+",";
+				stuff=stuff+npc.storeState()+",";
 
+			}
+			stuff=stuff.substring(0,stuff.length()-1);
+			save.println(stuff);
+		}
+		if(exits.size()>0)
+		{
+			String stuff="Exits: ";
+			for(Exit e:exits)
+			{
+				stuff+=e.isLocked()+",";
 			}
 			stuff=stuff.substring(0,stuff.length()-1);
 			save.println(stuff);
@@ -259,15 +293,43 @@ public class Room{
 			beenHere = false;
 		}
 		String inventory = restore.nextLine();
+		if(inventory.contains("light="))
+		{
+			this.light=Boolean.valueOf(inventory.split("=")[1]);
+			inventory=restore.nextLine();
+		}
 		if(inventory.contains("Contents: ")){
 			inventory = inventory.substring(10, inventory.length());
 			String [] inventroryList = inventory.split(",");
 			for(String name : inventroryList){
-				Item item = d.getItem(name);
+				Item item=null;
+				if(name.contains(":"))
+					item=Gun.restore(name);
+				else
+					item = Item.restore(name);
 				this.add(item);
 			}
 			inventory=restore.nextLine();
 		}
+		if(inventory.contains("Occupants: ")){
+			inventory = inventory.substring(11, inventory.length());
+			String [] inventroryList = inventory.split(",");
+			for(String name : inventroryList){
+				Npc item = Npc.restoreState(name,this);
+				this.addNpc(item);
+			}
+			inventory=restore.nextLine();
+		}
+		if(inventory.contains("Exits: "))
+		{
+			inventory = inventory.split(" ")[1];
+			String [] inventroryList = inventory.split(",");
+			for(int i=0;i<exits.size();i++){
+				exits.get(i).setLocked(Boolean.valueOf(inventroryList[i]));
+			}
+			inventory=restore.nextLine();
+		}
+
 	}
 	/**
 	 *Adds passed Item to this Room's contents.
@@ -275,6 +337,9 @@ public class Room{
 	 */
 	void add(Item item){
 		contents.add(item);
+		itemNames.add(item.getPrimaryName());
+		if(!uniqueItemNames.contains(item.getPrimaryName()))
+			uniqueItemNames.add(item.getPrimaryName());
 
 	}
 	/**
@@ -290,6 +355,9 @@ public class Room{
 	 */
 	void remove(Item item){
 		contents.remove(item);
+		itemNames.remove(item.getPrimaryName());
+		if(!itemNames.contains(item.getPrimaryName()))
+			uniqueItemNames.remove(item.getPrimaryName());
 	}
 	/**
 	 *Returns Item in this Room whose name is the parameter. 
@@ -319,15 +387,22 @@ public class Room{
 	}
 	void addNpc(Npc npc){
 		npcs.add(npc);
+		npcNames.add(npc.getPrimaryName());
+		if(!uniqueNpcNames.contains(npc.getPrimaryName()))
+			uniqueNpcNames.add(npc.getPrimaryName());
 	}
 	void removeNpc(Npc npc){
 		npcs.remove(npc);
+		npcNames.remove(npc.getPrimaryName());
+		if(!npcNames.contains(npc.getPrimaryName()))
+			uniqueNpcNames.remove(npc.getPrimaryName());
 	}
 	void changeLight(boolean light){
 		this.light = light;
 	}
 	void reset(){
-		this.light = this.lightdefault;
+		if(!this.title.equals(Player.instance().getCurrentRoom().getTitle()))
+			this.light = this.lightdefault;
 	}
 	ArrayList<Npc> getInhabitants()
 	{

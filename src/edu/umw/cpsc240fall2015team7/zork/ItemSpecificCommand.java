@@ -29,6 +29,8 @@ class ItemSpecificCommand extends Command{
 			System.out.println(item.getMessageForVerb(verb));
 			String text="";
 			text+=item.executeEventsFor(verb);
+			PassTimeEvent e=new PassTimeEvent(null,"1");
+			e.execute();
 			return text;
 		}
 		catch(Item.NoItemException e){
@@ -38,6 +40,8 @@ class ItemSpecificCommand extends Command{
 				System.out.println(i.getMessageForVerb(verb));
 				String t="";
 				t+=i.executeEventsFor(verb);
+				PassTimeEvent ex=new PassTimeEvent(null,"1");
+				ex.execute();
 				return t;
 
 			}
