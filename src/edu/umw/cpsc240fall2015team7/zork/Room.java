@@ -116,7 +116,7 @@ public class Room{
 				for(Item item: contents){
 					text = text + "\n" + "There is a " + item + " here."; 
 				}
-				text = text.substring(0,text.length()-2);
+				text = text.substring(0,text.length()-1);
 			}
 			if(npcs.size()>0)
 			{

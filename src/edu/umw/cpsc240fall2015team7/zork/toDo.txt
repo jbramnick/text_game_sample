@@ -1,6 +1,3 @@
-redesign items and weapons and snacks medkits and ammo(nathan)
-make npcs
 make unique with conversations
-make lighting a thing
 finsh combat engine
 edit featurelist as we go along
