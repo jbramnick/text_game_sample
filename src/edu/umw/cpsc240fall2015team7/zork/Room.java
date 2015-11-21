@@ -122,11 +122,17 @@ public class Room{
 			}
 			if(npcs.size()>0)
 			{
+				text=text+"\n";
 				for(String name:uniqueNpcNames)
 				{
-					
-
+					int time=Collections.frequency(npcNames,name);
+					if (time==1)
+						text=text+"\n"+"There is a " +name+ " in this room.";
+					else
+						text=text+"\n"+"There are "+ time +" " +name+"s in this room.";
 				}
+
+
 			}
 			return text;
 		}
@@ -157,24 +163,15 @@ public class Room{
 			}
 			if(npcs.size()>0)
 			{
-				int count=0;
-				 
-				for(Npc npc: npcs)
+				text=text+"\n";
+				for(String name:uniqueNpcNames)
 				{
-					
-					for(Npc npcx:npcs)
-					{
-						if(npc.getPrimaryName().equals(npcx.getPrimaryName()))
-							count++;
-
-					}
-					if(count==1)
-						text=text+"\n"+ "There is a "+npc.getPrimaryName()+" in this room.";
+					int time=Collections.frequency(npcNames,name);
+					if (time==1)
+						text=text+"\n"+"There is a " +name+ " in this room.";
 					else
-						text=text+"\n"+ "There are "+count+" " +npc.getPrimaryName()+"s in this room.";
-
+						text=text+"\n"+"There are "+ time +" " +name+"s in this room.";
 				}
-
 
 			}
 			return text;
