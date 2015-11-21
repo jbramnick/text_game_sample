@@ -104,8 +104,6 @@ class Gun extends Weapon{
 	}
 	public static Gun restore(String save)
 	{
-		if(save.contains(" "))
-			save=save.substring(1,save.length());
 		String ammoString=save.split(":")[1];
 		Gun g=(Gun)GameState.instance().getDungeon().getItem(save.split(":")[0]);
 		g.setAmmo(Integer.parseInt(ammoString));

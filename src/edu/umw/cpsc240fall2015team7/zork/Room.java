@@ -52,7 +52,7 @@ public class Room{
 		{
 			content=content.split(" ")[1];
 			this.light = Boolean.valueOf(content);
-			this.lightdefault = light;
+			this.lightdefault= this.light;
 			content = scanner.nextLine();
 		}
 		if(content.contains("Occupants: ")){
@@ -225,7 +225,7 @@ public class Room{
 		Exit out = null;
 		boolean found = false;
 		for(Exit exit : exits){
-			if(exit.getDir().equals(dir)){
+			if((exit.getDir().equals(dir))&&(!exit.isLocked())){
 				out = exit;
 				found = true;
 			}}
@@ -245,6 +245,7 @@ public class Room{
 	void storeState(PrintWriter save){
 		save.println(getTitle() +":");
 		save.println("beenHere="+beenHere);
+		save.println("light="+light);
 		if(contents.size()>0){
 			String stuff = ("Contents: ");
 			for(Item item : contents){
@@ -260,6 +261,16 @@ public class Room{
 			{
 				stuff=stuff+npc.storeState()+",";
 
+			}
+			stuff=stuff.substring(0,stuff.length()-1);
+			save.println(stuff);
+		}
+		if(exits.size()>0)
+		{
+			String stuff="Exits: ";
+			for(Exit e:exits)
+			{
+				stuff+=e.isLocked()+",";
 			}
 			stuff=stuff.substring(0,stuff.length()-1);
 			save.println(stuff);
@@ -281,6 +292,11 @@ public class Room{
 			beenHere = false;
 		}
 		String inventory = restore.nextLine();
+		if(inventory.contains("light="))
+		{
+			this.light=Boolean.valueOf(inventory.split("=")[1]);
+			inventory=restore.nextLine();
+		}
 		if(inventory.contains("Contents: ")){
 			inventory = inventory.substring(10, inventory.length());
 			String [] inventroryList = inventory.split(",");
@@ -295,11 +311,20 @@ public class Room{
 			inventory=restore.nextLine();
 		}
 		if(inventory.contains("Occupants: ")){
-			inventory = inventory.substring(10, inventory.length());
+			inventory = inventory.substring(11, inventory.length());
 			String [] inventroryList = inventory.split(",");
 			for(String name : inventroryList){
 				Npc item = Npc.restoreState(name,this);
 				this.addNpc(item);
+			}
+			inventory=restore.nextLine();
+		}
+		if(inventory.contains("Exits: "))
+		{
+			inventory = inventory.split(" ")[1];
+			String [] inventroryList = inventory.split(",");
+			for(int i=0;i<exits.size();i++){
+				exits.get(i).setLocked(Boolean.valueOf(inventroryList[i]));
 			}
 			inventory=restore.nextLine();
 		}

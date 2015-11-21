@@ -4,14 +4,14 @@ import java.util.ArrayList;
 The {@link Event} used to unlock locked {@link Exit}s.
 @author Jim Bramnick
 */
-class UnlockEvent{
+class UnlockEvent extends Event{
 	class NoLockedDoorException extends Exception{}
 
 	/**
 	Constructs this UnlockEvent object.
 	@author Jim Bramnick
 	*/
-	public UnlockEvent(){
+	public UnlockEvent(Object o){
 		
 	}
 	/**
@@ -32,7 +32,7 @@ class UnlockEvent{
 			//throw new UnlockEvent.NoLockedDoorException();
 			return "";
 		}
-		return "Door Unlocked!";
+		return "Doors Unlocked!";
 	}
 
 }

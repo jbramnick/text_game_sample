@@ -65,6 +65,7 @@ class Npc{
 	  *@author Nathanael Woodhead
 	  */
 	String die(){
+		this.currentRoom.removeNpc(this);
 		return "The "+primaryName+ " is dead.";
 	}
 	/**
@@ -164,8 +165,6 @@ class Npc{
 	}
 	public static Npc restoreState(String save, Room r)
 	{
-		if(save.contains(" "))
-			save=save.substring(1,save.length());
 		String value=save.split(":")[1];
 		Npc npc=GameState.instance().getDungeon().getNpc(save.split(":")[0]);
 		String[] values=value.split("/");
