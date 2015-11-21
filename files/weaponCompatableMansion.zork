@@ -4,18 +4,21 @@ Zork v1.0
 Guns:
 Handgun,gun,Beretta
 7
-reload[Reload(Handgun]:You reload your weapon.
+reload[Reload(Handgun)]:You reload your weapon.
 ---
 -1
 100
+
 15
 9mm
 ~~~
 Shotgun
+4
 reload[Reload(Shotgun)]:You reload your weapon.
 ---
 -1
 150
+
 5
 12Gauge
 ~~~
@@ -25,6 +28,7 @@ reload[Reload(RocketLauncher)]:You reload your weapon.
 ---
 -1
 2000
+
 1
 Rocket
 ~~~
@@ -34,7 +38,7 @@ CombatKnife
 5
 lick[Wound(3)]:Ow! You cut your tongue.
 examine:The edge could split hairs!
-stabyourself[Die()]:I just could not take it anymore!!!
+stabyourself[Die]:I just could not take it anymore!!!
 ---
 1
 25
@@ -49,6 +53,15 @@ examine:It is a green Ryobi drill with a big drill bit attached.
 ~~~
 ===
 Items:
+9mm
+0
+---
+12Gauge
+0
+---
+Rocket
+0
+---
 GreenHerb
 2
 use[Wound(-10)]:You consume the herb. Your head feels light.
@@ -66,7 +79,7 @@ examine:There is an engraving of a sword on the side.
 ---
 InkRibbon
 1
-examine[Teleport()]:You can use this with a typewriter.
+examine[Teleport]:You can use this with a typewriter.
 ---
 Flask
 5
@@ -101,7 +114,7 @@ Ham
 eat[Eat(15),Disappear]:Yummmm.
 ---
 ===
-Npcs:
+Npc:
 zombie
 100
 25
@@ -136,11 +149,12 @@ Contents: Flask
 A small storage room. There is a large box and a typewriter here.
 ---
 Garden
+Contents: Ham
 An overgrown garden with pretty statues. There is a staircase leading underground at the end of it.
 ---
 Torture Chamber
 Light: false
-Occupants: zombie 
+Occupants:zombie 
 Contents: MansionKey
 The only light here is fire from an incinerator. Many coffins line the floor. You can hear groans and taps from the inside of them.
 ---
@@ -278,8 +292,8 @@ false
 Library
 e
 Walkway
----
 false
+---
 Library
 u
 Attic
