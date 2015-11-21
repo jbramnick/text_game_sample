@@ -1,7 +1,5 @@
 The secondary names are not working.(seems to work for normal items)
 Reload does not work.
-Light does not work. (if you have a light it automatically makes it light in the room. Regardless of if it is on or not.) 
-When there are more then one Npc in the room only the one that you are fighting will attack you. 
 Need a way to check the ammo state of a gun.
 Light Items do not save and restore.
 Need to add a way to put more then one item in a room for example ammo(50)
