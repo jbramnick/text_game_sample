@@ -1,0 +1,3 @@
+look Causes the description to be double printed.
+
+Combat does not work

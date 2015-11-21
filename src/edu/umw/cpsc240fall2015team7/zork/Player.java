@@ -30,7 +30,7 @@ class Player{
 	private Player(){
 		this.inventory = new ArrayList<Item>();
 		this.health = 100;
-		this.food = 5;
+		this.food = 10000;
 		this.score = 0;
 	}
 	/**
@@ -49,6 +49,7 @@ class Player{
 		food = food - 1;
 		if (food < 0){
 			health = health - 5;
+			checkDead();
 			return "You are starving to death";
 		}
 		else if (food < 2){
@@ -293,5 +294,11 @@ class Player{
 		Item i=new Item("test",0);
 
 
+	}
+	void checkDead(){
+		if(health<0){
+			Event die = new DieEvent();
+			die.execute();
+		}
 	}
 }

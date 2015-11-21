@@ -11,7 +11,7 @@ public class Room{
 	private String title;
 	private String desc = "";
 	private ArrayList<Exit> exits;
-	private boolean lightdefault;
+	private boolean lightdefault = true;
 	private boolean light=true;
 	private boolean beenHere = false;
 	private ArrayList<Item> contents;
@@ -37,7 +37,6 @@ public class Room{
 	
 	public Room(Scanner scanner,Dungeon d, boolean initState) throws NoRoomException{
 		this.title = scanner.nextLine();
-		System.out.println(title);
 		if(this.getTitle().equals("===")){
 			throw new NoRoomException();
 		}
