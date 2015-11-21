@@ -6,11 +6,12 @@ import java.util.Scanner;
   */
 class Light extends Item{
 	private int battery;
-	private boolean power;
+	private Boolean power;
+	
 	public Light(Scanner scanner) throws Item.NoItemException, Dungeon.IllegalDungeonFormatException{
 		super(scanner);
 		this.battery = 100;
-		this.power = false;
+		this.power = true;
 	}
 	/**
 	  Constructor for used when cloning this item. Accessed by the {@link clone()} method.
@@ -34,18 +35,15 @@ class Light extends Item{
 	}
 	String togglePower(){
 		if(this.power == false){
-			this.power = true;
-			this.power = power;
-			System.out.println("Power: " + power);
+			this.power = !power;
 			return "You turn the light on.";
 		}
 		else{
-			this.power = false;
+			this.power = !power;
 			return "You turn the light off.";
 		}
 	}
 	boolean getPower(){
-		System.out.println(power+"afda");
 		return this.power;
 	}
 }
