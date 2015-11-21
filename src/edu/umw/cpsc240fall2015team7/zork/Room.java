@@ -128,11 +128,19 @@ public class Room{
 				if(npcs.size()>1)
 				{	
 					for(String npcName:uniqueNpcNames)
-					{	
-						if(Collections.frequency(npcNames, npcName)>1);
+					{
+						int times=Collections.frequency(npcNames,npcName);
+						if(times>1);
 						{
-							
+							for(int i=0;i<times;i++)
+							{
+								for(Npc npc:npcs)
+								{
+									
 
+								}
+
+							}
 						}
 
 					}
