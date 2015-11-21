@@ -34,7 +34,6 @@ class Npc{
 		if(current.equals("==="))
 			throw new NoNpcException();
 		this.primaryName=current;
-		System.out.println(primaryName);
 		current=scan.nextLine();
 		this.health=Integer.parseInt(current);
 		current=scan.nextLine();
