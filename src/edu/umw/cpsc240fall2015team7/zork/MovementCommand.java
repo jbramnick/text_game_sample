@@ -23,10 +23,11 @@ class MovementCommand extends Command{
 		Room currentRoom = Player.instance().getCurrentRoom();
 		currentRoom.reset();
 		try{
+			PassTimeEvent pass=new PassTimeEvent(null,"1");
+			String text = pass.execute();
 			Room newRoom = currentRoom.leaveBy(dir);
 			Player.instance().setCurrentRoom(newRoom);
-			PassTimeEvent pass=new PassTimeEvent(null,"1");
-			return pass.execute();
+			return text;
 		}
 		catch(Exit.NoExitException e){
 			return "You can not go that way.";
