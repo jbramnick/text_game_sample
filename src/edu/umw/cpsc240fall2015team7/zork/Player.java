@@ -322,4 +322,13 @@ class Player{
 		}
 		throw new NoMeleeException();
 	}
+	boolean hasLight(){
+		Class clazz = Light.class;
+		for(Item i : inventory){
+			if(clazz.isInstance(i)){
+				return true;
+			}
+		}
+		return false;
+	}
 }

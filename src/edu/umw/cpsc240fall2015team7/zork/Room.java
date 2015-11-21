@@ -4,9 +4,9 @@ import java.util.Scanner;
 import java.io.*;
 import java.util.Collections;
 /**
-*Room objects make up the Dungeon, can be entered and exited, and can hold Items.
-*@author Carson Meadows
-*/
+ *Room objects make up the Dungeon, can be entered and exited, and can hold Items.
+ *@author Carson Meadows
+ */
 public class Room{
 	static class NoRoomException extends Exception {}
 	private String title;
@@ -22,9 +22,9 @@ public class Room{
 	private ArrayList<String> itemNames=new ArrayList<String>();
 	private ArrayList<String> uniqueItemNames=new ArrayList<String>();
 	/**
-	*Constructs basic Room.
-	*@author Carson Meadows
-	*/
+	 *Constructs basic Room.
+	 *@author Carson Meadows
+	 */
 	public Room(String title){
 		this.title = title;
 		exits = new ArrayList<Exit>();
@@ -32,19 +32,19 @@ public class Room{
 
 	}
 	/**
-	*Constructs this Room based on passed Scanner object's contents. Reads from
-	*Scanner to get this Room's title, contents and description.
-	*@param d The current Dungeon object.
-	*@param initState If true, Items will be reset to initial state. If false, Items will be set to saved state.
-	*@author Carson Meadows and Nathanael Woodhead
-	*/
-	
+	 *Constructs this Room based on passed Scanner object's contents. Reads from
+	 *Scanner to get this Room's title, contents and description.
+	 *@param d The current Dungeon object.
+	 *@param initState If true, Items will be reset to initial state. If false, Items will be set to saved state.
+	 *@author Carson Meadows and Nathanael Woodhead
+	 */
+
 	public Room(Scanner scanner,Dungeon d, boolean initState) throws NoRoomException{
 		this.title = scanner.nextLine();
 		if(this.getTitle().equals("===")){
 			throw new NoRoomException();
 		}
-		
+
 		exits = new ArrayList<Exit>();
 		contents = new ArrayList<Item>();
 		String content = scanner.nextLine();
@@ -109,45 +109,48 @@ public class Room{
 		String text = title;
 		this.beenHere = beenHere;
 		if (light==false) {
-			return "It's too dark to see in here.";
-		} else {
-			if(beenHere == false){
-				beenHere = true;
-				text = text+": "+desc;
+			if(Player.instance().hasLight()){
+				this.light = true;
+			}else{
+				return "It's too dark to see in here.";
 			}
-			if ((GameState.instance().getVerbose()==true)||(beenHere)) {
-				for(Exit exit: exits){
-					text = text +"\n"+exit.describe();
-				}
-			}
-			if(contents.size()>0){
-				text=text+"\n";
-				for(String name:uniqueItemNames)
-				{
-					int time=Collections.frequency(itemNames,name);
-					if (time==1)
-						text=text+"\n"+"There is a " +name+ " in this room.";
-					else
-						text=text+"\n"+"There are "+ time +" " +name+"s in this room.";
-				}
-				text = text.substring(0,text.length()-1);
-			}
-			if(npcs.size()>0)
-			{
-				text=text+"\n";
-				for(String name:uniqueNpcNames)
-				{
-					int time=Collections.frequency(npcNames,name);
-					if (time==1)
-						text=text+"\n"+"There is a " +name+ " in this room.";
-					else
-						text=text+"\n"+"There are "+ time +" " +name+"s in this room.";
-				}
-
-
-			}
-			return text;
+		} 
+		if(beenHere == false){
+			beenHere = true;
+			text = text+": "+desc;
 		}
+		if ((GameState.instance().getVerbose()==true)||(beenHere)) {
+			for(Exit exit: exits){
+				text = text +"\n"+exit.describe();
+			}
+		}
+		if(contents.size()>0){
+			text=text+"\n";
+			for(String name:uniqueItemNames)
+			{
+				int time=Collections.frequency(itemNames,name);
+				if (time==1)
+					text=text+"\n"+"There is a " +name+ " in this room.";
+				else
+					text=text+"\n"+"There are "+ time +" " +name+"s in this room.";
+			}
+			text = text.substring(0,text.length()-1);
+		}
+		if(npcs.size()>0)
+		{
+			text=text+"\n";
+			for(String name:uniqueNpcNames)
+			{
+				int time=Collections.frequency(npcNames,name);
+				if (time==1)
+					text=text+"\n"+"There is a " +name+ " in this room.";
+				else
+					text=text+"\n"+"There are "+ time +" " +name+"s in this room.";
+			}
+
+
+		}
+		return text;
 	}
 	/**
 	 *Returns information about this Room. If the player has never been here,
@@ -158,41 +161,44 @@ public class Room{
 	String describe(){
 		String text = title;
 		if (light==false) {
-			return "It's too dark to see in here.";
-		} else {
-			if(beenHere == false){
-				beenHere = true;
-				text = text+": "+desc;
+			if(Player.instance().hasLight()){
+				light = true;
+			}else{
+				return "It's too dark to see in here.";
 			}
-			for(Exit exit: exits){
-				text = text +"\n"+exit.describe();
-			}
-			if(contents.size()>0){
-				text=text+"\n";
-				for(String name:uniqueItemNames)
-				{
-					int time=Collections.frequency(itemNames,name);
-					if (time==1)
-						text=text+"\n"+"There is a " +name+ " in this room.";
-					else
-						text=text+"\n"+"There are "+ time +" " +name+"s in this room.";
-				}
-			}
-			if(npcs.size()>0)
-			{
-				text=text+"\n";
-				for(String name:uniqueNpcNames)
-				{
-					int time=Collections.frequency(npcNames,name);
-					if (time==1)
-						text=text+"\n"+"There is a " +name+ " in this room.";
-					else
-						text=text+"\n"+"There are "+ time +" " +name+"s in this room.";
-				}
-
-			}
-			return text;
 		}
+		if(beenHere == false){
+			beenHere = true;
+			text = text+": "+desc;
+		}
+		for(Exit exit: exits){
+			text = text +"\n"+exit.describe();
+		}
+		if(contents.size()>0){
+			text=text+"\n";
+			for(String name:uniqueItemNames)
+			{
+				int time=Collections.frequency(itemNames,name);
+				if (time==1)
+					text=text+"\n"+"There is a " +name+ " in this room.";
+				else
+					text=text+"\n"+"There are "+ time +" " +name+"s in this room.";
+			}
+		}
+		if(npcs.size()>0)
+		{
+			text=text+"\n";
+			for(String name:uniqueNpcNames)
+			{
+				int time=Collections.frequency(npcNames,name);
+				if (time==1)
+					text=text+"\n"+"There is a " +name+ " in this room.";
+				else
+					text=text+"\n"+"There are "+ time +" " +name+"s in this room.";
+			}
+
+		}
+		return text;
 	}
 
 	/**

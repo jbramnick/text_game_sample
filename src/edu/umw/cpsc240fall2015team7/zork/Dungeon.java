@@ -66,6 +66,14 @@ public class Dungeon{
 				catch(Item.NoItemException e){}
 				custom=scanner.nextLine();
 			}
+			if(custom.equals("Lights:")){
+				try{
+					while(true){
+						this.add(new Light(scanner));
+					}
+				}catch(Item.NoItemException e){}
+				custom = scanner.nextLine();
+			}
 			if(custom.equals("Items:")){
 				try{
 					while(true){
