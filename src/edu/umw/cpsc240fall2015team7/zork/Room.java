@@ -37,6 +37,7 @@ public class Room{
 	
 	public Room(Scanner scanner,Dungeon d, boolean initState) throws NoRoomException{
 		this.title = scanner.nextLine();
+		System.out.println(title);
 		if(this.getTitle().equals("===")){
 			throw new NoRoomException();
 		}

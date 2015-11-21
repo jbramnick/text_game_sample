@@ -34,11 +34,13 @@ public class Exit{
 		this.dir = scanner.nextLine();
 		this.src = d.getRoom(source);
 		this.dest = d.getRoom(scanner.nextLine());
-		String lock=scanner.nextLine();
-		if(lock.contains("Locked: "))
-		{
-			this.locked = Boolean.valueOf(lock);
+		String next=scanner.nextLine();
+		if(next.equals("true")||next.equals("false")){
+			this.locked = Boolean.valueOf(next);
 			scanner.nextLine();
+		}
+		else{
+			this.locked = false;
 		}
 		this.src.addExit(this);
 
