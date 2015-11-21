@@ -33,13 +33,19 @@ class Light extends Item{
 		return new Light(super.clone(),this.battery,this.power);
 	}
 	String togglePower(){
-		if(power == false){
-			power = true;
+		if(this.power == false){
+			this.power = true;
+			this.power = power;
+			System.out.println("Power: " + power);
 			return "You turn the light on.";
 		}
 		else{
-			power = false;
+			this.power = false;
 			return "You turn the light off.";
 		}
+	}
+	boolean getPower(){
+		System.out.println(power+"afda");
+		return this.power;
 	}
 }

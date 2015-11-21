@@ -326,7 +326,11 @@ class Player{
 		Class clazz = Light.class;
 		for(Item i : inventory){
 			if(clazz.isInstance(i)){
-				return true;
+				Light light = (Light) i;
+				System.out.println(light.getPower());
+				if(light.getPower() == true){
+					return true;
+				}
 			}
 		}
 		return false;
