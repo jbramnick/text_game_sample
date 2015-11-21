@@ -1,3 +1,5 @@
 look Causes the description to be double printed.
 
 Combat does not work
+
+need to to reset Npc secondary names

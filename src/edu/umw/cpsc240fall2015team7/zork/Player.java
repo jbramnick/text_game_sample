@@ -8,6 +8,7 @@ import java.io.*;
  *@author Nathanael Woodhead
  */
 class Player{
+	class NoGunException extends Exception{}
 	private ArrayList<String> verbs = new ArrayList<String>();
 	private Room currentRoom;
 	private ArrayList<Item> inventory;
@@ -39,6 +40,18 @@ class Player{
 	 */
 	void eat(int food){
 		this.food += food;
+	}
+	Gun getGun() throws NoGunException{
+		for(Item i : inventory){
+			Class clazz = Gun.class;
+			if(clazz.isInstance(i)){
+				return (Gun) i;
+			}
+			else{
+				throw new NoGunException();
+			}
+		}
+		return null;
 	}
 	/**
 	 *Increases food and once food gets too high starts to remove health.
