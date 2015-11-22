@@ -98,6 +98,7 @@ class Npc{
 	 */
 	String die(){
 		this.currentRoom.removeNpc(this);
+		ScoreEvent e=new ScoreEvent(this.score);
 		return "The "+primaryName+ " is dead.";
 	}
 	/**

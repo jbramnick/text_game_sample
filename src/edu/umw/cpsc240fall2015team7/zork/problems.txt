@@ -1,2 +1,2 @@
-Light Items do not save and restore.
-Need to implement spawning
+No problems but testing
+we in beta boys
