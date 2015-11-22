@@ -119,6 +119,7 @@ public class Item{
 			return false;
 		}
 	}
+	public void reduceBattery(){}
 	/**
 	*Returns this Item's primary name.
 	*@author Carson Meadows

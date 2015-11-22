@@ -1,4 +1,2 @@
-Need a way to check the ammo state of a gun.
 Light Items do not save and restore.
-No talking npcs
 Need to implement spawning

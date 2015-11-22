@@ -11,7 +11,7 @@ class Light extends Item{
 	public Light(Scanner scanner) throws Item.NoItemException, Dungeon.IllegalDungeonFormatException{
 		super(scanner);
 		this.battery = 100;
-		this.power = true;
+		this.power = false;
 	}
 	/**
 	  Constructor for used when cloning this item. Accessed by the {@link clone()} method.
@@ -34,16 +34,57 @@ class Light extends Item{
 		return new Light(super.clone(),this.battery,this.power);
 	}
 	String togglePower(){
-		if(this.power == false){
-			this.power = !power;
-			return "You turn the light on.";
+		if(battery>0)
+		{
+			if(this.power == false){
+				this.power = !power;
+				return "You turn the light on.";
+			}
+			else{
+				this.power = !power;
+				return "You turn the light off.";
+			}
+
 		}
-		else{
-			this.power = !power;
-			return "You turn the light off.";
+		else
+		{
+			this.power=false;
+			return "This "+this.primaryName+" is out of battery.";
+
 		}
+
+	}
+	public void setPower(boolean power)
+	{
+		this.power=power;
+
+	}
+	public void setBattery(int battery)
+	{
+		this.battery=battery;
+
+	}
+	public void reduceBattery()
+	{
+		if(power)
+			battery--;
 	}
 	boolean getPower(){
 		return this.power;
+	}
+	public String storeState()
+	{
+		return this.primaryName+":"+battery+"/"+power;
+
+	}
+	public static Light restore(String save)
+	{
+		String value=save.split(":")[1];
+		Light light=(Light)GameState.instance().getDungeon().getItem(save.split(":")[0]);
+		String[] values=value.split("/");
+		light.setBattery(Integer.parseInt(values[0]));
+		light.setPower(Boolean.valueOf(values[1]));
+		return light;
+
 	}
 }

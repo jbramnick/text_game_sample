@@ -1,5 +1,6 @@
 package edu.umw.cpsc240fall2015team7.zork;
 import java.util.ArrayList;
+import java.lang.reflect.*;
 class CombatEngine{
 
 	public static CombatEngine theInstance;
@@ -48,7 +49,7 @@ class CombatEngine{
 				np.attackPlayer();
 			text += npc.takeWound(playerDamage);
 		}
+		Class clazz=Gun.class;
 		return text;
-		}
 	}
-
+}

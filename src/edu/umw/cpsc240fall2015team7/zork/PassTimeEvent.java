@@ -27,6 +27,11 @@ class PassTimeEvent extends Event
 				{
 					room.reset();
 				}
+				ArrayList<Item> items=GameState.instance().getDungeon().getInPlayItems();
+				for(Item item:items)
+				{
+					item.reduceBattery();
+				}
 			}
 
 		}
