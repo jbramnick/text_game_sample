@@ -5,9 +5,10 @@ import java.util.Scanner;
   @author Nathanael Woodhead
   */
 class Light extends Item{
+	static class NoLightException extends Exception {}
 	private int battery;
 	private Boolean power;
-	
+
 	public Light(Scanner scanner) throws Item.NoItemException, Dungeon.IllegalDungeonFormatException{
 		super(scanner);
 		this.battery = 100;
@@ -16,7 +17,7 @@ class Light extends Item{
 	/**
 	  Constructor for used when cloning this item. Accessed by the {@link clone()} method.
 	  @author Nathanael Woodhead
-	  */
+	 */
 	public Light(Item i,int battery,boolean power){
 		this.primaryName=i.primaryName;
 		this.actions=i.actions;
@@ -29,7 +30,7 @@ class Light extends Item{
 	/**
 	  Returns an Identical Light object.
 	  @author Nathanael Woodhead
-	  */
+	 */
 	public Light clone(){
 		return new Light(super.clone(),this.battery,this.power);
 	}
@@ -64,7 +65,7 @@ class Light extends Item{
 		this.battery=battery;
 
 	}
-	public void reduceBattery()
+	public void decay()
 	{
 		if(power)
 			battery--;

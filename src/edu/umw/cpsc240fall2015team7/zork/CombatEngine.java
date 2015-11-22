@@ -27,6 +27,22 @@ class CombatEngine{
 			playerSpeed=weapon.getSpeed();
 			playerDamage=weapon.getPower();
 		}
+		if(weapon!=null)
+		{
+			if(weapon instanceof Gun)
+			{
+				Gun g=(Gun)weapon;
+				if(g.getAmmo()<=0)
+				{
+
+					PassTimeEvent e=new PassTimeEvent(null,"1");
+					e.execute();
+					return "OUT OF AMMO!!!!";
+				}
+
+			}
+
+		}
 		String text = "";
 		int npcDamage = npc.getPower();
 		ArrayList<Npc> npcs=Player.instance().getCurrentRoom().getInhabitants();
@@ -49,12 +65,8 @@ class CombatEngine{
 				np.attackPlayer();
 			text += npc.takeWound(playerDamage);
 		}
-		Class clazz=Gun.class;
-		if(clazz.isInstance(weapon))
-		{
-			Gun g=(Gun)weapon;
-			g.reduceAmmo();
-		}
+		if(weapon!=null)
+			weapon.decay();
 		return text;
 	}
 }

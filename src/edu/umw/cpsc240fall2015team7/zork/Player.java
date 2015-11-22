@@ -51,6 +51,18 @@ class Player{
 		}
 		throw new NoGunException();
 	}
+	ArrayList<Light> getLights() throws Light.NoLightException{
+	ArrayList<Light> lights=new ArrayList<Light>();
+		for(Item i : inventory){
+			if(i instanceof Light){
+				lights.add((Light)i);
+			}
+		}
+		if(lights.size()<1)
+			throw new Light.NoLightException();
+		else
+			return lights;
+	}
 	/**
 	 *Increases food and once food gets too high starts to remove health.
 	 *@return A message relating to how hungry the player is. If the player is not hungry then this will return an empty String.
@@ -164,7 +176,7 @@ class Player{
 	/**
 	  Takes a String an removes the first item in the inventory that goes by that name.
 	  @author Nathanael Woodhead
-	  */
+	 */
 	void removeItem(String name){
 		Item itemNamed=null;
 		for(Item item : inventory){
@@ -229,9 +241,9 @@ class Player{
 		return names;
 	}
 	/**
-	Returns the ArrayList inventory of this
-	@author Jim Bramnick
-	*/
+	  Returns the ArrayList inventory of this
+	  @author Jim Bramnick
+	 */
 	ArrayList<Item> getInventory()
 	{
 		return inventory;
@@ -296,7 +308,7 @@ class Player{
 		int count = 0;
 		for(Item item : inventory){
 			if(item.goesBy(type)){
-					count++;
+				count++;
 			}
 		}
 		return count;
@@ -323,9 +335,8 @@ class Player{
 		throw new NoMeleeException();
 	}
 	boolean hasLight(){
-		Class clazz = Light.class;
 		for(Item i : inventory){
-			if(clazz.isInstance(i)){
+			if(i instanceof Light){
 				Light light = (Light) i;
 				System.out.println(light.getPower());
 				if(light.getPower() == true){

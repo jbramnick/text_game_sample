@@ -387,6 +387,12 @@ public class Room{
 	void reset(){
 		if(!this.title.equals(Player.instance().getCurrentRoom().getTitle()))
 			this.light = this.lightdefault;
+		else
+		{
+			
+
+
+		}
 	}
 	ArrayList<Npc> getInhabitants()
 	{

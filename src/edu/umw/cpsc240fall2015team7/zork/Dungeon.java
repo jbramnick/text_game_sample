@@ -261,7 +261,9 @@ public class Dungeon{
 	Returns spawnedNpc
 	@author Jim Bramnick
 	*/
-	public Npc getSpawnedNpc(){
+	public Npc getSpawnedNpc()throws Npc.NoNpcException{
+		if(spawnedNpc==null)
+			throw new Npc.NoNpcException();
 		return spawnedNpc;
 	}
 	/**

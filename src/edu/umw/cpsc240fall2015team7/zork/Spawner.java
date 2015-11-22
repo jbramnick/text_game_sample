@@ -29,15 +29,28 @@ class Spawner{
 	  *@author Nathanael Woodhead, Caron Meadows and Jim Bramnick
 	  */
 	void spawn(){
-		//Select Random Room from Dungeon
-		Random selector = new Random();
-		ArrayList <String> rooms = GameState.instance().getDungeon().getKeys();
-		int select = selector.nextInt(rooms.size());
-		String RandRoomTitle = rooms.get(select);
-		Room room = GameState.instance().getDungeon().getRoom(RandRoomTitle);
-		Npc original = GameState.instance().getDungeon().getSpawnedNpc();
-		Npc clone = original.clone();
-		room.addNpc(clone);
+		try
+		{
+			//Select Random Room from Dungeon
+			Random selector = new Random();
+			int yesSpawn=selector.nextInt(100);
+			if(yesSpawn<25)
+			{
+				ArrayList <String> rooms = GameState.instance().getDungeon().getKeys();
+				int select = selector.nextInt(rooms.size());
+				String RandRoomTitle = rooms.get(select);
+				Room room = GameState.instance().getDungeon().getRoom(RandRoomTitle);
+				Npc original = GameState.instance().getDungeon().getSpawnedNpc();
+				Npc clone = original.clone();
+				room.addNpc(clone);
+				clone.setRoom(room);
+
+			}
+
+		}
+		catch(Exception e){}
+
+
 	}
 }
 

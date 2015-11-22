@@ -5,12 +5,12 @@ Guns:
 Shotgun,shotty
 4
 reload[Reload]:You try to put in some rounds. 
-examine[CheckAmmo]:it is a fine gun.
+examine[CheckAmmo(Shotgun)]:it is a fine gun.
 ---
 -1
 100
 ---
-10
+1
 ammo
 ---
 ===
@@ -101,21 +101,8 @@ ammo
 0
 ---
 ===
-Npc:
-fluffNugget
-100
-2
-2
-50
-true
-blaaaaaaaaaaaaaaaaaaaaaaarg
-~~~
-hello[Wound(5),Unlock]:Dont talk to me weirdo.
----
-===
 Rooms:
 Winterfell
-Occupants: fluffNugget,fluffNugget
 Contents: dagger#6,Shotgun,Knife,Key,torch,ammo#70
 You stand within a huge castle complex spanning several acres, consisting of
 two massive walls and a village located just outside. Banners featuring the

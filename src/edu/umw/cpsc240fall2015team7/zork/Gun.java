@@ -87,7 +87,7 @@ class Gun extends Weapon{
 	 *@author Carson Meadows
 	 */
 
-	public void reduceAmmo() {
+	public void decay() {
 		this.ammo--;
 	}
 	public Gun clone()

@@ -30,8 +30,10 @@ class PassTimeEvent extends Event
 				ArrayList<Item> items=GameState.instance().getDungeon().getInPlayItems();
 				for(Item item:items)
 				{
-					item.reduceBattery();
+					if(!(item instanceof Gun))
+						item.decay();
 				}
+				Spawner.instance().spawn();
 			}
 
 		}
