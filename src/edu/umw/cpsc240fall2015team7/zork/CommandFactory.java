@@ -71,6 +71,11 @@ class CommandFactory{
 			TakeCommand take = new TakeCommand(commandString);
 			return take;
 		}
+		else if(commandString.contains("talk"))
+		{
+			TalkCommand talk=new TalkCommand(commandString);
+			return talk;
+		}
 		else if(commandString.equals("i")||commandString.equals("inventory")){
 			InventoryCommand i = new InventoryCommand();
 			return i;

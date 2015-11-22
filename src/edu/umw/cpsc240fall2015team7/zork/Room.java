@@ -345,6 +345,19 @@ public class Room{
 		}
 		return named;
 	}
+	Npc getNpcNamed(String name) throws Npc.NoNpcException{
+		Npc named = null;
+		for(Npc item : npcs){
+			if(item.getPrimaryName().equals(name)){
+				named = item;
+			}
+		}
+		if(named == null){
+			throw new Npc.NoNpcException();
+		}
+		return named;
+	}
+
 	ArrayList<String> getVerbs(){
 		ArrayList<String> verbs = new ArrayList<String>();
 		for(Item i : contents){
@@ -377,6 +390,10 @@ public class Room{
 	{
 		return npcs;
 
+	}
+	ArrayList<String> getInhabitantsNames()
+	{
+		return npcNames;
 	}
 
 }

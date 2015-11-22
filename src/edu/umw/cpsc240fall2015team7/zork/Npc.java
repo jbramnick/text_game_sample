@@ -85,26 +85,26 @@ class Npc{
 		}
 	}
 	/**
-	  *Changes the aggression variable.
-	  *@param aggression The desired value of aggression.
-	  *@author Nathanael Woodhead
-	  */
+	 *Changes the aggression variable.
+	 *@param aggression The desired value of aggression.
+	 *@author Nathanael Woodhead
+	 */
 	void setAggressive(boolean aggression){
 		this.aggression = aggression;
 	}
 	/**
-	  *Kills this NPC and removes it from the game.
-	  *@author Nathanael Woodhead
-	  */
+	 *Kills this NPC and removes it from the game.
+	 *@author Nathanael Woodhead
+	 */
 	String die(){
 		this.currentRoom.removeNpc(this);
 		return "The "+primaryName+ " is dead.";
 	}
 	/**
-	  *Removes health from this NPC. If health falls below 1, will call {@link die()}.
-	  *@param damage The amount of damage to be removed from this NPC's health.
-	  *@author Nathanael Woodhead
-	  */
+	 *Removes health from this NPC. If health falls below 1, will call {@link die()}.
+	 *@param damage The amount of damage to be removed from this NPC's health.
+	 *@author Nathanael Woodhead
+	 */
 	String takeWound(int damage){
 		String text = "\n";
 		health -= damage;
@@ -122,34 +122,71 @@ class Npc{
 		{
 			System.out.println(Player.instance().takeWound(this.power,this.primaryName + " hit you!!!"));
 		}
-			
+
 
 	}
 	/**
-	  *Returns the aggression value for this NPC. Non-Aggressive Npcs can become aggressive if they are attacked or through an event.
-	  *@author Nathanael Woodhead
-	  */
+	 *Returns the aggression value for this NPC. Non-Aggressive Npcs can become aggressive if they are attacked or through an event.
+	 *@author Nathanael Woodhead
+	 */
 	boolean getAggression(){
 		return aggression;
 	}
 	/**
-	*Returns response from this NPC when interacted with by the player.
-	*@author Carson Meadows
-	*/
-	String getTalkedAt(){
-		return "";
+	 *Returns response from this NPC when interacted with by the player.
+	 *@author Carson Meadows
+	 */
+	void getTalkedAt(){
+		if(beenTalkedTo)
+		{
+			System.out.println(this.primaryName+" does not want to talk anymore");
+
+		}
+		else
+		{
+			System.out.println(talkText);
+			if(messages.size()>0)
+			{
+
+				Scanner scan=new Scanner(System.in);
+				System.out.print("Say:");
+				String choice=scan.nextLine();
+				int tries=0;
+				while(messages.get(choice)==null&&tries<5)
+				{
+					System.out.println(this.primaryName+" does not understand what you said.");
+					System.out.print("Say:");
+					choice=scan.nextLine();
+					tries++;
+				}
+				if(messages.get(choice)!=null)
+				{
+					System.out.println(messages.get(choice));
+					ArrayList<Event> cons=choiceEvents.get(choice);
+					if(cons.size()>0)
+					{
+						for(Event e:cons)
+							System.out.println(e.execute());
+					}
+				}
+			}
+
+		}
+
+		this.beenTalkedTo=true;
+
 	}
 	/**
-	  *Returns the speed.
-	  *@author Nathanael Woodhead
-	  */
+	 *Returns the speed.
+	 *@author Nathanael Woodhead
+	 */
 	int getSpeed(){
 		return speed;
 	}
 	/**
-	  *Returns true when the health is above 0 otherwise returns false.
-	  *@author Nathanael Woodhead
-	  */
+	 *Returns true when the health is above 0 otherwise returns false.
+	 *@author Nathanael Woodhead
+	 */
 	boolean isAlive(){
 		if(health > 0){
 			return true;
@@ -157,45 +194,45 @@ class Npc{
 		return false;
 	}
 	/**
-	Returns power of this
-	@author Jim Bramnick
-	*/
+	  Returns power of this
+	  @author Jim Bramnick
+	 */
 	int getPower(){
 		return power;
 	}
 	/**
-	Returns currentRoom of this
-	@author Jim Bramnick
-	*/
+	  Returns currentRoom of this
+	  @author Jim Bramnick
+	 */
 	Room getCurrentRoom()
 	{
 		return currentRoom;
 	}
 	/**
-	Sets health to health
-	*/
+	  Sets health to health
+	 */
 	public void setHealth(int health)
 	{
 		this.health=health;
 	}
 	/**
-	Returns primaryName of this
-	*/
+	  Returns primaryName of this
+	 */
 	String getPrimaryName()
 	{
 		return primaryName;
 	}
 	/**
-	Sets currentRoom of this to room
-	@author Jim Bramnick
-	*/
+	  Sets currentRoom of this to room
+	  @author Jim Bramnick
+	 */
 	public void setRoom(Room room)
 	{
 		currentRoom=room;	
 	}
 	/**
-	Stores the this to a text file according to .sav file format
-	*/
+	  Stores the this to a text file according to .sav file format
+	 */
 	public String storeState()
 	{
 		return this.primaryName+":"+health+"/"+aggression;

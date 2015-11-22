@@ -4,7 +4,7 @@ package edu.umw.cpsc240fall2015team7.zork;
 *UniqueNpc may perform some task in reaction to being talked to.
 *@author Carson Meadows
 */
-class TalkCommand {
+class TalkCommand extends Command{ 
 	private String commandString;
 
         /**
@@ -21,6 +21,16 @@ class TalkCommand {
         *@author Carson Meadows
         */
         public String execute () {
+		String npcName=commandString.split(" ")[1];
+		try
+		{
+			Player.instance().getCurrentRoom().getNpcNamed(npcName).getTalkedAt();
+		}
+		catch(Npc.NoNpcException e)
+		{
+			return "There is no "+npcName+" in here.";
+		}
+		catch(Exception e){}
 		return "";
         }
 
