@@ -11,7 +11,8 @@ class CheckAmmoEvent extends Event
 		this.gunName=commandString;
 	}
 	public String execute()
-	{	try
+	{
+		try
 		{
 			gun=(Gun)Player.instance().getItemInInventoryNamed(gunName);
 			return "This "+gun.getPrimaryName()+" has "+gun.getAmmo()+" ammo in it.";
