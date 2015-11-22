@@ -71,7 +71,14 @@ public class Room{
 				content = content.substring(10,content.length());
 				String[] list = content.split(",");
 				for(String x : list){
-					this.add(d.getItem(x));
+					if(x.contains("#"))
+					{
+						int times=Integer.parseInt(x.split("#")[1]);
+						for(int i=0;i<times;i++)
+							this.add(d.getItem(x.split("#")[0]));	
+					}
+					else
+						this.add(d.getItem(x));
 				}
 			}
 			content=scanner.nextLine();

@@ -34,6 +34,42 @@ class TakeCommand extends Command{
 		this.itemName = itemName;
 		Room currentRoom = Player.instance().getCurrentRoom();
 		try{
+			if(commandString.matches(".*\\d+.*"))
+			{
+				int number=Integer.parseInt(itemName.split(" ")[0]);
+				itemName=itemName.split(" ")[1];
+				ArrayList<Item> items = new ArrayList<Item>();
+				for(Item item : currentRoom.getContents()){
+					if(item.goesBy(itemName))
+						items.add(item);
+				}
+				if(number>items.size())
+				{
+					return "There are not "+number+ " "+itemName+"s in here.";
+
+				}
+				for(int i=0;i<number;i++)
+				{
+					weight+=items.get(i).getWeight();
+				}
+				if((items.size()== 0)){
+					return "There are no "+itemName+"s here to take.";
+				}
+				int load = Player.instance().getLoad();
+				if((weight + load) > 40){
+					return "You cannot carry that much weight.";
+				}
+				String text = "Taken:" + "\n";
+				for(int i=0;i<number;i++){
+					currentRoom.remove(items.get(i));
+					Player.instance().addToInventory(items.get(i));
+				}
+				text+=number + " " + itemName+"s.";
+				PassTimeEvent e=new PassTimeEvent(null,"1");
+				e.execute();
+				return text;
+
+			}
 			if(commandString.contains("all")){
 				ArrayList<Item> items = new ArrayList<Item>();
 				for(Item item : currentRoom.getContents()){

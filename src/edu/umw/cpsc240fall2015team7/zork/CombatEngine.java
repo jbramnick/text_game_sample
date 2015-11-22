@@ -1,4 +1,5 @@
 package edu.umw.cpsc240fall2015team7.zork;
+import java.util.ArrayList;
 class CombatEngine{
 
 	public static CombatEngine theInstance;
@@ -27,21 +28,27 @@ class CombatEngine{
 		}
 		String text = "";
 		int npcDamage = npc.getPower();
+		ArrayList<Npc> npcs=Player.instance().getCurrentRoom().getInhabitants();
 		if(npcSpeed == playerSpeed){
 			text = text + npc.takeWound(playerDamage);
-			text = text + Player.instance().takeWound(npcDamage,npc.getPrimaryName()+ " hit you!!!");
+			for(Npc np:npcs)
+				np.attackPlayer();
 		}
 		else if(npcSpeed > playerSpeed){
 			text = text + npc.takeWound(playerDamage);
-			if(npc.isAlive()){
-				text = text + Player.instance().takeWound(npcDamage,npc.getPrimaryName()+ " hit you!!!");
+			for(Npc np:npcs)
+			{
+				if(np.isAlive()){
+					np.attackPlayer();
+				}
 			}
 		}
 		else{
-			text = text + Player.instance().takeWound(npcDamage,npc.getPrimaryName()+ " hit you!!!");
+			for(Npc np:npcs)
+				np.attackPlayer();
 			text += npc.takeWound(playerDamage);
 		}
 		return text;
+		}
 	}
-}
 

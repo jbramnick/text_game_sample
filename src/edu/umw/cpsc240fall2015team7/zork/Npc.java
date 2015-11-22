@@ -1,21 +1,24 @@
 package edu.umw.cpsc240fall2015team7.zork;
 import java.util.Scanner;
 import java.io.*;
+import java.util.Hashtable;
+import java.util.ArrayList;
 /**
   *Superclass for all NPC's. An NPC is a non-player character.
   *@author Nathanael Woodhead
   */
 class Npc{
 	protected String primaryName;
-	protected String secondaryName;
 	protected int health, power, speed, score;
 	protected String talkText;
+	protected boolean beenTalkedTo;
 	private boolean aggression;
 	protected Room currentRoom;
+	protected Hashtable<String,ArrayList<Event>> choiceEvents;
+	protected Hashtable<String,String> messages;
 	static class NoNpcException extends Exception{}
-	public Npc(String primaryName, int health, int power, int speed,int score, String talkText, boolean aggression,Room currentRoom){
+	public Npc(String primaryName, int health, int power, int speed,int score, String talkText, boolean aggression, boolean beenTalkedTo,Room currentRoom,Hashtable<String,ArrayList<Event>> choiceEvents,Hashtable<String,String> messages){
 		this.primaryName = primaryName;
-		this.secondaryName = "";
 		this.currentRoom=currentRoom;
 		this.health = health;
 		this.power = power;
@@ -23,13 +26,16 @@ class Npc{
 		this.score=score;
 		this.talkText = talkText;
 		this.aggression = aggression;
+		this.choiceEvents=choiceEvents;
+		this.messages=messages;
 	}
 	public Npc clone() {
-		return new Npc(this.primaryName,this.health, this.power, this.speed,this.score, this.talkText, this.aggression,this.currentRoom);
+		return new Npc(this.primaryName,this.health, this.power, this.speed,this.score, this.talkText,this.aggression,this.beenTalkedTo,this.currentRoom,this.choiceEvents,this.messages);
 	}
-	public Npc(Scanner scan) throws NoNpcException{
-		this.secondaryName="";
+	public Npc(Scanner scan) throws NoNpcException,Dungeon.IllegalDungeonFormatException{
 		this.currentRoom=null;
+		choiceEvents=new Hashtable<String,ArrayList<Event>>();
+		messages=new Hashtable<String,String>();
 		String current=scan.nextLine();
 		if(current.equals("==="))
 			throw new NoNpcException();
@@ -46,10 +52,36 @@ class Npc{
 		this.aggression=Boolean.valueOf(current);
 		current=scan.nextLine();
 		this.talkText="";
-		while(!(current.equals("---")))
+		while(!(current.equals("~~~")))
 		{
 			this.talkText+=current+"\n";
 			current=scan.nextLine();
+		}
+		current=scan.nextLine();
+		while(!(current.equals("---")))
+		{
+			ArrayList<Event> consequences= null;
+			String[] x = current.split(":");
+			if(x[0].contains("[")){
+				int start = x[0].indexOf("[")+1;
+				int end = x[0].indexOf("]");
+				String part = x[0].substring(start,end);
+				x[0] = x[0].substring(0,start-1);
+				try{
+					consequences = EventFactory.instance().parse(this,part);
+				}catch(Exception e){
+					throw new Dungeon.IllegalDungeonFormatException();
+				}
+			}
+			String[] other = x[0].split(",");
+			for(String verb : other){
+				messages.put(verb,x[1]);
+				if(consequences != null){
+					choiceEvents.put(verb,consequences);
+				}
+			}
+			current = scan.nextLine();
+
 		}
 	}
 	/**
@@ -145,10 +177,6 @@ class Npc{
 	public void setHealth(int health)
 	{
 		this.health=health;
-	}
-	public void setSecondaryName(String name)
-	{
-		this.secondaryName=name;
 	}
 	/**
 	Returns primaryName of this

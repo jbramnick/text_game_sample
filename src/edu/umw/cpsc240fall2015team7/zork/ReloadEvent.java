@@ -10,9 +10,9 @@ class ReloadEvent extends Event{
 	  *Creates a new ReloadEvent object.
 	  *@author Nathanael Woodhead
 	  */
-	ReloadEvent(Object item, String commandString)
+	ReloadEvent(Object item)
 	{
-		this.commandString = commandString;
+		this.weapon=(Gun)item;
 	}
 	
 	/**
@@ -23,35 +23,34 @@ class ReloadEvent extends Event{
 	  *@author Nathanael Woodhead
 	  */
 	String execute(){
-		String weaponString = commandString.substring(7,commandString.length());
-		try{
-			System.out.println(weaponString);
-			this.weapon =(Gun)Player.instance().getItemInInventoryNamed(weaponString);
-		}catch (Exception e){
-			return "You can't reload a " +  weaponString+".";
-		}
-		if(weapon == null){
-			return "You don't have a " + weaponString + ".";
-		}
 		int capacity = weapon.getCapacity();
 		int currAmmo = weapon.getAmmo();
 		String ammoType = weapon.getAmmoType();
 		int supply = Player.instance().countAmmo(ammoType);
 		int toAdd = capacity - currAmmo;
-		if (supply >= toAdd) {
+		if ((supply >= toAdd)&&(toAdd>0)) {
 			weapon.reload(toAdd);
 			while(toAdd>0){
 				Player.instance().removeItem(ammoType);
 				toAdd = toAdd - 1;
 			}
-		}else{
+			return "Reloaded " + weapon.getPrimaryName()+".";
+		}else if(supply==0){
+			return "You have no " +ammoType+" to reload "+weapon.getPrimaryName()+ " with.";
+		}
+		else if(toAdd==0)
+		{	
+			return weapon.getPrimaryName() + " is full.";
+		}
+		else
+		{
 			weapon.reload(supply);
 			while(toAdd>0){
 				Player.instance().removeItem(ammoType);
 				toAdd = toAdd -1;
 			}
+			return "Partially Reloaded " + weapon.getPrimaryName()+".";	
 		}
-		return "Reloaded " + weaponString+".";	
 	}
 }
-	
+
