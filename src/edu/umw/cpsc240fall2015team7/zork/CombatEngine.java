@@ -50,6 +50,11 @@ class CombatEngine{
 			text += npc.takeWound(playerDamage);
 		}
 		Class clazz=Gun.class;
+		if(clazz.isInstance(weapon))
+		{
+			Gun g=(Gun)weapon;
+			g.reduceAmmo();
+		}
 		return text;
 	}
 }
