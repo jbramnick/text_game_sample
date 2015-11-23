@@ -21,6 +21,7 @@ class PassTimeEvent extends Event
 				for(Npc npc:npcs)
 				{
 					npc.attackPlayer();
+					npc.move();
 				}
 				ArrayList<Room> rooms=GameState.instance().getDungeon().getRooms();
 				for(Room room:rooms)

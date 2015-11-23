@@ -3,6 +3,7 @@ import java.util.Scanner;
 import java.io.*;
 import java.util.Hashtable;
 import java.util.ArrayList;
+import java.util.Random;
 /**
   *Superclass for all NPC's. An NPC is a non-player character.
   *@author Nathanael Woodhead
@@ -125,6 +126,30 @@ class Npc{
 		}
 
 
+	}
+	public void move()
+	{
+		Random x=new Random();
+		boolean yesMove=x.nextInt(100)<50;
+		if(!(Player.instance().getCurrentRoom().getTitle().equals(this.currentRoom.getTitle()))&&(yesMove))
+		{
+			ArrayList<Exit> exits=this.currentRoom.getExits();
+			ArrayList<Exit> openExits=new ArrayList<Exit>();
+			for(Exit exit:exits)
+			{
+				if(!exit.isLocked())
+				{
+					openExits.add(exit);
+
+				}
+
+			}
+			Random r=new Random();
+			Exit exit=openExits.get(r.nextInt(openExits.size()));
+			this.currentRoom.removeNpc(this);
+			this.currentRoom=exit.getDest();
+			exit.getDest().addNpc(this);
+		}
 	}
 	/**
 	 *Returns the aggression value for this NPC. Non-Aggressive Npcs can become aggressive if they are attacked or through an event.
