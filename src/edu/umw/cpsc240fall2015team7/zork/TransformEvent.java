@@ -26,9 +26,18 @@ public class TransformEvent extends Event{
 		{
 			Item end = GameState.instance().getDungeon().getItem(endItem);
 			Player.instance().getItemInInventoryNamed(item.getPrimaryName());
-			Player.instance().addToInventory(end);
 			Player.instance().removeFromInventory(item);
-			return item.getPrimaryName() + " became " + end.getPrimaryName()+"\n";
+			if((end.getWeight()+Player.instance().getLoad())>Player.instance().getCarryWeight())
+			{
+				Player.instance().getCurrentRoom().add(end);
+				return item.getPrimaryName() + " became " + end.getPrimaryName()+", but you cant carry that much weight and you dropped it in the room.\n";
+			}
+			else
+			{
+				Player.instance().addToInventory(end);
+				return item.getPrimaryName() + " became " + end.getPrimaryName()+"\n";
+
+			}
 
 		}
 		catch(Item.NoItemException e)

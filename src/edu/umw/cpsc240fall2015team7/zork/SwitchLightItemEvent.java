@@ -24,11 +24,11 @@ class SwitchLightItemEvent extends Event{
 		{
 			item=(Light)Player.instance().getItemInInventoryNamed(lightName);
 			String text = item.togglePower();
-			return text;
+			return text+"\n";
 		}
 		catch(Item.NoItemException e)
 		{
-			return "You do not have a "+lightName+".";
+			return "You do not have a "+lightName+".\n";
 		}
 	}
 

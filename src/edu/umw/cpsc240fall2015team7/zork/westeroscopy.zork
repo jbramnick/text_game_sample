@@ -5,7 +5,7 @@ Guns:
 Shotgun,shotty
 4
 reload[Reload]:You try to put in some rounds. 
-examine[CheckAmmo]:it is a fine gun.
+examine[CheckAmount]:it is a fine gun.
 ---
 -1
 100
@@ -26,6 +26,7 @@ Lights:
 torch,flashlight
 0
 use[SwitchLightItem]:used it.
+examine[CheckAmount]:quite a nice flashlight if i do say so myself.
 ---
 ===
 Items:
@@ -49,7 +50,7 @@ swing:The sword is too heavy for a loser like you to swing.
 dagger
 12
 examine:This sharp assassin's weapon has a dragonbone hilt.
-throw:The dagger clumsily hits the wall.
+throw[Heal]:The dagger clumsily hits the wall.
 ---
 house
 1000000
@@ -75,7 +76,7 @@ apply[Wound(-10),Score(10)]:*Whew*, that's better.
 spill[Disappear]:D'oh!! The precious liquid slips out of your hand and onto the floor.
 ---
 emptyFlagon
-1
+500000
 quaff:Yeah, I wish! S'all gone. :(
 ---
 GreenDragonEgg
@@ -108,9 +109,10 @@ bob
 100
 100
 false
-hello there
+hello theree friend would you like this shiny egg i have here?
 ~~~
-hello[Disappear]:hello
+yes[Disappear,Receive(BlackDragonEgg)]:hello
+screw you bob[Die]:Well if your are gonna be like that.
 ---
 ===
 Rooms:

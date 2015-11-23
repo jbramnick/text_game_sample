@@ -56,8 +56,8 @@ class TakeCommand extends Command{
 					return "There are no "+itemName+"s here to take.";
 				}
 				int load = Player.instance().getLoad();
-				if((weight + load) > 40){
-					return "You cannot carry that much weight.";
+				if((weight + load) > Player.instance().getCarryWeight()){
+					return "You cannot carry that much weight.\n";
 				}
 				String text = "Taken:" + "\n";
 				for(int i=0;i<number;i++){
@@ -82,8 +82,8 @@ class TakeCommand extends Command{
 					return "There is nothing here to take." + "\n";
 				}
 				int load = Player.instance().getLoad();
-				if((weight + load) > 40){
-					return "You cannot carry that much weight.";
+				if((weight + load) > Player.instance().getCarryWeight()){
+					return "You cannot carry that much weight.\n";
 				}
 				String text = "Taken:" + "\n";
 				for(Item item : items){
@@ -98,9 +98,9 @@ class TakeCommand extends Command{
 			Item item = currentRoom.getItemNamed(itemName);
 			weight = item.getWeight();
 			int load = Player.instance().getLoad();
-			if((weight + load) > 40){
+			if((weight + load) > Player.instance().getCarryWeight()){
 
-				return "You cannot carry that much weight.";
+				return "You cannot carry that much weight.\n";
 			}
 			currentRoom.remove(item);
 			Player.instance().addToInventory(item);

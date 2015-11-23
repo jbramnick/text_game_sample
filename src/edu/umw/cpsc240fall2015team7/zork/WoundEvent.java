@@ -23,7 +23,7 @@ class WoundEvent extends Event{
 	  */
 	String execute(){
 		
-		return Player.instance().takeWound(damage,"");
+		return Player.instance().takeWound(damage,"")+"\n";
 	}
 	/**
 	  *Checks to see if the player is dead. The player is dead when health falls below one.

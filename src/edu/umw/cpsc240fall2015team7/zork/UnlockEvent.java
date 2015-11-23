@@ -32,7 +32,7 @@ class UnlockEvent extends Event{
 			//throw new UnlockEvent.NoLockedDoorException();
 			return "";
 		}
-		return "Doors Unlocked!";
+		return "Doors Unlocked!\n";
 	}
 
 }

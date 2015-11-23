@@ -29,7 +29,7 @@ class ReloadEvent extends Event{
 		}
 		catch(Exception e)
 		{
-			return "You do not have a "+weapon.getPrimaryName();
+			return "You do not have a "+weapon.getPrimaryName()+"\n";
 		}
 		int capacity = weapon.getCapacity();
 		int currAmmo = weapon.getAmmo();
@@ -42,13 +42,13 @@ class ReloadEvent extends Event{
 				Player.instance().removeItem(ammoType);
 				toAdd = toAdd - 1;
 			}
-			return "Reloaded " + weapon.getPrimaryName()+".";
+			return "Reloaded " + weapon.getPrimaryName()+".\n";
 		}else if(supply==0){
-			return "You have no " +ammoType+" to reload "+weapon.getPrimaryName()+ " with.";
+			return "You have no " +ammoType+" to reload "+weapon.getPrimaryName()+ " with\n";
 		}
 		else if(toAdd==0)
 		{	
-			return weapon.getPrimaryName() + " is full.";
+			return weapon.getPrimaryName() + " is full.\n";
 		}
 		else
 		{
@@ -57,7 +57,7 @@ class ReloadEvent extends Event{
 				Player.instance().removeItem(ammoType);
 				toAdd = toAdd -1;
 			}
-			return "Partially Reloaded " + weapon.getPrimaryName()+".";	
+			return "Partially Reloaded " + weapon.getPrimaryName()+".\n";	
 		}
 	}
 }

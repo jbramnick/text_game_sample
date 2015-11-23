@@ -23,7 +23,7 @@ class ShootCommand extends Command {
         */
         public String execute () {
 		if(commandString.equals("shoot")){
-			return"Shoot what?";
+			return"Shoot what?\n";
 		}
 		String[] commandList = commandString.split(" ");
 		if(commandString.contains("with")){
@@ -38,20 +38,20 @@ class ShootCommand extends Command {
 			try{
 				this.weapon  = (Gun) Player.instance().getItemInInventoryNamed(commandList[index+1]);
 			}catch(Item.NoItemException e){
-				System.out.println("Nathan you code in Shoot Command Sucks.");
-				return"";
+				return"you do not have that \n";
 			}
+			catch(Exception e){return "Could not understand you \n";}
 		}
 		else{
 			try{
 			this.weapon = Player.instance().getGun();
 			}catch(Player.NoGunException e){
-				return "You do not have a gun.";
+				return "You do not have a gun.\n";
 			}
 		}
 		ArrayList<Npc> targets = Player.instance().getCurrentRoom().getInhabitants();
 		if(targets.size()==0){
-			return "There is nothing to shoot here.";
+			return "There is nothing to shoot here.\n";
 		}
 		ArrayList<String> targetNames = new ArrayList<String>();
 		for(Npc target : targets){

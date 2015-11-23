@@ -20,8 +20,8 @@ class HealEvent extends Event
 	@author Jim Bramnick
 	*/
 	public String execute() {
-		Player.instance().setHealth(100);
-		return "";
+		Player.instance().setHealth(Player.instance().getMaxHealth());
+		return "You feel better now.\n";
 	}
 
 }

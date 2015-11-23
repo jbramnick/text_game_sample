@@ -43,12 +43,13 @@ class AttackCommand extends Command{
 			}catch(Item.NoItemException e){
 				return "You do not have a " + commandList[index+1] + ".";
 			}
+			catch(Exception e){return "Could not understand you\n";}
 			Class clazz = Melee.class;
 			if(clazz.isInstance(item)){
 				this.weapon = (Melee) item;
 			}
 			else{
-				return "You cannot attack with a " + commandList[index+1] + ".";
+				return "You cannot attack with a " + commandList[index+1] + ".\n";
 			}
 		}
 		else{
@@ -60,7 +61,7 @@ class AttackCommand extends Command{
 		}
 		ArrayList<Npc> targets = Player.instance().getCurrentRoom().getInhabitants();
 		if(targets.size()==0){
-			return "There is nothing to attack here.";
+			return "There is nothing to attack here.\n";
 		}
 		ArrayList<String> targetNames = new ArrayList<String>();
 		for(Npc target : targets){

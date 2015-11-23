@@ -11,7 +11,7 @@ class Light extends Item{
 
 	public Light(Scanner scanner) throws Item.NoItemException, Dungeon.IllegalDungeonFormatException{
 		super(scanner);
-		this.battery = 100;
+		this.battery = 50;
 		this.power = false;
 	}
 	/**
@@ -60,6 +60,10 @@ class Light extends Item{
 		this.power=power;
 
 	}
+	public int getBattery()
+	{
+		return this.battery;
+	}
 	public void setBattery(int battery)
 	{
 		this.battery=battery;
@@ -69,6 +73,8 @@ class Light extends Item{
 	{
 		if(power)
 			battery--;
+		if(battery<0)
+			this.power=false;
 	}
 	boolean getPower(){
 		return this.power;

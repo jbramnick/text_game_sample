@@ -99,8 +99,7 @@ class Npc{
 	String die(){
 		this.currentRoom.removeNpc(this);
 		ScoreEvent e=new ScoreEvent(this.score);
-		e.execute();
-		return "The "+primaryName+ " is dead.";
+		return "The "+primaryName+ " is dead."+"\n"+e.execute();
 	}
 	/**
 	 *Removes health from this NPC. If health falls below 1, will call {@link die()}.

@@ -1,3 +1,1 @@
-make unique with conversations
-finsh combat engine
 edit featurelist as we go along

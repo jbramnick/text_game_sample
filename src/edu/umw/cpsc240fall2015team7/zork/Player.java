@@ -14,6 +14,8 @@ class Player{
 	private Room currentRoom;
 	private ArrayList<Item> inventory;
 	private int health,food,score;
+	private int maxHealth;
+	private int carryWeight;
 	public static Player theInstance;
 	/**
 	 *If a player does not already exist creates a new player and return it. Otherwise will return the Player object.
@@ -32,8 +34,27 @@ class Player{
 	private Player(){
 		this.inventory = new ArrayList<Item>();
 		this.health = 100;
-		this.food = 10000;
+		this.food = 100;
+		this.maxHealth=100;
+		this.carryWeight=40;
 		this.score = 0;
+	}
+	public int getMaxHealth()
+	{
+		return maxHealth;
+	}
+	public void setMaxHealth(int maxHealth)
+	{
+		this.maxHealth=maxHealth;
+
+	}
+	public int getCarryWeight()
+	{
+		return carryWeight;
+	}
+	public void setCarryWeight(int carryWeight)
+	{
+		this.carryWeight=carryWeight;
 	}
 	/**
 	 *Adds food to the player.
@@ -70,12 +91,13 @@ class Player{
 	 */
 	String hunger(){
 		food = food - 1;
-		if (food < 0){
-			health = health - 5;
+		if (food <= 0){
+			health = health - 1;
+			food=0;
 			checkDead();
 			return "You are starving to death";
 		}
-		else if (food < 2){
+		else if (food < 20){
 			return "You are hungry.";
 		}
 		else{

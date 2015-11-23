@@ -30,7 +30,7 @@ class MovementCommand extends Command{
 			return text;
 		}
 		catch(Exit.NoExitException e){
-			return "You can not go that way.";
+			return "You can not go that way.\n";
 		}
 	}
 

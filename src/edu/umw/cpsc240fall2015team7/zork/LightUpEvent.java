@@ -19,7 +19,7 @@ class LightUpEvent extends Event
 	*/
 	public String execute(){
 		Player.instance().getCurrentRoom().changeLight(true);
-		return "";
+		return "\n";
 	}
 
 }

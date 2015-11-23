@@ -24,11 +24,20 @@ class ReceiveEvent extends Event{
 		Item i=GameState.instance().getDungeon().getItem(s);
 		
 		if ((!item.equals(null))) {
-			boolean canCarry=Player.instance().getLoad()+i.getWeight() < 40;
-			if(canCarry)
+			boolean cantCarry=(Player.instance().getLoad()+i.getWeight()) > Player.instance().getCarryWeight();
+			if(!cantCarry)
+			{
+				
 				Player.instance().addToInventory(i);
+				return "Received "+s+".\n";
+
+			}
 			else
-				return "You cannont carry that much weight";
+			{
+					Player.instance().getCurrentRoom().add(i);
+					return "You cannont carry that much weight, you dropped it in the room.\n";
+			}
+			
 		}
 		return "";
 

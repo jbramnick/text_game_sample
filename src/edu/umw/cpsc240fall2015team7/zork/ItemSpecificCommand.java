@@ -54,7 +54,7 @@ class ItemSpecificCommand extends Command{
 				return  "You can't "+ verb + " a " + noun;
 			}
 		}
-		catch(Item.NoVerbException e){
+	catch(Item.NoVerbException e){
 			return  "You can't "+ verb + " a " + noun;
 		}
 	}

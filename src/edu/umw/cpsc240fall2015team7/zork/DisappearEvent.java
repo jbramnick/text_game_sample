@@ -41,7 +41,7 @@ class DisappearEvent extends Event{
 				}
 				catch(Exception ex)
 				{
-					return "Ther is no " + item.getPrimaryName() + " in your inventory or this room"; 
+					return "Ther is no " + item.getPrimaryName() + " in your inventory or this room\n"; 
 				}
 			}
 
@@ -55,14 +55,14 @@ class DisappearEvent extends Event{
 			}
 			catch(Exception e)
 			{
-				return "There is no "+item.getPrimaryName()+" in this room";
+				return "There is no "+item.getPrimaryName()+" in this room\n";
 
 			}
 			Player.instance().getCurrentRoom().removeNpc(item);
 
 		}
 
-		return "";
+		return "\n";
 	}
 
 }

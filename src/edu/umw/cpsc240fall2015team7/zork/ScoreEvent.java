@@ -30,7 +30,7 @@ class ScoreEvent extends Event{
 			text = "You have lost " +  score + " points!"+"\n";
 		}
 		else if(score > 0){
-			text = "You have gained " + score + "points!"+"\n";
+			text = "You have gained " + score + " points!"+"\n";
 		}
 		return text;
 	}

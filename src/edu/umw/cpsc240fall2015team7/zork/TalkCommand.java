@@ -20,19 +20,21 @@ class TalkCommand extends Command{
 	*commandString is not in the player's current Room, prints error message.
         *@author Carson Meadows
         */
-        public String execute () {
-		String npcName=commandString.split(" ")[1];
+	public String execute () {
+		String npcName="";
 		try
 		{
+			npcName=commandString.split(" ")[1];
 			Player.instance().getCurrentRoom().getNpcNamed(npcName).getTalkedAt();
 		}
 		catch(Npc.NoNpcException e)
 		{
-			return "There is no "+npcName+" in here.";
+			return "There is no "+npcName+" in here.\n";
 		}
-		catch(Exception e){}
+		catch(Exception e)
+		{return "Talk to who?\n";}
 		return "";
-        }
+	}
 
 }
 
