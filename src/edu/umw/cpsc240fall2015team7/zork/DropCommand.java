@@ -22,7 +22,6 @@ class DropCommand extends Command{
 			throw new Item.NoItemException();
 		}
 		this.itemName = itemName;
-		System.out.println(itemName);
 	}
 	/**
 	*Removes the Item specified within the commandString from the inventory of GameState or all the Items if "all" is specified. 

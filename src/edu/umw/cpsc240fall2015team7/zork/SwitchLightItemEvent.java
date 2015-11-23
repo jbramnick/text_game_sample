@@ -11,9 +11,9 @@ class SwitchLightItemEvent extends Event{
 	@param i Should be a Light.
 	*@author Nathanael Woodhead 
 	*/
-	public SwitchLightItemEvent(Object i,String s){
+	public SwitchLightItemEvent(Object i){
 		item = (Light) i;
-		lightName=s;
+		lightName=item.getPrimaryName();
 	}
 	/**
 	*Executes this Event to change the light of the current room.

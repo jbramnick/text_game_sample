@@ -23,6 +23,14 @@ class ReloadEvent extends Event{
 	  *@author Nathanael Woodhead
 	  */
 	String execute(){
+		try
+		{
+			this.weapon=(Gun)Player.instance().getItemInInventoryNamed(weapon.getPrimaryName());
+		}
+		catch(Exception e)
+		{
+			return "You do not have a "+weapon.getPrimaryName();
+		}
 		int capacity = weapon.getCapacity();
 		int currAmmo = weapon.getAmmo();
 		String ammoType = weapon.getAmmoType();

@@ -45,6 +45,7 @@ class CombatEngine{
 		}
 		String text = "";
 		int npcDamage = npc.getPower();
+		npc.setAggressive(true);
 		ArrayList<Npc> npcs=Player.instance().getCurrentRoom().getInhabitants();
 		if(npcSpeed == playerSpeed){
 			text = text + npc.takeWound(playerDamage);

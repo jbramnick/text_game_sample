@@ -338,7 +338,6 @@ class Player{
 		for(Item i : inventory){
 			if(i instanceof Light){
 				Light light = (Light) i;
-				System.out.println(light.getPower());
 				if(light.getPower() == true){
 					return true;
 				}

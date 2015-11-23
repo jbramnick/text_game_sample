@@ -130,7 +130,7 @@ public class Room{
 				return "It's too dark to see in here.";
 			}
 		}
-		if(beenHere == false){
+		if(beenHere == false || GameState.instance().getVerbose()){
 			beenHere = true;
 			text = text+": "+desc;
 		}

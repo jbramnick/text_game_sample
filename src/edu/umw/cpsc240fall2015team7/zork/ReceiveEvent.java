@@ -4,13 +4,15 @@ Event used to add item to inventory received from {@link Npc}.
 @author Jim Bramnick
 */
 class ReceiveEvent extends Event{
-	private Item item;
+	private Object item;
+	private String s;
 	/**
 	Constructs this ReceiveEvent.
 	@author Jim Bramnick
 	*/
 	public ReceiveEvent(Object item,String s){
-		this.item=(Item)item;
+		this.item=item;
+		this.s=s;
 	}
 	/**
 	Adds the item to the {@link Player} Inventory and adds medkits, ammo and snacks to {@link Player} medkits, ammo and snacks. 
@@ -19,8 +21,14 @@ class ReceiveEvent extends Event{
 	@author Jim Bramnick
 	*/
 	public String execute() {
-		if (!item.equals(null)) {
-			Player.instance().addToInventory(item);
+		Item i=GameState.instance().getDungeon().getItem(s);
+		
+		if ((!item.equals(null))) {
+			boolean canCarry=Player.instance().getLoad()+i.getWeight() < 40;
+			if(canCarry)
+				Player.instance().addToInventory(i);
+			else
+				return "You cannont carry that much weight";
 		}
 		return "";
 
