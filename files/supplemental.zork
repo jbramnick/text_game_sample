@@ -2,10 +2,10 @@ Spook-E
 Zork v1.0
 ===
 Guns:
-Shotgun,shotty
+Shotgun,shotty,shotgun,M1014
 8
 reload[Reload]:You try to put in some rounds. 
-examine[CheckAmount]:A fine hunting shotgun.
+examine[CheckAmount]:An M1014 semi-automatic shotgun.
 point[Score(3)]:This is my BOOMSTICK!
 ---
 3
@@ -14,7 +14,7 @@ point[Score(3)]:This is my BOOMSTICK!
 5
 Buckshot
 ---
-Revolver,six-shooter,sidearm
+Revolver,six-shooter,sidearm,revolver,pistol
 5
 reload[Reload]:You flick the gun open and fill the chambers.
 examine[CheckAmount]:A fine six-shooter.
@@ -29,7 +29,7 @@ PistolAmmo
 ---
 ===
 Melee:
-Knife
+Knife,knife,dagger
 3
 flip[Score(1)]:You toss the knife up and catch it.
 throw[Disappear]:The knife flies into a wall and gets stuck. As hard as you try, you can't pull it out.
@@ -37,7 +37,7 @@ throw[Disappear]:The knife flies into a wall and gets stuck. As hard as you try,
 10
 35
 ---
-Lightsaber
+Lightsaber,lightsaber,LazerSword,
 5
 ignite:The blade lights with a cool sound effect.
 spin[Score(1)]:Look at the flick of that wrist!
@@ -45,7 +45,7 @@ spin[Score(1)]:Look at the flick of that wrist!
 200
 110
 ---
-Sword
+Sword,sword,Greatsword,blade
 12
 examine:A great, double-edged, steel sword.
 eat[Wound(30)]:You cut up your mouth and throat. Why would you do that?
@@ -56,7 +56,7 @@ throw[Drop]:The sword goes flying about five feet. You aren't that strong.
 ---
 ===
 Lights:
-torch
+torch,Torch,Light,light
 1
 use[SwitchLightItem]:Used it.
 lick[Wound(3)]:You burn your tongue!
@@ -64,75 +64,75 @@ examine[CheckAmount]:Quite a nice torch if I do say so myself.
 ---
 ===
 Items:
-GlassBottle
+GlassBottle,bottle,Bottle,glassBottle,glassbottle
 4
 break[Wound(1),Transform(shards)]:Ouch! The glass cuts your hand.
 wield:There's no one here to wield it against.
 examine:A clear bottle with no label.
 ---
-shards
+shards,pieces,Shards,glassShards
 4
 examine:These are a loose collection of sharp pieces of glass.
 touch[Wound(1)]:Ow! Stop that!
 throw[Disappear]:The shards scatter everywhere. Good luck picking them up.
 ---
-laptop
+laptop,Laptop,computer,Alienware
 7
 use:You check Facebook, get bored, then log off.
 break[Disappear]:It shatters. Screw technology!
 ---
-Necronomicon
+Necronomicon,necronomicon,book
 2
 examine:An ancient, evil book encased in human flesh. Looks like a good read!
 read[Teleport,Score(6)]:You start reading aloud, and a hurricane seems to appear in the room. You lose consciousness and awaken somewhere else.
 ---
-nuke
+NuclearBomb,nuclearbomb,nuke,Nuke,bomb,Bomb
 100
 examine:A nuclear bomb. How peculiar.
 deactivate[Score(10),Disappear]:You cut the correct wires. Whew!
 touch[Die]:The bomb explodes on contact, killing you and everyone else in the world.
 ---
-medkit
+medkit,Medkit,healthkit,Healthkit,HealthKit
 1
 use[Heal,Disappear]:You fully healed.
 ---
-spinach
+spinach,Spinach,vegetables
 1
 examine:A can of spinach.
 eat[Disappear,Heal,Eat(10)]:It tastes nasty, but you feel really strong now.
 ---
-burger
+Cheeseburger,Burger,burger,cheeseburger,hamburger
 1
 eat[Heal,Disappear,Eat(20)]:OH that tastes so good.
 ---
-beer
+Beer,beer,coldOne,Corona,corona,drink
 1
 drink[Eat(1),Disappear]:Ahh, that's good.
 ---
-EnergyDrink
+EnergyDrink,RedBull,energydrink,redbull
 1
 drink[Disappear,Heal]:It tastes like chemically-engineered power.
 examine:160 calories, 40mg sodium, 40g carbs, 37 g sugars, 0g protein.
 ---
-GinnyWeasley
+GinnyWeasley,Ginny,ginny,Weasley,RonsSister
 70
 save[Win]:You rescued Ginny Weasley and saved Hogwarts! That was one trippy quest.
-examine:Hint - save her to win.
+examine:She's laying on the floor unconscious and very pale.
 kick:That's not very nice.
 ---
-Key
+Key,key
 0
 use[Unlock,Disappear]:The key vanishes.
 ---
-Buckshot
+Buckshot,buckshot,shotgunammo,ShotgunAmmo,sAmmo
 0
 ---
-PistolAmmo
+PistolAmmo,pistolAmmo,ammo,Ammo,pAmmo
 0
 ---
 ===
 Npc:
-zombie
+Zombie
 100
 10
 20
@@ -164,7 +164,7 @@ false
 false
 You there! If you are worthy to be among immortals, answer this riddle! What walks on four legs in the morning, two in the afternoon, and three in the evening?
 ~~~
-human[Receive(Lightsaber)]:You truly are divine! Take this magical lightning sword!
+human[Receive(Lightsaber),Disappear]:You truly are divine! Take this magical lightning sword!
 idk:You are not worthy!
 ---
 Basilisk
@@ -199,7 +199,7 @@ There doesn't seem to be much to do here.
 ---
 DarkRoom
 Light: false
-Occupants: zombie
+Occupants: Zombie
 Contents: Sword,Key
 Even with a light, you can hardly see anything here. Oh look! Items!
 ---
@@ -212,39 +212,39 @@ Contents: medkit
 This room is shaped like a circle.
 ---
 RectangularRoom
-Occupants: zombie
-Contents: PistolAmmo#12
-Confusingly, this room is shaped like a triangle.
+Occupants: Zombie
+Contents: PistolAmmo#12,Key
+Confusingly, this room is shaped like a triangle. The exit to the east is one-way.
 ---
 WaterCloset
 Contents: spinach
 There are stalls to relieve yourself at. Who is that stud in the mirror?
 ---
 Bar
-Contents: beer#6,burger,EnergyDrink
+Contents: beer#6,Cheeseburger,EnergyDrink
 Need a drink?
 ---
 Halloweentown
-Occupants: zombie,zombie
-Contents: Necronomicon,spinach
+Occupants: Zombie,Zombie
+Contents: Necronomicon
 The place from Nightmare Before Christmas.
 ---
 Moon
-Occupants: zombie,zombie
+Occupants: Zombie,Zombie
 Contents: Revolver,medkit
 You don't know how you got here, or how you're even alive, but you're on the moon now
 ---
 Garden
-Occupants: zombie
-Contents: spinach#3
+Occupants: Zombie
+Contents: spinach
 Plants are everywhere.
 ---
 Pool
-Contents: burger
+Contents: Cheeseburger
 A big swimming pool with a diving board. It is full of sharks.
 ---
 Sauna
-Occupants: zombie
+Occupants: Zombie
 Seems very relaxing in here.
 ---
 StairwayToHeaven
@@ -256,11 +256,11 @@ Occupants: Herakles
 You have ascended to live amongst the gods. But, it seems boring here. All they do is sit around and complain how no one makes sacrifices to them anymore.
 ---
 TwinkieFactory
-Contents: nuke
+Contents: NuclearBomb
 The only place that could survive a nuclear fallout.
 ---
 Eagle Landing
-Occupants: zombie,zombie,zombie
+Occupants: Zombie,Zombie,Zombie
 Contents: laptop,EnergyDrink
 You don't know why Eagle Landing is here, but it's not like this dungeon makes much sense anyway. There are drunk people everywhere.
 ---
@@ -331,43 +331,44 @@ Bar
 ---
 Sauna
 w
-Olympus
+StairwayToHeaven
 ---
-Olympus
+StairwayToHeaven
 e
 Sauna
 ---
 StairwayToHeaven
-e
+u
 Olympus
 true
 ---
 Olympus
-w
+d
 StairwayToHeaven
 ---
-StairwayToHeaven
+Halloweentown
 w
 TwinkieFactory
 ---
 TwinkieFactory
 e
-StairwayToHeaven
----
-Chamber of Secrets
-n
 Halloweentown
----
-Halloweentown
-s
-Chamber of Secrets
 ---
 Eagle Landing
 n
+Halloweentown
+---
+Halloweentown
+s
+Eagle Landing
+---
+Eagle Landing
+d
 Chamber of Secrets
+true
 ---
 Chamber of Secrets
-s
+u
 Eagle Landing
 ---
 StartRoom
@@ -401,5 +402,9 @@ RectangularRoom
 RectangularRoom
 s
 CircularRoom
+---
+RectangularRoom
+w
+DarkRoom
 ---
 ===
