@@ -1,25 +1,58 @@
-Combat (40 xp) - Allows the Player to fight NPC's in the Dungeon. When the Player is in the same room as an NPC, he/she will have the opportunity
-to fight with them in a turn-based system. Each NPC has health and a power level, which will determine how much damage will be dealt to the 
-Player when the NPC attacks, and vice versa. Weapons (Melee and Guns(which require ammo, separate Items)) will be available to the Player to deal
+Combat (40 xp) - Allows the Player to fight NPC's in the Dungeon. 
+When the Player is in the same room as an NPC, he/she will have the opportunity
+to fight with them in a turn-based system. Each NPC has health and a 
+power level, which will determine how much damage will be dealt to the 
+Player when the NPC attacks, and vice versa. Weapons (Melee and Guns
+(which require ammo, separate Items)) will be available to the Player to deal
 more damage to enemies. 
+
+The DarkRoom to the north of the StartRoom will usually have a zombie to test 
+combat on. Note that first you will need to light up that room (see Light).
+The StartRoom contains 3 Knife's (you only need one to fight with).
+Two guns are available in supplemental.zork (see Npc's for obtaining the
+Shotgun at the start). 
 -----------------------------------------------------------
 Hunger(15xp): The player will grow more hungry as time passes. They can refill the food in their belly by eating food items. 
 This adds a limit to the number of turns that the player has to win the game. If they do not win the game before all the food runs 
 out then they will die.
+
+To find food, first follow steps in Locked Doors to unlock the door to the
+south of the StartRoom. Then, from StartRoom, go south twice (s,s).
+Here, you will find a Cheeseburger which you may eat.
 -----------------------------------------------------------
 Locked Doors(10xp): Doors can be locked or unlocked at hydration. They can be unlocked by the player using a key or by talking 
-with an NPC.
+with an NPC (see Npc).
 
-To test this, take the Key in the starting room, and type "use Key". This 
-unlocks the door to the south.
+To test this, take the torch in the StartRoom, go north once, use the torch,
+take the Key (you may have to defeat a zombie in this room first), then go
+south agaoin to the StartRoom and type "use Key". This unlocks the door to 
+the south.
 -----------------------------------------------------------
-Light(15xp) - Rooms can be dark at hydration or become dark due to a changeLightEvent. While you are in a room that is dark you cannot do 
-anything other than exit or use a Light item. Any enemies in the Room will be able to attack you.
+Light(15xp) - Rooms can be dark at hydration or become dark due to a 
+changeLightEvent. While you are in a room that is dark you cannot do 
+anything other than exit or use a Light item. Any enemies in the Room will 
+be able to attack you.
 
-To test Light, take the torch in the starting room, go north once, and type "use torch". 
+To test Light, take the torch in the StartRoom, go north once, 
+and type "use torch". 
 -----------------------------------------------------------
 Verbose (2xp) - This toggles the exit text for room descriptions. 
 Typing "verbose" toggles this oin or off.
 -----------------------------------------------------------
+Npc's (30xp) - Np's exist in the dungeon and can be declared in the .zork file.
+They have their own health, power, and may be talked to for various effects.
+Npc's may or may not be aggresive toward the Player, and be able to move on
+their own through the dungeon, designated in the .zork. In supplemental.zork,
+Zombies are the only Npc's which are able to move.
 
+To see an Npc open a locked door, from the StartRoom, first take the torch,
+then go north once, take the key, go south once, and type 'use key' to unlock 
+the door to the south. 
+That being done, go (s,s,w,w) then talk to Socrates, and answer with 'Idk'.
 
+To trade with an Npc, from the StartRoom, talk to Bob, and say 'yes'. 
+He will then give you a Shotgun. Alternatively, you may say 'no' for no effect,
+or, 'screw you bob' and he will shoot you.
+
+Another trade opportunity is, after speaking to Socrates, go north from StairwayToHeaven to Olympus, talk to Herakles, and answer with 'human'.
+He will then give you a Lightsaber.

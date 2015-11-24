@@ -1,6 +1,15 @@
+- For whatever reason, when I talk to Bob, and say no to taking the Shotgun, it prints 'Talk to who?' as if I just typed 'talk' initially.
+
+- There should be a means of checking an Item's secondaryNames and commands 
+in-game.
+
+- Player needs to be able to check their Hunger level.
+
+*FIXED - simply add secondary names in .zork* 
 1.Things like Shotgun and shotgun should be treated the same. If this is not 
 the case then the game becomes tedious.
 
+*Not necessaary - Player can type 'take 10 ammo' or however much they want*
 2.Need to pick up ALL ammo when you try to pick it up. The necessity of saying
 take ammo, take ammo, take ammo, take ammo when you are trying to take all
 50 ammo in the pile. This is supposed to be fun not a game about picking up
