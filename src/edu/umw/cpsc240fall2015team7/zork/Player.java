@@ -36,7 +36,7 @@ class Player{
 		this.health = 100;
 		this.food = 100;
 		this.maxHealth=100;
-		this.carryWeight=40;
+		this.carryWeight=400;
 		this.score = 0;
 	}
 	public int getMaxHealth()
