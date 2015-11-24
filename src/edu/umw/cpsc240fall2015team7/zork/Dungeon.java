@@ -92,6 +92,8 @@ public class Dungeon{
 					while(true){
 						this.addNpc(new Npc(scanner));
 					}
+
+					
 				}
 				catch(Npc.NoNpcException e){}
 				custom=scanner.nextLine();
@@ -215,7 +217,7 @@ public class Dungeon{
 		for(String key: keys){
 			map.get(key).storeState(save);
 		}
-	
+
 	}
 	/**
 	 *Restores the state of a previously written Dungeon from a .sav file. Starts reading from the passed Scanner's current state.
@@ -258,25 +260,25 @@ public class Dungeon{
 		return items.get(name).clone();
 	}
 	/**
-	Returns spawnedNpc
-	@author Jim Bramnick
-	*/
+	  Returns spawnedNpc
+	  @author Jim Bramnick
+	 */
 	public Npc getSpawnedNpc()throws Npc.NoNpcException{
 		if(spawnedNpc==null)
 			throw new Npc.NoNpcException();
 		return spawnedNpc;
 	}
 	/**
-	retuns {@Link Npc} with that name.
-	returns null if no npc with that name exists in this
-	*/
+	  retuns {@Link Npc} with that name.
+	  returns null if no npc with that name exists in this
+	 */
 	Npc getNpc(String name){
 		return npcs.get(name).clone();
 	}
 	/**
-	Returns an ArrayList of npcs currently in any of the {@link Room}s of this
-	@author Jim Bramnick
-	*/
+	  Returns an ArrayList of npcs currently in any of the {@link Room}s of this
+	  @author Jim Bramnick
+	 */
 	ArrayList<Npc> getInPlayNpcs()
 	{
 		Collection<Room> rooms=map.values();
