@@ -68,7 +68,6 @@ class TakeCommand extends Command{
 				PassTimeEvent e=new PassTimeEvent(null,"1");
 				e.execute();
 				return text;
-
 			}
 			if(commandString.contains("all")){
 				ArrayList<Item> items = new ArrayList<Item>();

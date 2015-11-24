@@ -1,27 +1,27 @@
-things like Shotgun and shotgun should be treated the same. If this is not 
+1.Things like Shotgun and shotgun should be treated the same. If this is not 
 the case then the game becomes tedious.
 
-Need to pick up ALL ammo when you try to pick it up. The necessity of saying
+2.Need to pick up ALL ammo when you try to pick it up. The necessity of saying
 take ammo, take ammo, take ammo, take ammo when you are trying to take all
 50 ammo in the pile. This is supposed to be fun not a game about picking up
 ammo.
 
-Need to expand the syntax for talking to Npcs. Currently only "talk bob" 
+3.Need to expand the syntax for talking to Npcs. Currently only "talk bob" 
 works. Should also accept a more natural sounding "talk to bob".
 
-I will be adding a xp system to the game. This will be for things like
+4.I will be adding a xp system to the game. This will be for things like
 shooting and attack with melee weapons. The more that a Weapon type is used
 the more accurate you will be with that type of weapon.  This will involve 
 adding a accuracy engine to the combat.
 
-The light system is not intuitive. I was not able to figure it out without
+5.The light system is not intuitive. I was not able to figure it out without
 looking at the code. My fiancée was not able to ether. This should be 
 changed to something that is easier to guess. (this is a .zork thing. So 
 not a coding thing just something to keep in mind as you are creating a 
 .zork file)
 
-Score needs to have creative messages associated with it. 
+6.Score needs to have creative messages associated with it. 
 
-more to come as i go through the game.
+More to come as I go through the game.
 
 
