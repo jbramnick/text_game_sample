@@ -1,0 +1,394 @@
+Spook-E
+Zork v1.0
+===
+Guns:
+Shotgun,shotty
+8
+reload[Reload]:You try to put in some rounds. 
+examine[CheckAmount]:A fine hunting shotgun.
+point[Score(3)]:This is my BOOMSTICK!
+---
+3
+150
+---
+5
+Buckshot
+---
+Revolver,six-shooter,sidearm
+5
+reload[Reload]:You flick the gun open and fill the chambers.
+examine[CheckAmount]:A fine six-shooter.
+point[Score(2)]:Go ahead, punk, make my day.
+spin:You try to twirl it around your finger but drop it. Need more practice.
+---
+6
+100
+---
+6
+PistolAmmo
+---
+===
+Melee:
+Knife
+3
+flip[Score(1)]:You toss the knife up and catch it.
+---
+10
+35
+---
+Lightsaber
+5
+ignite:The blade lights with a cool sound effect.
+spin[Score(1)]:Look at the flick of that wrist!
+---
+200
+110
+---
+Sword
+12
+examine:A great, double-edged, steel sword.
+eat[Wound(30)]:You cut up your mouth and throat. Why would you do that?
+throw:The sword goes flying about five feet. You aren't that strong.
+---
+3
+60
+---
+===
+Lights:
+torch
+1
+use[SwitchLightItem]:Used it.
+examine[CheckAmount]:Quite a nice torch if I do say so myself.
+---
+===
+Items:
+GlassBottle
+4
+break[Wound(1),Transform(shards)]:Ouch! The glass cuts your hand.
+wield:There's no one here to wield it against.
+examine:A clear bottle with no label.
+---
+shards
+4
+examine:These are a loose collection of sharp pieces of glass.
+touch[Wound(1)]:Ow! Stop that!
+throw[Disappear]:The shards scatter everywhere. Good luck picking them up.
+---
+laptop
+7
+use:You check Facebook, get bored, then log off.
+break[Disappear]:It shatters. Screw technology!
+---
+Necronomicon
+2
+examine:An ancient, evil book encased in human flesh. Looks like a good read!
+read[Teleport,Score(6)]:You start reading aloud, and a hurricane seems to appear in the room. You lose consciousness and awaken somewhere else.
+---
+nuke
+100
+examine:A nuclear bomb. How peculiar.
+deactivate[Score(10),Disappear]:You cut the correct wires. Whew!
+touch[Die]:The bomb explodes on contact, killing you and everyone else in the world.
+---
+medkit
+1
+use[Wound(-100),Disappear]:You fully healed.
+---
+spinach
+1
+examine:A can of spinach.
+eat[Disappear,Wound(-50),Eat(10)]:It tastes nasty, but you feel really strong now.
+---
+burger
+1
+eat[Wound(-10),Disappear,Eat(20)]:OH that tastes so good.
+---
+beer
+1
+drink[Wound(-1),Eat(-1),Disappear]:Ahh, that's good.
+---
+EnergyDrink
+1
+drink[Disappear,Wound(-5)]:It tastes like chemically-engineered power.
+examine:160 calories, 40mg sodium, 40g carbs, 37 g sugars, 0g protein.
+---
+GinnyWeasley
+70
+save[Win]:You rescued Ginny Weasley and saved Hogwarts! That was one trippy quest.
+examine:Hint - save her to win.
+kick:That's not very nice.
+---
+Key
+0
+use[Unlock,Disappear]:The key vanishes.
+---
+Buckshot
+0
+---
+PistolAmmo
+0
+===
+Npc:
+Bob
+200
+5
+100
+0
+false
+Yo dude, you want this shotgun?
+~~~
+yes[Disappear,Receive(Shotgun)]:Groovy.
+no:Oh..okay..
+screw you bob[Wound(100)]:Oh yeah? Well this shotgun wants you. BOOM!
+---
+Herakles
+1000
+30
+120
+200
+false
+You there! If you are worthy to be among immortals, answer this riddle! What walks on four legs in the morning, two in the afternoon, and three in the evening?
+~~~
+human[Receive(Lightsaber)]:You truly are divine! Take this magical lightning sword!
+idk:You are not worthy!
+---
+zombie
+100
+10
+20
+10
+true
+Braaiinnnss
+---
+basilisk
+500
+20
+10
+100
+true
+ROOOAAAAARRRRR I'M A BIG SCARY SNAKE!
+---
+Socrates
+5000
+100
+1
+777
+false
+What does it all mean?
+~~~
+Nothing:You have much to learn, young one.
+What?[Score(1)]:You are learning.
+Idk[Score(4),Disappear,Unlock]:You have learned much.
+===
+Rooms:
+StartRoom
+Occupants: Bob
+Contents: Knife#3,torch,Buckshot#20
+There doesn't seem to be much to do here.
+---
+DarkRoom
+Light: false
+Occupants: zombie
+Contents: Sword,Key
+Even with a light, you can hardly see anything here. Oh look! Items!
+---
+SwagRoom
+Contents: GlassBottle,EnergyDrink
+This room is very hip. It is full of people wearing snapbacks and vaping.
+---
+CircularRoom
+Contents: medkit
+This room is shaped like a circle.
+---
+RectangularRoom
+Occupants: zombie
+Contents: PistolAmmo#12,spinach
+Confusingly, this room is shaped like a triangle.
+---
+WaterCloset
+Contents: spinach
+There are stalls to relieve yourself at. Who is that stud in the mirror?
+---
+Bar
+Contents: beer#6,burger,EnergyDrink
+Need a drink?
+---
+Halloweentown
+Occupants: zombie,zombie
+Contents: Necronomicon,spinach
+The place from Nightmare Before Christmas.
+---
+Moon
+Occupants: zombie,zombie
+Contents: Revolver,medkit
+You don't know how you got here, or how you're even alive, but you're on the moon now
+---
+Garden
+Occupants: zombie
+Contents: spinach#3
+Plants are everywhere.
+---
+Pool
+Contents: burger
+A big swimming pool with a diving board. It is full of sharks.
+---
+Sauna
+Occupants: zombie
+Seems very relaxing in here.
+---
+StairwayToHeaven
+Occupants: Socrates
+A long, golden staircase leading to the clouds.
+---
+Olympus
+Occupants: Herakles
+You have ascended to live amongst the gods. But, it seems boring here. All they do is sit around and complain how no one makes sacrifices to them anymore.
+---
+TwinkieFactory
+Contents: nuke
+The only place that could survive a nuclear fallout.
+---
+Eagle Landing
+Occupants: zombie,zombie,zombie
+Contents: laptop,EnergyDrink
+You don't know why Eagle Landing is here, but it's not like this dungeon makes much sense anyway. There are drunk people everywhere.
+---
+Chamber of Secrets
+Light: false
+Occupants: basilisk
+Contents: GinnyWeasley
+A long, wet, stone hall. A face on the wall opens its mouth and a large snake slithers out. Good luck!
+---
+===
+Exits:
+StartRoom
+s
+WaterCloset
+true
+---
+WaterCloset
+n
+StartRoom
+---
+WaterCloset
+s
+Bar
+---
+Bar
+n
+WaterCloset
+---
+Halloweentown
+n
+Bar
+---
+Bar
+s
+Halloweentown
+---
+Moon
+w
+Bar
+---
+Bar
+e
+Moon
+---
+Moon
+e
+Garden
+---
+Garden
+w
+Moon
+---
+Pool
+s
+Garden
+---
+Garden
+n
+Pool
+---
+Bar
+w
+Sauna
+---
+Sauna
+e
+Bar
+---
+Sauna
+w
+Olympus
+---
+Olympus
+e
+Sauna
+---
+StairwayToHeaven
+e
+Olympus
+true
+---
+Olympus
+w
+StairwayToHeaven
+---
+StairwayToHeaven
+w
+TwinkieFactory
+---
+TwinkieFactory
+e
+StairwayToHeaven
+---
+Chamber of Secrets
+n
+Halloweentown
+---
+Halloweentown
+s
+Chamber of Secrets
+---
+Eagle Landing
+n
+Chamber of Secrets
+---
+Chamber of Secrets
+s
+Eagle Landing
+---
+StartRoom
+n
+DarkRoom
+---
+DarkRoom
+s
+StartRoom
+---
+Eagle Landing
+e
+SwagRoom
+---
+SwagRoom
+w
+Eagle Landing
+---
+SwagRoom
+e
+CircularRoom
+---
+CircularRoom
+w
+SwagRoom
+---
+CircularRoom
+n
+RectangularRoom
+---
+RectangularRoom
+s
+CircularRoom
+---
+===
