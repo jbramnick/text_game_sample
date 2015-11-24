@@ -19,7 +19,7 @@ Revolver,six-shooter,sidearm
 reload[Reload]:You flick the gun open and fill the chambers.
 examine[CheckAmount]:A fine six-shooter.
 point[Score(2)]:Go ahead, punk, make my day.
-spin:You try to twirl it around your finger but drop it. Need more practice.
+spin[Drop]:You try to twirl it around your finger but drop it. Need more practice.
 ---
 6
 100
@@ -32,6 +32,7 @@ Melee:
 Knife
 3
 flip[Score(1)]:You toss the knife up and catch it.
+throw[Disappear]:The knife flies into a wall and gets stuck. As hard as you try, you can't pull it out.
 ---
 10
 35
@@ -48,7 +49,7 @@ Sword
 12
 examine:A great, double-edged, steel sword.
 eat[Wound(30)]:You cut up your mouth and throat. Why would you do that?
-throw:The sword goes flying about five feet. You aren't that strong.
+throw[Drop]:The sword goes flying about five feet. You aren't that strong.
 ---
 3
 60
@@ -58,6 +59,7 @@ Lights:
 torch
 1
 use[SwitchLightItem]:Used it.
+lick[Wound(3)]:You burn your tongue!
 examine[CheckAmount]:Quite a nice torch if I do say so myself.
 ---
 ===
@@ -105,7 +107,7 @@ eat[Heal,Disappear,Eat(20)]:OH that tastes so good.
 ---
 beer
 1
-drink[Wound(-1),Eat(1),Disappear]:Ahh, that's good.
+drink[Eat(1),Disappear]:Ahh, that's good.
 ---
 EnergyDrink
 1
@@ -136,6 +138,7 @@ zombie
 20
 10
 true
+true
 Braaiinnnss
 ~~~
 ---
@@ -144,6 +147,7 @@ Bob
 5
 100
 0
+false
 false
 Yo dude, you want this shotgun?
 ~~~
@@ -157,17 +161,19 @@ Herakles
 120
 200
 false
+false
 You there! If you are worthy to be among immortals, answer this riddle! What walks on four legs in the morning, two in the afternoon, and three in the evening?
 ~~~
 human[Receive(Lightsaber)]:You truly are divine! Take this magical lightning sword!
 idk:You are not worthy!
 ---
-basilisk
+Basilisk
 500
 20
 10
 100
 true
+false
 ROOOAAAAARRRRR I'M A BIG SCARY SNAKE!
 ~~~
 ---
@@ -176,6 +182,7 @@ Socrates
 100
 1
 777
+false
 false
 What does it all mean?
 ~~~
@@ -206,7 +213,7 @@ This room is shaped like a circle.
 ---
 RectangularRoom
 Occupants: zombie
-Contents: PistolAmmo#12,spinach
+Contents: PistolAmmo#12
 Confusingly, this room is shaped like a triangle.
 ---
 WaterCloset
@@ -259,7 +266,7 @@ You don't know why Eagle Landing is here, but it's not like this dungeon makes m
 ---
 Chamber of Secrets
 Light: false
-Occupants: basilisk
+Occupants: Basilisk
 Contents: GinnyWeasley
 A long, wet, stone hall. A face on the wall opens its mouth and a large snake slithers out. Good luck!
 ---

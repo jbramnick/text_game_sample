@@ -20,7 +20,7 @@ class EatEvent extends Event {
 	*/
 	public String execute() {
 			Player.instance().eat(food);
-			return "That was a delicious snack!\n";
+			return "";
 	}
 
 }

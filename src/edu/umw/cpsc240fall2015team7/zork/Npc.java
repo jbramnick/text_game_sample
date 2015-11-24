@@ -14,6 +14,7 @@ class Npc{
 	protected String talkText;
 	protected boolean beenTalkedTo;
 	private boolean aggression;
+	private boolean canMove;
 	protected Room currentRoom;
 	protected Hashtable<String,ArrayList<Event>> choiceEvents;
 	protected Hashtable<String,String> messages;
@@ -51,6 +52,8 @@ class Npc{
 		this.score=Integer.parseInt(current);
 		current=scan.nextLine();
 		this.aggression=Boolean.valueOf(current);
+		current=scan.nextLine();
+		this.canMove=Boolean.valueOf(current);
 		current=scan.nextLine();
 		this.talkText="";
 		while(!(current.equals("~~~")))
@@ -129,6 +132,8 @@ class Npc{
 	}
 	public void move()
 	{
+	if (canMove==false) {
+	} else {
 		Random x=new Random();
 		boolean yesMove=x.nextInt(100)<50;
 		if(!(Player.instance().getCurrentRoom().getTitle().equals(this.currentRoom.getTitle()))&&(yesMove))
@@ -150,6 +155,7 @@ class Npc{
 			this.currentRoom=exit.getDest();
 			exit.getDest().addNpc(this);
 		}
+	}
 	}
 	/**
 	 *Returns the aggression value for this NPC. Non-Aggressive Npcs can become aggressive if they are attacked or through an event.
