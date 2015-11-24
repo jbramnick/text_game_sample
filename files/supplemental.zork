@@ -92,24 +92,24 @@ touch[Die]:The bomb explodes on contact, killing you and everyone else in the wo
 ---
 medkit
 1
-use[Wound(-100),Disappear]:You fully healed.
+use[Heal,Disappear]:You fully healed.
 ---
 spinach
 1
 examine:A can of spinach.
-eat[Disappear,Wound(-50),Eat(10)]:It tastes nasty, but you feel really strong now.
+eat[Disappear,Heal,Eat(10)]:It tastes nasty, but you feel really strong now.
 ---
 burger
 1
-eat[Wound(-10),Disappear,Eat(20)]:OH that tastes so good.
+eat[Heal,Disappear,Eat(20)]:OH that tastes so good.
 ---
 beer
 1
-drink[Wound(-1),Eat(-1),Disappear]:Ahh, that's good.
+drink[Wound(-1),Eat(1),Disappear]:Ahh, that's good.
 ---
 EnergyDrink
 1
-drink[Disappear,Wound(-5)]:It tastes like chemically-engineered power.
+drink[Disappear,Heal]:It tastes like chemically-engineered power.
 examine:160 calories, 40mg sodium, 40g carbs, 37 g sugars, 0g protein.
 ---
 GinnyWeasley
@@ -127,8 +127,18 @@ Buckshot
 ---
 PistolAmmo
 0
+---
 ===
 Npc:
+zombie
+100
+10
+20
+10
+true
+Braaiinnnss
+~~~
+---
 Bob
 200
 5
@@ -152,14 +162,6 @@ You there! If you are worthy to be among immortals, answer this riddle! What wal
 human[Receive(Lightsaber)]:You truly are divine! Take this magical lightning sword!
 idk:You are not worthy!
 ---
-zombie
-100
-10
-20
-10
-true
-Braaiinnnss
----
 basilisk
 500
 20
@@ -167,6 +169,7 @@ basilisk
 100
 true
 ROOOAAAAARRRRR I'M A BIG SCARY SNAKE!
+~~~
 ---
 Socrates
 5000
@@ -179,6 +182,7 @@ What does it all mean?
 Nothing:You have much to learn, young one.
 What?[Score(1)]:You are learning.
 Idk[Score(4),Disappear,Unlock]:You have learned much.
+---
 ===
 Rooms:
 StartRoom
