@@ -18,7 +18,7 @@ class SpawnEvent extends Event {
 	*@author Carson Meadows
 	*/
 	String execute () {
-		Npc npc = Gamestate.instance().getDungeon().getNpc(name);
+		Npc npc = GameState.instance().getDungeon().getNpc(name);
 		Player.instance().getCurrentRoom().addNpc(npc);
 		return name + " appeared!";
 	}

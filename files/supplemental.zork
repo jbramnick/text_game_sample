@@ -6,7 +6,7 @@ Shotgun,shotty,shotgun,M1014
 8
 reload[Reload]:You try to put in some rounds. 
 examine[CheckAmount]:An M1014 semi-automatic shotgun.
-point[Score(3)]:This is my BOOMSTICK!
+point,aim[Score(3)]:This is my BOOMSTICK!
 ---
 3
 150
@@ -16,10 +16,10 @@ Buckshot
 ---
 Revolver,six-shooter,sidearm,revolver,pistol
 5
-reload[Reload]:You flick the gun open and fill the chambers.
+reload,r[Reload]:You flick the gun open and fill the chambers.
 examine[CheckAmount]:A fine six-shooter.
-point[Score(2)]:Go ahead, punk, make my day.
-spin[Drop]:You try to twirl it around your finger but drop it. Need more practice.
+point,aim,threaten[Score(2)]:Go ahead, punk, make my day.
+spin,twirl[Drop]:You try to twirl it around your finger but drop it. Need more practice.
 ---
 6
 100
@@ -32,15 +32,15 @@ Melee:
 Knife,knife,dagger
 3
 flip[Score(1)]:You toss the knife up and catch it.
-throw[Disappear]:The knife flies into a wall and gets stuck. As hard as you try, you can't pull it out.
+throw,toss,chuck[Disappear]:The knife flies into a wall and gets stuck. As hard as you try, you can't pull it out.
 ---
 10
 35
 ---
 Lightsaber,lightsaber,LazerSword,
 5
-ignite:The blade lights with a cool sound effect.
-spin[Score(1)]:Look at the flick of that wrist!
+ignite,use,turnon:The blade lights with a cool sound effect.
+spin,twirl[Score(1)]:Look at the flick of that wrist!
 ---
 200
 110
@@ -48,18 +48,18 @@ spin[Score(1)]:Look at the flick of that wrist!
 Sword,sword,Greatsword,blade
 12
 examine:A great, double-edged, steel sword.
-eat[Wound(30)]:You cut up your mouth and throat. Why would you do that?
-throw[Drop]:The sword goes flying about five feet. You aren't that strong.
+eat,swallow,devour,bite[Wound(30)]:You cut up your mouth and throat. Why would you do that?
+throw,toss,chuck[Drop]:The sword goes flying about five feet. You aren't that strong.
 ---
 3
 60
 ---
 ===
 Lights:
-torch,Torch,Light,light
+torch,Torch
 1
-use[SwitchLightItem]:Used it.
-lick[Wound(3)]:You burn your tongue!
+use,light,activate,ignite,switch,try[SwitchLightItem]:Used it.
+lick,touch[Wound(3)]:You burn yourself!
 examine[CheckAmount]:Quite a nice torch if I do say so myself.
 ---
 ===
@@ -84,7 +84,7 @@ break[Disappear]:It shatters. Screw technology!
 Necronomicon,necronomicon,book
 2
 examine:An ancient, evil book encased in human flesh. Looks like a good read!
-read[Teleport,Score(6)]:You start reading aloud, and a hurricane seems to appear in the room. You lose consciousness and awaken somewhere else.
+read[Spawn(Zombie),Score(6)]:You start reading aloud, and a hurricane seems to appear in the room. You lose consciousness and awaken somewhere else.
 ---
 NuclearBomb,nuclearbomb,nuke,Nuke,bomb,Bomb
 100
