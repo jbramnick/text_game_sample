@@ -45,6 +45,11 @@ class CommandFactory{
 			HealthCommand i = new HealthCommand();
 			return i;
 		}
+		else if(commandString.equals("help")){
+			HelpCommand i = new HelpCommand();
+			return i;
+		}
+
 		else if (commandString.contains("attack")) {
 			AttackCommand a = new AttackCommand(commandString);
 			return a;
@@ -81,13 +86,13 @@ class CommandFactory{
 			return i;
 		}
 		else if(commandString.contains("drop")){
-				try{
-					DropCommand drop = new DropCommand(commandString);
-					return drop;
-				}
-				catch(Item.NoItemException e){
-					throw new Item.NoItemException();
-				}
+			try{
+				DropCommand drop = new DropCommand(commandString);
+				return drop;
+			}
+			catch(Item.NoItemException e){
+				throw new Item.NoItemException();
+			}
 		}
 		else if(verbs.contains(command[0])){
 			String verb = command[0];
