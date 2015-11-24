@@ -13,6 +13,8 @@ class Player{
 	private ArrayList<String> verbs = new ArrayList<String>();
 	private Room currentRoom;
 	private ArrayList<Item> inventory;
+	private int attackLvl;
+	private int attackXp;
 	private int health,food,score;
 	private int maxHealth;
 	private int carryWeight;
@@ -39,21 +41,34 @@ class Player{
 		this.carryWeight=400;
 		this.score = 0;
 	}
-	public int getMaxHealth()
-	{
+	/**
+	  Returns this players maxHealth. 
+	  @author Nathanael Woodhead
+	  */
+	public int getMaxHealth(){
 		return maxHealth;
 	}
-	public void setMaxHealth(int maxHealth)
-	{
+	/**
+	  Sets this players max health. This is the maximum amount that the health can go up to. 
+	  @author Nathanael Woodhead
+	  */
+	public void setMaxHealth(int maxHealth){
 		this.maxHealth=maxHealth;
 
 	}
-	public int getCarryWeight()
-	{
+	/**
+	  Returns the {@link carryWeight}
+	  @author Nathanael Woodhead
+	  */
+	public int getCarryWeight(){
 		return carryWeight;
 	}
-	public void setCarryWeight(int carryWeight)
-	{
+	/**
+	  Method that sets this players {@link carryWeight}.
+	  @param carryWeight The weight that the player can carry.
+	  @author Nathanael Woodhead
+	  */
+	public void setCarryWeight(int carryWeight){
 		this.carryWeight=carryWeight;
 	}
 	/**
@@ -63,6 +78,11 @@ class Player{
 	void eat(int food){
 		this.food += food;
 	}
+	/**
+	  Returns the first gun in this inventory.
+	  @throws NoGunException When there are no guns in this inventory.
+	  @author Nathanael Woodhead
+	  */
 	Gun getGun() throws NoGunException{
 		for(Item i : inventory){
 			Class clazz = Gun.class;
@@ -72,8 +92,12 @@ class Player{
 		}
 		throw new NoGunException();
 	}
+	/**
+	  Returns an ArrayList of light items.
+	  @author Nathanael Woodhead
+	  */
 	ArrayList<Light> getLights() throws Light.NoLightException{
-	ArrayList<Light> lights=new ArrayList<Light>();
+		ArrayList<Light> lights=new ArrayList<Light>();
 		for(Item i : inventory){
 			if(i instanceof Light){
 				lights.add((Light)i);
@@ -266,16 +290,14 @@ class Player{
 	  Returns the ArrayList inventory of this
 	  @author Jim Bramnick
 	 */
-	ArrayList<Item> getInventory()
-	{
+	ArrayList<Item> getInventory(){
 		return inventory;
 	}
 	/**
 	 *Saves progress to a Printwriter.
 	 *@author Carson Meadows
 	 */
-	public void store(PrintWriter save)
-	{
+	public void store(PrintWriter save){
 		save.println("Adventurer:");
 		save.println("Current room: " + currentRoom.getTitle());
 		if(inventory.size()>0){
@@ -294,8 +316,11 @@ class Player{
 
 
 	}
-	public void restore(Scanner scan)
-	{
+	/**
+	  Restores this Player to a saves point.
+	  @author Nathanael Woodhead
+	 */
+	void restore(Scanner scan){
 		String current="";
 		try
 		{
@@ -326,7 +351,13 @@ class Player{
 
 		}
 	}
-	public int countAmmo(String type){
+	/**
+	  Returns the amount of an item in this inventory. Takes the item named passed and counts the number of times it appears in this inventory. 
+	  @param type The name of the item to be counted. 
+	  @return An int of the number of times that item is in this inventory
+	  @author Nathanael Woodhead
+	 */
+	int countAmmo(String type){
 		int count = 0;
 		for(Item item : inventory){
 			if(item.goesBy(type)){
@@ -335,18 +366,21 @@ class Player{
 		}
 		return count;
 	}
-	public static void main(String args[])
-	{
-		Item i=new Item("test",0);
-
-
-	}
+	/**
+	  Checks if the players health is below 0. If it creates a new {@link DieEvent} and executes it.
+	  @author Nathanael Woodhead
+	 */
 	void checkDead(){
 		if(health<0){
 			Event die = new DieEvent();
 			die.execute();
 		}
 	}
+	/**
+	  Returns the first melee weapon in this inventory. 
+	  @throws NoMeleeException When there are no melee weapons in this inventory.
+	  @author Nathanael Woodhead
+	 */
 	Melee getMelee() throws NoMeleeException{
 		Class clazz = Melee.class;
 		for(Item i : inventory){
@@ -359,7 +393,7 @@ class Player{
 	/**
 	  Returns true when the player has a light item that is activated in inventory.
 	  @author Nathanael Woodhead
-	  */
+	 */
 	boolean hasLight(){
 		for(Item i : inventory){
 			if(i instanceof Light){
@@ -371,6 +405,10 @@ class Player{
 		}
 		return false;
 	}
+	/**
+	  Returns the level that the player has achieved. The levels are hard coded and are biased on the players score.
+	  @author Nathanael Woodhead
+	 */
 	String getScoreMessage(){
 		String text = "You are a ";
 		if(score <100){
