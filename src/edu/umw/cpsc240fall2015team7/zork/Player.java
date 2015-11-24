@@ -356,6 +356,10 @@ class Player{
 		}
 		throw new NoMeleeException();
 	}
+	/**
+	  Returns true when the player has a light item that is activated in inventory.
+	  @author Nathanael Woodhead
+	  */
 	boolean hasLight(){
 		for(Item i : inventory){
 			if(i instanceof Light){
@@ -366,5 +370,29 @@ class Player{
 			}
 		}
 		return false;
+	}
+	String getScoreMessage(){
+		String text = "You are a ";
+		if(score <100){
+			return text +"Noob";
+		}
+		else if(score < 200){
+			return text +"Freshman";
+		}
+		else if(score < 400){
+			return text +"Sophmore";
+		}
+		else if (score < 800){
+			return text +"Junior";
+		}
+		else if (score <1600){
+			return 	text +"Senior";
+		}
+		else if(score <3200){
+			return text +"Jedi";
+		}
+		else{
+			return text +"Jedi Master";
+		}
 	}
 }
