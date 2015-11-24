@@ -18,6 +18,7 @@ class DieEvent extends Event{
 	  */
 	String execute(){
 		String message = "You died! Game Over!\nScore: ";
+		message += Player.instance().getScoreMessage();
 		int score = Player.instance().getScore();
 		message += Integer.toString(score);
 		System.out.println(message);

@@ -29,12 +29,12 @@ changed to something that is easier to guess. (this is a .zork thing. So
 not a coding thing just something to keep in mind as you are creating a 
 .zork file)
 
-6.Score needs to have creative messages associated with it. 
-
-More to come as I go through the game.
-
 You cannot drop more than one of the same item at a time. 
 
 BUG:  When a item transforms it does not disappear. We lost points for this with the last submission.
 
-BUG: When you say take all and there are more than one item in the room then it prints out one line per item. This includes one line for each of the 70 ammo or 6 daggers. 
+BUG: When you say take all and there are more than one item in the room then it prints out one line per item. This includes one line for each of the 70 ammo or 6 daggers.
+
+BUG: There are 70 ammo in the room. You say take the 70 ammo. The message that it prints back is that there are not 70 ammoss here. However it does pick up the 70 ammo. 
+
+
