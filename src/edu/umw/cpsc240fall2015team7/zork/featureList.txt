@@ -2,13 +2,24 @@ Combat (40 xp) - Allows the Player to fight NPC's in the Dungeon. When the Playe
 to fight with them in a turn-based system. Each NPC has health and a power level, which will determine how much damage will be dealt to the 
 Player when the NPC attacks, and vice versa. Weapons (Melee and Guns(which require ammo, separate Items)) will be available to the Player to deal
 more damage to enemies. 
-
+-----------------------------------------------------------
 Hunger(15xp): The player will grow more hungry as time passes. They can refill the food in their belly by eating food items. 
-This adds an limit to the number of turns that the player has to win the game. If they do not win the game before all the food runs 
+This adds a limit to the number of turns that the player has to win the game. If they do not win the game before all the food runs 
 out then they will die.
-
+-----------------------------------------------------------
 Locked Doors(10xp): Doors can be locked or unlocked at hydration. They can be unlocked by the player using a key or by talking 
-with an npc.
+with an NPC.
 
-Light(15xp) - Rooms can be dark at by hydration or become dark due to a change light event. While you are in a room that is dark you cannot do 
-anything other than exit or light a light item. 
+To test this, take the Key in the starting room, and type "use Key". This 
+unlocks the door to the south.
+-----------------------------------------------------------
+Light(15xp) - Rooms can be dark at hydration or become dark due to a changeLightEvent. While you are in a room that is dark you cannot do 
+anything other than exit or use a Light item. Any enemies in the Room will be able to attack you.
+
+To test Light, take the torch in the starting room, go north once, and type "use torch". 
+-----------------------------------------------------------
+Verbose (2xp) - This toggles the exit text for room descriptions. 
+Typing "verbose" toggles this oin or off.
+-----------------------------------------------------------
+
+
