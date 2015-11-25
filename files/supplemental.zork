@@ -4,8 +4,8 @@ Zork v1.0
 Guns:
 Shotgun,shotty,shotgun,M1014
 8
-reload[Reload]:You try to put in some rounds. 
-examine[CheckAmount]:An M1014 semi-automatic shotgun.
+reload,r,Reload,refill,R,replenish[Reload]:You try to put in some rounds. 
+examine,check[CheckAmount]:An M1014 semi-automatic shotgun.
 point,aim[Score(3)]:This is my BOOMSTICK!
 ---
 3
@@ -16,8 +16,8 @@ Buckshot
 ---
 Revolver,six-shooter,sidearm,revolver,pistol
 5
-reload,r[Reload]:You flick the gun open and fill the chambers.
-examine[CheckAmount]:A fine six-shooter.
+reload,r,Reload,R,refill,replenish[Reload]:You flick the gun open and fill the chambers.
+examine,check[CheckAmount]:A fine six-shooter.
 point,aim,threaten[Score(2)]:Go ahead, punk, make my day.
 spin,twirl[Drop]:You try to twirl it around your finger but drop it. Need more practice.
 ---
@@ -37,7 +37,7 @@ throw,toss,chuck[Disappear]:The knife flies into a wall and gets stuck. As hard 
 10
 35
 ---
-Lightsaber,lightsaber,LazerSword,
+Lightsaber,lightsaber,LazerSword,ls
 5
 ignite,use,turnon:The blade lights with a cool sound effect.
 spin,twirl[Score(1)]:Look at the flick of that wrist!
@@ -47,8 +47,8 @@ spin,twirl[Score(1)]:Look at the flick of that wrist!
 ---
 Sword,sword,Greatsword,blade
 12
-examine:A great, double-edged, steel sword.
-eat,swallow,devour,bite[Wound(30)]:You cut up your mouth and throat. Why would you do that?
+examine,check,investigate:A great, double-edged, steel sword.
+eat,swallow,devour,bite,consume[Wound(30)]:You cut up your mouth and throat. Why would you do that?
 throw,toss,chuck[Drop]:The sword goes flying about five feet. You aren't that strong.
 ---
 3
@@ -60,65 +60,66 @@ torch,Torch
 1
 use,light,activate,ignite,switch,try[SwitchLightItem]:Used it.
 lick,touch[Wound(3)]:You burn yourself!
-examine[CheckAmount]:Quite a nice torch if I do say so myself.
+examine,check[CheckAmount]:Quite a nice torch if I do say so myself.
 ---
 ===
 Items:
 GlassBottle,bottle,Bottle,glassBottle,glassbottle
 4
-break[Wound(1),Transform(shards)]:Ouch! The glass cuts your hand.
+throw,toss,chuck[Transform(shards),Drop]:The bottle goes flying and breaks on a wall into little pieces.
+break,smash,crush,crash,Break,hit[Wound(5),Transform(shards)]:Ouch! The glass cuts your hand.
 wield:There's no one here to wield it against.
-examine:A clear bottle with no label.
+examine,check:A clear bottle with no label.
 ---
-shards,pieces,Shards,glassShards
+glassShards,pieces,Shards,shards
 4
-examine:These are a loose collection of sharp pieces of glass.
-touch[Wound(1)]:Ow! Stop that!
-throw[Disappear]:The shards scatter everywhere. Good luck picking them up.
+examine,check:These are a loose collection of sharp pieces of glass.
+touch,lick,squeeze,rub,crush[Wound(1)]:Ow! Stop that!
+throw,toss[Disappear]:The shards scatter everywhere. Good luck picking them up.
 ---
 laptop,Laptop,computer,Alienware
 7
-use:You check Facebook, get bored, then log off.
-break[Disappear]:It shatters. Screw technology!
+use,logon,check,examine,try:You check Facebook, get bored, then log off.
+break,smash,crush,throw,kick,punch[Disappear]:It shatters. Screw technology!
 ---
-Necronomicon,necronomicon,book
+Necronomicon,necronomicon,book,Book
 2
-examine:An ancient, evil book encased in human flesh. Looks like a good read!
-read[Spawn(Zombie),Score(6)]:You start reading aloud, and a hurricane seems to appear in the room. You lose consciousness and awaken somewhere else.
+examine,check:An ancient, evil book encased in human flesh. Looks like a good read!
+read[Teleport,Score(6)]:You start reading aloud, and a hurricane seems to appear in the room. You lose consciousness and awaken somewhere else.
 ---
-NuclearBomb,nuclearbomb,nuke,Nuke,bomb,Bomb
+NuclearBomb,nuclearbomb,nuke,Nuke,bomb,Bomb,Nuke
 100
-examine:A nuclear bomb. How peculiar.
-deactivate[Score(10),Disappear]:You cut the correct wires. Whew!
-touch[Die]:The bomb explodes on contact, killing you and everyone else in the world.
+examine,check:A nuclear bomb. How peculiar.
+deactivate,defuse[Score(10),Disappear]:You cut the correct wires. Whew!
+touch,kick,light,activate,punch,use,try[Die]:The bomb explodes on contact, killing you and everyone else in the world.
 ---
-medkit,Medkit,healthkit,Healthkit,HealthKit
+medkit,Medkit,healthkit,Healthkit,HealthKit,med,mk
 1
 use[Heal,Disappear]:You fully healed.
 ---
-spinach,Spinach,vegetables
+spinach,Spinach,vegetables,sp,spi,spin,spina,spinac,greens
 1
-examine:A can of spinach.
-eat[Disappear,Heal,Eat(10)]:It tastes nasty, but you feel really strong now.
+examine,check:A can of spinach.
+eat,consume,swallow,devour[Disappear,Heal,Eat(10)]:It tastes nasty, but you feel really strong now.
 ---
 Cheeseburger,Burger,burger,cheeseburger,hamburger
 1
-eat[Heal,Disappear,Eat(20)]:OH that tastes so good.
+eat,chew,swallow,devour,consume[Heal,Disappear,Eat(20)]:OH that tastes so good.
 ---
-Beer,beer,coldOne,Corona,corona,drink
+Beer,beer,coldOne,Corona,corona
 1
-drink[Eat(1),Disappear]:Ahh, that's good.
+drink,swallow,chug,enjoy,down[Eat(1),Disappear]:Ahh, that's good.
 ---
-EnergyDrink,RedBull,energydrink,redbull
+EnergyDrink,RedBull,energydrink,redbull,drink
 1
-drink[Disappear,Heal]:It tastes like chemically-engineered power.
-examine:160 calories, 40mg sodium, 40g carbs, 37 g sugars, 0g protein.
+drink,swallow,down,enjoy,chug[Disappear,Heal]:It tastes like chemically-engineered power.
+examine,check,read:160 calories, 40mg sodium, 40g carbs, 37 g sugars, 0g protein.
 ---
 GinnyWeasley,Ginny,ginny,Weasley,RonsSister
 70
-save[Win]:You rescued Ginny Weasley and saved Hogwarts! That was one trippy quest.
-examine:She's laying on the floor unconscious and very pale.
-kick:That's not very nice.
+save,rescue[Win]:You rescued Ginny Weasley and saved Hogwarts! That was one trippy quest.
+examine,check:She's laying on the floor unconscious and very pale. You must save her!
+kick,punch,wrestle,stomp,slap,smack:That's not very nice.
 ---
 Key,key
 0
@@ -132,17 +133,17 @@ PistolAmmo,pistolAmmo,ammo,Ammo,pAmmo
 ---
 ===
 Npc:
-Zombie
+Zombie,zombie,zed,z,Zed,Z,walker,geek,ghoul
 100
 10
-20
+15
 10
 true
 true
 Braaiinnnss
 ~~~
 ---
-Bob
+Bob,bob,Robert,robert,Rob,rob,dude,man,bro,guy,friend
 200
 5
 100
@@ -151,11 +152,11 @@ false
 false
 Yo dude, you want this shotgun?
 ~~~
-yes[Disappear,Receive(Shotgun)]:Groovy.
-no:Oh..okay..
-screw you bob[Wound(100)]:Oh yeah? Well this shotgun wants you. BOOM!
+yes,y,yea,ye,yeah,Yes,Y,please,Oui,affirmative[Disappear,Receive(Shotgun)]:Groovy.
+no,No,n,N,nope,nah,na:Oh..okay..
+screw you bob,screw you[Wound(100)]:Oh yeah? Well this shotgun wants you. BOOM!
 ---
-Herakles
+Herakles,herakles,Hercules,hercules,hero,god,God,H,hera,h,Hera,heracles,Heracles
 1000
 30
 120
@@ -164,10 +165,10 @@ false
 false
 You there! If you are worthy to be among immortals, answer this riddle! What walks on four legs in the morning, two in the afternoon, and three in the evening?
 ~~~
-human[Receive(Lightsaber),Disappear]:You truly are divine! Take this magical lightning sword!
-idk:You are not worthy!
+human,Human,Person,person,man,Man[Receive(Lightsaber),Disappear]:You truly are divine! Take this magical lightning sword!
+idk,Idk,IDK,dunno:You are not worthy!
 ---
-Basilisk
+Basilisk,basilisk,snake,monster,boss,bas,basil,basi
 500
 20
 10
@@ -177,7 +178,7 @@ false
 ROOOAAAAARRRRR I'M A BIG SCARY SNAKE!
 ~~~
 ---
-Socrates
+Socrates,socrates,soc,philosopher,greek,Greek,Soc,socrat,so,socr,socra
 5000
 100
 1
@@ -186,9 +187,9 @@ false
 false
 What does it all mean?
 ~~~
-Nothing:You have much to learn, young one.
-What?[Score(1)]:You are learning.
-Idk[Score(4),Disappear,Unlock]:You have learned much.
+Nothing,nothing,everything,something:You have much to learn, young one.
+What?,what,wat[Score(1)]:You are learning.
+Idk,idk,IDK,dunno[Score(4),Disappear,Unlock]:You have learned much.
 ---
 ===
 Rooms:

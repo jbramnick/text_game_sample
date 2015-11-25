@@ -22,17 +22,22 @@ class TalkCommand extends Command{
         */
 	public String execute () {
 		String npcName="";
-		try
-		{
-			npcName=commandString.split(" ")[1];
+		try {
+			String secondWord = commandString.split(" ")[1];
+			if ((secondWord.equals("to"))||(secondWord.equals("at"))
+				||(secondWord.equals("with"))) {
+				npcName = commandString.split(" ")[2];
+			} else {
+				npcName=secondWord;;
+			}
 			Player.instance().getCurrentRoom().getNpcNamed(npcName).getTalkedAt();
 		}
-		catch(Npc.NoNpcException e)
-		{
+		catch(Npc.NoNpcException e){
 			return "There is no "+npcName+" in here.\n";
 		}
-		catch(Exception e)
-		{return "Talk to who?\n";}
+		catch(Exception e){
+			return "Talk to who?\n";
+		}
 		return "";
 	}
 

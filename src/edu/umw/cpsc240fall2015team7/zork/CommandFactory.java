@@ -50,11 +50,14 @@ class CommandFactory{
 			return i;
 		}
 
-		else if (commandString.contains("attack")) {
+		else if ((commandString.contains("attack"))||(commandString.contains
+		("strike"))||(commandString.contains("fight"))||
+		(commandString.contains("hit"))) {
 			AttackCommand a = new AttackCommand(commandString);
 			return a;
 		}
-		else if (commandString.contains("shoot")) {
+		else if ((commandString.contains("shoot"))||
+		(commandString.contains("blast"))||(commandString.contains("s"))) {
 			ShootCommand s = new ShootCommand(commandString);
 			return s;
 		}
@@ -63,29 +66,33 @@ class CommandFactory{
 			return v;
 		}
 
-		else if(commandString.equals("score")){
+		else if(commandString.contains("score")){
 			ScoreCommand i = new ScoreCommand();
 			return i;
 		}
 
-		else if(commandString.equals("save")){
+		else if(commandString.contains("save")){
 			SaveCommand save = new SaveCommand(commandString);
 			return save;
 		}
-		else if(commandString.contains("take")){
+		else if((commandString.contains("take"))||
+		(commandString.contains("grab"))) {
 			TakeCommand take = new TakeCommand(commandString);
 			return take;
 		}
-		else if(commandString.contains("talk"))
+		else if(commandString.contains("talk")||commandString.contains
+			("speak")||commandString.contains("chat"))
 		{
 			TalkCommand talk=new TalkCommand(commandString);
 			return talk;
 		}
-		else if(commandString.equals("i")||commandString.equals("inventory")){
+		else if(commandString.equals("i")||commandString.equals("inventory")
+			||commandString.equals("inv")){
 			InventoryCommand i = new InventoryCommand();
 			return i;
 		}
-		else if(commandString.contains("drop")){
+		else if(commandString.contains("drop")||commandString.contains("Drop")
+			||commandString.contains("leave")){
 			try{
 				DropCommand drop = new DropCommand(commandString);
 				return drop;
