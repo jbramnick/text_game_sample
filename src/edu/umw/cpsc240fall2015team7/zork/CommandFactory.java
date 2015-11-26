@@ -57,7 +57,7 @@ class CommandFactory{
 			return a;
 		}
 		else if ((commandString.contains("shoot"))||
-		(commandString.contains("blast"))||(commandString.contains("s"))) {
+		(commandString.contains("blast"))||(commandString.contains("fire"))){
 			ShootCommand s = new ShootCommand(commandString);
 			return s;
 		}

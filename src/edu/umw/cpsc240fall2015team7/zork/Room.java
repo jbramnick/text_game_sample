@@ -349,9 +349,9 @@ public class Room{
 	}
 	Npc getNpcNamed(String name) throws Npc.NoNpcException{
 		Npc named = null;
-		for(Npc item : npcs){
-			if(item.getPrimaryName().equals(name)){
-				named = item;
+		for(Npc guy : npcs){
+			if(guy.goesBy(name)){
+				named = guy;
 			}
 		}
 		if(named == null){

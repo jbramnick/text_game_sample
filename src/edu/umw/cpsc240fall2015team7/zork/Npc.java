@@ -10,6 +10,7 @@ import java.util.Random;
   */
 class Npc{
 	protected String primaryName;
+	protected ArrayList<String> secondaryNames;
 	protected int health, power, speed, score;
 	protected String talkText;
 	protected boolean beenTalkedTo;
@@ -19,6 +20,7 @@ class Npc{
 	protected Hashtable<String,ArrayList<Event>> choiceEvents;
 	protected Hashtable<String,String> messages;
 	static class NoNpcException extends Exception{}
+
 	public Npc(String primaryName, int health, int power, int speed,int score, String talkText, boolean aggression, boolean beenTalkedTo,Room currentRoom,Hashtable<String,ArrayList<Event>> choiceEvents,Hashtable<String,String> messages){
 		this.primaryName = primaryName;
 		this.currentRoom=currentRoom;
@@ -41,7 +43,21 @@ class Npc{
 		String current=scan.nextLine();
 		if(current.equals("==="))
 			throw new NoNpcException();
-		this.primaryName=current;
+		secondaryNames = new ArrayList<String>();
+		try {
+			if (current.contains(",")) {
+				String[] names = current.split(",");
+				this.primaryName=names[0];
+				for (String name : names) {
+					if (name == names[0]) continue;
+					this.secondaryNames.add(name);
+				}
+			} else {
+				this.primaryName=current;
+			}
+		} catch (Exception e) {
+			throw new Dungeon.IllegalDungeonFormatException();
+		}
 		current=scan.nextLine();
 		this.health=Integer.parseInt(current);
 		current=scan.nextLine();
@@ -95,6 +111,19 @@ class Npc{
 	 */
 	void setAggressive(boolean aggression){
 		this.aggression = aggression;
+	}
+	/**
+	*Returns true if the passed String is applicable to this Npc
+	*@author Carson Meadows
+	*/
+	boolean goesBy(String name) {
+		if (primaryName.equals(name)) {
+			return true;
+		} else if (secondaryNames.contains(name)) {
+			return true;
+		} else {
+			return false;
+		}
 	}
 	/**
 	 *Kills this NPC and removes it from the game.

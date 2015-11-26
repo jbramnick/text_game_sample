@@ -56,7 +56,7 @@ throw,toss,chuck[Drop]:The sword goes flying about five feet. You aren't that st
 ---
 ===
 Lights:
-torch,Torch,light,fire,flame
+torch,Torch,light,flame
 1
 use,light,activate,ignite,switch,try[SwitchLightItem]:Used it.
 lick,touch[Wound(3)]:You burn yourself!
