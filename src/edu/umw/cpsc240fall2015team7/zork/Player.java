@@ -1,4 +1,5 @@
 package edu.umw.cpsc240fall2015team7.zork;
+import java.util.Arrays;
 import java.util.Hashtable;
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -40,6 +41,7 @@ class Player{
 		this.maxHealth=100;
 		this.carryWeight=400;
 		this.score = 0;
+		this.attackLvl = 1;
 	}
 	/**
 	  Returns this players maxHealth. 
@@ -433,4 +435,27 @@ class Player{
 			return text +"Jedi Master";
 		}
 	}
+	String addXp(int ammount){
+		this.attackXp += ammount;
+		return setLvl();
+	}
+	String setLvl(){
+		int currentLevel = attackLvl;
+		int newLevel = 0;
+		ArrayList<Integer> levels = new ArrayList<>(Arrays.asList(0,100,200,400,800,1600,3200,6400,12800,25600,51200,102400,204800,409600,819200,1638400));
+		for(int level : levels){
+			if(attackXp>= level){
+			       newLevel++;
+			}
+	 	}
+		if (newLevel > currentLevel){
+			attackXp = newLevel;
+			return "Congratulations you have reached level " +newLevel + "!";
+		}
+		else{ return "";}
+	}
+	int getLevel(){
+		return attackLvl;
+	}
+
 }

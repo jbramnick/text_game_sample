@@ -1,4 +1,5 @@
 package edu.umw.cpsc240fall2015team7.zork;
+import java.util.Random;
 import java.util.ArrayList;
 import java.lang.reflect.*;
 class CombatEngine{
@@ -68,6 +69,18 @@ class CombatEngine{
 		}
 		if(weapon!=null)
 			weapon.decay();
+		text += "\n" + Player.instance().addXp(playerDamage);
 		return text;
 	}
+	boolean calculateHit(){
+		int level = Player.instance().getLevel();
+		Random rand = new Random();
+		int num = rand.nextInt(5);
+		if((level + num) >= 4){
+			return true;
+		}
+		return false;
+	}
+
+			
 }
