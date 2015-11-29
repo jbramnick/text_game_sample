@@ -339,9 +339,10 @@ class Player{
 		save.println("Score: " + score);
 		save.println("Health: " +health);
 		save.println("Food: "+food);
-
-
-
+		save.println("AttackXp: " +  attackXp);
+		save.println("AttackLvl: " + attackLvl);
+		save.println("DefenceXp: " + defenceXp);
+		save.println("DefenceLvl: " + defenceLvl);
 	}
 	/**
 	  Restores this Player to a saves point.
@@ -375,7 +376,14 @@ class Player{
 			this.health=Integer.parseInt(current.split(" ")[1]);
 			current=scan.nextLine();
 			this.food=Integer.parseInt(current.split(" ")[1]);
-
+			current=scan.nextLine();
+			this.attackXp=Integer.parseInt(current.split(" ")[1]);
+			current=scan.nextLine();
+			this.attackLvl=Integer.parseInt(current.split(" ")[1]);
+			current=scan.nextLine();
+			this.defenceXp=Integer.parseInt(current.split(" ")[1]);
+			current=scan.nextLine();
+			this.defenceLvl=Integer.parseInt(current.split(" ")[1]);
 		}
 	}
 	/**
