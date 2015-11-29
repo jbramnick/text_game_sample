@@ -4,7 +4,8 @@ to fight with them in a turn-based system. Each NPC has health and a
 power level, which will determine how much damage will be dealt to the 
 Player when the NPC attacks, and vice versa. Weapons (Melee and Guns
 (which require ammo, separate Items)) will be available to the Player to deal
-more damage to enemies. 
+more damage to enemies.
+
 
 The DarkRoom to the north of the StartRoom will usually have a zombie to test 
 combat on. Note that first you will need to light up that room (see Light).
@@ -56,3 +57,8 @@ or, 'screw you bob' and he will shoot you.
 
 Another trade opportunity is, after speaking to Socrates, go north from StairwayToHeaven to Olympus, talk to Herakles, and answer with 'human'.
 He will then give you a Lightsaber.
+-----------------------------------------------------------
+Player Advancement (10xp) - The player will have a defence level and an attack level. The attack level control how accurate you are. 
+When you attack in anyway the combat engine will decide if you hit or not. You will be more likely to hit as your attack level goes up. 
+The defence level will increase as you take damage. The more damage you take the higher your level will be. A higher defence level will lower 
+the amount damage you  will take from a hit.

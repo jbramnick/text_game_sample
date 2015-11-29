@@ -154,7 +154,7 @@ class Npc{
 	{
 		if(Player.instance().getCurrentRoom().getTitle().equals(this.currentRoom.getTitle())&&(aggression))
 		{
-			System.out.println(Player.instance().takeWound(this.power,this.primaryName + " hit you!!!"));
+			System.out.println(Player.instance().takeHit(this.power,this.primaryName + " hit you!!!"));
 		}
 
 

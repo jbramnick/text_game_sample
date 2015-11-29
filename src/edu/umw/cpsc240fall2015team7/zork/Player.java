@@ -16,6 +16,8 @@ class Player{
 	private ArrayList<Item> inventory;
 	private int attackLvl;
 	private int attackXp;
+	private int defenceLvl;
+	private int defenceXp;
 	private int health,food,score;
 	private int maxHealth;
 	private int carryWeight;
@@ -42,6 +44,7 @@ class Player{
 		this.carryWeight=400;
 		this.score = 0;
 		this.attackLvl = 1;
+		this.defenceLvl = 1;
 	}
 	/**
 	  Returns this players maxHealth. 
@@ -138,6 +141,28 @@ class Player{
 	String takeWound(int damage,String message){
 		if(damage<0)
 			damage=damage*-1;
+		health = health - damage;
+
+		if(health <= 0){
+			DieEvent d=new DieEvent();
+			d.execute();
+		}
+		return "OWWWWWW! That hurt! "+message;
+	}
+	/**
+	  Lowers the Players health. This takes into account the players defence level and should only be used in combat. This also calls the 
+	  {@link addDefXp} to add xp to defence. This method can end the game by calling a {@link DieEvent}. This only happens when the player's
+	  health falls below 0.
+	  @param damage The amount of damage dealt by the wound.
+	  @param message A message about who hit you.
+	  @author Nathanael Woodhead
+	  */
+	String takeHit(int damage,String message){
+		int def = defenceLvl;
+		if(damage<0)
+			damage=damage*-1;
+		message += "\n" + addDefXp(damage);
+		damage = damage/def;
 		health = health - damage;
 
 		if(health <= 0){
@@ -449,13 +474,41 @@ class Player{
 			}
 	 	}
 		if (newLevel > currentLevel){
-			attackXp = newLevel;
-			return "Congratulations you have reached level " +newLevel + "!";
+			attackLvl = newLevel;
+			return "Congratulations you have reached attack level " +newLevel + "!\n";
 		}
 		else{ return "";}
 	}
 	int getLevel(){
 		return attackLvl;
 	}
-
+	String addDefXp(int ammount){
+		this.defenceXp += ammount;
+		return setDefLvl();
+	}
+	String setDefLvl(){
+		int currentLevel = defenceLvl;
+		int newLevel = 0;
+		ArrayList<Integer> levels = new ArrayList<Integer>();
+		int x = 0;
+		for(int i = 10; i>0; i--){
+			levels.add(x);
+			x += 50;
+		}
+		for(int level : levels){
+			if(defenceXp>= level){
+				newLevel ++;
+			}
+		}
+		if(newLevel > currentLevel){
+			defenceLvl = currentLevel;
+			return "Congratulations you have reached defence level " +  newLevel + "!\n";
+		}
+		else {
+			return"";
+		}
+	}
+	int getDefLvl(){
+		return defenceLvl;
+	}
 }
