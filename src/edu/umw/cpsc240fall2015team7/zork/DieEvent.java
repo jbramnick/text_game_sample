@@ -17,10 +17,10 @@ class DieEvent extends Event{
 	  *@author Nathanael Woodhead
 	  */
 	String execute(){
-		String message = "You died! Game Over!\nScore: ";
+		String message = "You died! Game Over!\n";
 		message += Player.instance().getScoreMessage();
 		int score = Player.instance().getScore();
-		message += Integer.toString(score);
+		message += "\nScore: " + Integer.toString(score);
 		System.out.println(message);
 		System.exit(0);
 		return "";
