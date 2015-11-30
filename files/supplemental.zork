@@ -124,7 +124,7 @@ examine,check,read:160 calories, 40mg sodium, 40g carbs, 37 g sugars, 0g protein
 ---
 GinnyWeasley,Ginny,ginny,Weasley,RonsSister
 70
-save,rescue[Win]:You rescued Ginny Weasley and saved Hogwarts! That was one trippy quest.
+save,rescue[Score(500),500),500),500),500),Win]:You rescued Ginny Weasley and saved Hogwarts! That was one trippy quest.
 examine,check:She's laying on the floor unconscious and very pale. You must save her!
 kick,punch,wrestle,stomp,slap,smack:That's not very nice.
 ---

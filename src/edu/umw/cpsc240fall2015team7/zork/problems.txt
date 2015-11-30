@@ -1,5 +1,3 @@
-- There should be a means of checking an Item's secondaryNames and commands 
-in-game.
 
 - Player needs to be able to check their Hunger level.
 	When the player starts to get low on food the game will print out a warning.
@@ -13,8 +11,6 @@ the case then the game becomes tedious.
 take ammo, take ammo, take ammo, take ammo when you are trying to take all
 50 ammo in the pile. This is supposed to be fun not a game about picking up
 ammo.
-
-You cannot drop more than one of the same item at a time. 
 
 BUG:  When a item transforms it does not disappear. We lost points for this with the last submission.
 
