@@ -22,7 +22,7 @@ class Npc{
 	protected Hashtable<String,String> messages;
 	static class NoNpcException extends Exception{}
 
-	public Npc(String primaryName,ArrayList<String> secondaryNames, int health, int power, int speed,int score, String talkText, boolean aggression, boolean beenTalkedTo,Room currentRoom,Hashtable<String,ArrayList<Event>> choiceEvents,Hashtable<String,String> messages){
+	public Npc(String primaryName,ArrayList<String> secondaryNames, int health, int power, int speed,int score, String talkText, boolean aggression, boolean beenTalkedTo,Room currentRoom,Hashtable<String,ArrayList<Event>> choiceEvents,Hashtable<String,String> messages,ArrayList<Event> dieEvents){
 		this.primaryName = primaryName;
 		this.currentRoom=currentRoom;
 		this.health = health;
@@ -33,10 +33,11 @@ class Npc{
 		this.aggression = aggression;
 		this.choiceEvents=choiceEvents;
 		this.messages=messages;
+		this.dieEvents = dieEvents;
 		this.secondaryNames = secondaryNames;
 	}
 	public Npc clone() {
-		return new Npc(this.primaryName,this.secondaryNames, this.health, this.power, this.speed,this.score, this.talkText,this.aggression,this.beenTalkedTo,this.currentRoom,this.choiceEvents,this.messages);
+		return new Npc(this.primaryName,this.secondaryNames, this.health, this.power, this.speed,this.score, this.talkText,this.aggression,this.beenTalkedTo,this.currentRoom,this.choiceEvents,this.messages,this.dieEvents);
 	}
 	public Npc(Scanner scan) throws NoNpcException,Dungeon.IllegalDungeonFormatException{
 		this.currentRoom=null;
