@@ -36,11 +36,11 @@ class ItemSpecificCommand extends Command{
 		catch(Item.NoItemException e){
 			try 
 			{
+				PassTimeEvent ex=new PassTimeEvent(null,"1");
 				Item i=Player.instance().getCurrentRoom().getItemNamed(noun);
 				System.out.println(i.getMessageForVerb(verb));
 				String t="";
 				t+=i.executeEventsFor(verb);
-				PassTimeEvent ex=new PassTimeEvent(null,"1");
 				ex.execute();
 				return t;
 
