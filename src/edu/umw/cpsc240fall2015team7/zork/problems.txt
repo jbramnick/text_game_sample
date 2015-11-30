@@ -1,2 +1,4 @@
-I think that all the bugs are fixed. Play the game if you have a chance.
-See if you can brake it.
+BUG: If you use a key in a room that does not have a locked door it still 
+goes away.
+
+
