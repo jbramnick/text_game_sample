@@ -272,9 +272,9 @@ public class Room{
 			String [] inventroryList = inventory.split(",");
 			for(String name : inventroryList){
 				Item item=null;
-				if(name.contains(":")&&name.contains("/"))
+				if(name.contains(";")&&name.contains("/"))
 					item=Light.restore(name);
-				else if(name.contains(":"))
+				else if(name.contains(";"))
 					item=Gun.restore(name);
 				else
 					item = Item.restore(name);

@@ -100,12 +100,12 @@ class Gun extends Weapon{
 	 */
 	public String storeState()
 	{
-		return super.storeState()+":"+ammo;
+		return super.storeState()+";"+ammo;
 	}
 	public static Gun restore(String save)
 	{
-		String ammoString=save.split(":")[1];
-		Gun g=(Gun)GameState.instance().getDungeon().getItem(save.split(":")[0]);
+		String ammoString=save.split(";")[1];
+		Gun g=(Gun)GameState.instance().getDungeon().getItem(save.split(";")[0]);
 		g.setAmmo(Integer.parseInt(ammoString));
 		return g;
 	}

@@ -81,13 +81,13 @@ class Light extends Item{
 	}
 	public String storeState()
 	{
-		return this.primaryName+":"+battery+"/"+power;
+		return this.primaryName+";"+battery+"/"+power;
 
 	}
 	public static Light restore(String save)
 	{
-		String value=save.split(":")[1];
-		Light light=(Light)GameState.instance().getDungeon().getItem(save.split(":")[0]);
+		String value=save.split(";")[1];
+		Light light=(Light)GameState.instance().getDungeon().getItem(save.split(";")[0]);
 		String[] values=value.split("/");
 		light.setBattery(Integer.parseInt(values[0]));
 		light.setPower(Boolean.valueOf(values[1]));

@@ -362,8 +362,16 @@ class Player{
 				String itemlist=current.split(":")[1].trim();
 				String[] itemList=itemlist.split(",");
 				for(int i=0;i<itemList.length;i++)
-				{
-					this.addToInventory(GameState.instance().getDungeon().getItem(itemList[i]));	
+				{	
+					String name=itemList[i];
+					Item item=null;
+					if(name.contains(";")&&name.contains("/"))
+						item=Light.restore(name);
+					else if(name.contains(";"))
+						item=Gun.restore(name);
+					else
+						item = Item.restore(name);
+					this.addToInventory(item);
 				}
 
 			}
@@ -478,9 +486,9 @@ class Player{
 		ArrayList<Integer> levels = new ArrayList<>(Arrays.asList(0,100,200,400,800,1600,3200,6400,12800,25600,51200,102400,204800,409600,819200,1638400));
 		for(int level : levels){
 			if(attackXp>= level){
-			       newLevel++;
+				newLevel++;
 			}
-	 	}
+		}
 		if (newLevel > currentLevel){
 			attackLvl = newLevel;
 			return "Congratulations you have reached attack level " +newLevel + "!\n";
