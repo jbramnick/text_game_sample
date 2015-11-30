@@ -167,6 +167,8 @@ class Player{
 		health = health - damage;
 
 		if(health <= 0){
+			String status = "Def: "+def + " Damage: " + damage + " Health: " + health;
+			System.out.println(status);
 			System.out.println("Player: 170");
 			DieEvent d=new DieEvent();
 			d.execute();
