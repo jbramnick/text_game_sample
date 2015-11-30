@@ -307,12 +307,12 @@ class Npc{
 	 */
 	public String storeState()
 	{
-		return this.primaryName+":"+health+"/"+aggression;
+		return this.primaryName+";"+health+"/"+aggression;
 	}
 	public static Npc restoreState(String save, Room r)
 	{
-		String value=save.split(":")[1];
-		Npc npc=GameState.instance().getDungeon().getNpc(save.split(":")[0]);
+		String value=save.split(";")[1];
+		Npc npc=GameState.instance().getDungeon().getNpc(save.split(";")[0]);
 		String[] values=value.split("/");
 		npc.setHealth(Integer.parseInt(values[0]));
 		npc.setAggressive(Boolean.valueOf(values[1]));
