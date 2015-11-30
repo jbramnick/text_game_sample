@@ -142,7 +142,7 @@ PistolAmmo,pistolAmmo,ammo,Ammo,pAmmo
 Npc:
 Zombie,zombie,zed,z,Zed,Z,walker,geek,ghoul
 100
-10
+100
 15
 10
 true

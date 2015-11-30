@@ -144,6 +144,7 @@ class Player{
 		health = health - damage;
 
 		if(health <= 0){
+			System.out.println("Player: 147");
 			DieEvent d=new DieEvent();
 			d.execute();
 		}
@@ -166,6 +167,7 @@ class Player{
 		health = health - damage;
 
 		if(health <= 0){
+			System.out.println("Player: 170");
 			DieEvent d=new DieEvent();
 			d.execute();
 		}
@@ -407,6 +409,7 @@ class Player{
 	 */
 	void checkDead(){
 		if(health<0){
+			System.out.println("Player: 412");
 			Event die = new DieEvent();
 			die.execute();
 		}
@@ -509,7 +512,7 @@ class Player{
 			}
 		}
 		if(newLevel > currentLevel){
-			defenceLvl = currentLevel;
+			defenceLvl = newLevel;
 			return "Congratulations you have reached defence level " +  newLevel + "!\n";
 		}
 		else {

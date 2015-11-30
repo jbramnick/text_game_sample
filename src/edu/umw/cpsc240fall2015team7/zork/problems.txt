@@ -2,6 +2,7 @@
 in-game.
 
 - Player needs to be able to check their Hunger level.
+	When the player starts to get low on food the game will print out a warning.
 
 *FIXED - simply add secondary names in .zork* 
 1.Things like Shotgun and shotgun should be treated the same. If this is not 
@@ -12,20 +13,6 @@ the case then the game becomes tedious.
 take ammo, take ammo, take ammo, take ammo when you are trying to take all
 50 ammo in the pile. This is supposed to be fun not a game about picking up
 ammo.
-
-3.Need to expand the syntax for talking to Npcs. Currently only "talk bob" 
-works. Should also accept a more natural sounding "talk to bob".
-
-4.I will be adding a xp system to the game. This will be for things like
-shooting and attack with melee weapons. The more that a Weapon type is used
-the more accurate you will be with that type of weapon.  This will involve 
-adding a accuracy engine to the combat.
-
-5.The light system is not intuitive. I was not able to figure it out without
-looking at the code. My fiancée was not able to ether. This should be 
-changed to something that is easier to guess. (this is a .zork thing. So 
-not a coding thing just something to keep in mind as you are creating a 
-.zork file)
 
 You cannot drop more than one of the same item at a time. 
 
