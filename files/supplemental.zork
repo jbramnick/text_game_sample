@@ -130,7 +130,7 @@ kick,punch,wrestle,stomp,slap,smack:That's not very nice.
 ---
 Key,key
 0
-use[Unlock]:The key vanishes.
+use[Unlock]:You try the key on the door.
 ---
 Buckshot,buckshot,shotgunammo,ShotgunAmmo,sAmmo
 0
