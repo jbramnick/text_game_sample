@@ -62,7 +62,7 @@ use,light,activate,ignite,switch,try[SwitchLightItem]:Used it.
 lick,touch[Wound(3)]:You burn yourself!
 examine,check[CheckAmount]:Quite a nice torch if I do say so myself.
 ---
-Charmander,charmander,Pokemon,pokemon,char,Char,ch,charm,Charm,cha,poke,Poke
+Charmander,charmander,Pokemon,pokemon,char,Char,ch,charm,Charm,cha,poke,Poke,charmandar,Charmandar
 6
 choose,use,light,try,command[SwitchLightItem]:Charmander used Flash!
 check,examine[CheckAmount]:Charmander has that much HP left.
@@ -100,11 +100,11 @@ examine,check:A nuclear bomb. How peculiar.
 deactivate,defuse[Score(10),Disappear]:You cut the correct wires. Whew!
 touch,kick,light,activate,punch,use,try[Die]:The bomb explodes on contact, killing you and everyone else in the world.
 ---
-medkit,Medkit,healthkit,Healthkit,HealthKit,med,mk
+medkit,Medkit,healthkit,Healthkit,HealthKit,med,mk,health
 1
 use[Heal,Disappear]:You fully healed.
 ---
-spinach,Spinach,vegetables,sp,spi,spin,spina,spinac,greens
+spinach,Spinach,vegetables,sp,spi,spin,spina,spinac,greens,veg
 1
 examine,check:A can of spinach.
 eat,consume,swallow,devour[Disappear,Heal,Eat(10)]:It tastes nasty, but you feel really strong now.
@@ -122,17 +122,11 @@ EnergyDrink,RedBull,energydrink,redbull,drink
 drink,swallow,down,enjoy,chug[Disappear,Heal]:It tastes like chemically-engineered power.
 examine,check,read:160 calories, 40mg sodium, 40g carbs, 37 g sugars, 0g protein.
 ---
-GinnyWeasley,Ginny,ginny,Weasley,RonsSister
-70
-save,rescue[Score(500),Win]:You rescued Ginny Weasley and saved Hogwarts! That was one trippy quest.
-examine,check:She's laying on the floor unconscious and very pale. You must save her!
-kick,punch,wrestle,stomp,slap,smack:That's not very nice.
----
 Key,key
 0
 use[Unlock]:You try the key on the door.
 ---
-Buckshot,buckshot,shotgunammo,ShotgunAmmo,sAmmo
+Buckshot,buckshot,buck,bucks,Bucks,Buck,shotgunammo,ShotgunAmmo,sAmmo
 0
 ---
 PistolAmmo,pistolAmmo,ammo,Ammo,pAmmo
@@ -140,7 +134,7 @@ PistolAmmo,pistolAmmo,ammo,Ammo,pAmmo
 ---
 ===
 Npc:
-Zombie,zombie,zed,z,Zed,Z,walker,geek,ghoul
+Zombie,zombie,zed,z,Zed,Z,walker,geek,ghoul,zombitch,zomb,zom
 100
 10
 15
@@ -149,6 +143,18 @@ true
 true
 Braaiinnnss
 ~~~
+---
+GinnyWeasley,Ginny,ginny,gin,Gin,ginnyweasley,RonsSister,redhead,girl,Girl
+1
+1
+1
+1
+false
+false
+Thank you for saving me from the monster! Now let's get out of here!
+~~~
+ok,okay,Ok,OK,cool,yes,sure,yeah,yea,ye,sweet,nice,lets,please,awesome,swag[Win,Score(500)]:You rescued Ginny Weasley and saved Hogwarts! That was one trippy quest.
+No,no,n,N,noo,nooo,noooo,never,why?,what?:What? What else is there to do here?
 ---
 Bob,bob,Robert,robert,Rob,rob,dude,man,bro,guy,friend
 200
@@ -182,6 +188,7 @@ Basilisk,basilisk,snake,monster,boss,bas,basil,basi
 20
 10
 100
+Die: Spawn(GinnyWeasley)
 true
 false
 ROOOAAAAARRRRR I'M A BIG SCARY SNAKE!
@@ -226,7 +233,7 @@ This room is shaped like a circle.
 RectangularRoom
 Occupants: Zombie
 Contents: PistolAmmo#6,Key
-Confusingly, this room is shaped like a triangle. The exit to the east is one-way.
+Confusingly, this room is shaped like a triangle. The exit to the east is a slippery slope you cannot climb back up from.
 ---
 WaterCloset
 Contents: spinach
