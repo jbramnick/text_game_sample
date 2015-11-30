@@ -15,37 +15,37 @@ class CombatEngine{
 	}
 	String fight(Npc npc, Weapon weapon){
 		ArrayList<Npc> npcs=Player.instance().getCurrentRoom().getInhabitants();
-		if(calculateHit()){
-			int npcSpeed = npc.getSpeed();
-			int playerSpeed=0;
-			int playerDamage=0;
-			if(weapon==null)
-			{
-				playerSpeed=5;
-				playerDamage=10;
+		int npcSpeed = npc.getSpeed();
+		int playerSpeed=0;
+		int playerDamage=0;
+		if(weapon==null)
+		{
+			playerSpeed=5;
+			playerDamage=10;
 
-			}
-			else
+		}
+		else
+		{
+			playerSpeed=weapon.getSpeed();
+			playerDamage=weapon.getPower();
+		}
+		if(weapon!=null)
+		{
+			if(weapon instanceof Gun)
 			{
-				playerSpeed=weapon.getSpeed();
-				playerDamage=weapon.getPower();
-			}
-			if(weapon!=null)
-			{
-				if(weapon instanceof Gun)
+				Gun g=(Gun)weapon;
+				if(g.getAmmo()<=0)
 				{
-					Gun g=(Gun)weapon;
-					if(g.getAmmo()<=0)
-					{
 
-						PassTimeEvent e=new PassTimeEvent(null,"1");
-						e.execute();
-						return "OUT OF AMMO!!!!";
-					}
-
+					PassTimeEvent e=new PassTimeEvent(null,"1");
+					e.execute();
+					return "OUT OF AMMO!!!!";
 				}
-
+				g.decay();
 			}
+		}
+		if(calculateHit()){
+
 			String text = "";
 			int npcDamage = npc.getPower();
 			npc.setAggressive(true);
@@ -68,14 +68,12 @@ class CombatEngine{
 					np.attackPlayer();
 				text += npc.takeWound(playerDamage);
 			}
-			if(weapon!=null)
-				weapon.decay();
 			text += "\n" + Player.instance().addXp(playerDamage);
 			return text;
 		}
 		else{
 			return "You missed! \n" + npcAttack(npcs);
-	}
+		}
 	}
 	boolean calculateHit(){
 		int level = Player.instance().getLevel();

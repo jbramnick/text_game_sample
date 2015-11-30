@@ -1,0 +1,14 @@
+Welcome to Zork
+Authors: Nathan, Jim, Carson
+
+Basic commands:
+	i- This will print out a list of everything in your inventory.
+	take - This will take an item. Ex: take feather
+	u,d,n,s,e,w - Will move in that direction
+	help - Will print this helpful message.
+	drop - Will drop the item named. Ex: drop feather.
+	attack - Will attack the named npc with a melee weapon. If you do not have a weapon named it will pick one for you. Ex: attack zombie with sword
+	shoot - Will attack the named npc with a gun. If you do not name a weapon it will pick one for you. Ex: shoot zombie with shotgun 
+	look - Will print out the description of the room that you are in.
+	save - Saves the game.
+

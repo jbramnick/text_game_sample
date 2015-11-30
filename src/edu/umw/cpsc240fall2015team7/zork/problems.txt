@@ -1,4 +1,2 @@
-BUG: If you use a key in a room that does not have a locked door it still 
-goes away.
-
+Bug: When the game saves it does not save all of the items. In inventory.
 
