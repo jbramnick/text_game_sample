@@ -1,21 +1,2 @@
-
-- Player needs to be able to check their Hunger level.
-	When the player starts to get low on food the game will print out a warning.
-
-*FIXED - simply add secondary names in .zork* 
-1.Things like Shotgun and shotgun should be treated the same. If this is not 
-the case then the game becomes tedious.
-
-*Not necessaary - Player can type 'take 10 ammo' or however much they want*
-2.Need to pick up ALL ammo when you try to pick it up. The necessity of saying
-take ammo, take ammo, take ammo, take ammo when you are trying to take all
-50 ammo in the pile. This is supposed to be fun not a game about picking up
-ammo.
-
-BUG:  When a item transforms it does not disappear. We lost points for this with the last submission.
-
-BUG: When you say take all and there are more than one item in the room then it prints out one line per item. This includes one line for each of the 70 ammo or 6 daggers.
-
-BUG: There are 70 ammo in the room. You say take the 70 ammo. The message that it prints back is that there are not 70 ammoss here. However it does pick up the 70 ammo. 
-
-
+I think that all the bugs are fixed. Play the game if you have a chance.
+See if you can brake it.
