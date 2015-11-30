@@ -5,9 +5,9 @@ import java.util.Hashtable;
 import java.util.ArrayList;
 import java.util.Random;
 /**
-  *Superclass for all NPC's. An NPC is a non-player character.
-  *@author Nathanael Woodhead
-  */
+ *Superclass for all NPC's. An NPC is a non-player character.
+ *@author Nathanael Woodhead
+ */
 class Npc{
 	protected String primaryName;
 	protected ArrayList<String> secondaryNames;
@@ -18,6 +18,7 @@ class Npc{
 	private boolean canMove;
 	protected Room currentRoom;
 	protected Hashtable<String,ArrayList<Event>> choiceEvents;
+	private ArrayList<Event> dieEvents;
 	protected Hashtable<String,String> messages;
 	static class NoNpcException extends Exception{}
 
@@ -40,6 +41,7 @@ class Npc{
 	public Npc(Scanner scan) throws NoNpcException,Dungeon.IllegalDungeonFormatException{
 		this.currentRoom=null;
 		choiceEvents=new Hashtable<String,ArrayList<Event>>();
+		dieEvents = new ArrayList<Event>();
 		messages=new Hashtable<String,String>();
 		String current=scan.nextLine();
 		if(current.equals("==="))
@@ -68,42 +70,47 @@ class Npc{
 		current=scan.nextLine();
 		this.score=Integer.parseInt(current);
 		current=scan.nextLine();
-		this.aggression=Boolean.valueOf(current);
-		current=scan.nextLine();
-		this.canMove=Boolean.valueOf(current);
-		current=scan.nextLine();
-		this.talkText="";
-		while(!(current.equals("~~~")))
-		{
-			this.talkText+=current+"\n";
-			current=scan.nextLine();
-		}
-		current=scan.nextLine();
-		while(!(current.equals("---")))
-		{
-			ArrayList<Event> consequences= null;
-			String[] x = current.split(":");
-			if(x[0].contains("[")){
-				int start = x[0].indexOf("[")+1;
-				int end = x[0].indexOf("]");
-				String part = x[0].substring(start,end);
-				x[0] = x[0].substring(0,start-1);
-				try{
-					consequences = EventFactory.instance().parse(this,part);
-				}catch(Exception e){
-					throw new Dungeon.IllegalDungeonFormatException();
+		if(current.contains("Die: ")){
+				current = current.substring(5,current.length());
+				dieEvents = EventFactory.instance().parse(this,current);
+				current=scan.nextLine();
 				}
-			}
-			String[] other = x[0].split(",");
-			for(String verb : other){
-				messages.put(verb,x[1]);
-				if(consequences != null){
-					choiceEvents.put(verb,consequences);
+				this.aggression=Boolean.valueOf(current);
+				current=scan.nextLine();
+				this.canMove=Boolean.valueOf(current);
+				current=scan.nextLine();
+				this.talkText="";
+				while(!(current.equals("~~~")))
+				{
+				this.talkText+=current+"\n";
+				current=scan.nextLine();
 				}
-			}
-			current = scan.nextLine();
+				current=scan.nextLine();
+				while(!(current.equals("---")))
+				{
+				ArrayList<Event> consequences= null;
+				String[] x = current.split(":");
+				if(x[0].contains("[")){
+					int start = x[0].indexOf("[")+1;
+					int end = x[0].indexOf("]");
+					String part = x[0].substring(start,end);
+					x[0] = x[0].substring(0,start-1);
+					try{
+						consequences = EventFactory.instance().parse(this,part);
+					}catch(Exception e){
+						throw new Dungeon.IllegalDungeonFormatException();
+					}
+				}
+				String[] other = x[0].split(",");
+				for(String verb : other){
+					messages.put(verb,x[1]);
+					if(consequences != null){
+						choiceEvents.put(verb,consequences);
+					}
+				}
+				current = scan.nextLine();
 
-		}
+				}
 	}
 	/**
 	 *Changes the aggression variable.
@@ -114,9 +121,9 @@ class Npc{
 		this.aggression = aggression;
 	}
 	/**
-	*Returns true if the passed String is applicable to this Npc
-	*@author Carson Meadows
-	*/
+	 *Returns true if the passed String is applicable to this Npc
+	 *@author Carson Meadows
+	 */
 	boolean goesBy(String name) {
 		if (primaryName.equals(name)) {
 			return true;
@@ -132,6 +139,9 @@ class Npc{
 	 */
 	String die(){
 		this.currentRoom.removeNpc(this);
+		for(Event event : dieEvents){
+			event.execute();
+		}
 		ScoreEvent e=new ScoreEvent(this.score);
 		return "The "+primaryName+ " is dead."+"\n"+e.execute();
 	}
@@ -162,30 +172,30 @@ class Npc{
 	}
 	public void move()
 	{
-	if (canMove==false) {
-	} else {
-		Random x=new Random();
-		boolean yesMove=x.nextInt(100)<50;
-		if(!(Player.instance().getCurrentRoom().getTitle().equals(this.currentRoom.getTitle()))&&(yesMove))
-		{
-			ArrayList<Exit> exits=this.currentRoom.getExits();
-			ArrayList<Exit> openExits=new ArrayList<Exit>();
-			for(Exit exit:exits)
+		if (canMove==false) {
+		} else {
+			Random x=new Random();
+			boolean yesMove=x.nextInt(100)<50;
+			if(!(Player.instance().getCurrentRoom().getTitle().equals(this.currentRoom.getTitle()))&&(yesMove))
 			{
-				if(!exit.isLocked())
+				ArrayList<Exit> exits=this.currentRoom.getExits();
+				ArrayList<Exit> openExits=new ArrayList<Exit>();
+				for(Exit exit:exits)
 				{
-					openExits.add(exit);
+					if(!exit.isLocked())
+					{
+						openExits.add(exit);
+
+					}
 
 				}
-
+				Random r=new Random();
+				Exit exit=openExits.get(r.nextInt(openExits.size()));
+				this.currentRoom.removeNpc(this);
+				this.currentRoom=exit.getDest();
+				exit.getDest().addNpc(this);
 			}
-			Random r=new Random();
-			Exit exit=openExits.get(r.nextInt(openExits.size()));
-			this.currentRoom.removeNpc(this);
-			this.currentRoom=exit.getDest();
-			exit.getDest().addNpc(this);
 		}
-	}
 	}
 	/**
 	 *Returns the aggression value for this NPC. Non-Aggressive Npcs can become aggressive if they are attacked or through an event.

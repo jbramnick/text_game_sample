@@ -41,6 +41,7 @@ class Interpreter {
 
 		else if(extention.equals(".zork")){			
 			try{
+				System.out.println("At any time you can type \"help\" to get a list of the basic commands.");
 				game = new Dungeon(args[0],true); 
 				GameState.instance().initialize(game);
 				Player.instance().setCurrentRoom(game.getEntry());

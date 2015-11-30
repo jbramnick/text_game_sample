@@ -360,9 +360,11 @@ class Player{
 				if(!(current.contains("Inventory: ")))
 					throw new Exception();
 				String itemlist=current.split(":")[1].trim();
+				System.out.println(itemlist);
 				String[] itemList=itemlist.split(",");
 				for(int i=0;i<itemList.length;i++)
 				{
+					System.out.println(itemList[i]);
 					this.addToInventory(GameState.instance().getDungeon().getItem(itemList[i]));	
 				}
 

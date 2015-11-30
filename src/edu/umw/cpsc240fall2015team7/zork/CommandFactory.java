@@ -71,7 +71,7 @@ class CommandFactory{
 			return i;
 		}
 
-		else if(commandString.contains("save")){
+		else if(commandString.equals("save")){
 			SaveCommand save = new SaveCommand(commandString);
 			return save;
 		}

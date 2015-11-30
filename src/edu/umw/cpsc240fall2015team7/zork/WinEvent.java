@@ -12,7 +12,6 @@ class WinEvent extends Event{
 	  *@author Nathanael Woodhead
 	  */
 	WinEvent(Object i){
-		this.score=Player.instance().getScore();
 		this.i=i;
 	}
 	WinEvent(){
@@ -24,7 +23,9 @@ class WinEvent extends Event{
 	  */
 	String execute(){
 		String message = "You win!\nScore: ";
+		this.score=Player.instance().getScore();
 		message+=Integer.toString(score);
+		message+="\n"+Player.instance().getScoreMessage();
 		System.out.println(message);
 		System.exit(0);
 		return "";
