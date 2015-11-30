@@ -38,13 +38,20 @@ To test Light, take the torch in the StartRoom, go north once,
 and type "use torch". 
 -----------------------------------------------------------
 Verbose (2xp) - This toggles the exit text for room descriptions. 
-Typing "verbose" toggles this oin or off.
+Typing "verbose" toggles this on or off.
+-----------------------------------------------------------
+Internal Clock (5xp) - Time will pass when the Player drops or takes an item,
+"looks" in a room, moves to a different room,performs an ItemSpecificCommand,
+or engages in combat with an Npc (per turn).
+Passage of time affects the Player's hunger and activities of Npc's (described below).
 -----------------------------------------------------------
 Npc's (30xp) - Np's exist in the dungeon and can be declared in the .zork file.
 They have their own health, power, and may be talked to for various effects.
 Npc's may or may not be aggresive toward the Player, and be able to move on
 their own through the dungeon, designated in the .zork. In supplemental.zork,
 Zombies are the only Npc's which are able to move.
+As well, the first type of Npc listed in the .zork will have a chance to be spawned 
+in a random room when a PassTimeEvent occurs.
 
 To see an Npc open a locked door, from the StartRoom, first take the torch,
 then go north once, take the key, go south once, and type 'use key' to unlock 
@@ -55,7 +62,7 @@ To trade with an Npc, from the StartRoom, talk to Bob, and say 'yes'.
 He will then give you a Shotgun. Alternatively, you may say 'no' for no effect,
 or, 'screw you bob' and he will shoot you.
 
-Another trade opportunity is, after speaking to Socrates, go north from StairwayToHeaven to Olympus, talk to Herakles, and answer with 'human'.
+Another trade opportunity is, after speaking to Socrates, go up from StairwayToHeaven to Olympus, talk to Herakles, and answer with 'human'.
 He will then give you a Lightsaber.
 -----------------------------------------------------------
 Player Advancement (10xp) - The player will have a defence level and an attack level. The attack level control how accurate you are. 
