@@ -10,7 +10,7 @@ class SpawnEvent extends Event {
 	*Constructs this.
 	*@author Carson Meadows
 	*/
-	SpawnEvent (String name) {
+	SpawnEvent (Object o, String name) {
 		this.name=name;
 	}
 	/**
