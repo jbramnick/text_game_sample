@@ -92,7 +92,6 @@ break,smash,crush,throw,kick,punch[Disappear]:It shatters. Screw technology!
 Necronomicon,necronomicon,book,Book
 2
 examine,check:An ancient, evil book encased in human flesh. Looks like a good read!
-burn[Spawn(Zombie)]:Oh no! A zombie appeared!
 read[Teleport,Score(6)]:You start reading aloud, and a hurricane seems to appear in the room. You lose consciousness and awaken somewhere else.
 ---
 NuclearBomb,nuclearbomb,nuke,Nuke,bomb,Bomb,Nuke
