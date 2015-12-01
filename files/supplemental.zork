@@ -73,41 +73,57 @@ Items:
 GlassBottle,bottle,Bottle,glassBottle,glassbottle
 4
 throw,toss,chuck[Transform(glassShards),Drop]:The bottle goes flying and breaks on a wall into little pieces.
-break,shatter,smash,crush,crash,Break,hit[Wound(5),Transform(shards)]:Ouch! The glass cuts your hand.
+break,shatter,smash,crush,crash,Break[Wound(5),Transform(glassShards)]:Ouch! The glass cuts your hand.
 wield:There's no one here to wield it against.
 drink,chug,swallow,consume:There's nothing.
 examine,check:A clear bottle with no label.
+---
+EmptyCan,can,Can,emptycan
+1
+examine,check:An empty can. Woooo
+crush,squeeze,stomp,pressurize,push[Transform(CrushedCan),Score(20)]
+---
+CrushedCan,crushedcan,crushed,Crushed,crush,Crush
+1
+examine,check:A crushed can. Woooo
 ---
 glassShards,pieces,Shards,shards
 4
 examine,check:These are a loose collection of sharp pieces of glass.
 touch,lick,squeeze,rub,crush[Wound(1)]:Ow! Stop that!
-throw,toss[Disappear]:The shards scatter everywhere. Good luck picking them up.
+throw,toss,chuck[Score(200),Disappear]:The shards scatter everywhere. Good luck picking them up.
 ---
-laptop,Laptop,computer,Alienware
+CocaCola,coke,Coke,cola,Cola,cocacola,soda,pop,Soda,Pop
+4
+throw,toss,chuck[Transform(GlassShards),Drop]:The bottle goes flying and breaks on a wall into little shards.
+break,shatter,smash,crash,crush,Break[Wound(5),Transform(glassShards)]:Ouch! The glass cuts your hand.
+drink,chug,swallow,consume[Heal,Eat(5),Transform(GlassBottle)]:Ahh that hit the spot!
+examine,check:A classic coke.
+---
+laptop,Laptop,computer,Alienware,lap
 7
 use,logon,check,examine,try:You check Facebook, get bored, then log off.
-break,smash,crush,throw,kick,punch[Disappear]:It shatters. Screw technology!
+break,smash,crush,throw,kick,punch[Score(50),Disappear]:It shatters. Screw technology!
 ---
 Necronomicon,necronomicon,book,Book
 2
 examine,check:An ancient, evil book encased in human flesh. Looks like a good read!
-burn,incinerate,inflame,destroy,kill,fuck[Disappear,Score(10),Spawn(Zombie)]:The book swells up in flame, and forms into a Zombie!
-read[Teleport,Disappear,Score(15)]:You start reading aloud, and a hurricane seems to appear in the room. You lose consciousness and awaken somewhere else.
+burn,incinerate,inflame,destroy,kill,fuck[Disappear,Score(100),Spawn(Zombie)]:The book swells up in flame, and forms into a Zombie!
+read[Disappear,Teleport,Score(150)]:You start reading aloud, and a hurricane seems to appear in the room. You lose consciousness and awaken somewhere else.
 ---
 NuclearBomb,nuclearbomb,nuke,Nuke,bomb,Bomb,Nuke
 100
 examine,check:A nuclear bomb. How peculiar.
-deactivate,defuse[Score(10),Disappear]:You cut the correct wires. Whew!
+deactivate,defuse[Score(1000),Disappear]:You cut the correct wires. Whew!
 touch,kick,light,activate,punch,use,try[Die]:The bomb explodes on contact, killing you and everyone else in the world.
 ---
 medkit,Medkit,healthkit,Healthkit,HealthKit,med,mk,health,kit,mkit,medk
 1
-use[Heal,Disappear]:You fully healed.
+use,try,eat,drink,heal,patch,consume,wrap,do[Heal,Disappear]:You fully healed.
 ---
 spinach,Spinach,vegetables,sp,spi,spin,spina,spinac,greens,veg
 1
-examine,check:A can of spinach.
+examine,check,read:A can of spinach.
 eat,consume,swallow,devour[Disappear,Heal,Eat(10)]:It tastes nasty, but you feel really strong now.
 ---
 Cheeseburger,Burger,burger,cheeseburger,hamburger
@@ -116,11 +132,11 @@ eat,chew,swallow,devour,consume[Heal,Disappear,Eat(20)]:OH that tastes so good.
 ---
 Beer,beer,coldOne,Corona,corona
 1
-drink,swallow,chug,enjoy,down[Eat(1),Disappear]:Ahh, that's good.
+drink,swallow,chug,enjoy,down[Eat(5),Transform(EmptyCan)]:Ahh, that's good.
 ---
-EnergyDrink,RedBull,energydrink,redbull,drink
+EnergyDrink,RedBull,energydrink,redbull,edrink
 1
-drink,swallow,down,enjoy,chug[Disappear,Heal]:It tastes like chemically-engineered power.
+drink,swallow,down,enjoy,chug[Transform(EmptyCan),Heal]:It tastes like chemically-engineered power.
 examine,check,read:160 calories, 40mg sodium, 40g carbs, 37 g sugars, 0g protein.
 ---
 Key,key
@@ -224,7 +240,7 @@ Contents: Sword,Key
 Even with a light, you can hardly see anything here. Oh look! Items!
 ---
 SwagRoom
-Contents: GlassBottle,EnergyDrink
+Contents: CocaCola,EnergyDrink
 This room is very hip. It is full of people wearing snapbacks and vaping.
 ---
 CircularRoom
@@ -260,7 +276,7 @@ Contents: spinach,Charmander
 Plants are everywhere.
 ---
 Pool
-Contents: Cheeseburger
+Contents: Cheeseburger,CocaCola
 A big swimming pool with a diving board. It is full of sharks.
 ---
 Sauna
