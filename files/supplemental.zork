@@ -101,7 +101,7 @@ examine,check:A nuclear bomb. How peculiar.
 deactivate,defuse[Score(10),Disappear]:You cut the correct wires. Whew!
 touch,kick,light,activate,punch,use,try[Die]:The bomb explodes on contact, killing you and everyone else in the world.
 ---
-medkit,Medkit,healthkit,Healthkit,HealthKit,med,mk,health
+medkit,Medkit,healthkit,Healthkit,HealthKit,med,mk,health,kit,mkit,medk
 1
 use[Heal,Disappear]:You fully healed.
 ---

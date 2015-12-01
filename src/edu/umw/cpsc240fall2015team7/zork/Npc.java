@@ -129,11 +129,14 @@ class Npc{
 	boolean goesBy(String name) {
 		if (primaryName.equals(name)) {
 			return true;
-		} else if (secondaryNames.contains(name)) {
-			return true;
 		} else {
-			return false;
+			for(String nam : secondaryNames){
+				if(nam.equals(name)){
+					return true;
+				}
+			}
 		}
+		return false;
 	}
 	/**
 	 *Kills this NPC and removes it from the game.
