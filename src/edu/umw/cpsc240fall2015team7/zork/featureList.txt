@@ -6,12 +6,8 @@ Player when the NPC attacks, and vice versa. Weapons (Melee and Guns
 (which require ammo, separate Items)) will be available to the Player to deal
 more damage to enemies.
 
-talk to bob
-yes
-take torch
-light torch
-n
-shoot zombie
+due to the fact that zombies move every time you move it can be hard to find a zombie but one initially spawns in the dark room to the north of start room
+
 
 -----------------------------------------------------------
 Hunger(15xp): The player will grow more hungry as time passes. They can refill the food in their belly by eating food items. 
