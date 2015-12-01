@@ -81,7 +81,7 @@ examine,check:A clear bottle with no label.
 EmptyCan,can,Can,emptycan
 1
 examine,check:An empty can. Woooo
-crush,squeeze,stomp,pressurize,push[Transform(CrushedCan),Score(20)]
+crush,squeeze,stomp,pressurize,push[Transform(CrushedCan),Score(20)]:You crushed it!
 ---
 CrushedCan,crushedcan,crushed,Crushed,crush,Crush
 1
