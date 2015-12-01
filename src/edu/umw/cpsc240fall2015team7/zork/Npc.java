@@ -72,46 +72,46 @@ class Npc{
 		this.score=Integer.parseInt(current);
 		current=scan.nextLine();
 		if(current.contains("Die: ")){
-				current = current.substring(5,current.length());
-				dieEvents = EventFactory.instance().parse(this,current);
-				current=scan.nextLine();
+			current = current.substring(5,current.length());
+			dieEvents = EventFactory.instance().parse(this,current);
+			current=scan.nextLine();
+		}
+		this.aggression=Boolean.valueOf(current);
+		current=scan.nextLine();
+		this.canMove=Boolean.valueOf(current);
+		current=scan.nextLine();
+		this.talkText="";
+		while(!(current.equals("~~~")))
+		{
+			this.talkText+=current+"\n";
+			current=scan.nextLine();
+		}
+		current=scan.nextLine();
+		while(!(current.equals("---")))
+		{
+			ArrayList<Event> consequences= null;
+			String[] x = current.split(":");
+			if(x[0].contains("[")){
+				int start = x[0].indexOf("[")+1;
+				int end = x[0].indexOf("]");
+				String part = x[0].substring(start,end);
+				x[0] = x[0].substring(0,start-1);
+				try{
+					consequences = EventFactory.instance().parse(this,part);
+				}catch(Exception e){
+					throw new Dungeon.IllegalDungeonFormatException();
 				}
-				this.aggression=Boolean.valueOf(current);
-				current=scan.nextLine();
-				this.canMove=Boolean.valueOf(current);
-				current=scan.nextLine();
-				this.talkText="";
-				while(!(current.equals("~~~")))
-				{
-				this.talkText+=current+"\n";
-				current=scan.nextLine();
+			}
+			String[] other = x[0].split(",");
+			for(String verb : other){
+				messages.put(verb,x[1]);
+				if(consequences != null){
+					choiceEvents.put(verb,consequences);
 				}
-				current=scan.nextLine();
-				while(!(current.equals("---")))
-				{
-				ArrayList<Event> consequences= null;
-				String[] x = current.split(":");
-				if(x[0].contains("[")){
-					int start = x[0].indexOf("[")+1;
-					int end = x[0].indexOf("]");
-					String part = x[0].substring(start,end);
-					x[0] = x[0].substring(0,start-1);
-					try{
-						consequences = EventFactory.instance().parse(this,part);
-					}catch(Exception e){
-						throw new Dungeon.IllegalDungeonFormatException();
-					}
-				}
-				String[] other = x[0].split(",");
-				for(String verb : other){
-					messages.put(verb,x[1]);
-					if(consequences != null){
-						choiceEvents.put(verb,consequences);
-					}
-				}
-				current = scan.nextLine();
+			}
+			current = scan.nextLine();
 
-				}
+		}
 	}
 	/**
 	 *Changes the aggression variable.
@@ -128,11 +128,14 @@ class Npc{
 	boolean goesBy(String name) {
 		if (primaryName.equals(name)) {
 			return true;
-		} else if (secondaryNames.contains(name)) {
-			return true;
 		} else {
-			return false;
+			for(String nam : secondaryNames){
+				if(nam.equals(name)){
+					return true;
+				}
+			}
 		}
+		return false;
 	}
 	/**
 	 *Kills this NPC and removes it from the game.
