@@ -1,0 +1,1 @@
+Must call a disappear event before a teleport event
