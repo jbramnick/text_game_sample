@@ -78,8 +78,8 @@ class CombatEngine{
 	boolean calculateHit(){
 		int level = Player.instance().getLevel();
 		Random rand = new Random();
-		int num = rand.nextInt(level*2);
-		if(num == 0){
+		int num = rand.nextInt(level+1);
+		if(num != 0){
 			return true;
 		}
 		return false;
