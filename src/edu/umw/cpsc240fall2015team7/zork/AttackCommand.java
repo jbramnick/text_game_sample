@@ -1,35 +1,35 @@
 package edu.umw.cpsc240fall2015team7.zork;
 import java.util.ArrayList;
 /**
-  *A Command for attacking an NPC.
-  *@author Nathanael Woodhead
-  */
+ *A Command for attacking an NPC.
+ *@author Nathanael Woodhead
+ */
 class AttackCommand extends Command{
 	private Melee weapon;
 	private String commandString;
 	private Npc npc;
 	/**
-	  *Creates a new AttackCommand object.
-	  *@author Nathanael Woodhead
-	  */
+	 *Creates a new AttackCommand object.
+	 *@author Nathanael Woodhead
+	 */
 	AttackCommand(String commandString){
 		this.commandString = commandString;
 	}
 	/**
-	  *Parses the commandString and carries out the necessary actions. 
-	  *The commandString should be in the format of "Attack Npc with MeleeWeapon". If the commandString does not include a 
-	  *MeleeWeapon then this should attack the NPC with the power of the player instead of the weapon. This will result in a message 
-	  *being returned saying that the NPC was attacked with fists. If the player does not have the MeleeWeapon in their inventory 
-	  *it will return a message stating "You do not have a 'MeleeWeapon'". If the player does have the MeleeWeapon then the 
-	  *weapon's power should be used in attacking the NPC and a message will be returned saying "Attacked Npc with 'MeleeWeapon'"
-	  *@author Nathanael Woodhead
-	  */
+	 *Parses the commandString and carries out the necessary actions. 
+	 *The commandString should be in the format of "Attack Npc with MeleeWeapon". If the commandString does not include a 
+	 *MeleeWeapon then this should attack the NPC with the power of the player instead of the weapon. This will result in a message 
+	 *being returned saying that the NPC was attacked with fists. If the player does not have the MeleeWeapon in their inventory 
+	 *it will return a message stating "You do not have a 'MeleeWeapon'". If the player does have the MeleeWeapon then the 
+	 *weapon's power should be used in attacking the NPC and a message will be returned saying "Attacked Npc with 'MeleeWeapon'"
+	 *@author Nathanael Woodhead
+	 */
 	String execute(){
+		String[] commandList = commandString.split(" ");
 		if(commandString.equals("attack")){
 			return "Attack what?";
 		}
 		if(commandString.contains("with")){
-			String[] commandList = commandString.split(" ");
 			int index = -1;
 			for(int i = 0; i<commandList.length; i++){
 				if(commandList[i].equals("with")){
@@ -63,20 +63,20 @@ class AttackCommand extends Command{
 		if(targets.size()==0){
 			return "There is nothing to attack here.\n";
 		}
-		ArrayList<String> targetNames = new ArrayList<String>();
+		boolean here = false;
 		for(Npc target : targets){
-			targetNames.add(target.getPrimaryName());
+			if(target.goesBy(commandList[1])){
+				here = true;
+				this.npc = target;
+			}
 		}
-		for(String target : targetNames){
-			if(commandString.contains(target)){
-				this.npc = targets.get(targetNames.indexOf(target));
-			}
-			else{
-				this.npc = targets.get(0);
-			}
+		if(here){}
+
+		else{
+			return "There is no "+ commandList[1] + " here.";	
 		}
 		String text = CombatEngine.instance().fight(npc,weapon);
-        	return text;
+		return text;
 	}
 }
 

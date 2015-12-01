@@ -1,34 +1,34 @@
 package edu.umw.cpsc240fall2015team7.zork;
 import java.util.ArrayList;
 /**
-*Command to use a Gun against an NPC.
-*@author Carson Meadows
-*/
+ *Command to use a Gun against an NPC.
+ *@author Carson Meadows
+ */
 class ShootCommand extends Command {
-        private Gun weapon;
+	private Gun weapon;
 	private String commandString;
 	private Npc npc;
 
-        /**
-        *Constructs this ShootCommand.
-        *@author Carson Meadows
-        */
-        public ShootCommand (String commandString) {
+	/**
+	 *Constructs this ShootCommand.
+	 *@author Carson Meadows
+	 */
+	public ShootCommand (String commandString) {
 		this.commandString=commandString;
-        }
-        /**
-        *Executes this and depletes the Npc's health and the Gun's ammo. 
-	*Determines the correct amount of health to deplete based on the Gun's power.
-        *@author Carson Meadows
-        */
-        public String execute () {
+	}
+	/**
+	 *Executes this and depletes the Npc's health and the Gun's ammo. 
+	 *Determines the correct amount of health to deplete based on the Gun's power.
+	 *@author Carson Meadows
+	 */
+	public String execute () {
+		int index = -1;
 		if(commandString.equals("shoot")){
 			return"Shoot what?\n";
 		}
 		String[] commandList = commandString.split(" ");
 		if(commandString.contains("with")){
 			String with = "with";
-			int index = -1;
 			for(int i = 0; i < commandList.length; i++){
 				if(commandList[i].equals("with")){
 					index = i;
@@ -44,7 +44,7 @@ class ShootCommand extends Command {
 		}
 		else{
 			try{
-			this.weapon = Player.instance().getGun();
+				this.weapon = Player.instance().getGun();
 			}catch(Player.NoGunException e){
 				return "You do not have a gun.\n";
 			}
@@ -53,20 +53,21 @@ class ShootCommand extends Command {
 		if(targets.size()==0){
 			return "There is nothing to shoot here.\n";
 		}
-		ArrayList<String> targetNames = new ArrayList<String>();
+		boolean here = false;
 		for(Npc target : targets){
-			targetNames.add(target.getPrimaryName());
+			if(target.goesBy(commandList[1])){
+				here = true;
+				this.npc = target;
+			}
 		}
-		for(String target : targetNames){
-			if(commandString.contains(target)){
-				this.npc = targets.get(targetNames.indexOf(target));
-			}
-			else{
-				this.npc = targets.get(0);
-			}
+		if(here){}
+
+
+		else{
+			return "There is no "+ commandList[1] + " here.";
 		}
 		String text = CombatEngine.instance().fight(npc,weapon);
-        	return text;
+		return text;
 	}
 
 }
