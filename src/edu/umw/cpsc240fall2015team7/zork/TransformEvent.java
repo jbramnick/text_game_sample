@@ -45,6 +45,7 @@ public class TransformEvent extends Event{
 			try
 			{
 				Item end = GameState.instance().getDungeon().getItem(endItem);
+				this.item = Player.instance().getCurrentRoom().getItemNamed(item.getPrimaryName());
 				Player.instance().getCurrentRoom().remove(item);
 				Player.instance().getCurrentRoom().add(end);
 				return item.getPrimaryName() + " became " + end.getPrimaryName()+"\n";
