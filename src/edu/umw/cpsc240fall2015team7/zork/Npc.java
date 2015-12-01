@@ -22,7 +22,7 @@ class Npc{
 	protected Hashtable<String,String> messages;
 	static class NoNpcException extends Exception{}
 
-	public Npc(String primaryName,ArrayList<String> secondaryNames, int health, int power, int speed,int score, String talkText, boolean aggression, boolean beenTalkedTo,Room currentRoom,Hashtable<String,ArrayList<Event>> choiceEvents,Hashtable<String,String> messages,ArrayList<Event> dieEvents){
+	public Npc(String primaryName,ArrayList<String> secondaryNames, int health, int power, int speed,int score, String talkText, boolean aggression, boolean beenTalkedTo,Room currentRoom,Hashtable<String,ArrayList<Event>> choiceEvents,Hashtable<String,String> messages,ArrayList<Event> dieEvents, boolean canMove){
 		this.primaryName = primaryName;
 		this.currentRoom=currentRoom;
 		this.health = health;
@@ -35,9 +35,10 @@ class Npc{
 		this.messages=messages;
 		this.dieEvents = dieEvents;
 		this.secondaryNames = secondaryNames;
+		this.canMove=canMove;
 	}
 	public Npc clone() {
-		return new Npc(this.primaryName,this.secondaryNames, this.health, this.power, this.speed,this.score, this.talkText,this.aggression,this.beenTalkedTo,this.currentRoom,this.choiceEvents,this.messages,this.dieEvents);
+		return new Npc(this.primaryName,this.secondaryNames, this.health, this.power, this.speed,this.score, this.talkText,this.aggression,this.beenTalkedTo,this.currentRoom,this.choiceEvents,this.messages,this.dieEvents,this.canMove);
 	}
 	public Npc(Scanner scan) throws NoNpcException,Dungeon.IllegalDungeonFormatException{
 		this.currentRoom=null;
@@ -176,29 +177,26 @@ class Npc{
 	}
 	public void move()
 	{
-		if (canMove==false) {
-		} else {
-			Random x=new Random();
-			boolean yesMove=x.nextInt(100)<50;
-			if(!(Player.instance().getCurrentRoom().getTitle().equals(this.currentRoom.getTitle()))&&(yesMove))
+		Random x=new Random();
+		boolean yesMove=x.nextInt(100)<50;
+		if(!(Player.instance().getCurrentRoom().getTitle().equals(this.currentRoom.getTitle()))&&(yesMove)&&(canMove))
+		{
+			ArrayList<Exit> exits=this.currentRoom.getExits();
+			ArrayList<Exit> openExits=new ArrayList<Exit>();
+			for(Exit exit:exits)
 			{
-				ArrayList<Exit> exits=this.currentRoom.getExits();
-				ArrayList<Exit> openExits=new ArrayList<Exit>();
-				for(Exit exit:exits)
+				if(!exit.isLocked())
 				{
-					if(!exit.isLocked())
-					{
-						openExits.add(exit);
-
-					}
+					openExits.add(exit);
 
 				}
-				Random r=new Random();
-				Exit exit=openExits.get(r.nextInt(openExits.size()));
-				this.currentRoom.removeNpc(this);
-				this.currentRoom=exit.getDest();
-				exit.getDest().addNpc(this);
+
 			}
+			Random r=new Random();
+			Exit exit=openExits.get(r.nextInt(openExits.size()));
+			this.currentRoom.removeNpc(this);
+			this.currentRoom=exit.getDest();
+			exit.getDest().addNpc(this);
 		}
 	}
 	/**
