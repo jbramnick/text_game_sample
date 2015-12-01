@@ -75,17 +75,19 @@ GlassBottle,bottle,Bottle,glassBottle,glassbottle
 throw,toss,chuck[Transform(glassShards),Drop]:The bottle goes flying and breaks on a wall into little pieces.
 break,shatter,smash,crush,crash,Break[Wound(5),Transform(glassShards)]:Ouch! The glass cuts your hand.
 wield:There's no one here to wield it against.
-drink,chug,swallow,consume:There's nothing.
-examine,check:A clear bottle with no label.
+drink,chug,swallow,consume:There's nothing left.
+examine,check:A clear, glass bottle.
 ---
 EmptyCan,can,Can,emptycan
 1
 examine,check:An empty can. Woooo
 crush,squeeze,stomp,pressurize,push[Transform(CrushedCan),Score(20)]:You crushed it!
+throw,toss,chuck[Drop]:The can goes flying and makes a thud on the floor.
 ---
 CrushedCan,crushedcan,crushed,Crushed,crush,Crush
 1
 examine,check:A crushed can. Woooo
+throw,toss,chuck[Drop]:The crushed can goes flying and thuds on the floor.
 ---
 glassShards,pieces,Shards,shards
 4
@@ -126,16 +128,19 @@ spinach,Spinach,vegetables,sp,spi,spin,spina,spinac,greens,veg
 examine,check,read:A can of spinach.
 eat,consume,swallow,devour[Disappear,Heal,Eat(10)]:It tastes nasty, but you feel really strong now.
 ---
-Cheeseburger,Burger,burger,cheeseburger,hamburger
+Cheeseburger,Burger,burger,cheeseburger,hamburger,sandwich
 1
+throw,toss,chuck[Disappear]:The burger falls apart as it flies through the air. You won't want to eat it now.
 eat,chew,swallow,devour,consume[Heal,Disappear,Eat(20)]:OH that tastes so good.
 ---
 Beer,beer,coldOne,Corona,corona
 1
+throw,toss,chuck[Transform(EmptyCan),Drop]:The beer cracks open when it hits the floor and spews out all the liquid.
 drink,swallow,chug,enjoy,down[Eat(5),Transform(EmptyCan)]:Ahh, that's good.
 ---
 EnergyDrink,RedBull,energydrink,redbull,edrink
 1
+throw,toss,chuck[Transform(EmptyCan),Drop]:The can cracks open on impact and spews out all the liquid onto the floor.
 drink,swallow,down,enjoy,chug[Transform(EmptyCan),Heal]:It tastes like chemically-engineered power.
 examine,check,read:160 calories, 40mg sodium, 40g carbs, 37 g sugars, 0g protein.
 ---
