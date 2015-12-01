@@ -88,7 +88,9 @@ He will then give you a Lightsaber.
 Player Advancement (10xp) - The player will have a defence level and an attack level. The attack level control how accurate you are. 
 When you attack in anyway the combat engine will decide if you hit or not. You will be more likely to hit as your attack level goes up. 
 The defence level will increase as you take damage. The more damage you take the higher your level will be. A higher defence level will lower 
-the amount damage you  will take from a hit.
+the amount damage you  will take from a hit. Advancement is on an xp system. As you cause damage to npcs the damage will be added to the attack xp.
+As the player takes damage the defence xp goes up. The reasoning for this is as you successfuly kill things it gets easier and as you get hurt you
+are more motivated to dodge.
 
 talk to bob
 yes
