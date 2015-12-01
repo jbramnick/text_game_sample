@@ -491,7 +491,8 @@ class Player{
 		}
 		if (newLevel > currentLevel){
 			attackLvl = newLevel;
-			return "Congratulations you have reached attack level " +newLevel + "!\n";
+			ScoreEvent score = new ScoreEvent(attackLvl * 100);
+			return "Congratulations you have reached attack level " +newLevel + "!\n" + score.execute();
 		}
 		else{ return "";}
 	}
@@ -518,7 +519,8 @@ class Player{
 		}
 		if(newLevel > currentLevel){
 			defenceLvl = newLevel;
-			return "Congratulations you have reached defence level " +  newLevel + "!\n";
+			ScoreEvent score = new ScoreEvent(defenceLvl * 50);
+			return "Congratulations you have reached defence level " +  newLevel + "!\n"+ score.execute();
 		}
 		else {
 			return"";
