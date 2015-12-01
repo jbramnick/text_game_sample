@@ -72,7 +72,7 @@ lick,poke,kick,punch,slap,smack,touch[Wound(10)]:Charmander used bite!
 Items:
 GlassBottle,bottle,Bottle,glassBottle,glassbottle
 4
-throw,toss,chuck[Transform(glassShards),Drop]:The bottle goes flying and breaks on a wall into little pieces.
+throw,toss,chuck[Drop,Transform(glassShards)]:The bottle goes flying and breaks on a wall into little pieces.
 break,shatter,smash,crush,crash,Break[Wound(5),Transform(glassShards)]:Ouch! The glass cuts your hand.
 wield:There's no one here to wield it against.
 drink,chug,swallow,consume:There's nothing left.
@@ -92,12 +92,12 @@ throw,toss,chuck[Drop]:The crushed can goes flying and thuds on the floor.
 glassShards,pieces,Shards,shards
 4
 examine,check:These are a loose collection of sharp pieces of glass.
-touch,lick,squeeze,rub,crush[Wound(1)]:Ow! Stop that!
+touch,lick,squeeze,rub,crush[Wound(5)]:Ow! Stop that!
 throw,toss,chuck[Score(200),Disappear]:The shards scatter everywhere. Good luck picking them up.
 ---
 CocaCola,coke,Coke,cola,Cola,cocacola,soda,pop,Soda,Pop
 4
-throw,toss,chuck[Transform(GlassShards),Drop]:The bottle goes flying and breaks on a wall into little shards.
+throw,toss,chuck[Drop,Transform(GlassShards)]:The bottle goes flying and breaks on a wall into little shards.
 break,shatter,smash,crash,crush,Break[Wound(5),Transform(glassShards)]:Ouch! The glass cuts your hand.
 drink,chug,swallow,consume[Heal,Eat(5),Transform(GlassBottle)]:Ahh that hit the spot!
 examine,check:A classic coke.
@@ -135,12 +135,12 @@ eat,chew,swallow,devour,consume[Heal,Disappear,Eat(20)]:OH that tastes so good.
 ---
 Beer,beer,coldOne,Corona,corona
 1
-throw,toss,chuck[Transform(EmptyCan),Drop]:The beer cracks open when it hits the floor and spews out all the liquid.
+throw,toss,chuck[Drop,Transform(EmptyCan)]:The beer cracks open when it hits the floor and spews out all the liquid.
 drink,swallow,chug,enjoy,down[Eat(5),Transform(EmptyCan)]:Ahh, that's good.
 ---
 EnergyDrink,RedBull,energydrink,redbull,edrink
 1
-throw,toss,chuck[Transform(EmptyCan),Drop]:The can cracks open on impact and spews out all the liquid onto the floor.
+throw,toss,chuck[Drop,Transform(EmptyCan)]:The can cracks open on impact and spews out all the liquid onto the floor.
 drink,swallow,down,enjoy,chug[Transform(EmptyCan),Heal]:It tastes like chemically-engineered power.
 examine,check,read:160 calories, 40mg sodium, 40g carbs, 37 g sugars, 0g protein.
 ---
@@ -262,7 +262,7 @@ Contents: spinach
 There are stalls to relieve yourself at. Who is that stud in the mirror?
 ---
 Bar
-Contents: beer#6,Cheeseburger,EnergyDrink,Buckshot#50
+Contents: beer#6,Cheeseburger,EnergyDrink,Buckshot#5
 Need a drink?
 ---
 Halloweentown
