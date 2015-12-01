@@ -25,7 +25,7 @@ public class TransformEvent extends Event{
 		try
 		{
 			Item end = GameState.instance().getDungeon().getItem(endItem);
-			Player.instance().getItemInInventoryNamed(item.getPrimaryName());
+			this.item =Player.instance().getItemInInventoryNamed(item.getPrimaryName());
 			Player.instance().removeFromInventory(item);
 			if((end.getWeight()+Player.instance().getLoad())>Player.instance().getCarryWeight())
 			{
