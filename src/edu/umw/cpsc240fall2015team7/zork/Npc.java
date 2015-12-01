@@ -195,6 +195,7 @@ class Npc{
 				this.currentRoom.removeNpc(this);
 				this.currentRoom=exit.getDest();
 				exit.getDest().addNpc(this);
+				System.out.println("moved");
 			}
 		}
 	}
