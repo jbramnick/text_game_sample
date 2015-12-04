@@ -159,6 +159,25 @@ hi,Hi,hello,Hello,yo,Yo,Dude,dude,bro,Bro,Yes,yes,yea,ye,yeah,y:Have you seen Ji
 give,Give,trade,Trade,give me gun,gimme gun,give me 44 magnum,gimme 44 magnum,i want your gun[Receive(44 Magnum),Disappear]:Sure thing. Anything to help.
 screw you,Screw you,screw you barry,screw u,screw you burton,screw you burt,screw u burt,screw u barry,screw u bar[Wound(30)]:Screw you buddy!
 ---
+Rebecca Chambers,Rebecca,RebeccaChambers,rebecca,rebeccachambers,rebecca chambers,becca,rebecc,rebec,rebe,reb,chambers,Chambers
+100
+100
+100
+0
+false
+true
+Oh it's you! I think this mansion is dangerous. Be careful!
+~~~
+Hi,hi,hello,Hello,yo,Yo,wassup,how are you,how are you?,whats up,what's up,what's up?,howdy,Howdy:Hi!
+Who are you?,who are you,who are u,who are you,who u,who u?,who r u?:My name is Rebecca Chambers of Team Alpha! Our helicopter was shot down in the forest not far from here. My comrade, Brad Vickers, and I made it to this old mansion, but we were separated. Have you seen him?
+I know,i know,iknow,yes,yeah,yea,ye,Yeah,Yes,I agree,prolly,probably,maybe,Maybe,oh yeah,o yeah,oh yeah?:Do you need any Handgun Ammo?
+give,gimme,give me,gimme ammo,giveme ammo,give me ammo,Give me ammo,ammo,Ammo,HandgunAmmo,Handgun Ammo,bullets,please,Please,may i have ammo,may i have handgun ammo[Receive(Handgun Ammo#15)]:Here you go. Good luck!
+Wesker,wesker,wesker?,Wesker?,wesker did it,its wesker,It's Wesker,it's wesker[Score(400),Receive(Tase Gun)]:Wesker's behind this! Chris, we need to get out of here. Take this.
+---
+Brad Vickers,Brad,BradVickers,bradvickers,brad,bradv,vickers,vicker,vick,vicke,bvick,bv,bradv,brad vickers
+200
+
+---
 Albert Wesker,Wesker,Albert,Al,al,albert,wesker,wesk,wes,weske,abl,albe,alber,awesker
 400
 400
@@ -230,10 +249,18 @@ eerie shadows.
 Basement
 Light: false
 Occupants: Hunter
-Contents: ShotgunShells#6
+Contents: ShotgunShells#6,First Aid Spray
 At the bottom of the cracked, stone steps is a long, dreary corridor.
 Water is leaking from the ceiling and the walls have bloodstains
 in several places.
+---
+Piano Room
+Occupants: Rebecca Chambers
+Contents: Green Herb
+A grand piano occupies a third of this room, a small bar taking another third. 
+Most of the bottles have fallen over or been shattered. An empty bookshelf
+stands against the teal-colored wall.
+---
 ===
 Exits:
 Opening Scene
