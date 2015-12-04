@@ -1,0 +1,543 @@
+Troy
+Zork v1.0
+===
+Guns:
+Shotgun,shotgun
+8
+reload,r,Reload,refill,R,replenish,load[Reload]:RELOADING!!! 
+examine,check[CheckAmount]:An energy semi-automatic shotgun.
+---
+3
+150
+---
+10
+PowerCell
+---
+PlasmaCannon,plasmacannon,plasma,cannon,Cannon,THOOM
+10
+reload,r,Reload,R,refill,replenish,load[Reload]:RELOADING!!!
+examine,check[CheckAmount]:Hmmm, It only has one setting "Crispy Barbecue". 
+---
+6
+500
+---
+1
+PowerCore
+---
+===
+Melee:
+Knife,knife,dagger
+3
+flip[Score(1)]:You toss the knife up and catch it.
+examine,check:A wicked looking combat knife with a molecularly sharp edge.
+---
+3
+35
+---
+Wakazashi,wakazashi,shortsword,sword
+5
+examine,check:An ancient design. Made of modern battle steel, can cut through anything.
+---
+1
+200
+---
+===
+Lights:
+torch,Torch,light,Flashlight,flashlight
+1
+use,light,activate,ignite,switch,try[SwitchLightItem]:You toggle the power switch.
+examine,check[CheckAmount]:Looks like the English won the argument about the name of flashlights.
+---
+HeadLamp,headlight,helmetlight
+1
+use,light,activate,ignite,switch,try[SwitchLightItem]:You toggle the power switch.
+examine,check[CheckAmount]:A helmet mounted light.
+===
+Items:
+GlassBottle,bottle,Bottle,glassBottle,glassbottle
+4
+break,shatter,smash,crush,crash,Break[Wound(5),Transform(glassShards)]:Ouch! The glass cuts your hand.
+drink,chug,swallow,consume:There's nothing left.
+examine,check:A clear, glass bottle.
+---
+EmptyCan,can,Can,emptycan
+1
+examine,check:Is it 0% full or 100% empty?
+crush,squeeze,stomp,pressurize,push[Transform(CrushedCan),Score(20)]:You crushed it!
+throw,toss,chuck[Drop]:The can goes flying and makes a thud on the floor.
+---
+CrushedCan,crushedcan,crushed,Crushed,crush,Crush
+1
+examine,check:A crushed can. I don't think it will hold water ever again.  
+throw,toss,chuck[Drop]:The crushed can goes flying and thuds on the floor.
+---
+glassShards,pieces,Shards,shards
+4
+examine,check:All the kings men could not  put it back together again.
+touch,lick,squeeze,rub,crush[Wound(5)]:Ow! Stop that!
+throw,toss,chuck[Disappear]:The shards scatter everywhere. Good luck picking them up.
+---
+CocaCola,coke,Coke,cola,Cola,cocacola,soda,pop,Soda,Pop
+4
+break,shatter,smash,crash,crush,Break[Wound(5),Transform(glassShards)]:Ouch! The glass cuts your hand.
+drink,chug,swallow,consume[Heal,Eat(5),Transform(GlassBottle)]:I wish I had a Pepsi.
+examine,check:A classic coke. Still not as good as a Pepsi.
+---
+laptop,Laptop,computer
+7
+use,logon,check,examine,try:NETWORK FAILURE
+break,smash,crush,throw,kick,punch[Disappear,Wound(10)]:It shatters. Your foot hurts now.
+---
+Book,book
+2
+examine,check:An ancient, device for reading stories, from 2016. It is printed on real paper. Looks like an expensive collectors item!
+read[Disappear,Score(150)]:You finish the page but the text stays the same. Must be broken.
+---
+NuclearBomb,nuclearbomb,nuke,Nuke,bomb,Bomb,Nuke
+100
+examine,check:A nuclear bomb. The timer is counting down.
+deactivate,defuse[Score(1000),Disappear,Win]:You cut the correct wires. Whew!
+touch,kick,light,activate,punch,use,try[Die]:The bomb explodes on contact, killing you and everyone else in the world.
+---
+medkit,Medkit,healthkit,Healthkit,HealthKit,med,mk,health,kit,mkit,medk
+1
+use,try,eat,drink,heal,patch,consume,wrap,do[Heal,Disappear]:You feel instantly better. All your wounds close.
+examine,check:Nanokit heals any ailment. 
+---
+spinach,Spinach,vegetables,sp,spi,spin,spina,spinac,greens,veg
+1
+examine,check,read:Who would want to eat this?
+eat,consume,swallow,devour[Disappear,Heal,Eat(10)]:It tastes nasty, but you feel really strong now.
+---
+Cheeseburger,Burger,burger,cheeseburger,hamburger,sandwich
+1
+throw,toss,chuck[Disappear]:The burger falls apart as it flies through the air. You won't want to eat it now.
+eat,chew,swallow,devour,consume[Heal,Disappear,Eat(20)]:OH that tastes so good.
+examine,check:It has meat in it. I think...
+---
+Beer,beer
+1
+drink,swallow,chug,enjoy,down[Eat(5),Transform(EmptyCan)]:Drinking in combat. An age old tradition.
+examine,check:Alcohol and guns are never a good choice. 
+---
+Coffee,coffee,joe
+1
+drink,swallow,chug,enjoy,down[Eat(5),Transform(EmptyCan)]:Wow thats Hot. You feel the caffeine working immediately. 
+examine,check:Coffee so strong it could blow the roof off a dragons mouth.
+---
+EnergyDrink,RedBull,energydrink,redbull,edrink
+1
+drink,swallow,down,enjoy,chug[Transform(EmptyCan),Heal]:It tastes like chemically-engineered power.
+examine,check,read:Will make you happy.
+---
+Keycard,keycard,key
+0
+use[Unlock]:You try the key on the door.
+---
+PowerCell
+0
+examine,check:A powercell for a shotgun.
+---
+PowerCore
+0
+examine,check:A powerCore for a plasmacannon.
+---
+transporter
+1000000
+examine,check:The enemy transporter. You cannot read any of the controls.
+use,teleport[Teleport]:You feel queasy. 
+===
+Npc:
+CombatBot,bot,Bot,robot
+100//health
+10//power
+15//speed
+100//score
+true//agressive
+true//move
+TARGET ACQUIRED.
+~~~
+---
+Brawler,brawler
+200
+15
+15
+200
+true
+true
+SMASH!!!!!
+---
+Lt. Dan,lt,dan,Dan,lt dan
+200
+5
+100
+-500
+false
+false
+Hey, you want this key? It will open the door. Hurry time is short. The bomb should be located towards the rear of the ship near the engines.
+~~~
+yes,y,yea,ye,yeah,Yes,Y,please,Oui,affirmative[Disappear,Receive(Keycard)]:Good luck.
+no,No,n,N,nope,nah,na:Oh..okay... I think this the only way there.
+---
+Captain,cap,captain
+1000
+30
+-5
+-2000
+false
+false
+You there! Get to the rear of the ship and defuse that bomb!
+~~~
+yes,Yes,yea,ye,yeah[Score(100),Disappear]:On the double.
+No,no,nosir[Wound(5000)]:Insubordination will not be tolerated. 
+---
+Private
+100
+20
+10
+100
+true
+true
+I am looking for the bomb. Quick we need to find it. No time to talk.
+~~~
+ammo,give me your ammo[Receive(PowerCell)]:Here I don't have much.
+ok:bye
+---
+HeavyCombatBot,heavycombatbot,heavy
+1000
+100
+1
+900
+Die: Spawn(NuclearBomb)
+true
+false
+YOU SHALL NOT PASS
+~~~
+---
+===
+Rooms:
+Bridge
+Light: true
+Occupants: Captain
+Contents: Medkit#2 
+						***WARNING***
+					 ***ATTENTION ALL HANDS***	
+Intruders have been detected on both A deck and B Deck. Radiation levels indicate that they are attempting 
+to plant a bomb. The most likely target for this bomb would be the engine room. Repel boarders immediately 
+and find that bomb.
+---
+Captains Quarters
+Light: true
+Contents: Keycard,Coffee
+The captains quarters. The room looks like he left in a hurry, the bed is not made and his coffee is still 
+untouched on the wall mounted coffee machine.
+---
+Mess
+Light: false
+Contents: CocaCola,EnergyDrink,Cheeseburger,Knife,spinach
+Signs of combat are everywhere. There are the remains of a marine next to the coffee maker with a spreading pool of blood.
+Relaxing music still is playing.
+---
+Armory
+Contents: PowerCell#100,PowerCore#25,PlasmaCannon,Wakazashi,Shotgun
+The armory door was left open. There is a dead Marine surrounded by the wreckage of 25 CombatBots. Weapons and ammo are still
+adorn the walls in a orderly line. There is a deafening alarm constantly wailing. 
+---
+Corridor-A1
+Occupants:CombatBot
+Contents: Torch,glassShards
+A corridor with blast doors to the north and the south. Glass crunches underfoot as you walk.
+---
+Corridor-A2
+Occupants: CombatBot
+Contents: HeadLamp
+A corridor with blast doors to the north and south. Destroyed bots are scattered around. It is good to see that this battle is not
+all one sided. 
+---
+Barracks-A
+Occupants:Brawler,CombatBot
+Contents: beer#6,Cheeseburger,EnergyDrink
+Need a drink? It looks like this marine has enough to share. Especially since the UNFN is dry and alcohol is not allowed.
+---
+Port Side Weapons Control Station
+Light: false
+Occupants: CombatBot
+The controls are off-line. They seem to have been methodically shot with a Plasma Arc.  It will take hours to repair.
+---
+Starboard Side Weapons Control Station
+Light: false
+Occupants: CombatBot
+The controls are offline. They seem to have been methodically shot with a Plasma Arc.  It will take hours to repair.
+---
+Corridor-A3
+Occupants:CombatBot,CombatBot,Brawler,Lt. Dan
+Contents: medkit
+A corridor with blast doors to the north and south. Destroyed bots are scattered around. It is good to see that this battle is not
+all one sided. 
+---
+Hydroponics 
+Occupants: Brawler
+Plants are everywhere. They help to provide food for the ship as well as to recycle the air by removing CO2.
+---
+Pool
+Occupants: Brawler
+A big swimming pool with a diving board. The room is humid and hot. It feels like you are in a space rainforest. 
+---
+A-Deck Head
+Light: false
+Occupants: Private
+Seems that the plumbing has backed up and water is all over the floor. There is a Private here hiding out in one of the stalls.
+For some reason you have the feeling he is not using the bathroom.
+---
+Corridor-A4
+Occupants:CombatBot,CombatBot
+Contents: medkit
+A corridor with blast doors to the north and south. Destroyed bots are scattered around. It is good to see that this battle is not
+all one sided. 
+---
+Corridor-A5
+Occupants:CombatBot,CombatBot,CombatBot,CombatBot
+Contents: medkit
+Destroyed bots are scattered around. It is good to see that this battle is not all one sided. There is a lift to the south.
+---
+Corridor-B5
+Occupants:Brawler,Brawler,Brawler
+Destroyed bots are scattered around. It is good to see that this battle is not all one sided. Although the battle seems to be fiercer.
+There is a lift to the south.
+--- 
+Engine Room
+Occupants: HeavyCombatBot
+The engine room. There is a bomb in here it looks like you will have to get thought the HeavyCombatBot to diffuse it though. 
+Hope you brought enough ammo. This thing look like it is going to be tough.
+---
+Corridor-B4
+Occupants:Brawler,Brawler
+Contents: medkit
+Heavy blast doors are to the north and south. To the east is the Engine room from which you can hear a HeavyCombatBot.
+---
+Barracks-B
+Light: false
+Occupants: Private
+Contents: Beer
+You can always count on the men to have beer on tap near their bunks. What are rules for if not for breaking? It is a silly rule 
+anyways.
+---
+Corridor-B3
+Lights: false
+Occupants: Private
+Contents: transporter
+This is where the enemy seems to have entered  their transporter is in here. It is unguarded you could use it. Or even better you 
+could destroy it.
+---
+B-Deck Medbay
+Contents: medkit#5
+Surgical equipment is everywhere. The cryo-packs are all occupied. Wounded are everywhere and Armed guards guard the door.
+---
+Corridor-B2
+Occupants: Brawler,Brawler,Brawler
+Contents: PowerCore#5,PowerCell#25
+There is a dead Marine here. He seems to have died before he could expend all of his ammo. It is always sad to see a marine die with a
+loaded gun. You should take his ammo and use it for him so he can to to Valhalla. 
+---
+Corridor-B1
+Occupants: Brawler,Brawler
+Contents: laptop,book
+The entrance to the engineering bay is to the north.  To the south is a heavy blast door that has been breached by explosives. 
+---
+Engineering bay
+Light: false
+Occupants: Brawler,Brawler,CombatBot 
+Contents: Keycard
+Tables with disassembled machinery is here. The walls are pocked with plasma burns and bodies are everywhere. A fight occurred here and we lost.
+The key to the engine room should be around here somewhere.
+---
+===
+Exits:
+Bridge
+e
+Captains Quarters
+---
+Captains Quarters
+w
+Bridge
+---
+Bridge
+s
+Corridor-A1
+---
+Corridor-A1
+n
+Bridge
+---
+Corridor-A1
+e
+Armory
+---
+Armory
+w
+Corridor-A1
+---
+Corridor-A1
+w
+Mess
+---
+Mess
+ne
+Corridor-A1
+---
+Mess
+se
+Corridor-A2
+---
+Corridor-A2
+w
+Mess
+---
+Corridor-A1
+s
+Corridor-A2
+---
+Corridor-A2
+n
+Corridor-A1
+---
+Corridor-A2
+s
+Corridor-A3
+---
+Corridor-A3
+Port Side Weapons Control Station
+n
+Corridor-A2
+---
+Corridor-A3
+w
+Port Side Weapons Control Station
+---
+Port Side Weapons Control Station
+e
+Corridor-A3
+---
+Starboard Side Weapons Control Station
+w
+Corridor-A3
+---
+Corridor-A3
+e
+Starboard Side Weapons Control Station
+---
+Corridor-A3
+s
+Corridor-A4
+---
+Corridor-A4
+n
+Corridor-A3
+---
+Corridor-A4
+e
+A-Deck Head
+---
+A-Deck Head
+w
+Corridor-A4
+---
+Corridor-A4
+s
+Corridor-A5
+true
+---
+Corridor-A5
+n
+Corridor-A4
+---
+Corridor-A5
+w
+Barracks-A
+---
+Barracks-A
+e
+Corridor-A5
+---
+Corridor-A5
+d
+Corridor-B5
+---
+Corridor-B5
+u
+Corridor-A5
+---
+Corridor-B5
+e
+Engine Room
+true
+---
+Engine Room
+w
+Corridor-B5
+---
+Corridor-B5
+n
+Corridor-B4
+---
+Corridor-B4
+s
+Corridor-B5
+---
+Corridor-B4
+n
+Corridor-B3
+---
+Corridor-B3
+s
+Corridor-B4
+---
+Corridor-B3
+e
+Medbay
+---
+Medbay
+w
+Corridor-B3
+---
+Corridor-B3
+n
+Corridor-B2
+---
+Corridor-B2
+s
+Corridor-B3
+---
+Corridor-B2
+w
+Barracks-B
+---
+Barracks-B
+e
+Corridor-B2
+---
+Corridor-B2
+n
+Corridor-B1
+---
+Corridor-B1
+s
+Corridor-B2
+---
+Corridor-B1
+e
+Hydroponics
+---
+Hydroponics
+w
+Corridor-B1
+---
+Engineering bay
+s
+Corridor-B1
+---
+Corridor-B1
+n
+Engineering bay
+---
+===
