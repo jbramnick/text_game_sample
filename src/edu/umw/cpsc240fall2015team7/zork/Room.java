@@ -84,15 +84,15 @@ public class Room{
 			content=scanner.nextLine();
 
 		}
-		else if(content != null){
-			this.desc = content;
-		}
+		this.desc = content;
 		String part = scanner.nextLine();
 		while(!part.equals("---")){
 			this.desc = this.desc + "\n" + part;
 			part = scanner.nextLine();
 		}
 	}
+
+	
 	public void light() {
 		light=true;
 	}

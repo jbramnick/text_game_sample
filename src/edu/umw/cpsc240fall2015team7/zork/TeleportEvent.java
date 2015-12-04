@@ -11,14 +11,14 @@ class TeleportEvent extends Event{
 	  *@author Nathanael Woodhead
 	  */
 	TeleportEvent(Object i){
-		selector = new Random();
+		selector = GameState.instance().getRandom();
 	}
 	/**
 	*Constructs this TeleportEvent without an Item passed.
 	*@author Carson Meadows
 	*/
 	TeleportEvent(){
-		selector = new Random();
+		selector = GameState.instance().getRandom();
 	}
 	
 	/**

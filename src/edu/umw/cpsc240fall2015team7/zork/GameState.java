@@ -2,12 +2,14 @@ package edu.umw.cpsc240fall2015team7.zork;
 import java.io.*;
 import java.util.ArrayList;
 import java.util.Scanner;
+import java.util.Random;
 /**
   *Keeps track of the current state of the zork game.
   *@author Nathanael Woodhead
   */
 class GameState{
 
+	private Random random;
 	private boolean verbose;
 	private static GameState theInstance;
 	private Room adeventurersCurrentRoom;
@@ -30,6 +32,7 @@ class GameState{
 	  *@author Nathanael Woodhead
 	  */
 	private GameState(){
+		this.random = new Random(13);
 	}
 	/**
 	  *Initializes a Dungeon in this GameState instance. Sets the map, creates an empty inventory, and list of verbs. 
@@ -44,6 +47,9 @@ class GameState{
 	  *Returns the Dungeon object for this. If there is no Dungeon, will return null.
 	  *@author Nathanael Woodhead
 	  */
+	Random getRandom(){
+		return random;
+	}
 	Dungeon getDungeon(){
 		return map;
 	}

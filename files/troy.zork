@@ -52,6 +52,7 @@ HeadLamp,headlight,helmetlight
 1
 use,light,activate,ignite,switch,try[SwitchLightItem]:You toggle the power switch.
 examine,check[CheckAmount]:A helmet mounted light.
+---
 ===
 Items:
 GlassBottle,bottle,Bottle,glassBottle,glassbottle
@@ -145,16 +146,18 @@ examine,check:A powerCore for a plasmacannon.
 transporter
 1000000
 examine,check:The enemy transporter. You cannot read any of the controls.
-use,teleport[Teleport]:You feel queasy. 
+use,teleport[Teleport]:You feel queasy.
+break[Disappear,Score(200)]:Boom!
+---
 ===
 Npc:
 CombatBot,bot,Bot,robot
-100//health
-10//power
-15//speed
-100//score
-true//agressive
-true//move
+100
+10
+15
+100
+true
+true
 TARGET ACQUIRED.
 ~~~
 ---
@@ -166,8 +169,9 @@ Brawler,brawler
 true
 true
 SMASH!!!!!
+~~~
 ---
-Lt. Dan,lt,dan,Dan,lt dan
+LieutenantDan,lt,dan,Dan,ltdan
 200
 5
 100
@@ -176,7 +180,7 @@ false
 false
 Hey, you want this key? It will open the door. Hurry time is short. The bomb should be located towards the rear of the ship near the engines.
 ~~~
-yes,y,yea,ye,yeah,Yes,Y,please,Oui,affirmative[Disappear,Receive(Keycard)]:Good luck.
+yes,y,yea,ye,yeah,Yes,Y,please,Oui,affirmative[Receive(key),Disappear]:Good luck.
 no,No,n,N,nope,nah,na:Oh..okay... I think this the only way there.
 ---
 Captain,cap,captain
@@ -196,8 +200,8 @@ Private
 20
 10
 100
-true
-true
+false
+false
 I am looking for the bomb. Quick we need to find it. No time to talk.
 ~~~
 ammo,give me your ammo[Receive(PowerCell)]:Here I don't have much.
@@ -205,10 +209,9 @@ ok:bye
 ---
 HeavyCombatBot,heavycombatbot,heavy
 1000
-100
+50
 1
 900
-Die: Spawn(NuclearBomb)
 true
 false
 YOU SHALL NOT PASS
@@ -219,7 +222,8 @@ Rooms:
 Bridge
 Light: true
 Occupants: Captain
-Contents: Medkit#2 
+Contents: Medkit#2
+
 						***WARNING***
 					 ***ATTENTION ALL HANDS***	
 Intruders have been detected on both A deck and B Deck. Radiation levels indicate that they are attempting 
@@ -244,7 +248,7 @@ The armory door was left open. There is a dead Marine surrounded by the wreckage
 adorn the walls in a orderly line. There is a deafening alarm constantly wailing. 
 ---
 Corridor-A1
-Occupants:CombatBot
+Occupants: CombatBot
 Contents: Torch,glassShards
 A corridor with blast doors to the north and the south. Glass crunches underfoot as you walk.
 ---
@@ -255,7 +259,7 @@ A corridor with blast doors to the north and south. Destroyed bots are scattered
 all one sided. 
 ---
 Barracks-A
-Occupants:Brawler,CombatBot
+Occupants: Brawler,CombatBot
 Contents: beer#6,Cheeseburger,EnergyDrink
 Need a drink? It looks like this marine has enough to share. Especially since the UNFN is dry and alcohol is not allowed.
 ---
@@ -270,12 +274,12 @@ Occupants: CombatBot
 The controls are offline. They seem to have been methodically shot with a Plasma Arc.  It will take hours to repair.
 ---
 Corridor-A3
-Occupants:CombatBot,CombatBot,Brawler,Lt. Dan
+Occupants: CombatBot,CombatBot,Brawler,LieutenantDan
 Contents: medkit
 A corridor with blast doors to the north and south. Destroyed bots are scattered around. It is good to see that this battle is not
-all one sided. 
+all one sided.
 ---
-Hydroponics 
+Hydroponics
 Occupants: Brawler
 Plants are everywhere. They help to provide food for the ship as well as to recycle the air by removing CO2.
 ---
@@ -290,28 +294,29 @@ Seems that the plumbing has backed up and water is all over the floor. There is 
 For some reason you have the feeling he is not using the bathroom.
 ---
 Corridor-A4
-Occupants:CombatBot,CombatBot
+Occupants: CombatBot,CombatBot
 Contents: medkit
 A corridor with blast doors to the north and south. Destroyed bots are scattered around. It is good to see that this battle is not
 all one sided. 
 ---
 Corridor-A5
-Occupants:CombatBot,CombatBot,CombatBot,CombatBot
+Occupants: CombatBot,CombatBot,CombatBot,CombatBot
 Contents: medkit
 Destroyed bots are scattered around. It is good to see that this battle is not all one sided. There is a lift to the south.
 ---
 Corridor-B5
-Occupants:Brawler,Brawler,Brawler
+Occupants: Brawler,Brawler,Brawler
 Destroyed bots are scattered around. It is good to see that this battle is not all one sided. Although the battle seems to be fiercer.
 There is a lift to the south.
---- 
+---
 Engine Room
 Occupants: HeavyCombatBot
-The engine room. There is a bomb in here it looks like you will have to get thought the HeavyCombatBot to diffuse it though. 
+Contents: NuclearBomb
+The engine room. There is a bomb in here it looks like you will have to get past the HeavyCombatBot to diffuse it though. 
 Hope you brought enough ammo. This thing look like it is going to be tough.
 ---
 Corridor-B4
-Occupants:Brawler,Brawler
+Occupants: Brawler,Brawler
 Contents: medkit
 Heavy blast doors are to the north and south. To the east is the Engine room from which you can hear a HeavyCombatBot.
 ---
@@ -323,13 +328,13 @@ You can always count on the men to have beer on tap near their bunks. What are r
 anyways.
 ---
 Corridor-B3
-Lights: false
+Light: false
 Occupants: Private
 Contents: transporter
 This is where the enemy seems to have entered  their transporter is in here. It is unguarded you could use it. Or even better you 
 could destroy it.
 ---
-B-Deck Medbay
+Medbay
 Contents: medkit#5
 Surgical equipment is everywhere. The cryo-packs are all occupied. Wounded are everywhere and Armed guards guard the door.
 ---
@@ -346,7 +351,7 @@ The entrance to the engineering bay is to the north.  To the south is a heavy bl
 ---
 Engineering bay
 Light: false
-Occupants: Brawler,Brawler,CombatBot 
+Occupants: Brawler,Brawler,CombatBot
 Contents: Keycard
 Tables with disassembled machinery is here. The walls are pocked with plasma burns and bodies are everywhere. A fight occurred here and we lost.
 The key to the engine room should be around here somewhere.
@@ -406,7 +411,6 @@ s
 Corridor-A3
 ---
 Corridor-A3
-Port Side Weapons Control Station
 n
 Corridor-A2
 ---
