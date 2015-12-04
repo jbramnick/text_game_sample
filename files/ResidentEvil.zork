@@ -1,0 +1,177 @@
+Resident Evil
+Zork v1.0
+===
+Guns:
+M9 Beretta,M9,m9,Beretta,beretta,gun,handgun,pistol,sidearm
+10
+reload[Reload]:You swap clips in your handgun.
+examine,check[CheckAmount]:A standard issue M9 Beretta pistol.
+---
+100
+80
+---
+15
+HandgunAmmo
+---
+===
+Melee:
+CombatKnife,knife,kn,knif,combatknife,cknife
+5
+examine,check:A standard issue S.T.A.R.S. combat knife.
+---
+50
+40
+---
+===i
+Lights:
+Flashlight,light,flash,fl,ligh,lig,fla
+4
+examine,check[CheckAmount]:A common flashlight with limited batteries.
+use,try,turnon,light,turnoff,click[SwitchLightItem]:You used the Flashlight.
+---
+Lighter,lighter,lightr,litr,liter,flame
+1
+examine,check[CheckAmount]:A golden lighter.
+use,try,light,click,flick,flame,do[SwitchLightItem]:The warm fire comforts you.
+throw,toss,lose,chuck,leave[Drop]:The lighter falls to the floor.
+---
+===
+Items:
+Green Herb,greenherb,green,gr,herb,Herb,plant,greens,weed
+2
+examine,check:A strange-smelling plant with medicinal properties.
+use,eat,smoke,consume,try[Heal,Disappear]:You feel much better, but a bit light-headed.
+---
+First Aid Spray,first aid spray,firstaidspray,firstaid,first,spray,aid,health
+4
+examine,check:An industrial strength clinical spray. Imagine Neosporin x100.
+use,try,spray,eat,squeeze[Heal,Disappear]:You spray your wounds and it stings awfully, but you start to feel better.
+---
+Sword Key,sword key,swordkey,skey,sword,swordk,swor,swo
+2
+use,try,do,stick,turn,twist[Unlock]:You try to use the Sword Key.
+examime,check:A bronze key with a sword emblem carved in it.
+---
+Card Key,card key,cardkey,card,ckey,CardKey,keycard,key card,Keycard,Cardkey,kcard
+1
+examine,check:A blue keycard with the Umbrella Corps. logo on it.
+use,try,do,swipe,cash[Unlock]:You swipe the blue keycard.
+---
+===
+Npc:
+Zombie,zombie,z,zed,zom,zo,zomb,zomi,zombitch,zombo
+100
+15
+4
+100
+true
+true
+A shambling, rotting corpse that seems to be driven solely by its hunger for human flesh.
+~~~
+---
+Hunter,hunter,hun,hu,hunte,lizard,liz,liza,lizar
+300
+100
+50
+300
+true
+false
+A vicious, reptilian monster with large claws and green, scaly skin.
+~~~
+---
+Crimson Head,redhead,crimsonhead,chead,head,Head,crimson,crim,crims,crimso,cr
+200
+30
+8
+200
+true
+false
+A mutated zombie with reddened skin and elongated, sharp nails and teeth.
+~~~
+---
+Giant Snake,Yawn,snake,giantsnake,giant snake,gsnake,gs,snak,yawn
+1000
+90
+3
+1000
+true
+false
+An enormous, 30 foot long viper which razor-sharp fangs and a gaping, hungry mouth. Its tongue flicks, sniffing your delectable aroma.
+~~~
+Tyrant,tyrant,tyra,tryan,ty,tyr,tyrent,bluedude
+2000
+200
+100
+2000
+true
+false
+A muscluar, blue-skinned humanoid.
+~~~
+---
+Jill Valentine,Jill,jill,jillvalentine,Valentine,valentine,val,jv,JV,jil
+500
+500
+100
+0
+false
+true
+Hey! Glad you're still alive. We need to finish our investigation 
+of this creepy mansion.
+~~~
+Yes,yes,okay,ok,OK,Okay,sure,cool,yeah,yea,ye,y,swag:Good luck!
+No,no,n,I'm scared,im scared,Im scared,i'm scared:I didn't sign up for this 
+either, but we have a job to do!
+---
+Barry Burton,Barry,barry,bar,barr,barryburton,burton,Burton,Burt,burt,burto
+300
+300
+6
+0
+Die: Receive(44 Magnum)
+false
+true
+Chris! Good to see you. 
+~~~
+thanks,Thanks,youtoo,you too,you2,u2,u too,:Stay strong, soldier!
+hi,Hi,hello,Hello,yo,Yo,Dude,dude,bro,Bro,Yes,yes,yea,ye,yeah,y:Have you seen Jill?
+give,Give,trade,Trade,give me gun,gimme gun,give me 44 magnum,gimme 44 magnum,i want your gun[Receive(44 Magnum),Disappear]:Sure thing. Anything to help.
+screw you,Screw you,screw you barry,screw u,screw you burton,screw you burt,screw u burt,screw u barry,screw u bar[Wound(30)]:Screw you buddy!
+---
+Albert Wesker,Wesker,Albert,Al,al,albert,wesker,wesk,wes,weske,abl,albe,alber,awesker
+400
+400
+150
+800
+Die: Drop(Card Key)
+false
+false
+Chris. I see you're still alive. I must say, I'm impressed with your performance against all the B.O.W.'s in this mansion. Unfortunately the rest of Teams Alpha and Bravo weren't so lucky. 
+~~~
+hi,Hi:Get back to work.
+traitor,you betrayed us,liar,you traitor,u traitor,fuck u[Spawn(Tyrant)]:Yes, it's true. I've been working with Umbrella Corp. for years, and I lured Alpha and Bravo Teams here. This whole operation was an experiment of our test subjects' combat abilities versus trained soldiers. But I'm afraid you've been alive too long. 
+---
+===
+Rooms:
+Opening Scene
+Light: true
+Contents: Lighter,Combat Knife
+Hello S.T.A.R.S. member Chris Redfield! We lost contact from Team Alpha after they began investigation of a series of recent grusome murders in the Arklay Mountains near Raccoon City. You were sent in with Bravo Team to figure out what happened, and came across a mysterious mansion in the forest. As you approached the building, a pack of horrible, bloodthirsty monstrocities appeared from the foliage and attacked you and your squad members. You were separated from everyone in the chaos. Just above the treeline, you can make out the roof of the mansion under the blue moonlight. 
+---
+Forest Path
+Light: false
+Occupants: Zombie Dog
+Contents: Green Herb
+The way here is overgrown with weeds, but the light of the mansion is just visible in the distance.
+---
+Spencer Mansion
+The antique building looms over you forebodingly. It's two stories high with balconies on either side. 
+---
+Main Hall
+Occupants: Jill Valentine
+Contents: M9 Beretta
+You are in a large, exquisite, candlelit hall with marble-tiled floor, richly
+decorated walls. There are doors to your right and left and a grand staircase 
+in front of you, behind which is a gate blocking steps leading down into 
+darkness. You can hear rabid scratching and growling at the mahogany front
+door. You have a very bad feeling about this mansion.
+---
