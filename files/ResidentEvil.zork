@@ -202,6 +202,13 @@ Occupants: Barry Burton
 A fancy dining hall with a lit fireplace. The table is fitted with fine plates 
 and utensils. A gorgeous chandelier hangs above beside a second floor walkway.
 ---
+Dim Corridor
+Occupants: Zombie
+Contents: HandgunAmmo
+You have barely any wiggle room in this thin, dark hallway. The carpet is 
+heavily stained with fresh blood. In the corner, the body of one of your
+comrades lies still. His throat seems to have been eaten out.
+---
 Garden
 Ocuppants: Zombie
 Contents: ShotgunShells#6
@@ -289,4 +296,13 @@ u
 2F Main Hall
 d
 Main Hall
+---
+Dining Room
+n
+Dim Corridor
+---
+Dim Corridor
+s
+Dining Room
+---
 ===
