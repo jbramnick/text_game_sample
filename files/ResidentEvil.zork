@@ -62,6 +62,10 @@ Sword Key,sword key,swordkey,skey,sword,swordk,swor,swo
 use,try,do,stick,turn,twist[Unlock]:You try to use the Sword Key.
 examime,check:A bronze key with a sword emblem carved in it.
 ---
+Old Key,oldkey,old key,OldKey,old,okey,oldk,olk,oldke, old k,old ke,small key,smallkey,smalk,Small Key,SmallKey
+2
+use,try,do,stick,turn,twist[Unlock]:You try to use the Old Key.
+--- 
 Card Key,card key,cardkey,card,ckey,CardKey,keycard,key card,Keycard,Cardkey,kcard
 1
 examine,check:A blue keycard with the Umbrella Corps. logo on it.
@@ -71,6 +75,10 @@ Athena Statue,Athena,athena,statue,astatue,thestatue,the statue,athena statue,ma
 500
 examine,check:The statue wobbles when you touch it. With a good push, it might fall over.
 push,pull,try,do,shove,yank,drive,use,kick,punch,smack[Drop(Sword Key),Disappear]:The statue topples over and shatters into a hundred pieces. A hidden key is revealed among the debris.
+---
+Worker's Journal,Journal,journal,journa,journ,journ,jou,wjournal,workers,workersj,worker,workjourn,workjournal,Book,book
+4
+read,look at,skim,Read,open,Open[Spawn(Zombie),Drop(ShotgunShells#6)]:May 11th, 1998. I was awoken early this morning by a coworker. Apparently, there was some sort of accident in the lab in the basement. My superiors assured us that everything was under control. -  May 16th, 1998. A dreadful fever has affected many of the other workers, and I feel that I have finally caught it, myself. I've worked for the Umbrella Corps. for almost three years, but I fear something very wrong is happening. Apparently, someone tried to escape the facility and was shot instantly. I hope I survive this so I can see my family again. - May 19th, 1998. Fever gone but itchy. Hungry and eat doggy food. Itchy itchy Scott came. Ugly face so killed him. Tasty. - You shut the book, and suddenly, a zombie bursts out of the closet behind you! 
 ---
 HandgunAmmo,handgunammo,pistolammo,hammo,pammo,ammo,rounds,bullets,bullet,9mm
 1
@@ -113,16 +121,28 @@ A mutated zombie with reddened skin and elongated, sharp nails and teeth.
 ---
 Giant Snake,Yawn,snake,giantsnake,giant snake,gsnake,gs,snak,yawn
 1000
-90
+100
 3
 1000
 true
 false
 An enormous, 30 foot long viper which razor-sharp fangs and a gaping, hungry mouth. Its tongue flicks, sniffing your delectable aroma.
 ~~~
-Tyrant,tyrant,tyra,tryan,ty,tyr,tyrent,bluedude
+---
+Neptune,neptune,shark,Shark,Great White Shark,great white shark,greatwhiteshark,greatwhite,great white,great shark,white shark,sherk,shar,sha,nep,nept,neptun,neptu,tuna
 2000
 200
+100
+2000
+true
+false
+A mutated Great White Shark. It's significantly stronger and more aggressive
+than any average Great White.
+~~~
+---
+Tyrant,tyrant,tyra,tryan,ty,tyr,tyrent,bluedude
+3000
+300
 100
 2000
 true
@@ -176,7 +196,14 @@ Wesker,wesker,wesker?,Wesker?,wesker did it,its wesker,It's Wesker,it's wesker[S
 ---
 Brad Vickers,Brad,BradVickers,bradvickers,brad,bradv,vickers,vicker,vick,vicke,bvick,bv,bradv,brad vickers
 200
-
+200
+40
+0
+true
+false
+Hey Chris! I just discovered something terrible! There's a spy among us working for Umbrella Corps!
+~~~
+Hi,hi,Hey,hey,yo,wassup,whats up,whatsup,whatsp up?,What's up?,Hello,hello[Disappear,Spawn(Neptune)]:Before Brad can begin to reply, an enormous shark emerges from the water and swallows him whole.
 ---
 Albert Wesker,Wesker,Albert,Al,al,albert,wesker,wesk,wes,weske,abl,albe,alber,awesker
 400
@@ -261,6 +288,36 @@ A grand piano occupies a third of this room, a small bar taking another third.
 Most of the bottles have fallen over or been shattered. An empty bookshelf
 stands against the teal-colored wall.
 ---
+West Staircase
+Contents: Green Herb
+There is a large, empty bird cage here. The floor is cluttered with black
+feathers too big to belong to any normal bird. A crow can be heard cawing
+somewhere. A staircase leads to the second floor.
+---
+Spear Hall
+Occupants: Zombie,Zombie
+Contents: Green Herb
+A row of bronze statues stand on either side of this claustrophobic 
+hallway. A certain archer at the end sticks out, specifically, the
+bright, green stone at the tip of its arrow.
+---
+West Hall
+Occupants: Zombie
+Moonlight illuminates through the open windows here, and cerulean curtains flow
+swimmingly in the slight breeze seeping in.
+---
+Kitchen
+Occupants: Zombie,Zombie
+Contents: HandgunAmmo,Old Key
+The floor and walls down here are filthy. Unwashed pots, pans and plates are 
+scattered over the countertops. A slab of unidentified meat lies on a granite table
+being gnawed away at by flies.
+---
+Bedroom
+Contents: First Aid Spray,Worker's Journal
+This looks to have been someone's room. A queen sized bed is flanked by small
+tables opposite a dusty mirror.
+---
 ===
 Exits:
 Opening Scene
@@ -331,5 +388,45 @@ Dim Corridor
 Dim Corridor
 s
 Dining Room
+---
+Dim Corridor
+e
+Piano Room
+---
+Piano Room
+w
+Dining Room
+---
+Dim Corridor
+w
+West Staircase
+---
+West Staircase
+e
+Dim Corridor
+---
+Dim Corridor
+n
+West Hall
+---
+West Hall
+s
+Dim Corridor
+---
+West Staircase
+u
+Spear Hall
+---
+Spear Hall
+d
+West Staircase
+---
+Dim Corridor
+d
+Kitchen
+---
+Kitchen
+u
+Dim Corridor
 ---
 ===
