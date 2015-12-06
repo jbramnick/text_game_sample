@@ -24,6 +24,18 @@ examine,check[CheckAmount]:A Winchester Model 12 shotgun.
 6
 ShotgunShells
 ---
+44 Magnum,44,Magnum,magnum,44magnum,44 magnum,magnu,magn,mag,44mag,revolver,Revolver
+15
+examine,check[CheckAmount]:A powerful revolver.
+point,aim[Score(500)]:Go ahead, punk, make my day.
+reload,r,Reload,R,refill,replenish[Reload]: You flick open the cylinder to load fresh rounds.
+---
+8
+250
+---
+6
+MagnumRounds
+---
 Rocket Launcher,RocketLauncher,rocketlauncher,rocket launcher,launcher,rocket,rocke,rock,roc,rlauncher,launch,rpg
 30
 examine,check[CheckAmount]:An RPG launcher. Nothing will be getting up after this.
@@ -43,6 +55,13 @@ examine,check:A standard issue S.T.A.R.S. combat knife.
 ---
 50
 40
+---
+Taser,taser,tase,Tase,tazer,Tazer,taze,Taze,taz,tazr,tas,tasr
+5
+examine,check:A 50,000 volt taser. Note, this is a melee weapon, not a gun.
+---
+40
+80
 ---
 ===
 Lights:
@@ -86,19 +105,23 @@ use,try,do,swipe,cash[Unlock]:You swipe the blue keycard.
 Athena Statue,Athena,athena,statue,astatue,thestatue,the statue,athena statue,marble,goddess,Pallas,pallas
 500
 examine,check:The statue wobbles when you touch it. With a good push, it might fall over.
-push,pull,try,do,shove,yank,drive,use,kick,punch,smack[Receive(SwordKey),Disappear]:The statue topples over and shatters into a hundred pieces. A hidden key is revealed among the debris. You take the 
+push,pull,try,do,shove,yank,drive,use,kick,punch,smack[Receive(SwordKey),Disappear]:The statue topples over and shatters into a hundred pieces. A hidden key is revealed among the debris.
 ---
 Worker's Journal,Journal,journal,journa,journ,journ,jou,wjournal,workers,workersj,worker,workjourn,workjournal,Book,book
 4
 read,look at,skim,Read,open,Open[Spawn(Zombie)]:May 11th, 1998. I was awoken early this morning by a coworker. Apparently, there was some sort of accident in the lab in the basement. My superiors assured us that everything was under control. -  May 16th, 1998. A dreadful fever has affected many of the other workers, and I feel that I have finally caught it, myself. I've worked for the Umbrella Corps. for almost three years, but I fear something very wrong is happening. Apparently, someone tried to escape the facility and was shot instantly. I hope I survive this so I can see my family again. - May 19th, 1998. Fever gone but itchy. Hungry and eat doggy food. Itchy itchy Scott came. Ugly face so killed him. Tasty. - You shut the book, and suddenly, a zombie bursts out of the closet behind you! 
 ---
-HandgunAmmo,handgunammo,pistolammo,hammo,pammo,ammo,rounds,bullets,bullet,9mm
+HandgunAmmo,handgunammo,pistolammo,hammo,pammo,ammo,bullets,bullet,9mm
 1
 examine,check:9mm rounds to be used with a handgun.
 ---
 ShotgunShells,shells,shell,ShotgunAmmo,shotgunammo,sammo,shottyammo,shotgunrounds,shotammo,shotshells,shots
 2
 examine,check:Shells to be used with a standard shotgun.
+---
+MagnumRounds,mrounds,mbullets,mammo,magammo,magrounds,Rounds,rounds,44ammo,magnumrounds
+2
+examine,check:Rounds to be used with a 44 Magnum.
 ---
 Rocket,rocket,rockets,Rockets
 5
@@ -291,7 +314,7 @@ and utensils. A gorgeous chandelier hangs above beside a second floor walkway.
 ---
 Dim Corridor
 Occupants: Zombie
-Contents: HandgunAmmo
+Contents: HandgunAmmo#15
 You have barely any wiggle room in this thin, dark hallway. The carpet is 
 heavily stained with fresh blood. In the corner, the body of one of your
 comrades lies still. His throat seems to have been eaten out.
@@ -330,7 +353,7 @@ Most of the bottles have fallen over or been shattered. An empty bookshelf
 stands against the teal-colored wall.
 ---
 West Staircase
-Contents: Green Herb
+Contents: Green Herb,HandgunAmmo#15
 There is a large, empty bird cage here. The floor is cluttered with black
 feathers too big to belong to any normal bird. A crow can be heard cawing
 somewhere. A staircase leads to the second floor.
@@ -349,7 +372,7 @@ swimmingly in the slight breeze seeping in.
 ---
 Kitchen
 Occupants: Zombie,Zombie
-Contents: HandgunAmmo,Old Key
+Contents: HandgunAmmo#15,Old Key
 The floor and walls down here are filthy. Unwashed pots, pans and plates are 
 scattered over the countertops. A slab of unidentified meat lies on a granite table
 being gnawed away at by flies.
@@ -403,7 +426,7 @@ This area is lit only by thin rays of moonlight reaching through the trees.
 You step in a puddle of something, and decide not to think of what it might be.
 ---
 Storage Closet
-Contents: HandgunAmmo,Flashlight
+Contents: HandgunAmmo#6,Flashlight
 A small closet with cleaning supplies, lit by an oil lamp.
 It's somewhat cozy in here, despite being cramped.
 ---
@@ -461,7 +484,7 @@ is standing beside the pool clutching a wound in his abdomen. Some blood
 has dripped into the water.
 ---
 Lounge
-Contents: Green Herb
+Contents: Green Herb,HandgunAmmo#15
 A roaring fireplace fills the room with warmth and orange light. A leather chair
 is positioned facing the flames. A portrait of a family hangs on the wall.
 ---
@@ -533,9 +556,9 @@ West Balcony
 ---
 West Balcony
 w
-West Hall
+2F West Hall
 ---
-West Hall
+2F West Hall
 s
 West Balcony
 ---
