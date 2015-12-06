@@ -32,7 +32,7 @@ class Spawner{
 		try
 		{
 			//Select Random Room from Dungeon
-			Random selector = new Random();
+			Random selector = GameState.instance().getRandom();
 			int yesSpawn=selector.nextInt(100);
 			if(yesSpawn<25)
 			{

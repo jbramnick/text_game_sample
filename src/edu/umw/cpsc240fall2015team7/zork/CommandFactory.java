@@ -117,6 +117,7 @@ class CommandFactory{
 			return look;
 		}
 		else{
+			System.out.println(commandString);
 			throw new IllegalArgumentException("Illegal input");
 		} 
 	}

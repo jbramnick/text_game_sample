@@ -1,0 +1,95 @@
+take all
+e
+take key
+w
+s
+e
+take all
+w
+take torch
+s
+hit bot
+s
+hit brawler
+hit bot
+use medkit
+hit brawler
+use medkit
+hit brawler
+hit bot
+hit bot
+hit bot
+hit bot
+hit bot
+hit bot
+hit bot
+s
+take all
+hit brawler
+hit brawler
+use key
+n
+talk to dan
+yes
+hit bot
+s
+s
+take all
+hit brawler
+hit brawler
+use medkit
+hit brawler
+hit bot
+n
+n
+s
+s
+hit bot
+d
+n
+hit bot
+take all
+hit brawler
+hit brawler
+hit brawler
+hit bot
+n
+light torch
+hit brawler
+hit brawler
+hit brawler
+n
+n
+hit brawler
+hit brawler
+hit brawler
+hit brawler
+hit brawler
+n
+take key
+hit brawler
+s
+s
+s
+s
+s
+hit bot
+hit bot
+use medkit
+use key
+e
+shoot heavy with plasma
+w
+use medkit
+shoot heavy with plasma
+hit heavy
+w
+reload plasma
+e
+shoot heavy
+shoot heavy with shotgun
+w
+reload plasma
+e
+shoot heavy
+diffuse bomb

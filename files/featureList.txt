@@ -32,15 +32,18 @@ n
 take key
 s
 use key
+-----------------------------------------------------------
+
+Battery powered items (5xp) - Light item are a different kind of item that runs on batteries. Batteries will run out after 20 turns of being activated.
 
 -----------------------------------------------------------
-Light(15xp) - Rooms can be dark at hydration or become dark due to a 
-changeLightEvent. While you are in a room that is dark you cannot do 
-anything other than exit or use a Light item. Any enemies in the Room will 
-be able to attack you.
+Light(10xp) - Rooms can be dark at hydration or become dark due to a 
+changeLightEvent. While you are in a room that is dark you cannot see anything.
+Any enemies in the Room will be able to attack you.
 
 To test Light, take the torch in the StartRoom, go north once, 
 and type "use torch". 
+
 
 take torch
 n
@@ -60,13 +63,11 @@ Passage of time affects the Player's hunger and activities of Npc's (described b
 
 
 -----------------------------------------------------------
-Npc's (30xp) - Np's exist in the dungeon and can be declared in the .zork file.
+Npc's (20xp) - Npc's exist in the dungeon and can be declared in the .zork file.
 They have their own health, power, and may be talked to for various effects.
-Npc's may or may not be aggresive toward the Player, and be able to move on
+Npc's may or may not be aggressive toward the Player. They are able to move on
 their own through the dungeon, designated in the .zork. In supplemental.zork,
 Zombies are the only Npc's which are able to move.
-As well, the first type of Npc listed in the .zork will have a chance to be spawned 
-in a random room when a PassTimeEvent occurs.
 
 To see an Npc open a locked door, from the StartRoom, first take the torch,
 then go north once, take the key, go south once, and type 'use key' to unlock 
@@ -81,12 +82,19 @@ Another trade opportunity is, after speaking to Socrates, go up from StairwayToH
 He will then give you a Lightsaber.
 
 -----------------------------------------------------------
-Player Advancement (10xp) - The player will have a defence level and an attack level. The attack level control how accurate you are. 
-When you attack in anyway the combat engine will decide if you hit or not. You will be more likely to hit as your attack level goes up. 
+Randomly Spawned Npcs (10xp) - the first type of Npc listed in the .zork will have a chance to be spawned 
+in a random room when a PassTimeEvent occurs. This gives the player a never ending supply of enemies to fight.
+
+As you move through the dungeon you will run into ever increasing numbers of the spawned npcs. In supplemental.zork these will be zombies.
+
+-----------------------------------------------------------
+
+Player Advancement (10xp) - The player will have a defence level and an attack level. The attack level controls how accurate you are. 
+When you attack the combat engine will decide if you hit or not. You will be more likely to hit as your attack level goes up. 
 The defence level will increase as you take damage. The more damage you take the higher your level will be. A higher defence level will lower 
 the amount damage you  will take from a hit. Advancement is on an xp system. As you cause damage to npcs the damage will be added to the attack xp.
-As the player takes damage the defence xp goes up. The reasoning for this is as you successfuly kill things it gets easier and as you get hurt you
-are more motivated to dodge.
+As the player takes damage the defence xp goes up. The reasoning for this is as you successfully kill things it gets easier and as you get hurt you
+are more motivated to dodge. This allowed the player to cope with the ever increasing number of enemies.
 
 talk to bob
 yes
@@ -104,6 +112,3 @@ simply type "help" at any time
 
 help
 -----------------------------------------------------------
-
-
-

@@ -32,6 +32,10 @@ class MovementCommand extends Command{
 		catch(Exit.NoExitException e){
 			return "You can not go that way.\n";
 		}
+		catch(java.lang.IllegalArgumentException e){
+			e.printStackTrace();
+			return"";
+		}
 	}
 
 }

@@ -177,7 +177,7 @@ class Npc{
 	}
 	public void move()
 	{
-		Random x=new Random();
+		Random x=GameState.instance().getRandom();
 		boolean yesMove=x.nextInt(100)<50;
 		if(!(Player.instance().getCurrentRoom().getTitle().equals(this.currentRoom.getTitle()))&&(yesMove)&&(canMove))
 		{
@@ -192,11 +192,14 @@ class Npc{
 				}
 
 			}
-			Random r=new Random();
-			Exit exit=openExits.get(r.nextInt(openExits.size()));
-			this.currentRoom.removeNpc(this);
-			this.currentRoom=exit.getDest();
-			exit.getDest().addNpc(this);
+			Random r=GameState.instance().getRandom();
+			if(openExits.size() != 0){
+
+				Exit exit=openExits.get(r.nextInt(openExits.size()));
+				this.currentRoom.removeNpc(this);
+				this.currentRoom=exit.getDest();
+				exit.getDest().addNpc(this);
+			}
 		}
 	}
 	/**
