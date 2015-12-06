@@ -4,7 +4,7 @@ Zork v1.0
 Guns:
 Beretta,M9,m9,Beretta,beretta,gun,handgun,pistol,sidearm
 10
-reload[Reload]:You swap clips in your handgun.
+reload,r,Reload,R,refill,replenish,re,rel,relo,reloa[Reload]:You swap clips in your handgun.
 examine,check[CheckAmount]:A standard issue M9 Beretta pistol.
 ---
 100
@@ -13,9 +13,9 @@ examine,check[CheckAmount]:A standard issue M9 Beretta pistol.
 15
 HandgunAmmo
 ---
-Shotgun
+Shotgun,Winchester,Model12,shotgun,Boomstick,boomstick,shotty,shotg,shotgu,sgun,shgun,shogun,Winchester Model 12,M12,m12,winchester
 20
-reload,r,Reload,R,refil,replenish,re,rel,relo,reloa[Reload]:You cock the shotgun to load fresh shells.
+reload,r,Reload,R,refill,replenish,re,rel,relo,reloa[Reload]:You cock the shotgun to load fresh shells.
 examine,check[CheckAmount]:A Winchester Model 12 shotgun.
 ---
 75
@@ -23,6 +23,18 @@ examine,check[CheckAmount]:A Winchester Model 12 shotgun.
 ---
 6
 ShotgunShells
+---
+Rocket Launcher,RocketLauncher,rocketlauncher,rocket launcher,launcher,rocket,rocke,rock,roc,rlauncher,launch,rpg
+30
+examine,check[CheckAmount]:An RPG launcher. Nothing will be getting up after this.
+reload,r,Reload,R,refill,replenish,load[Reload]:You prepare another rocket.
+---
+1
+3000
+---
+1
+Rocket
+---
 ===
 Melee:
 Combat Knife,CombatKnife,combat knife,knife,kn,knif,combatknife,cknife
@@ -57,7 +69,7 @@ First Aid Spray,first aid spray,firstaidspray,firstaid,first,spray,aid,health
 examine,check:An industrial strength clinical spray. Imagine Neosporin x100.
 use,try,spray,eat,squeeze[Heal,Disappear]:You spray your wounds and it stings awfully, but you start to feel better.
 ---
-Sword Key,sword key,swordkey,skey,sword,swordk,swor,swo
+SwordKey,sword key,swordkey,skey,sword,swordk,swor,swo
 2
 use,try,do,stick,turn,twist[Unlock]:You try to use the Sword Key.
 examime,check:A bronze key with a sword emblem carved in it.
@@ -65,7 +77,7 @@ examime,check:A bronze key with a sword emblem carved in it.
 Old Key,oldkey,old key,OldKey,old,okey,oldk,olk,oldke, old k,old ke,small key,smallkey,smalk,Small Key,SmallKey
 2
 use,try,do,stick,turn,twist[Unlock]:You try to use the Old Key.
---- 
+---
 Card Key,card key,cardkey,card,ckey,CardKey,keycard,key card,Keycard,Cardkey,kcard
 1
 examine,check:A blue keycard with the Umbrella Corps. logo on it.
@@ -74,11 +86,11 @@ use,try,do,swipe,cash[Unlock]:You swipe the blue keycard.
 Athena Statue,Athena,athena,statue,astatue,thestatue,the statue,athena statue,marble,goddess,Pallas,pallas
 500
 examine,check:The statue wobbles when you touch it. With a good push, it might fall over.
-push,pull,try,do,shove,yank,drive,use,kick,punch,smack[Drop(Sword Key),Disappear]:The statue topples over and shatters into a hundred pieces. A hidden key is revealed among the debris.
+push,pull,try,do,shove,yank,drive,use,kick,punch,smack[Receive(SwordKey),Disappear]:The statue topples over and shatters into a hundred pieces. A hidden key is revealed among the debris. You take the 
 ---
 Worker's Journal,Journal,journal,journa,journ,journ,jou,wjournal,workers,workersj,worker,workjourn,workjournal,Book,book
 4
-read,look at,skim,Read,open,Open[Spawn(Zombie),Drop(ShotgunShells#6)]:May 11th, 1998. I was awoken early this morning by a coworker. Apparently, there was some sort of accident in the lab in the basement. My superiors assured us that everything was under control. -  May 16th, 1998. A dreadful fever has affected many of the other workers, and I feel that I have finally caught it, myself. I've worked for the Umbrella Corps. for almost three years, but I fear something very wrong is happening. Apparently, someone tried to escape the facility and was shot instantly. I hope I survive this so I can see my family again. - May 19th, 1998. Fever gone but itchy. Hungry and eat doggy food. Itchy itchy Scott came. Ugly face so killed him. Tasty. - You shut the book, and suddenly, a zombie bursts out of the closet behind you! 
+read,look at,skim,Read,open,Open[Spawn(Zombie)]:May 11th, 1998. I was awoken early this morning by a coworker. Apparently, there was some sort of accident in the lab in the basement. My superiors assured us that everything was under control. -  May 16th, 1998. A dreadful fever has affected many of the other workers, and I feel that I have finally caught it, myself. I've worked for the Umbrella Corps. for almost three years, but I fear something very wrong is happening. Apparently, someone tried to escape the facility and was shot instantly. I hope I survive this so I can see my family again. - May 19th, 1998. Fever gone but itchy. Hungry and eat doggy food. Itchy itchy Scott came. Ugly face so killed him. Tasty. - You shut the book, and suddenly, a zombie bursts out of the closet behind you! 
 ---
 HandgunAmmo,handgunammo,pistolammo,hammo,pammo,ammo,rounds,bullets,bullet,9mm
 1
@@ -87,6 +99,27 @@ examine,check:9mm rounds to be used with a handgun.
 ShotgunShells,shells,shell,ShotgunAmmo,shotgunammo,sammo,shottyammo,shotgunrounds,shotammo,shotshells,shots
 2
 examine,check:Shells to be used with a standard shotgun.
+---
+Rocket,rocket,rockets,Rockets
+5
+examine,check:A rocket-propelled grenade to be used with a Rocket Launcher.
+---
+Signal Flare,signal flare,flare,signal,sflare,signa,sign,sig,flar
+20
+use,do,try,shoot,launch,set,set off,press[Spawn(Tyrant)]:The helicopter saw your flare and is heading your way. But look out! The Tyrant just burst out onto the roof. Apparently, it takes more than bullets to kill this monster.
+examine,check:A mortar which will fire a bright, red flare into the sky.
+---
+T-Virus Sample,T-Virus,t virus,T Virus,tvirus,sample,Sample,t virus sample,virus sample,T-VirusSample,tvirussample,tvs,virus,Virus,capsule,Capsule,tviruscapsule,t virus capsule,tv,tvir,tviru,tvi
+10
+break,throw,toss,squeeze,shatter,split[Score(2000),Disappear]:The glass shatters and the liquid inside spills onto the floor. Good riddance.
+examine,check:A clear liquid fills this capsule with a Biohazard symbol marked on it. So this is what Umbrella Corps. has been developing in the mansion.
+inject,use,try,do,drink,eat,swallow,consume,lick[Die]:You inject the liquid into your arm. Within an hour, you are dead, and your body begins to reanimate.
+---
+Dog Whistle,Whistle,whistle,dog whistle,dogwhistle,dogw,dwhistle,whisle,wisle,witsle,dogwhitsle,dogwisle,dog whitsle,dogwhitsle
+2
+blow,use,do,try,whistle[Spawn(Zombie Dog)]:You can't hear anything, but judging by the sound of rapidly approaching steps, clearly something else did.
+examine,check:A common dog whistle.
+---
 ===
 Npc:
 Zombie,zombie,z,zed,zom,zo,zomb,zomi,zombitch,zombo
@@ -97,6 +130,16 @@ Zombie,zombie,z,zed,zom,zo,zomb,zomi,zombitch,zombo
 true
 true
 A shambling, rotting corpse that seems to be driven solely by its hunger for human flesh.
+~~~
+---
+Zombie Dog,zombie dog,zombiedog,dog,dogs,zdog,zdawg,zomdog,zodog,zombdog,zombidog,Cerberus,cerberus
+75
+10
+50
+75
+true
+false
+A rottweiler infected by the T-Virus.
 ~~~
 ---
 Hunter,hunter,hun,hu,hunte,lizard,liz,liza,lizar
@@ -161,8 +204,7 @@ Hey! Glad you're still alive. We need to finish our investigation
 of this creepy mansion.
 ~~~
 Yes,yes,okay,ok,OK,Okay,sure,cool,yeah,yea,ye,y,swag:Good luck!
-No,no,n,I'm scared,im scared,Im scared,i'm scared:I didn't sign up for this 
-either, but we have a job to do!
+No,no,n,I'm scared,im scared,Im scared,i'm scared:I didn't sign up for this either, but we have a job to do!
 ---
 Barry Burton,Barry,barry,bar,barr,barryburton,burton,Burton,Burt,burt,burto
 300
@@ -190,7 +232,7 @@ Oh it's you! I think this mansion is dangerous. Be careful!
 ~~~
 Hi,hi,hello,Hello,yo,Yo,wassup,how are you,how are you?,whats up,what's up,what's up?,howdy,Howdy:Hi!
 Who are you?,who are you,who are u,who are you,who u,who u?,who r u?:My name is Rebecca Chambers of Team Alpha! Our helicopter was shot down in the forest not far from here. My comrade, Brad Vickers, and I made it to this old mansion, but we were separated. Have you seen him?
-I know,i know,iknow,yes,yeah,yea,ye,Yeah,Yes,I agree,prolly,probably,maybe,Maybe,oh yeah,o yeah,oh yeah?:Do you need any Handgun Ammo?
+I know,thanks,Thanks,thanx,thx,thank you,ty,thank u,,you too,you 2,u 2,u2,u too,ok,okay,kay,k,Okay,alright,aight,i know,iknow,yes,yeah,yea,ye,Yeah,Yes,I agree,prolly,probably,maybe,Maybe,oh yeah,o yeah,oh yeah?:Do you need any Handgun Ammo?
 give,gimme,give me,gimme ammo,giveme ammo,give me ammo,Give me ammo,ammo,Ammo,HandgunAmmo,Handgun Ammo,bullets,please,Please,may i have ammo,may i have handgun ammo[Receive(Handgun Ammo#15)]:Here you go. Good luck!
 Wesker,wesker,wesker?,Wesker?,wesker did it,its wesker,It's Wesker,it's wesker[Score(400),Receive(Tase Gun)]:Wesker's behind this! Chris, we need to get out of here. Take this.
 ---
@@ -210,13 +252,12 @@ Albert Wesker,Wesker,Albert,Al,al,albert,wesker,wesk,wes,weske,abl,albe,alber,aw
 400
 150
 800
-Die: Drop(Card Key)
 false
 false
 Chris. I see you're still alive. I must say, I'm impressed with your performance against all the B.O.W.'s in this mansion. Unfortunately the rest of Teams Alpha and Bravo weren't so lucky. 
 ~~~
 hi,Hi:Get back to work.
-traitor,you betrayed us,liar,you traitor,u traitor,fuck u[Spawn(Tyrant)]:Yes, it's true. I've been working with Umbrella Corp. for years, and I lured Alpha and Bravo Teams here. This whole operation was an experiment of our test subjects' combat abilities versus trained soldiers. But I'm afraid you've been alive too long. 
+traitor,you betrayed us,liar,you traitor,u traitor,fuck u[Disappear,Spawn(Tyrant)]:Yes, it's true. I've been working with Umbrella Corp. for years, and I lured Alpha and Bravo Teams here. This whole operation was an experiment of our test subjects' combat abilities versus trained soldiers. But I'm afraid you've been alive too long. - Wesker points his gun at you, then suddenly, the Tyrant inside of the capsule next to him bursts out and slashes him, killing him instantly. The monster then turns its head toward you...
 ---
 ===
 Rooms:
@@ -236,7 +277,7 @@ The antique building looms over you forebodingly. It's two stories high with bal
 ---
 Main Hall
 Occupants: Jill Valentine
-Contents: M9 Beretta
+Contents: Beretta
 You are in a large, exquisite, candlelit hall with marble-tiled floor, richly
 decorated walls. There are doors to your right and left and a grand staircase 
 in front of you, behind which is a gate blocking steps leading down into 
@@ -318,8 +359,292 @@ Contents: First Aid Spray,Worker's Journal
 This looks to have been someone's room. A queen sized bed is flanked by small
 tables opposite a dusty mirror.
 ---
+Laboratory
+Occupants: Albert Wesker
+Contents: T-Virus Sample,First Aid Spray
+A high-tech lab. Your eyes are immediately drawn to a human-sized capsule containing
+a yellowish liquid and a stranger, blue-skinned man. He has no clothes, claws on 
+his hands, and stands over seven feet tall with a hulking, muscular build.
+---
+Roof
+Contents: Rocket Launcher,Rocket#10,Signal Flare
+A cool breeze kisses your neck as your breathe in fresh air at last. 
+The morning sun can be seen peeking over the horizon. You can see a helicopter
+out in the distance. You need to get the pilot's attention! If only there
+were a conveniently placed item here that might help...
+---
+L-Hall
+Occupants: Zombie Dog,Zombie Dog
+Contents: First Aid Spray
+A long, L-shaped hallway with white walls lined with cabinets full of fine plates
+and other expensive trinkets. 
+---
+East Hall
+Occupants: Hunter
+The windows in here have been shattered and glass covers the hardwood floor.
+The soft wind whistling in from outside is refreshing.
+---
+Torture Chamber
+Occupants: Crimson Head
+Contents: ShotgunShells#6
+As you reach the bottom of the long stairway, your nose is assaulted by the most
+putrid odour you have ever encountered. The walls are lined by several incinerators
+and a coffin lies in the center of the insidious room. Its lid opens and you gasp 
+at the monstrocity that rises from inside.
+---
+East Stairs
+Occupants: Hunter
+Contents: Green Herb#2
+Creaky wooden steps lead up to the second floor.
+The wall paper is torn off in many places by sharp claws.
+---
+2F NE Hall
+This area is lit only by thin rays of moonlight reaching through the trees.
+You step in a puddle of something, and decide not to think of what it might be.
+---
+Storage Closet
+Contents: HandgunAmmo,Flashlight
+A small closet with cleaning supplies, lit by an oil lamp.
+It's somewhat cozy in here, despite being cramped.
+---
+Sitting Room
+Contents: Shotgun,First Aid Spray
+Soft couches and chairs sit in a circle around a coffee table next to an
+unlit fireplace. The carpet in here has an exotic purple design.
+---
+2F West Hall
+Most of the portraits that once hung on the walls have fallen and smashed.
+An expensive carpet is blackened from partial burning.
+---
+Dining Room Balcony
+Occupants: Zombie
+A walkway around the Dining Room. You can see the long table below you over
+the bannister. You are at eye level with the fancy chandelier.
+---
+West Balcony
+Contents: Dog Whistle,Green Herb
+You can see out into the forest from here, but the view is not very good.
+However, disturbing, inhuman groans and shrieks can be heard.
+---
+Library
+Occupants: Giant Snake
+Contents: ShotgunShells#6
+An expansive library containing books of all sorts, ranging from politics and
+philosophy to scientific journals to epic fantasy novels.
+There is a hole in the wall 2 meters in diameter.
+---
+2F East Hall
+Occupants: Crimson Head
+Contents: Green Herb
+One of the lightbulbs has been splattered with blood, casting a cinematic
+red glow over the dismal space. A trail of blood leads to the south.
+---
+Attic
+Light: false
+Occcupants: Giant Snake
+Contents: ShotgunShells#6
+Dust covers everything here. There are a couple barrels and an old bookshelf
+in one of the corners. You notice a 2 meter diameter hole in the floor.
+---
+East Balcony
+Occupants: Crimson Head
+Contents: Green Herb,ShotgunShells#6
+The balcony curves around the side of the mansion, giving you a good look of the
+surrounding area. It's a full moon out. Plants of various species litter
+tables that were set up for research purposes, judging by the odd scientific
+equipment spread around. There is a ladder down to a small swimming pool.
+---
+Pool
+Occupants: Brad Vickers
+The water is murky and tough to see through. One of your comrades, Brad Vickers,
+is standing beside the pool clutching a wound in his abdomen. Some blood
+has dripped into the water.
+---
+Lounge
+Contents: Green Herb
+A roaring fireplace fills the room with warmth and orange light. A leather chair
+is positioned facing the flames. A portrait of a family hangs on the wall.
+---
 ===
 Exits:
+Lounge
+w
+2F NE Hall
+---
+2F NE Hall
+e
+Lounge
+---
+Pool
+u
+East Balcony
+---
+East Balcony
+d
+Pool
+---
+East Balcony
+n
+2F East Hall
+---
+2F East Hall
+s
+East Balcony
+---
+Attic
+d
+2F East Hall
+---
+2F East Hall
+u
+Attic
+---
+2F East Hall
+w
+2F Main Hall
+---
+2F Main Hall
+e
+2F East Hall
+---
+2F East Hall
+n
+2F NE Hall
+---
+2F NE Hall
+s
+2F East Hall
+---
+Spear Hall
+e
+Library
+---
+Library
+w
+Spear Hall
+---
+West Balcony
+n
+Dining Room Balcony
+---
+Dining Room Balcony
+s
+West Balcony
+---
+West Balcony
+w
+West Hall
+---
+West Hall
+s
+West Balcony
+---
+Dining Room Balcony
+e
+2F Main Hall
+---
+2F Main Hall
+w
+Dining Room Balcony
+---
+Dining Room Balcony
+n
+Spear Hall
+---
+Spear Hall
+s
+Dining Room Balcony
+---
+Dining Room Balcony
+w
+2F West Hall
+---
+2F West Hall
+e
+Dining Room Balcony
+---
+2F West Hall
+n
+Spear Hall
+---
+Spear Hall
+w
+2F West Hall
+---
+West Hall
+u
+2F West Hall
+---
+2F West Hall
+d
+West Hall
+---
+East Hall
+e
+Sitting Room
+---
+Sitting Room
+w
+East Hall
+---
+East Stairs
+e
+Storage Closet
+---
+Storage Closet
+w
+East Stairs
+---
+2F NE Hall
+d
+East Stairs
+---
+East Stairs
+u
+2F NE Hall
+---
+East Hall
+n
+East Stairs
+---
+East Stairs
+s
+East Hall
+---
+East Hall
+w
+Garden
+---
+Garden
+e
+East Hall
+---
+Garden
+d
+Torture Chamber
+true
+---
+Torture Chamber
+u
+Garden
+---
+L-Hall
+n
+East Hall
+---
+East Hall
+s
+L-Hall
+---
+Gallery
+e
+L-Hall
+true
+---
+L-Hall
+w
+Gallery
+---
 Opening Scene
 n
 Forest Path
@@ -367,7 +692,7 @@ Main Hall
 Main Hall
 d
 Basement
-false
+true
 ---
 Basement
 u
@@ -395,7 +720,7 @@ Piano Room
 ---
 Piano Room
 w
-Dining Room
+Dim Corridor
 ---
 Dim Corridor
 w
@@ -428,5 +753,29 @@ Kitchen
 Kitchen
 u
 Dim Corridor
+---
+West Hall
+w
+Bedroom
+---
+Bedroom
+e
+West Hall
+---
+Laboratory
+w
+Basement
+---
+Basement
+e
+Laboratory
+---
+Laboratory
+u
+Roof
+---
+Roof
+d
+Laboratory
 ---
 ===
