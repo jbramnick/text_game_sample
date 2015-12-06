@@ -31,10 +31,21 @@ point,aim[Score(500)]:Go ahead, punk, make my day.
 reload,r,Reload,R,refill,replenish[Reload]: You flick open the cylinder to load fresh rounds.
 ---
 8
-250
+300
 ---
 6
 MagnumRounds
+---
+Assault Shotgun,ashotgun,assault,ass,assaul,asalt,assal,asshotgun,asshot,ashot,ashotty,AA12,aa12,aa 12,AA 12,aa-12,AA-12
+30
+reload,Reload,r,R,refill,load,replenish,remrel,relo,reloa,relod[Reload]:You swap clips in the Assault Shotgun,
+examine,check[CheckAmount]:An AA-12 automatic shotgun.
+---
+200
+250
+---
+12
+ShotgunShells
 ---
 Rocket Launcher,RocketLauncher,rocketlauncher,rocket launcher,launcher,rocket,rocke,rock,roc,rlauncher,launch,rpg
 30
@@ -61,11 +72,11 @@ Taser,taser,tase,Tase,tazer,Tazer,taze,Taze,taz,tazr,tas,tasr
 examine,check:A 50,000 volt taser. Note, this is a melee weapon, not a gun.
 ---
 40
-80
+100
 ---
 ===
 Lights:
-Flashlight,light,flash,fl,ligh,lig,fla
+Flashlight,flashlight,flash light,lite,flight,flashlite,fleshlight,light,flash,fl,ligh,lig,fla
 4
 examine,check[CheckAmount]:A common flashlight with limited batteries.
 use,try,turnon,light,turnoff,click[SwitchLightItem]:You used the Flashlight.
@@ -107,9 +118,20 @@ Athena Statue,Athena,athena,statue,astatue,thestatue,the statue,athena statue,ma
 examine,check:The statue wobbles when you touch it. With a good push, it might fall over.
 push,pull,try,do,shove,yank,drive,use,kick,punch,smack[Receive(SwordKey),Disappear]:The statue topples over and shatters into a hundred pieces. A hidden key is revealed among the debris.
 ---
+Emerald Arrowhead,Emerald,Arrowhead,arrow,ahead,arrhead,emerald,arrowhead,emhead,ehead,emerald arrowhead,emeraldarrowhead,green arrowhead,gemstone,gem,stone,emereld,emarald
+5
+use,try,do,place,put,stick[Unlock]:You place the gemstone in a slot and reveal a passageway.
+examine,check:A fine cut emerald in the shape of an arrowhead. The garden has a statue that this might fit nicely with.
+---
 Worker's Journal,Journal,journal,journa,journ,journ,jou,wjournal,workers,workersj,worker,workjourn,workjournal,Book,book
 4
+burn,light,destroy,incinerate[Disappear]:You light the journal aflame and watch it burn. No one will know this poor worker's story.
 read,look at,skim,Read,open,Open[Spawn(Zombie)]:May 11th, 1998. I was awoken early this morning by a coworker. Apparently, there was some sort of accident in the lab in the basement. My superiors assured us that everything was under control. -  May 16th, 1998. A dreadful fever has affected many of the other workers, and I feel that I have finally caught it, myself. I've worked for the Umbrella Corps. for almost three years, but I fear something very wrong is happening. Apparently, someone tried to escape the facility and was shot instantly. I hope I survive this so I can see my family again. - May 19th, 1998. Fever gone but itchy. Hungry and eat doggy food. Itchy itchy Scott came. Ugly face so killed him. Tasty. - You shut the book, and suddenly, a zombie bursts out of the closet behind you! 
+---
+Piano,piano,pian,Pian,instrument,song,Song,a song,a Song,music,some music
+500
+play,use,do,try[Score(500),Receive(Old Key),Disappear]:You play a melody you know by heart, and suddenly, the bookshelf moves to reveal a small space containing a key!
+examine,check:An old-fashioned grand piano which reminds you of your old music classes. It is in working condition.
 ---
 HandgunAmmo,handgunammo,pistolammo,hammo,pammo,ammo,bullets,bullet,9mm
 1
@@ -143,9 +165,22 @@ Dog Whistle,Whistle,whistle,dog whistle,dogwhistle,dogw,dwhistle,whisle,wisle,wi
 blow,use,do,try,whistle[Spawn(Zombie Dog)]:You can't hear anything, but judging by the sound of rapidly approaching steps, clearly something else did.
 examine,check:A common dog whistle.
 ---
+Sandwich,sandwich,sand,wich,burger,food,sammich,san,sandw,sandwi,sandwic
+5
+eat,use,swallow,bite,chew,consume,do[Eat(100),Disappear]:The sandwich is delicious and your belly is full.
+---
+Letter to Wesker,letter,Letter,lett,to wesker,letter to wesker,lettertowesker,letter to wes,let to wes,lettowes,note,Note,Paper,papermdocuments,Document,letter to wesk
+1
+read,examine,check,use,do,look at,try,open,skim[Score(200)]:Dear Albert Wesker, everything is in place for the operation to begin. I have released the T-Virus and our experiments upon all the researchers in my mansion. Bring the members of RCPD's elite S.T.A.R.S. team and we will commence testing of the Bio-Organic Weapons (B.O.W.'s) against trained soldiers. You will be rewarded greatly for your help in this matter. -From Spencer
+burn,light,destroy,kill,flame,incinerate,delete[Disappear]:Better destroy the evidence.
+---
+Radio,radio,radi,rad,Radi,Rad,phone,Phone,communications device
+4
+use,try,call,click,do,press,talk,radio,phone[Win]:You confirm yours and your comrades' survival and give a brief explanation of the events that transpired through the night. 
+---
 ===
 Npc:
-Zombie,zombie,z,zed,zom,zo,zomb,zomi,zombitch,zombo
+Zombie,zombie,z,zed,zom,zo,zomb,zomi,zombitch,zombo,undead
 100
 15
 4
@@ -155,7 +190,7 @@ true
 A shambling, rotting corpse that seems to be driven solely by its hunger for human flesh.
 ~~~
 ---
-Zombie Dog,zombie dog,zombiedog,dog,dogs,zdog,zdawg,zomdog,zodog,zombdog,zombidog,Cerberus,cerberus
+Zombie Dog,zombie dog,zombiedog,dog,dogs,zdog,zdawg,puppy,pup,zomdog,zodog,zombdog,zombidog,Cerberus,cerberus
 75
 10
 50
@@ -165,7 +200,7 @@ false
 A rottweiler infected by the T-Virus.
 ~~~
 ---
-Hunter,hunter,hun,hu,hunte,lizard,liz,liza,lizar
+Hunter,hunter,hun,hu,hunte,lizard,liz,liza,lizar,hunt
 300
 100
 50
@@ -186,7 +221,7 @@ A mutated zombie with reddened skin and elongated, sharp nails and teeth.
 ~~~
 ---
 Giant Snake,Yawn,snake,giantsnake,giant snake,gsnake,gs,snak,yawn
-1000
+700
 100
 3
 1000
@@ -196,21 +231,23 @@ An enormous, 30 foot long viper which razor-sharp fangs and a gaping, hungry mou
 ~~~
 ---
 Neptune,neptune,shark,Shark,Great White Shark,great white shark,greatwhiteshark,greatwhite,great white,great shark,white shark,sherk,shar,sha,nep,nept,neptun,neptu,tuna
+1200
+150
+100
+2000
+Die: Receive(Card Key)
+true
+false
+A mutated Great White Shark. It's significantly stronger and more aggressive
+than any average Great White. It looks like a keycard is stuck between its teeth.
+~~~
+---
+Tyrant,tyrant,tyra,tryan,ty,tyr,tyrent,bluedude
 2000
 200
 100
 2000
-true
-false
-A mutated Great White Shark. It's significantly stronger and more aggressive
-than any average Great White.
-~~~
----
-Tyrant,tyrant,tyra,tryan,ty,tyr,tyrent,bluedude
-3000
-300
-100
-2000
+Die: Unlock
 true
 false
 A muscluar, blue-skinned humanoid.
@@ -228,6 +265,13 @@ of this creepy mansion.
 ~~~
 Yes,yes,okay,ok,OK,Okay,sure,cool,yeah,yea,ye,y,swag:Good luck!
 No,no,n,I'm scared,im scared,Im scared,i'm scared:I didn't sign up for this either, but we have a job to do!
+Bye,bye,bye!,Bye!,goodbye,good bye,Goodbye,fairwell,fair well,good luck:Bye!
+Wesker,wesker,its wesker,it's wesker,It's wesker,it's wesker,Albert,albert wesker,Albert Wesker,albertwesker[Score(400),Receive(Assault Shotgun),Disappear]:I knew it! Wesker has been fooling us this whole time! I found an emergency elevator to the roof in the laboratory under the mansion. You'll need this!
+Gimme,gimme,give me,Give,give,gun,give gun,gimme gun,give me gun,gimme gun please,plz,pls,please[Receive(Assault Shotgun),Disappear]:Sure. It's not like I need it or anything.
+hi,Hi,hello,Hello,yo,wassup,Yo,Wassup,whats up,what's up:Hello. Tell me if you discover something important.
+Umbrella,umbrella,Umbrella Corps.,umbrella corps:The pharmaceutical company? I wonder if one of our squadmates is secretly working for Umbrella.
+Who?,who,spy,Spy:A spy among us? If you figure it out, call them a traitor.
+traitor,it was you,you did it,Traitor,you betrayed us,you liar,liar:I'm not the traitor!
 ---
 Barry Burton,Barry,barry,bar,barr,barryburton,burton,Burton,Burt,burt,burto
 300
@@ -239,9 +283,11 @@ false
 true
 Chris! Good to see you. 
 ~~~
+traitor,Traitor,you liar,liar,you betrayed us:I'm not the traitor!
+Wesker,wesker,it was wesker,wesker did it,wesker betrayed us,wesker's working for umbrella[Score(400),Receive(44 Magnum),Disappear]:Albert?? I can't believe he betrayed us! Here, take my gun. I saw Wesker in the laboratory.
 thanks,Thanks,youtoo,you too,you2,u2,u too,:Stay strong, soldier!
 hi,Hi,hello,Hello,yo,Yo,Dude,dude,bro,Bro,Yes,yes,yea,ye,yeah,y:Have you seen Jill?
-give,Give,trade,Trade,give me gun,gimme gun,give me 44 magnum,gimme 44 magnum,i want your gun[Receive(44 Magnum),Disappear]:Sure thing. Anything to help.
+give,Give,trade,help,Help,give,gimme,Give,Gimme,give me,Give me,help me,please,pls,plz,Trade,give me gun,gimme gun,give me 44 magnum,gimme 44 magnum,i want your gun[Receive(44 Magnum),Disappear]:Sure thing. Anything to help.
 screw you,Screw you,screw you barry,screw u,screw you burton,screw you burt,screw u burt,screw u barry,screw u bar[Wound(30)]:Screw you buddy!
 ---
 Rebecca Chambers,Rebecca,RebeccaChambers,rebecca,rebeccachambers,rebecca chambers,becca,rebecc,rebec,rebe,reb,chambers,Chambers
@@ -256,8 +302,8 @@ Oh it's you! I think this mansion is dangerous. Be careful!
 Hi,hi,hello,Hello,yo,Yo,wassup,how are you,how are you?,whats up,what's up,what's up?,howdy,Howdy:Hi!
 Who are you?,who are you,who are u,who are you,who u,who u?,who r u?:My name is Rebecca Chambers of Team Alpha! Our helicopter was shot down in the forest not far from here. My comrade, Brad Vickers, and I made it to this old mansion, but we were separated. Have you seen him?
 I know,thanks,Thanks,thanx,thx,thank you,ty,thank u,,you too,you 2,u 2,u2,u too,ok,okay,kay,k,Okay,alright,aight,i know,iknow,yes,yeah,yea,ye,Yeah,Yes,I agree,prolly,probably,maybe,Maybe,oh yeah,o yeah,oh yeah?:Do you need any Handgun Ammo?
-give,gimme,give me,gimme ammo,giveme ammo,give me ammo,Give me ammo,ammo,Ammo,HandgunAmmo,Handgun Ammo,bullets,please,Please,may i have ammo,may i have handgun ammo[Receive(Handgun Ammo#15)]:Here you go. Good luck!
-Wesker,wesker,wesker?,Wesker?,wesker did it,its wesker,It's Wesker,it's wesker[Score(400),Receive(Tase Gun)]:Wesker's behind this! Chris, we need to get out of here. Take this.
+give,gimme,give me,gimme ammo,giveme ammo,give me ammo,help,Help,help me,Help me,pls,plz,Give me ammo,ammo,Ammo,HandgunAmmo,Handgun Ammo,bullets,please,Please,may i have ammo,may i have handgun ammo[Receive(Handgun Ammo),Receive(HandgunAmmo),Receive(Handgun Ammo),Receive(HandgunAmmo),Receive(Handgun Ammo),Receive(HandgunAmmo),Receive(Handgun Ammo),Receive(HandgunAmmo),Receive(Handgun Ammo),Receive(HandgunAmmo),Receive(Handgun Ammo),Receive(HandgunAmmo),Receive(Handgun Ammo),Receive(HandgunAmmo),Receive(Handgun Ammo),Receive(HandgunAmmo),Receive(Handgun Ammo)]:Here you go. Good luck!
+Wesker,wesker,wesker?,Wesker?,wesker did it,its wesker,It's Wesker,it's wesker[Score(400),Receive(Taser),Disappear]:Wesker's behind this!? Chris, we need to get out of here! Take this.
 ---
 Brad Vickers,Brad,BradVickers,bradvickers,brad,bradv,vickers,vicker,vick,vicke,bvick,bv,bradv,brad vickers
 200
@@ -268,39 +314,64 @@ true
 false
 Hey Chris! I just discovered something terrible! There's a spy among us working for Umbrella Corps!
 ~~~
-Hi,hi,Hey,hey,yo,wassup,whats up,whatsup,whatsp up?,What's up?,Hello,hello[Disappear,Spawn(Neptune)]:Before Brad can begin to reply, an enormous shark emerges from the water and swallows him whole.
+Hi,ok,okay,sure,yes,oh,Yes,yeah?,yeah,yea,ye,ya,yah,oh shit,ohh,o,hi,Hey,hey,yo,wassup,whats up,whatsup,whats up?,What's up?,Hello,hello[Disappear,Spawn(Neptune)]:Before Brad can begin to reply, an enormous shark emerges from the water and swallows him whole.
+really,realy?,rly?,rly,oh really?,for real,forreal,woah,woa,wo,wow,tell,for real?,Who?,who,Who,who?,what,what?,wat,wat?,tell me,explain,who is it,who is it?[Disappear,Spawn(Neptune)]:Before Brad can begin to reply, an enormous shark emerges from the water and swallows him whole.
 ---
 Albert Wesker,Wesker,Albert,Al,al,albert,wesker,wesk,wes,weske,abl,albe,alber,awesker
 400
 400
 150
 800
+Die: Spawn(Tyrant)
 false
 false
 Chris. I see you're still alive. I must say, I'm impressed with your performance against all the B.O.W.'s in this mansion. Unfortunately the rest of Teams Alpha and Bravo weren't so lucky. 
 ~~~
 hi,Hi:Get back to work.
-traitor,you betrayed us,liar,you traitor,u traitor,fuck u[Disappear,Spawn(Tyrant)]:Yes, it's true. I've been working with Umbrella Corp. for years, and I lured Alpha and Bravo Teams here. This whole operation was an experiment of our test subjects' combat abilities versus trained soldiers. But I'm afraid you've been alive too long. - Wesker points his gun at you, then suddenly, the Tyrant inside of the capsule next to him bursts out and slashes him, killing him instantly. The monster then turns its head toward you...
+what's this,what's that,what's,what that,whats this,whats this?,whats that?:This is the Tyrant prototype. We...I mean...Umbrella has been working on an advanced super-powered B.O.W. and this is the result. Don't worry, there's no way he can break out of this capsule.
+traitor,you betrayed us,you traitor,u traitor,liar,you led us here to die,you used us,how dare you,bastard,you traitor,u traitor,accuse,you're working for umbrella,you're with Umbrella,fuck u[Disappear,Spawn(Tyrant)]:Yes, it's true. I've been working with Umbrella Corp. for years, and I lured Alpha and Bravo Teams here. This whole operation was an experiment of our test subjects' combat abilities versus trained soldiers. But I'm afraid you've been alive too long. - Wesker points his gun at you, then suddenly, the Tyrant inside of the capsule next to him bursts out and slashes him, killing him instantly. The monster then turns its head toward you...
+Where?,where?,where are the others?,wheres jill,wheres barry,wheres rebecca,Team?,team?:I thought the others were with you...
+Give,give,gimme,Gimme,give gun,Give gun,gimme gun,Give me gun,give me gun,give weapon,gun,please,pls,plz:I don't have anything to give you.
 ---
 ===
 Rooms:
+Press 'n' to begin your Journey
+Welcome to Resident Evil!
+---
 Opening Scene
 Light: true
 Contents: Lighter,Combat Knife
-Hello S.T.A.R.S. member Chris Redfield! We lost contact from Team Alpha after they began investigation of a series of recent grusome murders in the Arklay Mountains near Raccoon City. You were sent in with Bravo Team to figure out what happened, and came across a mysterious mansion in the forest. As you approached the building, a pack of horrible, bloodthirsty monstrocities appeared from the foliage and attacked you and your squad members. You were separated from everyone in the chaos. Just above the treeline, you can make out the roof of the mansion under the blue moonlight. 
+
+Hello S.T.A.R.S. member Chris Redfield! We lost contact from Team Alpha after they began 
+investigation of a series of recent grusome murders in the Arklay Mountains near Raccoon City. 
+You were sent in with Bravo Team to figure out what happened, and came across a mysterious 
+mansion in the forest. As you approached the building, a pack of horrible, bloodthirsty 
+monsters appeared from the foliage and attacked you and your squad members. 
+You were separated from everyone in the chaos. Just above the treeline, you can make out 
+the roof of the mansion under the blue moonlight.
+
+Head to the mansion and search for clues of what's going on, and ultimately escape
+from this nightmare. Your squadmembers should be willing to help if you come across them.
+Beware, one of your comrades is not what they seem. If you figure it out, tell the others
+the traitor's name and say "traitor" when you talk to the traitor.
 ---
 Forest Path
 Light: false
 Occupants: Zombie Dog
 Contents: Green Herb
+
 The way here is overgrown with weeds, but the light of the mansion is just visible in the distance.
+Vicious snarling can be heard in all directions.
 ---
 Spencer Mansion
 The antique building looms over you forebodingly. It's two stories high with balconies on either side. 
+Some of the windows show signs of light, but most are dark. If you listen closely, strange and
+monstrous sounds can be heard from inside. 
 ---
 Main Hall
 Occupants: Jill Valentine
 Contents: Beretta
+
 You are in a large, exquisite, candlelit hall with marble-tiled floor, richly
 decorated walls. There are doors to your right and left and a grand staircase 
 in front of you, behind which is a gate blocking steps leading down into 
@@ -309,19 +380,23 @@ door. You have a very bad feeling about this mansion.
 ---
 Dining Room
 Occupants: Barry Burton
+Contents: Sandwich
+
 A fancy dining hall with a lit fireplace. The table is fitted with fine plates 
 and utensils. A gorgeous chandelier hangs above beside a second floor walkway.
 ---
 Dim Corridor
 Occupants: Zombie
-Contents: HandgunAmmo#15
+Contents: HandgunAmmo#15,Green Herb
+
 You have barely any wiggle room in this thin, dark hallway. The carpet is 
 heavily stained with fresh blood. In the corner, the body of one of your
 comrades lies still. His throat seems to have been eaten out.
 ---
 Garden
-Ocuppants: Zombie
-Contents: ShotgunShells#6
+Occupants: Zombie
+Contents: ShotgunShells#6,Green Herb
+
 Well-trimmed hedges and pretty flowers define this eerie garden. At the end
 of the narrow path through, there is a statue of an archer, but it seems
 a piece is missing at the end of his arrow.
@@ -329,6 +404,7 @@ a piece is missing at the end of his arrow.
 Gallery
 Occupants: Zombie
 Contents: Athena Statue
+
 Old paintings hang on the walls. In the center of the room is a marble
 statue of the Greek goddes Athena. It looks fairly unstable.
 ---
@@ -340,76 +416,96 @@ eerie shadows.
 Basement
 Light: false
 Occupants: Hunter
-Contents: ShotgunShells#6,First Aid Spray
+Contents: ShotgunShells#6,First Aid Spray,MagnumRounds#6
+
 At the bottom of the cracked, stone steps is a long, dreary corridor.
 Water is leaking from the ceiling and the walls have bloodstains
 in several places.
 ---
 Piano Room
 Occupants: Rebecca Chambers
-Contents: Green Herb
+Contents: Green Herb,Piano,Sandwich
+
 A grand piano occupies a third of this room, a small bar taking another third. 
 Most of the bottles have fallen over or been shattered. An empty bookshelf
 stands against the teal-colored wall.
 ---
 West Staircase
 Contents: Green Herb,HandgunAmmo#15
+
 There is a large, empty bird cage here. The floor is cluttered with black
 feathers too big to belong to any normal bird. A crow can be heard cawing
 somewhere. A staircase leads to the second floor.
 ---
 Spear Hall
 Occupants: Zombie,Zombie
-Contents: Green Herb
+Contents: Green Herb,Green Herb,Emerald Arrowhead
+
 A row of bronze statues stand on either side of this claustrophobic 
 hallway. A certain archer at the end sticks out, specifically, the
 bright, green stone at the tip of its arrow.
 ---
 West Hall
 Occupants: Zombie
+
 Moonlight illuminates through the open windows here, and cerulean curtains flow
 swimmingly in the slight breeze seeping in.
 ---
 Kitchen
 Occupants: Zombie,Zombie
-Contents: HandgunAmmo#15,Old Key
+Contents: HandgunAmmo#15,Old Key,Sandwich,First Aid Spray
+
 The floor and walls down here are filthy. Unwashed pots, pans and plates are 
 scattered over the countertops. A slab of unidentified meat lies on a granite table
 being gnawed away at by flies.
 ---
 Bedroom
-Contents: First Aid Spray,Worker's Journal
+Contents: First Aid Spray,Worker's Journal,Sandwich
+
 This looks to have been someone's room. A queen sized bed is flanked by small
 tables opposite a dusty mirror.
 ---
 Laboratory
 Occupants: Albert Wesker
 Contents: T-Virus Sample,First Aid Spray
+
 A high-tech lab. Your eyes are immediately drawn to a human-sized capsule containing
 a yellowish liquid and a stranger, blue-skinned man. He has no clothes, claws on 
 his hands, and stands over seven feet tall with a hulking, muscular build.
 ---
 Roof
 Contents: Rocket Launcher,Rocket#10,Signal Flare
+
 A cool breeze kisses your neck as your breathe in fresh air at last. 
 The morning sun can be seen peeking over the horizon. You can see a helicopter
 out in the distance. You need to get the pilot's attention! If only there
 were a conveniently placed item here that might help...
 ---
+Helicopter
+Contents: Radio
+
+The pilot greets you as you hop into the vehicle. Jill, Rebecca, and Barry
+come up and join you. As you fly off back to headquarters, the mansion
+explodes in a fantastic inferno along with everything inside. Good job!
+All that remains is to radio to HQ.
+---
 L-Hall
 Occupants: Zombie Dog,Zombie Dog
 Contents: First Aid Spray
+
 A long, L-shaped hallway with white walls lined with cabinets full of fine plates
 and other expensive trinkets. 
 ---
 East Hall
 Occupants: Hunter
+
 The windows in here have been shattered and glass covers the hardwood floor.
 The soft wind whistling in from outside is refreshing.
 ---
 Torture Chamber
 Occupants: Crimson Head
 Contents: ShotgunShells#6
+
 As you reach the bottom of the long stairway, your nose is assaulted by the most
 putrid odour you have ever encountered. The walls are lined by several incinerators
 and a coffin lies in the center of the insidious room. Its lid opens and you gasp 
@@ -418,6 +514,7 @@ at the monstrocity that rises from inside.
 East Stairs
 Occupants: Hunter
 Contents: Green Herb#2
+
 Creaky wooden steps lead up to the second floor.
 The wall paper is torn off in many places by sharp claws.
 ---
@@ -426,32 +523,39 @@ This area is lit only by thin rays of moonlight reaching through the trees.
 You step in a puddle of something, and decide not to think of what it might be.
 ---
 Storage Closet
-Contents: HandgunAmmo#6,Flashlight
+Contents: ShotgunShells#6,Flashlight
+
 A small closet with cleaning supplies, lit by an oil lamp.
 It's somewhat cozy in here, despite being cramped.
 ---
 Sitting Room
 Contents: Shotgun,First Aid Spray
+
 Soft couches and chairs sit in a circle around a coffee table next to an
 unlit fireplace. The carpet in here has an exotic purple design.
 ---
 2F West Hall
+Contents: MagnumRounds#6
+
 Most of the portraits that once hung on the walls have fallen and smashed.
 An expensive carpet is blackened from partial burning.
 ---
 Dining Room Balcony
 Occupants: Zombie
+
 A walkway around the Dining Room. You can see the long table below you over
 the bannister. You are at eye level with the fancy chandelier.
 ---
 West Balcony
 Contents: Dog Whistle,Green Herb
+
 You can see out into the forest from here, but the view is not very good.
 However, disturbing, inhuman groans and shrieks can be heard.
 ---
 Library
 Occupants: Giant Snake
 Contents: ShotgunShells#6
+
 An expansive library containing books of all sorts, ranging from politics and
 philosophy to scientific journals to epic fantasy novels.
 There is a hole in the wall 2 meters in diameter.
@@ -459,19 +563,22 @@ There is a hole in the wall 2 meters in diameter.
 2F East Hall
 Occupants: Crimson Head
 Contents: Green Herb
+
 One of the lightbulbs has been splattered with blood, casting a cinematic
 red glow over the dismal space. A trail of blood leads to the south.
 ---
 Attic
 Light: false
-Occcupants: Giant Snake
+Occupants: Giant Snake
 Contents: ShotgunShells#6
+
 Dust covers everything here. There are a couple barrels and an old bookshelf
 in one of the corners. You notice a 2 meter diameter hole in the floor.
 ---
 East Balcony
 Occupants: Crimson Head
 Contents: Green Herb,ShotgunShells#6
+
 The balcony curves around the side of the mansion, giving you a good look of the
 surrounding area. It's a full moon out. Plants of various species litter
 tables that were set up for research purposes, judging by the odd scientific
@@ -479,17 +586,23 @@ equipment spread around. There is a ladder down to a small swimming pool.
 ---
 Pool
 Occupants: Brad Vickers
+
 The water is murky and tough to see through. One of your comrades, Brad Vickers,
 is standing beside the pool clutching a wound in his abdomen. Some blood
 has dripped into the water.
 ---
 Lounge
-Contents: Green Herb,HandgunAmmo#15
+Contents: Green Herb,HandgunAmmo#15,Letter to Wesker
+
 A roaring fireplace fills the room with warmth and orange light. A leather chair
 is positioned facing the flames. A portrait of a family hangs on the wall.
 ---
 ===
 Exits:
+Press 'n' to begin your Journey
+n
+Opening Scene
+---
 Lounge
 w
 2F NE Hall
@@ -796,9 +909,15 @@ Laboratory
 Laboratory
 u
 Roof
+true
 ---
 Roof
 d
 Laboratory
+---
+Roof
+u
+Helicopter
+true
 ---
 ===
