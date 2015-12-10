@@ -1,0 +1,101 @@
+To complete ResidentEvil.zork, type:
+
+n
+take all
+use lighter
+n
+hit dog (x7)
+use herb
+n
+n
+take beretta
+talk to barry
+wesker
+talk to jill
+wesker
+e
+push statue
+use swordkey
+e
+shoot dog (x2)
+take spray
+n
+shoot hunter with 44
+e
+take all
+w
+n
+shoot hunter with 44
+use spray
+shoot hunter with 44
+take all
+e
+take all
+w
+u
+e
+take all
+reload handgun
+w
+s
+shoot chead with aa12
+take herb
+w
+w
+shoot zed (x2)
+s
+take herb
+w
+take all
+reload 44
+n
+take all
+e
+take all
+w
+d
+take all
+e
+shoot zed
+take all
+e
+play piano
+eat sandwich
+use herb
+w
+d
+take all
+u
+s
+e
+use oldkey
+use flashlight
+d
+shoot hunter with 44
+take all
+e
+take all
+shoot zed with shotgun (x4)
+talk wesker
+traitor
+shoot tyrant with 44 (x2)
+use herb
+shoot tyrant with 44 (x2)
+use herb
+shoot tyrant with 44 (x2)
+use herb
+reload 44
+shoot tyrant with 44
+use herb
+shoot tyrant with 44 (x2)
+use herb
+reload 44
+shoot tyrant with 44
+u
+take launcher
+use flare
+shoot tyrant with launcher
+u
+use radio
+-------------------------------
+Congratulations! You are a Jedi Master! Happy Holidays!
